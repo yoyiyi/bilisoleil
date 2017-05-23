@@ -31,8 +31,7 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
             mRefresh.setColorSchemeResources(R.color.colorPrimary);
             mRecycler.post(() -> {
                 mRefresh.setRefreshing(true);
-                // mIsRefreshing = true;
-                loadLazyData();
+                lazyLoadData();
             });
             mRefresh.setOnRefreshListener(this);
 
@@ -43,8 +42,10 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
     @Override
     public void onRefresh() {
         clearData();
-        loadLazyData();
+        lazyLoadData();
     }
+
+
 
     @Override
     protected void clearData() {
@@ -85,9 +86,7 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
 
     }
 
-    protected void finishTask() {
 
-    }
 
     @Override
     public void initWidget() {

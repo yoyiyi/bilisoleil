@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="rxpermissions-0.9.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/f3ff2ab83ea9cc6da634aea70182c45ae731d1ab/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/f3ff2ab83ea9cc6da634aea70182c45ae731d1ab/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

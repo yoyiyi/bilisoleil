@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.yoyiyi.soleil.di.module.FragmentModule;
 import com.yoyiyi.soleil.di.scope.FragmentScope;
+import com.yoyiyi.soleil.ui.fragment.home.LiveFragment;
 
 import dagger.Component;
 
@@ -18,17 +19,8 @@ public interface FragmentComponent {
 
     Activity getActivity();
 
-    /*void inject(RecommendFragment recommendFragment);
-
     void inject(LiveFragment liveFragment);
 
-    void inject(BangumiFragment bangumiFragment);
-
-    void inject(RegionFragment regionFragment);
-
-    void inject(DiscoverFragment discoverFragment);
-
-    void inject(AttentionFragment attentionFragment);*/
 
 
 }

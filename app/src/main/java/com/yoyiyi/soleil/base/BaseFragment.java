@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.base;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -71,7 +72,14 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         initWidget();
         finishCreateView(savedInstanceState);
         initDatas();
+    }
 
+    protected void lazyLoadData() {
+
+    }
+
+    protected void initDatas() {
+        loadData();
     }
 
     public void finishCreateView(Bundle state) {
@@ -108,10 +116,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     }
 
 
-    protected void initDatas() {
-        loadData();
-    }
-
     /**
      * 初始化RV
      */
@@ -122,6 +126,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     /**
      * 初始化刷新
      */
+    @SuppressLint("CheckResult")
     protected void initRefreshLayout() {
 
     }
@@ -152,7 +157,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      */
     protected void lazyLoad() {
         if (!isPrepared || !isVisible) return;
-        loadLazyData();
+        lazyLoadData();
         isPrepared = false;
     }
 
@@ -164,14 +169,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      * 加载数据
      */
     protected void loadData() {
-
-    }
-
-    /**
-     * 加载懒数据
-     */
-    protected void loadLazyData() {
-
     }
 
     /**
@@ -196,6 +193,10 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      */
     @Override
     public void complete() {
+
+    }
+
+    protected void finishTask() {
 
     }
 

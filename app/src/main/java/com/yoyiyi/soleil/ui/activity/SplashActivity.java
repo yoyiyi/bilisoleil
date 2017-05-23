@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jakewharton.rxbinding2.view.RxView;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
@@ -77,6 +78,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
         StatusBarUtil.setTransparent(this);
         ButterKnife.bind(this);
         initInject();
+        initWidget();
         loadData();
 
     }
@@ -86,11 +88,17 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
         mPresenter.setCountDown();
     }
 
+    private void initWidget() {
+        RxView.clicks(mTvCountDown)
+                .compose(bindToLifecycle())
+                .subscribe(object -> redirect());
+    }
+
     /**
      * 注入依赖
      */
     private void initInject() {
-        DaggerActivityComponent.builder()
+             DaggerActivityComponent.builder()
                 .appComponent(BiliSoleilApplication.getInstance().getAppComponent())
                 .activityModule(new ActivityModule(this))
                 .build()
@@ -101,7 +109,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
     @Override
     public void showError(String msg) {
         //设置默认图片
-        // mIvSplash.setImageResource(R.);
+        mIvSplash.setImageResource(R.drawable.ic_buy_year_vip_success);
     }
 
 
@@ -123,7 +131,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     @Override
     public void showCountDown(int count) {
-        mTvCountDown.setText(count + "");
+        mTvCountDown.setText("跳过 " + count);
         if (count == 0) {
             redirect();
         }

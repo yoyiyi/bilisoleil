@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="stetho-1.4.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/021c8d4b7662489221cc268d777c70e9c1f61509/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/021c8d4b7662489221cc268d777c70e9c1f61509/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho/1.4.2/8311e6b44243b470d0142d04614b1f4551f4e4fa/stetho-1.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
