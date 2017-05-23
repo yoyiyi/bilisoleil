@@ -41,8 +41,8 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         setContentView(getLayoutId());
         mContext = this;
         ButterKnife.bind(this);
-        //mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
-       // mToolbar = ButterKnife.findById(this, R.id.toolbar);
+        mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
+        mToolbar = ButterKnife.findById(this, R.id.toolbar);
         initStatusBar();
         initInject();
         initPresenter();
@@ -125,7 +125,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
      * 初始化Toolbar
      */
     protected void initToolbar() {
-     //   if (mBack) mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        if (mBack) mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
     }
 
     /**

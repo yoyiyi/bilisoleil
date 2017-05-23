@@ -137,7 +137,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
         if (flag)
             startActivity(new Intent(this, MainActivity.class));
         else
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 }

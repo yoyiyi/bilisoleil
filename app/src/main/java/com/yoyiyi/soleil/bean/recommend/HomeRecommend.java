@@ -7,10 +7,10 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/23 14:17
- * 描述:推荐
+ * 描述:首页推荐
  */
 
-public class Recommend {
+public class HomeRecommend {
 
     /**
      * code : 0

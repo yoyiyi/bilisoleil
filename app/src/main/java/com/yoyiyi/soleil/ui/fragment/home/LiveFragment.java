@@ -9,10 +9,10 @@ import com.yoyiyi.soleil.base.BaseRefreshFragment;
  * 描述:推荐
  */
 
-public class RecommendFragment extends BaseRefreshFragment {
+public class LiveFragment extends BaseRefreshFragment {
 
-    public static RecommendFragment newInstance() {
-        return new RecommendFragment();
+    public static LiveFragment newInstance() {
+        return new LiveFragment();
     }
 
     @Override

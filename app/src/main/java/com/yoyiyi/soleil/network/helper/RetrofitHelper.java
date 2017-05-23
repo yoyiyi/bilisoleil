@@ -2,8 +2,10 @@ package com.yoyiyi.soleil.network.helper;
 
 
 import com.yoyiyi.soleil.bean.app.Splash;
-import com.yoyiyi.soleil.bean.recommend.Recommend;
+import com.yoyiyi.soleil.bean.live.HomeLive;
+import com.yoyiyi.soleil.bean.recommend.HomeRecommend;
 import com.yoyiyi.soleil.network.api.AppService;
+import com.yoyiyi.soleil.network.api.LiveService;
 
 import io.reactivex.Flowable;
 
@@ -14,10 +16,12 @@ import io.reactivex.Flowable;
  */
 
 public class RetrofitHelper {
-    private AppService mAppService;
+    private final LiveService mLiveService;
+    private final AppService mAppService;
 
-    public RetrofitHelper(AppService appService) {
+    public RetrofitHelper(AppService appService, LiveService liveService) {
         this.mAppService = appService;
+        this.mLiveService = liveService;
 
     }
 
@@ -27,8 +31,14 @@ public class RetrofitHelper {
         return mAppService.getSplash();
     }
 
-    public Flowable<Recommend> getReCommend() {
+    public Flowable<HomeRecommend> getReCommend() {
         return mAppService.getRecommend();
+    }
+
+    /*******************************LiveApi****************************************/
+
+    public Flowable<HomeLive> getHomeLive() {
+        return mLiveService.getHomeLive();
     }
 
 }

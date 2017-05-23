@@ -14,7 +14,7 @@ public class ApiConstants {
 
     public static final String APP_BASE_URL = "http://app.bilibili.com/";
 
-    public static final String LIVE_BASE_URL = "http://live.bilibili.com/";
+    public static final String LIVE_BASE_URL = "http://api.live.bilibili.com";
 
     public static final String API_BASE_URL = "http://api.bilibili.cn/";
 

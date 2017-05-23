@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:contentInsetStart="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_navigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_drawer_home"/>
+
+                    <com.yoyiyi.soleil.ui.widget.CircleImageView
+                        android:id="@+id/toolbar_user_avatar"
+                        android:layout_width="@dimen/dp35"
+                        android:layout_height="@dimen/dp35"
+                        android:layout_marginEnd="@dimen/dp3"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:src="@mipmap/ic_user_yoyiyi"
+                        app:border_color="@color/white"
+                        app:border_width="@dimen/dp1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:maxLines="1"
+                        android:text="soleil雪寂"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_16"/>
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/stl_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp48"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                app:tl_indicator_corner_radius="@dimen/dp1"
+                app:tl_indicator_height="@dimen/dp2"
+                app:tl_indicator_width="@dimen/dp40"
+                app:tl_tab_space_equal="true"/>
+        </android.support.design.widget.AppBarLayout>
+
+        <com.yoyiyi.soleil.ui.widget.NoScrollViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </android.support.design.widget.CoordinatorLayout>
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</FrameLayout>
+
+
+
+
+

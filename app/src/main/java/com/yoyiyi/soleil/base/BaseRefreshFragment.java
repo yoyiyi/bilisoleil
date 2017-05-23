@@ -11,6 +11,8 @@ import com.yoyiyi.soleil.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/15 11:13
@@ -30,7 +32,7 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
             mRecycler.post(() -> {
                 mRefresh.setRefreshing(true);
                 // mIsRefreshing = true;
-                loadData();
+                loadLazyData();
             });
             mRefresh.setOnRefreshListener(this);
 
@@ -41,7 +43,7 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
     @Override
     public void onRefresh() {
         clearData();
-        loadData();
+        loadLazyData();
     }
 
     @Override
@@ -52,8 +54,8 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
 
     @Override
     public void finishCreateView(Bundle state) {
-      //  mRefresh = ButterKnife.findById(mRootView, R.id.refresh);
-      //  mRecycler = ButterKnife.findById(mRootView, R.id.recycle);
+        mRefresh = ButterKnife.findById(mRootView, R.id.refresh);
+        mRecycler = ButterKnife.findById(mRootView, R.id.recycler);
         isPrepared = true;
         lazyLoad();
     }

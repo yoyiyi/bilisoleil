@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.base;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -71,6 +70,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         initVariables();
         initWidget();
         finishCreateView(savedInstanceState);
+        initDatas();
 
     }
 
@@ -109,7 +109,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
 
     protected void initDatas() {
-         loadData();
+        loadData();
     }
 
     /**
@@ -122,7 +122,6 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     /**
      * 初始化刷新
      */
-    @SuppressLint("CheckResult")
     protected void initRefreshLayout() {
 
     }
@@ -153,7 +152,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      */
     protected void lazyLoad() {
         if (!isPrepared || !isVisible) return;
-        initDatas();
+        loadLazyData();
         isPrepared = false;
     }
 
@@ -165,6 +164,14 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      * 加载数据
      */
     protected void loadData() {
+
+    }
+
+    /**
+     * 加载懒数据
+     */
+    protected void loadLazyData() {
+
     }
 
     /**
