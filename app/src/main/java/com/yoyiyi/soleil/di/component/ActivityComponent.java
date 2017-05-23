@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.yoyiyi.soleil.di.module.ActivityModule;
 import com.yoyiyi.soleil.di.scope.ActivityScope;
+import com.yoyiyi.soleil.ui.activity.SplashActivity;
 
 import dagger.Component;
 
@@ -17,6 +18,8 @@ import dagger.Component;
 public interface ActivityComponent {
 
     Activity getActivity();
+
+    void inject(SplashActivity splashActivity);
     //void inject(MainActivity mainActivity);
 
 /*
