@@ -22,7 +22,7 @@ public class LiveEntranceSection extends StatelessSection {
     private List<LiveEnter> mList;
 
     public LiveEntranceSection() {
-        super(R.layout.layout_live_enter, R.layout.layout_empty);
+        super(R.layout.layout_home_live_enter, R.layout.layout_empty);
         init();
     }
 
@@ -34,7 +34,6 @@ public class LiveEntranceSection extends StatelessSection {
                 new LiveEnter("搜索", R.drawable.live_home_search_room),
                 new LiveEnter("分类", R.drawable.live_home_all_category));
     }
-
 
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {

@@ -1,7 +1,8 @@
 package com.yoyiyi.soleil.mvp.contract.home;
 
 import com.yoyiyi.soleil.base.BaseContract;
-import com.yoyiyi.soleil.bean.live.HomeLive;
+import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -10,7 +11,10 @@ import com.yoyiyi.soleil.bean.live.HomeLive;
  */
 public interface LiveContract {
     interface View extends BaseContract.BaseView {
-        void showLive(HomeLive homeLive);
+        void showRecommendLive(LiveRecommend recommendLive);
+
+        void showCommonLive(LivePartition commonLive);
+
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {

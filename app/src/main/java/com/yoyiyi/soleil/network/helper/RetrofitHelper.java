@@ -2,7 +2,8 @@ package com.yoyiyi.soleil.network.helper;
 
 
 import com.yoyiyi.soleil.bean.app.Splash;
-import com.yoyiyi.soleil.bean.live.HomeLive;
+import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.bean.recommend.HomeRecommend;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.LiveService;
@@ -31,14 +32,17 @@ public class RetrofitHelper {
         return mAppService.getSplash();
     }
 
-    public Flowable<HomeRecommend> getReCommend() {
+    public Flowable<HomeRecommend> getRecommend() {
         return mAppService.getRecommend();
     }
 
     /*******************************LiveApi****************************************/
 
-    public Flowable<HomeLive> getHomeLive() {
-        return mLiveService.getHomeLive();
+    public Flowable<LiveRecommend> getRecommendLive() {
+        return mLiveService.getRecommendLive();
+    }
+    public Flowable<LivePartition> getCommonLive() {
+        return mLiveService.getCommonLive();
     }
 
 }

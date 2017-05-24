@@ -11,7 +11,7 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.live.HomeLive;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
 
@@ -24,9 +24,9 @@ import java.util.List;
  */
 public class LiveBannerSection extends StatelessSection {
 
-    private List<HomeLive.DataBean.BannerBean> mList;
+    private List<LiveRecommend.DataBean.BannerBean> mList;
 
-    public LiveBannerSection(List<HomeLive.DataBean.BannerBean> list) {
+    public LiveBannerSection(List<LiveRecommend.DataBean.BannerBean> list) {
         super(R.layout.layout_banner, R.layout.layout_empty);
         mList = list;
     }

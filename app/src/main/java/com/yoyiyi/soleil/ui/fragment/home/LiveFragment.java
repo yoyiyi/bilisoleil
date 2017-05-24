@@ -4,11 +4,10 @@ import android.support.v7.widget.GridLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
-import com.yoyiyi.soleil.bean.live.HomeLive;
+import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
 import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter;
-import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveBannerSection;
-import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveEntranceSection;
 import com.yoyiyi.soleil.ui.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -20,11 +19,12 @@ import java.util.List;
  * 描述:推荐
  */
 
-public class LiveFragment extends BaseRefreshFragment<LivePresenter, HomeLive.DataBean.PartitionsBean> implements LiveContract.View {
+public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartition.DataBean.PartitionsBean> implements LiveContract.View {
 
     private SectionedRVAdapter mSectionedAdapter;
-    private List<HomeLive.DataBean.BannerBean> mBannerList = new ArrayList<>();
-
+    private List<LivePartition.DataBean.BannerBean> mBannerList = new ArrayList<>();//轮播条
+    private List<LiveRecommend.DataBean.RecommendDataBean.BannerDataBean> mBannerRecommendList = new ArrayList<>();//推荐
+    private List<LiveRecommend.DataBean.RecommendDataBean.LivesBean> mRecommendLiveList = new ArrayList<>();//推荐直播
     public static LiveFragment newInstance() {
         return new LiveFragment();
     }
@@ -71,12 +71,12 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, HomeLive.Da
         mBannerList.clear();
     }
 
-    @Override
-    public void showLive(HomeLive homeLive) {
-        mList.addAll(homeLive.data.partitions);
+   /* @Override
+    public void showLive(HomeRecommendLive homeLive) {
+       *//* mList.addAll(homeLive.data.recommend_data.);
         mBannerList.addAll(homeLive.data.banner);
-        finishTask();
-    }
+        finishTask();*//*
+    }*/
 
     @Override
     protected void clearData() {
@@ -86,9 +86,18 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, HomeLive.Da
 
     @Override
     protected void finishTask() {
-        mSectionedAdapter.addSection(new LiveBannerSection(mBannerList));
+       /* mSectionedAdapter.addSection(new LiveBannerSection(mBannerList));
         mSectionedAdapter.addSection(new LiveEntranceSection());
-        mSectionedAdapter.notifyDataSetChanged();
+        mSectionedAdapter.notifyDataSetChanged();*/
     }
 
+    @Override
+    public void showRecommendLive(LiveRecommend recommendLive) {
+
+    }
+
+    @Override
+    public void showCommonLive(LivePartition commonLive) {
+
+    }
 }

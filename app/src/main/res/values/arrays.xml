@@ -52,9 +52,9 @@
     <string-array name="main_title">
         <item>直播</item>
         <item>推荐</item>
-        <item>番剧</item>
+        <item>追番</item>
         <item>分区</item>
-        <item>关注</item>
+        <item>动态</item>
         <item>发现</item>
     </string-array>
 </resources>

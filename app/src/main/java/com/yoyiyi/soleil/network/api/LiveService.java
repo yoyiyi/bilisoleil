@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.network.api;
 
-import com.yoyiyi.soleil.bean.live.HomeLive;
+import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
@@ -13,10 +14,13 @@ import retrofit2.http.GET;
 
 public interface LiveService {
     /**
-     * 首页直播
+     * 首页推荐直播
      *
      * @return
      */
-    @GET("/AppNewIndex/common?_device=android&access_key=5c2ea06a566f3dd8850f5750b8d0a650&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&scale=xhdpi&ts=1495525189&sign=646c80fcda0380545e3cdc2cb2fa7ff9")
-    Flowable<HomeLive> getHomeLive();
+    @GET("/AppNewIndex/recommend?_device=android&access_key=5b0032c681c2233870c8edcee410b6c6&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&scale=xxhdpi&ts=1495639021&sign=9d024a5b09edddd51636d17d860622d2")
+    Flowable<LiveRecommend> getRecommendLive();
+
+    @GET("/AppNewIndex/common?_device=android&access_key=5b0032c681c2233870c8edcee410b6c6&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&scale=xxhdpi&ts=1495639884&sign=74b510ce56ef302742aafad2e20f9899")
+    Flowable<LivePartition> getCommonLive();
 }

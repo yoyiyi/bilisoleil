@@ -18,7 +18,7 @@ import retrofit2.HttpException;
  * 描述:统一处理订阅者
  */
 
-public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
+public class BaseSubscriber<T> extends ResourceSubscriber<T> {
     private BaseContract.BaseView mView;
     private String mMsg;
 
