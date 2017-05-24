@@ -71,6 +71,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartiti
         mBannerList.clear();
     }
 
+
    /* @Override
     public void showLive(HomeRecommendLive homeLive) {
        *//* mList.addAll(homeLive.data.recommend_data.);
