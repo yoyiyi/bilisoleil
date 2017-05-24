@@ -31,7 +31,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, HomeLive.Da
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_recommend;
+        return R.layout.fragment_home_recommend;
     }
 
     @Override
