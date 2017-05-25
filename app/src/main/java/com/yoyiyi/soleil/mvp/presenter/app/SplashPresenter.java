@@ -38,7 +38,9 @@ public class SplashPresenter extends RxPresenter<SplashContract.View> implements
                     @Override
                     public void onNext(Splash splash) {
                         super.onNext(splash);
-                        mView.showSplash(splash);
+                        if (splash.code == 0)
+                            mView.showSplash(splash);
+                        else mView.showError("错误");
                     }
                 });
         addSubscribe(subscriber);

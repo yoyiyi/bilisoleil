@@ -126,7 +126,8 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     @Override
     public void showSplash(Splash splash) {
-        ImageLoader.load(this, splash.data.get(0).thumb, mIvSplash);
+        if (splash.data.size() != 0)
+            ImageLoader.load(this, splash.data.get(0).thumb, mIvSplash);
     }
 
     @Override

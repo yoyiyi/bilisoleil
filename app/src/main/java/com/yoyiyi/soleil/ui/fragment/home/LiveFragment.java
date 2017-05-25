@@ -142,9 +142,10 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartiti
                         partitionsBean.partition.sub_icon.src,
                         partitionsBean.partition.count + "", partitionsBean.lives.subList(0, 4))));
         //显示最后加载更多
-        mSectionedAdapter.addSection(new LiveRecommendPartitionSection(true, mList.get(mList.size() - 1).partition.name,
+        /*mSectionedAdapter.addSection(
+                new LiveRecommendPartitionSection(true, mList.get(mList.size() - 1).partition.name,
                 mList.get(mList.size() - 1).partition.sub_icon.src,
-                mList.get(mList.size() - 1).partition.count + "", mList.get(mList.size() - 1).lives.subList(0, 4)));
+                mList.get(mList.size() - 1).partition.count + "", mList.get(mList.size() - 1).lives.subList(0, 4)));*/
         mSectionedAdapter.notifyDataSetChanged();
     }
 
