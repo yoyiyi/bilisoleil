@@ -15,46 +15,105 @@ public class LivePartition {
      * message : ok
      */
 
-    public int code;
+    /*public int code;
     public DataBean data;
-    public String message;
+    public String message;*/
+    public List<BannerBean> banner;
+    public List<EntranceIconsBean> entranceIcons;
+    public List<NavigatorBean> navigator;
+    public List<PartitionsBean> partitions;
 
-    public static class DataBean {
-        public List<BannerBean> banner;
-        public List<EntranceIconsBean> entranceIcons;
-        public List<NavigatorBean> navigator;
-        public List<PartitionsBean> partitions;
+    public static class BannerBean {
+        /**
+         * img : http://i0.hdslb.com/bfs/live/a1e7b5e0cc5444c1aab9b383d4036d46d7626e8d.png
+         * link : http://live.bilibili.com/AppBanner/index?id=507
+         * remark : 童年记忆绘画征集
+         * title : 童年记忆绘画征集
+         */
 
-        public static class BannerBean {
+        public String img;
+        public String link;
+        public String remark;
+        public String title;
+    }
+
+    public static class EntranceIconsBean {
+        /**
+         * entrance_icon : {"height":"132","src":"http://static.hdslb.com/live-static/images/mobile/android/big/xxhdpi/9_big.png?20170516113400","width":"132"}
+         * id : 9
+         * name : 绘画专区
+         */
+
+        public EntranceIconBean entrance_icon;
+        public int id;
+        public String name;
+
+        public static class EntranceIconBean {
             /**
-             * img : http://i0.hdslb.com/bfs/live/a1e7b5e0cc5444c1aab9b383d4036d46d7626e8d.png
-             * link : http://live.bilibili.com/AppBanner/index?id=507
-             * remark : 童年记忆绘画征集
-             * title : 童年记忆绘画征集
+             * height : 132
+             * src : http://static.hdslb.com/live-static/images/mobile/android/big/xxhdpi/9_big.png?20170516113400
+             * width : 132
              */
 
-            public String img;
-            public String link;
-            public String remark;
-            public String title;
+            public String height;
+            public String src;
+            public String width;
         }
+    }
 
-        public static class EntranceIconsBean {
+    public static class NavigatorBean {
+        /**
+         * entrance_icon : {"height":"132","src":"http://static.hdslb.com/live-static/images/mobile/blink/9_3x.png?20170516113400","width":"132"}
+         * id : 9
+         * name : 绘画
+         */
+
+        public EntranceIconBeanX entrance_icon;
+        public int id;
+        public String name;
+
+        public static class EntranceIconBeanX {
             /**
-             * entrance_icon : {"height":"132","src":"http://static.hdslb.com/live-static/images/mobile/android/big/xxhdpi/9_big.png?20170516113400","width":"132"}
+             * height : 132
+             * src : http://static.hdslb.com/live-static/images/mobile/blink/9_3x.png?20170516113400
+             * width : 132
+             */
+
+            public String height;
+            public String src;
+            public String width;
+        }
+    }
+
+    public static class PartitionsBean {
+        /**
+         * lives : [{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/8b748cc1891b1b79ce5e2530b7737835a4be6c98.jpg","width":320},"is_tv":0,"online":1903,"owner":{"face":"http://i2.hdslb.com/bfs/face/0941d3e98be734fe754448df48bcf9dcdc93df39.jpg","mid":10043049,"name":"banyan君"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/424448/live_10043049_2138510.flv?wsSecret=3dc89ec23b4eef22944e925242c3f6a8&wsTime=1495642561","room_id":426333,"title":"画稿子-草稿阶段"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/group1/M00/B6/9E/oYYBAFbmf5eAAky9AACmslXitD8277.jpg","width":320},"is_tv":0,"online":11170,"owner":{"face":"http://i1.hdslb.com/bfs/face/c769bcbede516487e8679a6af461fa456d914270.jpg","mid":111559,"name":"BIBIA"},"playurl":"http://xl.live-play.acgvideo.com/live-xl/321928/live_111559_332_c521e483.flv?wsSecret=bebefce31074aa9bc6561bd95efdf034&wsTime=1495642561","room_id":35598,"title":"给16级大佬画头像=w="},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/054bfb223a2aa1f1ac0e64568c4104e26b07389a.jpg","width":320},"is_tv":0,"online":473,"owner":{"face":"http://i1.hdslb.com/bfs/face/8d94398f56cbe70735236d84918ee802309f81d2.jpg","mid":40203536,"name":"SanTEZ-三太子"},"playurl":"http://dl.live-play.acgvideo.com/live-dl/826228/live_40203536_7174613.flv?wsSecret=d817ebf6b506763fa509ea4bc45b361f&wsTime=1495642561","room_id":3486331,"title":"单图层绘画表演艺术家"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/694f015a558a191a839a074aa35699a4a148ac17.jpg","width":320},"is_tv":0,"online":2052,"owner":{"face":"http://i0.hdslb.com/bfs/face/038889f6a44a5a03cbaf390c54d21c301c9f583f.jpg","mid":14427998,"name":"位于爆炸临界点的凯"},"playurl":"http://dl.live-play.acgvideo.com/live-dl/185892/live_14427998_4885962.flv?wsSecret=fe125be702f25cf444f46ce64b965b6c&wsTime=1495642561","room_id":3599128,"title":"位于爆炸临界点的凯的直播间"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/0d2957de47d5fe45355f962cd03a4761c088b814.jpg","width":320},"is_tv":0,"online":27,"owner":{"face":"http://i0.hdslb.com/bfs/face/a8e1dc6cef899157c1c6373c394cf153f2923c44.jpg","mid":87670279,"name":"半只蟹钳"},"playurl":"http://xl.live-play.acgvideo.com/live-xl/715992/live_87670279_6269584.flv?wsSecret=d195f1aa19ce4edfd774479f25409277&wsTime=1495642561","room_id":3495606,"title":"170524摸摸鱼！（ARASHI）"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/dbb2773414e4a24c1f116dda93c0cfeb6524aa2b.jpg","width":320},"is_tv":0,"online":47,"owner":{"face":"http://i0.hdslb.com/bfs/face/bd9e659cd2b31589e647083c416be64c75cb5c0d.jpg","mid":1867802,"name":"チョコレート酱"},"playurl":"http://xl.live-play.acgvideo.com/live-xl/410285/live_1867802_2207186.flv?wsSecret=8cfe62b18e929f94dd7f021eedd830f6&wsTime=1495642561","room_id":69588,"title":"摸 鱼"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/27720327860e2f32a528dd67a5545a59fe75959a.jpg","width":320},"is_tv":0,"online":35,"owner":{"face":"http://i1.hdslb.com/bfs/face/9acc57bb1ec9435b2fd35d739ed373c870af39eb.jpg","mid":7073820,"name":"雪初☆Yuki"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/112128/live_7073820_2190480.flv?wsSecret=8c8b112c26bdbc60c13ace3702b73488&wsTime=1495642561","room_id":1099764,"title":"画个爱丽丝妲己♥"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/8ecaa1feb003cc3bfbae53dcaf300d9f6de6e8e6.jpg","width":320},"is_tv":0,"online":14,"owner":{"face":"http://i1.hdslb.com/bfs/face/283b0015a7a44a1a27da451bc0d80681222ec46e.jpg","mid":5644062,"name":"肥波1加1"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/698429/live_5644062_3906031.flv?wsSecret=c52595581ff203651ffd7c8a3ca11719&wsTime=1495642561","room_id":72979,"title":"画萝莉 叮咚我是来执行任务的"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/526466f26f1a86c75924ca2b57b0d1369b5fac81.jpg","width":320},"is_tv":0,"online":1344,"owner":{"face":"http://i2.hdslb.com/bfs/face/b2bcea45afafbddfac1f052a7966c17804d04f13.jpg","mid":571362,"name":"木偶不想画画"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/773939/live_571362_332_c521e483.flv?wsSecret=6f411b0f5c753297fb6d0b232c464419&wsTime=1495642561","room_id":30191,"title":"木偶今天画屎了么"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/bce56a12a50b5b5af58ca46b913377519e350047.jpg","width":320},"is_tv":0,"online":17,"owner":{"face":"http://i0.hdslb.com/bfs/face/2fa19cef65e8438f07edc712b1adf7f4ff121f48.jpg","mid":16867542,"name":"七月山猫"},"playurl":"http://live-play.acgvideo.com/live/588/live_16867542_4623119.flv?wsSecret=450e8b2bd9ae963ed43b3abbee3d4321&wsTime=58fe2bc9","room_id":339567,"title":"审神者的板绘时间【妖刀姬Q版绘制中】"}]
+         * partition : {"area":"draw","count":127,"id":9,"name":"绘画专区","sub_icon":{"height":"63","src":"http://static.hdslb.com/live-static/images/mobile/android/small/xxhdpi/9.png?20170516113400","width":"63"}}
+         */
+
+        public PartitionBean partition;
+        public List<LivesBean> lives;
+
+        public static class PartitionBean {
+            /**
+             * area : draw
+             * count : 127
              * id : 9
              * name : 绘画专区
+             * sub_icon : {"height":"63","src":"http://static.hdslb.com/live-static/images/mobile/android/small/xxhdpi/9.png?20170516113400","width":"63"}
              */
 
-            public EntranceIconBean entrance_icon;
+            public String area;
+            public int count;
             public int id;
             public String name;
+            public SubIconBean sub_icon;
 
-            public static class EntranceIconBean {
+            public static class SubIconBean {
                 /**
-                 * height : 132
-                 * src : http://static.hdslb.com/live-static/images/mobile/android/big/xxhdpi/9_big.png?20170516113400
-                 * width : 132
+                 * height : 63
+                 * src : http://static.hdslb.com/live-static/images/mobile/android/small/xxhdpi/9.png?20170516113400
+                 * width : 63
                  */
 
                 public String height;
@@ -63,119 +122,57 @@ public class LivePartition {
             }
         }
 
-        public static class NavigatorBean {
+        public static class LivesBean {
             /**
-             * entrance_icon : {"height":"132","src":"http://static.hdslb.com/live-static/images/mobile/blink/9_3x.png?20170516113400","width":"132"}
-             * id : 9
-             * name : 绘画
+             * accept_quality : 4
+             * area : 绘画专区
+             * area_id : 9
+             * broadcast_type : 0
+             * check_version : 0
+             * cover : {"height":180,"src":"http://i0.hdslb.com/bfs/live/8b748cc1891b1b79ce5e2530b7737835a4be6c98.jpg","width":320}
+             * is_tv : 0
+             * online : 1903
+             * owner : {"face":"http://i2.hdslb.com/bfs/face/0941d3e98be734fe754448df48bcf9dcdc93df39.jpg","mid":10043049,"name":"banyan君"}
+             * playurl : http://txy.live-play.acgvideo.com/live-txy/424448/live_10043049_2138510.flv?wsSecret=3dc89ec23b4eef22944e925242c3f6a8&wsTime=1495642561
+             * room_id : 426333
+             * title : 画稿子-草稿阶段
              */
 
-            public EntranceIconBeanX entrance_icon;
-            public int id;
-            public String name;
+            public String accept_quality;
+            public String area;
+            public int area_id;
+            public int broadcast_type;
+            public int check_version;
+            public CoverBean cover;
+            public int is_tv;
+            public int online;
+            public OwnerBean owner;
+            public String playurl;
+            public int room_id;
+            public String title;
 
-            public static class EntranceIconBeanX {
+            public static class CoverBean {
                 /**
-                 * height : 132
-                 * src : http://static.hdslb.com/live-static/images/mobile/blink/9_3x.png?20170516113400
-                 * width : 132
+                 * height : 180
+                 * src : http://i0.hdslb.com/bfs/live/8b748cc1891b1b79ce5e2530b7737835a4be6c98.jpg
+                 * width : 320
                  */
 
-                public String height;
+                public int height;
                 public String src;
-                public String width;
+                public int width;
             }
-        }
 
-        public static class PartitionsBean {
-            /**
-             * lives : [{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/8b748cc1891b1b79ce5e2530b7737835a4be6c98.jpg","width":320},"is_tv":0,"online":1903,"owner":{"face":"http://i2.hdslb.com/bfs/face/0941d3e98be734fe754448df48bcf9dcdc93df39.jpg","mid":10043049,"name":"banyan君"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/424448/live_10043049_2138510.flv?wsSecret=3dc89ec23b4eef22944e925242c3f6a8&wsTime=1495642561","room_id":426333,"title":"画稿子-草稿阶段"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/group1/M00/B6/9E/oYYBAFbmf5eAAky9AACmslXitD8277.jpg","width":320},"is_tv":0,"online":11170,"owner":{"face":"http://i1.hdslb.com/bfs/face/c769bcbede516487e8679a6af461fa456d914270.jpg","mid":111559,"name":"BIBIA"},"playurl":"http://xl.live-play.acgvideo.com/live-xl/321928/live_111559_332_c521e483.flv?wsSecret=bebefce31074aa9bc6561bd95efdf034&wsTime=1495642561","room_id":35598,"title":"给16级大佬画头像=w="},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/054bfb223a2aa1f1ac0e64568c4104e26b07389a.jpg","width":320},"is_tv":0,"online":473,"owner":{"face":"http://i1.hdslb.com/bfs/face/8d94398f56cbe70735236d84918ee802309f81d2.jpg","mid":40203536,"name":"SanTEZ-三太子"},"playurl":"http://dl.live-play.acgvideo.com/live-dl/826228/live_40203536_7174613.flv?wsSecret=d817ebf6b506763fa509ea4bc45b361f&wsTime=1495642561","room_id":3486331,"title":"单图层绘画表演艺术家"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/694f015a558a191a839a074aa35699a4a148ac17.jpg","width":320},"is_tv":0,"online":2052,"owner":{"face":"http://i0.hdslb.com/bfs/face/038889f6a44a5a03cbaf390c54d21c301c9f583f.jpg","mid":14427998,"name":"位于爆炸临界点的凯"},"playurl":"http://dl.live-play.acgvideo.com/live-dl/185892/live_14427998_4885962.flv?wsSecret=fe125be702f25cf444f46ce64b965b6c&wsTime=1495642561","room_id":3599128,"title":"位于爆炸临界点的凯的直播间"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/0d2957de47d5fe45355f962cd03a4761c088b814.jpg","width":320},"is_tv":0,"online":27,"owner":{"face":"http://i0.hdslb.com/bfs/face/a8e1dc6cef899157c1c6373c394cf153f2923c44.jpg","mid":87670279,"name":"半只蟹钳"},"playurl":"http://xl.live-play.acgvideo.com/live-xl/715992/live_87670279_6269584.flv?wsSecret=d195f1aa19ce4edfd774479f25409277&wsTime=1495642561","room_id":3495606,"title":"170524摸摸鱼！（ARASHI）"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/dbb2773414e4a24c1f116dda93c0cfeb6524aa2b.jpg","width":320},"is_tv":0,"online":47,"owner":{"face":"http://i0.hdslb.com/bfs/face/bd9e659cd2b31589e647083c416be64c75cb5c0d.jpg","mid":1867802,"name":"チョコレート酱"},"playurl":"http://xl.live-play.acgvideo.com/live-xl/410285/live_1867802_2207186.flv?wsSecret=8cfe62b18e929f94dd7f021eedd830f6&wsTime=1495642561","room_id":69588,"title":"摸 鱼"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/27720327860e2f32a528dd67a5545a59fe75959a.jpg","width":320},"is_tv":0,"online":35,"owner":{"face":"http://i1.hdslb.com/bfs/face/9acc57bb1ec9435b2fd35d739ed373c870af39eb.jpg","mid":7073820,"name":"雪初☆Yuki"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/112128/live_7073820_2190480.flv?wsSecret=8c8b112c26bdbc60c13ace3702b73488&wsTime=1495642561","room_id":1099764,"title":"画个爱丽丝妲己♥"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/8ecaa1feb003cc3bfbae53dcaf300d9f6de6e8e6.jpg","width":320},"is_tv":0,"online":14,"owner":{"face":"http://i1.hdslb.com/bfs/face/283b0015a7a44a1a27da451bc0d80681222ec46e.jpg","mid":5644062,"name":"肥波1加1"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/698429/live_5644062_3906031.flv?wsSecret=c52595581ff203651ffd7c8a3ca11719&wsTime=1495642561","room_id":72979,"title":"画萝莉 叮咚我是来执行任务的"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/526466f26f1a86c75924ca2b57b0d1369b5fac81.jpg","width":320},"is_tv":0,"online":1344,"owner":{"face":"http://i2.hdslb.com/bfs/face/b2bcea45afafbddfac1f052a7966c17804d04f13.jpg","mid":571362,"name":"木偶不想画画"},"playurl":"http://txy.live-play.acgvideo.com/live-txy/773939/live_571362_332_c521e483.flv?wsSecret=6f411b0f5c753297fb6d0b232c464419&wsTime=1495642561","room_id":30191,"title":"木偶今天画屎了么"},{"accept_quality":"4","area":"绘画专区","area_id":9,"broadcast_type":0,"check_version":0,"cover":{"height":180,"src":"http://i0.hdslb.com/bfs/live/bce56a12a50b5b5af58ca46b913377519e350047.jpg","width":320},"is_tv":0,"online":17,"owner":{"face":"http://i0.hdslb.com/bfs/face/2fa19cef65e8438f07edc712b1adf7f4ff121f48.jpg","mid":16867542,"name":"七月山猫"},"playurl":"http://live-play.acgvideo.com/live/588/live_16867542_4623119.flv?wsSecret=450e8b2bd9ae963ed43b3abbee3d4321&wsTime=58fe2bc9","room_id":339567,"title":"审神者的板绘时间【妖刀姬Q版绘制中】"}]
-             * partition : {"area":"draw","count":127,"id":9,"name":"绘画专区","sub_icon":{"height":"63","src":"http://static.hdslb.com/live-static/images/mobile/android/small/xxhdpi/9.png?20170516113400","width":"63"}}
-             */
-
-            public PartitionBean partition;
-            public List<LivesBean> lives;
-
-            public static class PartitionBean {
+            public static class OwnerBean {
                 /**
-                 * area : draw
-                 * count : 127
-                 * id : 9
-                 * name : 绘画专区
-                 * sub_icon : {"height":"63","src":"http://static.hdslb.com/live-static/images/mobile/android/small/xxhdpi/9.png?20170516113400","width":"63"}
+                 * face : http://i2.hdslb.com/bfs/face/0941d3e98be734fe754448df48bcf9dcdc93df39.jpg
+                 * mid : 10043049
+                 * name : banyan君
                  */
 
-                public String area;
-                public int count;
-                public int id;
+                public String face;
+                public int mid;
                 public String name;
-                public SubIconBean sub_icon;
-
-                public static class SubIconBean {
-                    /**
-                     * height : 63
-                     * src : http://static.hdslb.com/live-static/images/mobile/android/small/xxhdpi/9.png?20170516113400
-                     * width : 63
-                     */
-
-                    public String height;
-                    public String src;
-                    public String width;
-                }
-            }
-
-            public static class LivesBean {
-                /**
-                 * accept_quality : 4
-                 * area : 绘画专区
-                 * area_id : 9
-                 * broadcast_type : 0
-                 * check_version : 0
-                 * cover : {"height":180,"src":"http://i0.hdslb.com/bfs/live/8b748cc1891b1b79ce5e2530b7737835a4be6c98.jpg","width":320}
-                 * is_tv : 0
-                 * online : 1903
-                 * owner : {"face":"http://i2.hdslb.com/bfs/face/0941d3e98be734fe754448df48bcf9dcdc93df39.jpg","mid":10043049,"name":"banyan君"}
-                 * playurl : http://txy.live-play.acgvideo.com/live-txy/424448/live_10043049_2138510.flv?wsSecret=3dc89ec23b4eef22944e925242c3f6a8&wsTime=1495642561
-                 * room_id : 426333
-                 * title : 画稿子-草稿阶段
-                 */
-
-                public String accept_quality;
-                public String area;
-                public int area_id;
-                public int broadcast_type;
-                public int check_version;
-                public CoverBean cover;
-                public int is_tv;
-                public int online;
-                public OwnerBean owner;
-                public String playurl;
-                public int room_id;
-                public String title;
-
-                public static class CoverBean {
-                    /**
-                     * height : 180
-                     * src : http://i0.hdslb.com/bfs/live/8b748cc1891b1b79ce5e2530b7737835a4be6c98.jpg
-                     * width : 320
-                     */
-
-                    public int height;
-                    public String src;
-                    public int width;
-                }
-
-                public static class OwnerBean {
-                    /**
-                     * face : http://i2.hdslb.com/bfs/face/0941d3e98be734fe754448df48bcf9dcdc93df39.jpg
-                     * mid : 10043049
-                     * name : banyan君
-                     */
-
-                    public String face;
-                    public int mid;
-                    public String name;
-                }
             }
         }
     }

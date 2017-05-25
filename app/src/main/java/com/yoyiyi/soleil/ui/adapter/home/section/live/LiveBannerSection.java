@@ -11,7 +11,7 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.live.LiveRecommend;
+import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
 
@@ -20,13 +20,13 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/23 22:27
- * 描述:
+ * 描述:首页直播轮播条
  */
 public class LiveBannerSection extends StatelessSection {
 
-    private List<LiveRecommend.DataBean.BannerBean> mList;
+    private List<LivePartition.BannerBean> mList;
 
-    public LiveBannerSection(List<LiveRecommend.DataBean.BannerBean> list) {
+    public LiveBannerSection(List<LivePartition.BannerBean> list) {
         super(R.layout.layout_banner, R.layout.layout_empty);
         mList = list;
     }

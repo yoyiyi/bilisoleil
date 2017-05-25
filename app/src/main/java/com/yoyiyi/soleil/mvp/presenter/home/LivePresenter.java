@@ -2,7 +2,7 @@ package com.yoyiyi.soleil.mvp.presenter.home;
 
 import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
-import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
@@ -24,18 +24,19 @@ public class LivePresenter extends RxPresenter<LiveContract.View> implements Liv
 
     @Override
     public void getLiveData() {
-
-        BaseSubscriber<LivePartition> subscriber = mRetrofitHelper.getRecommendLive()
-                .flatMap(homeRecommendLive -> {
-                    mView.showRecommendLive(homeRecommendLive);
-                    return mRetrofitHelper.getCommonLive();
+        BaseSubscriber<LiveRecommend> subscriber = mRetrofitHelper.getLivePartition()
+                .compose(RxUtils.handleResult())
+                .flatMap(livePartition -> {
+                    mView.showLivePartition(livePartition);
+                    return mRetrofitHelper.getLiveRecommend();
                 })
+                .compose(RxUtils.handleResult())
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseSubscriber<LivePartition>(mView) {
+                .subscribeWith(new BaseSubscriber<LiveRecommend>(mView) {
                     @Override
-                    public void onNext(LivePartition homeCommonLive) {
-                        super.onNext(homeCommonLive);
-                        mView.showCommonLive(homeCommonLive);
+                    public void onNext(LiveRecommend liveRecommend) {
+                        super.onNext(liveRecommend);
+                        mView.showLiveRecommend(liveRecommend);
                     }
                 });
         addSubscribe(subscriber);

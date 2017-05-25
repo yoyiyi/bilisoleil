@@ -7,6 +7,7 @@ import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.bean.recommend.HomeRecommend;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.LiveService;
+import com.yoyiyi.soleil.network.response.HttpResponse;
 
 import io.reactivex.Flowable;
 
@@ -38,11 +39,12 @@ public class RetrofitHelper {
 
     /*******************************LiveApi****************************************/
 
-    public Flowable<LiveRecommend> getRecommendLive() {
-        return mLiveService.getRecommendLive();
+    public Flowable<HttpResponse<LiveRecommend>> getLiveRecommend() {
+        return mLiveService.getLiveRecommend();
     }
-    public Flowable<LivePartition> getCommonLive() {
-        return mLiveService.getCommonLive();
+
+    public Flowable<HttpResponse<LivePartition>> getLivePartition() {
+        return mLiveService.getLivePartition();
     }
 
 }

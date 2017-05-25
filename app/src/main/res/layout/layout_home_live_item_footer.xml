@@ -2,36 +2,51 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dp10"
-    android:paddingBottom="@dimen/dp10">
+    android:padding="@dimen/dp10">
 
-    <Button
-        android:id="@+id/bt_more"
-        android:layout_width="@dimen/dp120"
-        android:layout_height="@dimen/dp30"
-        android:background="@drawable/btn_more_white"
-        android:text="查看更多"
-        android:textColor="@color/font_normal"
-        android:textSize="@dimen/text_size_14"
-        android:visibility="visible"/>
-
-    <TextView
-        android:id="@+id/tv_dynamic"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_more_root"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp5"
-        android:textColor="@color/black_80"
-        android:textSize="@dimen/text_size_12"/>
+        android:paddingBottom="@dimen/dp4">
 
-    <ImageView
-        android:id="@+id/iv_refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_category_more_refresh"
-        android:tint="@color/refresh_pink_background"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <Button
+            android:id="@+id/bt_more"
+            android:layout_width="@dimen/dp120"
+            android:layout_height="@dimen/dp30"
+            android:background="@drawable/btn_more_white"
+            android:text="查看更多"
+            android:textColor="@color/font_normal"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_dynamic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5"
+            android:textColor="@color/black_80"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_refresh"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_category_more_refresh"
+            android:tint="@color/refresh_pink_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
 
     <Button
         android:id="@+id/bt_more_live"
@@ -39,9 +54,9 @@
         android:layout_height="@dimen/dp30"
         android:layout_marginTop="@dimen/dp10"
         android:background="@drawable/btn_more_white"
-        android:text="查看更多"
-        android:textColor="@color/font_normal"
+        android:text="更多直播"
+        android:textColor="@color/black_alpha_60"
         android:textSize="@dimen/text_size_14"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@id/bt_more"/>
+        app:layout_constraintTop_toBottomOf="@id/cl_more_root"/>
 </android.support.constraint.ConstraintLayout>

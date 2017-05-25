@@ -11,9 +11,9 @@ import com.yoyiyi.soleil.bean.live.LiveRecommend;
  */
 public interface LiveContract {
     interface View extends BaseContract.BaseView {
-        void showRecommendLive(LiveRecommend recommendLive);
+        void showLiveRecommend(LiveRecommend liveRecommend);
 
-        void showCommonLive(LivePartition commonLive);
+        void showLivePartition(LivePartition livePartition);
 
     }
 

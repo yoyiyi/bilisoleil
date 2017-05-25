@@ -1,6 +1,8 @@
 package com.yoyiyi.soleil.rx;
+
 import com.yoyiyi.soleil.network.exception.ApiException;
 import com.yoyiyi.soleil.network.response.HttpResponse;
+
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableTransformer;

@@ -2,12 +2,18 @@ package com.yoyiyi.soleil.ui.fragment.home;
 
 import android.support.v7.widget.GridLayoutManager;
 
+import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
 import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter;
+import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveBannerSection;
+import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveEntranceSection;
+import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveRecommendBannerSection;
+import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveRecommendPartitionSection;
+import com.yoyiyi.soleil.ui.adapter.home.section.live.LiveRecommendSection;
 import com.yoyiyi.soleil.ui.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -19,12 +25,15 @@ import java.util.List;
  * 描述:推荐
  */
 
-public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartition.DataBean.PartitionsBean> implements LiveContract.View {
+public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartition.PartitionsBean> implements LiveContract.View {
 
     private SectionedRVAdapter mSectionedAdapter;
-    private List<LivePartition.DataBean.BannerBean> mBannerList = new ArrayList<>();//轮播条
-    private List<LiveRecommend.DataBean.RecommendDataBean.BannerDataBean> mBannerRecommendList = new ArrayList<>();//推荐
-    private List<LiveRecommend.DataBean.RecommendDataBean.LivesBean> mRecommendLiveList = new ArrayList<>();//推荐直播
+    private List<LivePartition.BannerBean> mBannerList = new ArrayList<>();//轮播条
+    private List<LiveRecommend.RecommendDataBean.BannerDataBean> mBannerRecommendList = new ArrayList<>();//推荐
+    private List<LiveRecommend.RecommendDataBean.LivesBean> mRecommendLiveList = new ArrayList<>();//推荐直播
+
+    private LiveRecommend.RecommendDataBean.PartitionBean mPartitionBean;
+
     public static LiveFragment newInstance() {
         return new LiveFragment();
     }
@@ -69,15 +78,9 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartiti
     @Override
     protected void clear() {
         mBannerList.clear();
+        mRecommendLiveList.clear();
+        mBannerRecommendList.clear();
     }
-
-
-   /* @Override
-    public void showLive(HomeRecommendLive homeLive) {
-       *//* mList.addAll(homeLive.data.recommend_data.);
-        mBannerList.addAll(homeLive.data.banner);
-        finishTask();*//*
-    }*/
 
     @Override
     protected void clearData() {
@@ -85,20 +88,64 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartiti
         mSectionedAdapter.removeAllSections();
     }
 
+
+    @Override
+    public void showLiveRecommend(LiveRecommend liveRecommend) {
+        mRecommendLiveList.addAll(liveRecommend.recommend_data.lives);
+        mBannerRecommendList.addAll(liveRecommend.recommend_data.banner_data);
+        mPartitionBean = liveRecommend.recommend_data.partition;
+        finishTask();
+    }
+
+    @Override
+    public void showLivePartition(LivePartition livePartition) {
+        mBannerList.addAll(livePartition.banner);
+        mList.addAll(livePartition.partitions);
+
+    }
+
     @Override
     protected void finishTask() {
-       /* mSectionedAdapter.addSection(new LiveBannerSection(mBannerList));
+        mSectionedAdapter.addSection(new LiveBannerSection(mBannerList));
         mSectionedAdapter.addSection(new LiveEntranceSection());
-        mSectionedAdapter.notifyDataSetChanged();*/
+        //推荐主播
+        if (mBannerRecommendList.size() != 0) {
+            int allot = mRecommendLiveList.size() / 2;
+            if (mBannerRecommendList.size() == 1) {
+                mSectionedAdapter.addSection(new LiveRecommendSection(true, false,
+                        mPartitionBean.name,
+                        mPartitionBean.sub_icon.src, mPartitionBean.count + "",
+                        mRecommendLiveList.subList(0, allot)));
+                mSectionedAdapter.addSection(new LiveRecommendBannerSection(mBannerRecommendList.get(0)));
+                mSectionedAdapter.addSection(new LiveRecommendSection(false, true,
+                        mPartitionBean.name,
+                        mPartitionBean.sub_icon.src, mPartitionBean.count + "",
+                        mRecommendLiveList.subList(allot, mRecommendLiveList.size())));
+            } else {
+                mSectionedAdapter.addSection(new LiveRecommendSection(true, false, mPartitionBean.name,
+                        mPartitionBean.sub_icon.src, mPartitionBean.count + "",
+                        mRecommendLiveList.subList(0, allot),
+                        mBannerRecommendList.get(0)));
+                mSectionedAdapter.addSection(new LiveRecommendBannerSection(mBannerRecommendList.get(1)));
+                mSectionedAdapter.addSection(new LiveRecommendSection(false, true, mPartitionBean.name,
+                        mPartitionBean.sub_icon.src, mPartitionBean.count + "",
+                        mRecommendLiveList.subList(allot, mRecommendLiveList.size())));
+            }
+        } else {
+            mSectionedAdapter.addSection(new LiveRecommendSection(true, true, mPartitionBean.name,
+                    mPartitionBean.sub_icon.src
+                    , mPartitionBean.count + "", mRecommendLiveList));
+        }
+        //分区
+        Stream.of(mList.subList(0, mList.size())).forEach(partitionsBean ->
+                mSectionedAdapter.addSection(new LiveRecommendPartitionSection(partitionsBean.partition.name,
+                        partitionsBean.partition.sub_icon.src,
+                        partitionsBean.partition.count + "", partitionsBean.lives.subList(0, 4))));
+        //显示最后加载更多
+        mSectionedAdapter.addSection(new LiveRecommendPartitionSection(true, mList.get(mList.size() - 1).partition.name,
+                mList.get(mList.size() - 1).partition.sub_icon.src,
+                mList.get(mList.size() - 1).partition.count + "", mList.get(mList.size() - 1).lives.subList(0, 4)));
+        mSectionedAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void showRecommendLive(LiveRecommend recommendLive) {
-
-    }
-
-    @Override
-    public void showCommonLive(LivePartition commonLive) {
-
-    }
 }

@@ -98,7 +98,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
      * 注入依赖
      */
     private void initInject() {
-             DaggerActivityComponent.builder()
+        DaggerActivityComponent.builder()
                 .appComponent(BiliSoleilApplication.getInstance().getAppComponent())
                 .activityModule(new ActivityModule(this))
                 .build()
@@ -142,10 +142,13 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
      */
     private void redirect() {
         boolean flag = PrefsUtils.getInstance().getBoolean(Constants.IS_LOGINED_FLAG, false);
-        if (flag)
+        if (flag) {
             startActivity(new Intent(this, MainActivity.class));
-        else
+            finish();
+        } else {
             startActivity(new Intent(this, MainActivity.class));
-        finish();
+            finish();
+        }
+
     }
 }
