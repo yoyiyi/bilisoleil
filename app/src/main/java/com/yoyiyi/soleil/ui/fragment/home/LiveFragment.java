@@ -137,15 +137,15 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LivePartiti
                     , mPartitionBean.count + "", mRecommendLiveList));
         }
         //分区
-        Stream.of(mList.subList(0, mList.size())).forEach(partitionsBean ->
+        Stream.of(mList.subList(0, mList.size()-1 )).forEach(partitionsBean ->
                 mSectionedAdapter.addSection(new LiveRecommendPartitionSection(partitionsBean.partition.name,
                         partitionsBean.partition.sub_icon.src,
                         partitionsBean.partition.count + "", partitionsBean.lives.subList(0, 4))));
         //显示最后加载更多
-        /*mSectionedAdapter.addSection(
+        mSectionedAdapter.addSection(
                 new LiveRecommendPartitionSection(true, mList.get(mList.size() - 1).partition.name,
                 mList.get(mList.size() - 1).partition.sub_icon.src,
-                mList.get(mList.size() - 1).partition.count + "", mList.get(mList.size() - 1).lives.subList(0, 4)));*/
+                mList.get(mList.size() - 1).partition.count + "", mList.get(mList.size() - 1).lives.subList(0, 4)));
         mSectionedAdapter.notifyDataSetChanged();
     }
 

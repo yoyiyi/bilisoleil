@@ -36,11 +36,13 @@ public class SplashPresenter extends RxPresenter<SplashContract.View> implements
                 .compose(RxUtils.rxSchedulerHelper())
                 .subscribeWith(new BaseSubscriber<Splash>(mView) {
                     @Override
-                    public void onNext(Splash splash) {
-                        super.onNext(splash);
-                        if (splash.code == 0)
-                            mView.showSplash(splash);
-                        else mView.showError("错误");
+                    public void onSuccess(Splash splash) {
+                        mView.showSplash(splash);
+                    }
+
+                    @Override
+                    public void onFailure(int code, String message) {
+                        mView.showError(message);
                     }
                 });
         addSubscribe(subscriber);

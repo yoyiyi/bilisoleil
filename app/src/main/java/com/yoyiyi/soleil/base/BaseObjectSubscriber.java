@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.facebook.stetho.common.LogUtil;
 import com.yoyiyi.soleil.network.exception.ApiException;
+import com.yoyiyi.soleil.network.response.HttpResponse;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NetworkUtils;
 
@@ -18,18 +19,14 @@ import retrofit2.HttpException;
  * 描述:统一处理订阅者
  */
 
-public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
+public abstract class BaseObjectSubscriber<T> extends ResourceSubscriber<HttpResponse<T>> {
     private BaseContract.BaseView mView;
     private String mMsg;
 
-    public BaseSubscriber(BaseContract.BaseView view) {
+    public BaseObjectSubscriber(BaseContract.BaseView view) {
         this.mView = view;
     }
 
-    public BaseSubscriber(BaseContract.BaseView view, String message) {
-        this.mView = view;
-        this.mMsg = message;
-    }
 
     public abstract void onSuccess(T t);
 
@@ -53,10 +50,15 @@ public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
     }
 
     @Override
-    public void onNext(T response) {
+    public void onNext(HttpResponse<T> response) {
         if (mView == null) return;
         mView.complete();
-        onSuccess(response  );
+        if (response.code == 0) {
+            onSuccess(response.data);
+        } else {
+            //可以不处理任何东西
+            onFailure(response.code, response.message);
+        }
     }
 
 

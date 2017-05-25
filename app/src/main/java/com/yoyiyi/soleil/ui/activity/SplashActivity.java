@@ -126,6 +126,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     @Override
     public void showSplash(Splash splash) {
+        com.orhanobut.logger.Logger.d(splash.data.get(0).thumb);
         if (splash.data.size() != 0)
             ImageLoader.load(this, splash.data.get(0).thumb, mIvSplash);
     }

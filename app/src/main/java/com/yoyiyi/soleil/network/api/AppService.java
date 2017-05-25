@@ -1,7 +1,10 @@
 package com.yoyiyi.soleil.network.api;
 
 import com.yoyiyi.soleil.bean.app.Splash;
-import com.yoyiyi.soleil.bean.recommend.HomeRecommend;
+import com.yoyiyi.soleil.bean.recommend.Recommend;
+import com.yoyiyi.soleil.network.response.HttpResponse;
+
+import java.util.List;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
@@ -23,9 +26,10 @@ public interface AppService {
 
 
     /**
-     * 主页推荐
+     * 首页推荐
+     *
      * @return
      */
     @GET("/x/feed/index?access_key=5c2ea06a566f3dd8850f5750b8d0a650&appkey=1d8b6e7d45233436&build=505000&idx=0&login_event=2&mobi_app=android&network=wifi&open_event=cold&platform=android&pull=true&style=2&ts=1495519813&sign=510278867e908ab3de31a7bd3701a55c")
-    Flowable<HomeRecommend> getRecommend();
+    Flowable<HttpResponse<List<Recommend>>> getRecommend();
 }

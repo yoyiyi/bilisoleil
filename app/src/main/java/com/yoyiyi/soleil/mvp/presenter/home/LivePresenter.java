@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.mvp.presenter.home;
 
-import com.yoyiyi.soleil.base.BaseSubscriber;
+import com.yoyiyi.soleil.base.BaseObjectSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
@@ -24,18 +24,16 @@ public class LivePresenter extends RxPresenter<LiveContract.View> implements Liv
 
     @Override
     public void getLiveData() {
-        BaseSubscriber<LiveRecommend> subscriber = mRetrofitHelper.getLivePartition()
+        BaseObjectSubscriber<LiveRecommend> subscriber = mRetrofitHelper.getLivePartition()
                 .compose(RxUtils.handleResult())
                 .flatMap(livePartition -> {
                     mView.showLivePartition(livePartition);
                     return mRetrofitHelper.getLiveRecommend();
                 })
-                .compose(RxUtils.handleResult())
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseSubscriber<LiveRecommend>(mView) {
+                .subscribeWith(new BaseObjectSubscriber<LiveRecommend>(mView) {
                     @Override
-                    public void onNext(LiveRecommend liveRecommend) {
-                        super.onNext(liveRecommend);
+                    public void onSuccess(LiveRecommend liveRecommend) {
                         mView.showLiveRecommend(liveRecommend);
                     }
                 });

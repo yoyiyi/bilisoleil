@@ -4,10 +4,12 @@ import android.text.TextUtils;
 
 import com.facebook.stetho.common.LogUtil;
 import com.yoyiyi.soleil.network.exception.ApiException;
+import com.yoyiyi.soleil.network.response.HttpResponse;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NetworkUtils;
 
 import java.net.SocketTimeoutException;
+import java.util.List;
 
 import io.reactivex.subscribers.ResourceSubscriber;
 import retrofit2.HttpException;
@@ -18,24 +20,14 @@ import retrofit2.HttpException;
  * 描述:统一处理订阅者
  */
 
-public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
+public abstract class BaseListSubscriber<T> extends ResourceSubscriber<HttpResponse<List<T>>> {
     private BaseContract.BaseView mView;
     private String mMsg;
 
-    public BaseSubscriber(BaseContract.BaseView view) {
+    public BaseListSubscriber(BaseContract.BaseView view) {
         this.mView = view;
     }
 
-    public BaseSubscriber(BaseContract.BaseView view, String message) {
-        this.mView = view;
-        this.mMsg = message;
-    }
-
-    public abstract void onSuccess(T t);
-
-    public void onFailure(int code, String message) {
-
-    }
 
     @Override
     protected void onStart() {
@@ -52,11 +44,22 @@ public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
 
     }
 
-    @Override
-    public void onNext(T response) {
+      @Override
+    public void onNext(HttpResponse<List<T>> response) {
         if (mView == null) return;
         mView.complete();
-        onSuccess(response  );
+        if (response.code == 0) {
+            onSuccess(response.data);
+        } else {
+            //可以不处理任何东西
+            onFailure(response.code, response.message);
+        }
+    }
+
+    public abstract void onSuccess(List<T> t);
+
+    public void onFailure(int code, String message) {
+
     }
 
 
