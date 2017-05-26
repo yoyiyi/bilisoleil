@@ -254,8 +254,14 @@ public class SectionedRVAdapter extends RecyclerView.Adapter<ViewHolder> {
          4) loading
          5) load failed
          */
-        int currentPos = 0;
+        try {
 
+
+        } catch (Exception e) {
+
+
+        }
+        int currentPos = 0;
         for (Map.Entry<String, Section> entry : sections.entrySet()) {
             Section section = entry.getValue();
 
@@ -296,7 +302,6 @@ public class SectionedRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 
             currentPos += sectionTotal;
         }
-
         throw new IndexOutOfBoundsException("Invalid position");
     }
 

@@ -72,7 +72,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Looper.prepare();
+                   Looper.prepare();
                     ToastUtils.showSingleToast("哎呀，程序发生异常啦...");
                     Looper.loop();
                 }

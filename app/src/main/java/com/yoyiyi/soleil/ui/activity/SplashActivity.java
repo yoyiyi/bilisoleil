@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
@@ -22,6 +23,8 @@ import com.yoyiyi.soleil.ui.activity.home.MainActivity;
 import com.yoyiyi.soleil.ui.widget.statusbar.StatusBarUtil;
 import com.yoyiyi.soleil.utils.PrefsUtils;
 import com.yoyiyi.soleil.utils.image.ImageLoader;
+
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -64,6 +67,8 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
     ImageView mIvSplash;
     @BindView(R.id.tv_count_down)
     TextView mTvCountDown;
+    @BindView(R.id.ll_count_down)
+    LinearLayout mLlCountDown;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,7 +94,8 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
     }
 
     private void initWidget() {
-        RxView.clicks(mTvCountDown)
+        RxView.clicks(mLlCountDown)
+                .throttleFirst(3, TimeUnit.SECONDS)//3秒内响应第一次发射数据
                 .compose(bindToLifecycle())
                 .subscribe(object -> redirect());
     }
@@ -126,14 +132,13 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     @Override
     public void showSplash(Splash splash) {
-        com.orhanobut.logger.Logger.d(splash.data.get(0).thumb);
         if (splash.data.size() != 0)
             ImageLoader.load(this, splash.data.get(0).thumb, mIvSplash);
     }
 
     @Override
     public void showCountDown(int count) {
-        mTvCountDown.setText("跳过 " + count);
+        mTvCountDown.setText(count + "");
         if (count == 0) {
             redirect();
         }

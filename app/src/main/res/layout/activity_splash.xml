@@ -9,14 +9,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/tv_count_down"
+    <LinearLayout
+        android:id="@+id/ll_count_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:padding="@dimen/dp6"
-        android:textColor="@color/pink"
-        android:textSize="@dimen/text_size_14"/>
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp16"
+        android:background="@drawable/shape_count_down"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp6">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳过"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"/>
+
+        <TextView
+            android:id="@+id/tv_count_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:textColor="@color/pink"
+            android:textSize="@dimen/text_size_14"/>
+    </LinearLayout>
 
 </RelativeLayout>
