@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveEnter;
-import com.yoyiyi.soleil.ui.adapter.home.LiveEntranceRecyclerAdapter;
+import com.yoyiyi.soleil.ui.adapter.home.LiveEntranceAdapter;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
 
@@ -42,7 +42,7 @@ public class LiveEntranceSection extends StatelessSection {
         recyclerView.setNestedScrollingEnabled(false);
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 5);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new LiveEntranceRecyclerAdapter(mList));
+        recyclerView.setAdapter(new LiveEntranceAdapter(mList));
     }
 
 

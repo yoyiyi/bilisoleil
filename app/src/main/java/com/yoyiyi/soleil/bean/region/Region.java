@@ -47,7 +47,7 @@ public class Region {
         public String cover;
         public String uri;
         public String param;
-       @SerializedName("goto")
+        @SerializedName("goto")
         public String gotoX;
         public int play;
         public String index;
@@ -57,5 +57,7 @@ public class Region {
         public int favourite;
         public boolean is_ad;
         public int cm_mark;
+        public int danmuku;
+
     }
 }

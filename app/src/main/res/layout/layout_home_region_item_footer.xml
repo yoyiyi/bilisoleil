@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp10">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_more_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp4">
+
+        <Button
+            android:id="@+id/bt_more"
+            android:layout_width="@dimen/dp120"
+            android:layout_height="@dimen/dp30"
+            android:background="@drawable/btn_more_white"
+            android:text="查看更多"
+            android:textColor="@color/font_normal"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bt_game_center"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Button
+            android:id="@+id/bt_game_center"
+            android:layout_width="@dimen/dp75"
+            android:layout_height="@dimen/dp30"
+            android:background="@drawable/btn_more_pink"
+            android:text="游戏中心"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Button
+            android:id="@+id/bt_more_game"
+            android:layout_width="@dimen/dp75"
+            android:layout_height="@dimen/dp30"
+            android:layout_marginLeft="@dimen/dp10"
+            android:background="@drawable/btn_more_white"
+            android:text="更多游戏"
+            android:textColor="@color/font_normal"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bt_game_center"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_dynamic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5"
+            android:textColor="@color/black_80"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_refresh"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_category_more_refresh"
+            android:tint="@color/refresh_pink_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/bt_more_live"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp30"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/btn_more_white"
+        android:text="更多直播"
+        android:textColor="@color/black_alpha_60"
+        android:textSize="@dimen/text_size_14"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/cl_more_root"/>
+</android.support.constraint.ConstraintLayout>

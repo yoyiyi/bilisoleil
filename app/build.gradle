@@ -41,7 +41,6 @@ dependencies {
     compile 'com.annimon:stream:1.1.6'
     //流布局
     //compile 'com.zhy:flowlayout-lib:1.0.3'
-
     //rxjava2
     compile 'io.reactivex.rxjava2:rxjava:2.0.8'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'

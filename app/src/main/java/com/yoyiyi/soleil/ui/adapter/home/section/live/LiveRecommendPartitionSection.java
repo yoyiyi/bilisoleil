@@ -1,8 +1,6 @@
 package com.yoyiyi.soleil.ui.adapter.home.section.live;
 
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
@@ -12,6 +10,9 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
+import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.utils.NumberUtils;
+import com.yoyiyi.soleil.utils.SpannableStringUtils;
 import com.yoyiyi.soleil.utils.image.ImageLoader;
 
 import java.util.List;
@@ -53,12 +54,13 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_icon));
         holder.setText(R.id.tv_title, mTitle);
-        SpannableStringBuilder stringBuilder = new SpannableStringBuilder("当前" + mCount + "个直播");
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(
-                mContext.getResources().getColor(R.color.pink_text_color));
-        stringBuilder.setSpan(foregroundColorSpan, 2,
-                stringBuilder.length() - 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        holder.setText(R.id.tv_online, stringBuilder);
+        SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+                .append("当前")
+                .append("" + mCount)
+                .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
+                .append("个直播")
+                .create();
+        holder.setText(R.id.tv_online, builder);
 
     }
 
@@ -67,7 +69,7 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
         ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
                 holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
-                .setText(R.id.tv_video_online, livesBean.online + "");//在线人数;
+                .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         holder.setText(R.id.tv_video_title, livesBean.title);
 
     }

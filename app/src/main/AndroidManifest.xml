@@ -16,12 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
         <!--主界面-->
-        <activity android:name=".ui.activity.home.MainActivity">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+        <activity
+            android:name=".ui.activity.home.MainActivity"
+            android:launchMode="singleTask">
         </activity>
         <!-- 登录界面-->
         <activity

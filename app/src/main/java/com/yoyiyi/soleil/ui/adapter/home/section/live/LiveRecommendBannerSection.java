@@ -1,14 +1,14 @@
 package com.yoyiyi.soleil.ui.adapter.home.section.live;
 
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
+import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.utils.SpannableStringUtils;
 import com.yoyiyi.soleil.utils.image.ImageLoader;
 
 /**
@@ -30,12 +30,12 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(mData.owner.name) ? "未知" : mData.owner.name)//up
                 .setText(R.id.tv_video_online, mData.online + "");//在线人数;
-        SpannableStringBuilder stringBuilder = new SpannableStringBuilder("#" + mData.area + "#" + mData.title);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(
-                mContext.getResources().getColor(R.color.pink_text_color));
-        stringBuilder.setSpan(foregroundColorSpan, 0,
-                stringBuilder.length() - mData.title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        holder.setText(R.id.tv_video_title, stringBuilder);
+        SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+                .append("#" + mData.area + "#")
+                .append(mData.title)
+                .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
+                .create();
+        holder.setText(R.id.tv_video_title, builder);
     }
 
 }

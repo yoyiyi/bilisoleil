@@ -32,7 +32,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
     private List<LiveRecommend.RecommendDataBean.BannerDataBean> mBannerRecommendList = new ArrayList<>();//推荐
     private List<LivePartition.PartitionsBean> mPartitionsBeanList = new ArrayList<>();//推荐直播
     private LiveRecommend.RecommendDataBean.PartitionBean mPartitionBean;
-    private LivePartition mLivePartition;
+    private volatile LivePartition mLivePartition;
 
     public static LiveFragment newInstance() {
         return new LiveFragment();

@@ -14,6 +14,9 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
+import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.utils.NumberUtils;
+import com.yoyiyi.soleil.utils.SpannableStringUtils;
 import com.yoyiyi.soleil.utils.image.ImageLoader;
 
 import java.util.List;
@@ -76,11 +79,11 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
                         holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_live_up, mBannerDataBean.owner.name)//up
                         .setText(R.id.tv_video_online, mBannerDataBean.online + "");//在线人数;
-                SpannableStringBuilder builder = new SpannableStringBuilder("#" + mBannerDataBean.area + "#" + mBannerDataBean.title);
-                ForegroundColorSpan span = new ForegroundColorSpan(
-                        mContext.getResources().getColor(R.color.pink_text_color));
-                builder.setSpan(span, 0,
-                        builder.length() - mBannerDataBean.title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+                        .append("#" + mBannerDataBean.area + "#")
+                        .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
+                        .append(mBannerDataBean.title)
+                        .create();
                 holder.setText(R.id.tv_video_title, builder);
 
             } else {
@@ -97,13 +100,12 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
         ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
                 holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
-                .setText(R.id.tv_video_online, livesBean.online + "");//在线人数;
-        SpannableStringBuilder stringBuilder = new SpannableStringBuilder("#" + livesBean.area + "#" + livesBean.title);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(
-                mContext.getResources().getColor(R.color.pink_text_color));
-        stringBuilder.setSpan(foregroundColorSpan, 0,
-                stringBuilder.length() - livesBean.title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        holder.setText(R.id.tv_video_title, stringBuilder);
+                .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
+        SpannableStringUtils.Builder builder = new SpannableStringUtils.Builder()
+                .append("#" + livesBean.area + "#")
+                .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
+                .append(livesBean.title);
+        holder.setText(R.id.tv_video_title, builder.create());
 
     }
 
