@@ -2,7 +2,6 @@ package com.yoyiyi.soleil.ui.fragment.home;
 
 import android.support.v7.widget.GridLayoutManager;
 
-import com.orhanobut.logger.Logger;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
@@ -73,7 +72,6 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, R
 
     @Override
     public void showRecommend(List<Recommend> recommend) {
-        Logger.d(recommend.size());
         if (recommend.get(0).banner_item != null) {
             mBannerItemBeanList.addAll(recommend.get(0).banner_item);
             mList.addAll(recommend.subList(1, recommend.size() - 1));

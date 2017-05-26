@@ -5,6 +5,7 @@ import com.yoyiyi.soleil.bean.app.Splash;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
+import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.LiveService;
 import com.yoyiyi.soleil.network.response.HttpResponse;
@@ -40,6 +41,9 @@ public class RetrofitHelper {
         return mAppService.getRecommend();
     }
 
+    public Flowable<HttpResponse<List<Region>>> getRegion() {
+        return mAppService.getRegion();
+    }
     /*******************************LiveApi****************************************/
 
     public Flowable<HttpResponse<LiveRecommend>> getLiveRecommend() {

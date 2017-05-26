@@ -212,7 +212,9 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     /**
      * 对各种控件进行设置、适配、填充数据
      */
-    public abstract void initWidget();
+    public void initWidget() {
+
+    }
 
     protected void onVisible() {
         lazyLoad();

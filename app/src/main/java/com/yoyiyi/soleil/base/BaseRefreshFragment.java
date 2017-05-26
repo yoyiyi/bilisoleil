@@ -34,7 +34,6 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
                 lazyLoadData();
             });
             mRefresh.setOnRefreshListener(this);
-
         }
 
     }
@@ -44,7 +43,6 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
         clearData();
         lazyLoadData();
     }
-
 
 
     @Override
@@ -66,13 +64,15 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
         if (!isPrepared || !isVisible) return;
         initRefreshLayout();
         initRecyclerView();
+        if (mRefresh == null) lazyLoadData();
         isPrepared = false;
     }
 
     @Override
     public void complete() {
         AppUtils.runOnUIDelayed(() -> {
-            mRefresh.setRefreshing(false);
+            if (mRefresh != null)
+                mRefresh.setRefreshing(false);
         }, 650);
         if (mIsRefreshing) {
             if (mList != null) mList.clear();
@@ -85,7 +85,6 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
     protected void clear() {
 
     }
-
 
 
     @Override
