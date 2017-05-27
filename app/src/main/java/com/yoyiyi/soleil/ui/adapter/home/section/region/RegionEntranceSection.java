@@ -22,7 +22,7 @@ public class RegionEntranceSection extends StatelessSection {
     private List<RegionEnter> mList;
 
     public RegionEntranceSection() {
-        super(R.layout.common_recycler, R.layout.layout_empty);
+        super(R.layout.layout_item_home_region_entrance, R.layout.layout_empty);
         init();
     }
 

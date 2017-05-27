@@ -2,8 +2,10 @@ package com.yoyiyi.soleil.di.module;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.yoyiyi.soleil.di.qualifier.AppUrl;
+import com.yoyiyi.soleil.di.qualifier.BangumiUrl;
 import com.yoyiyi.soleil.di.qualifier.LiveUrl;
 import com.yoyiyi.soleil.network.api.AppService;
+import com.yoyiyi.soleil.network.api.BangumiService;
 import com.yoyiyi.soleil.network.api.LiveService;
 import com.yoyiyi.soleil.network.helper.OkHttpHelper;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
@@ -47,10 +49,9 @@ public class ApiModule {
 
     @Singleton
     @Provides
-    public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService) {
-        return new RetrofitHelper(appService, liveService);
+    public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService) {
+        return new RetrofitHelper(appService, liveService, bangumiService);
     }
-
 
 
     @Singleton
@@ -66,7 +67,6 @@ public class ApiModule {
         return retrofit.create(AppService.class);
     }
 
-
     @Singleton
     @Provides
     @LiveUrl
@@ -78,6 +78,20 @@ public class ApiModule {
     @Provides
     public LiveService provideLiveService(@LiveUrl Retrofit retrofit) {
         return retrofit.create(LiveService.class);
+    }
+
+
+    @Singleton
+    @Provides
+    @BangumiUrl
+    public Retrofit provideBangumiRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return createRetrofit(builder, client, ApiConstants.BANGUMI_BASE_URL);
+    }
+
+    @Singleton
+    @Provides
+    public BangumiService provideBangumiService(@BangumiUrl Retrofit retrofit) {
+        return retrofit.create(BangumiService.class);
     }
 
    /* @Singleton

@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.yoyiyi.soleil.utils.AppUtils;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -105,6 +106,15 @@ public class ImageLoader {
 
     public static void load(Context context, String url, ImageView imageView) {
         Glide.with(context)
+                .load(url)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontAnimate()
+                .into(imageView);
+    }
+
+    public static void load(String url, ImageView imageView) {
+        Glide.with(AppUtils.getAppContext())
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

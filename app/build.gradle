@@ -73,7 +73,6 @@ dependencies {
     //搜索框
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     //BaseRecyclerViewAdapterHelper
-
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     //调试工具

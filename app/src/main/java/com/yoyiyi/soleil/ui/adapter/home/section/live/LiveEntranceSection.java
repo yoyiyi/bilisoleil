@@ -22,7 +22,7 @@ public class LiveEntranceSection extends StatelessSection {
     private List<LiveEnter> mList;
 
     public LiveEntranceSection() {
-        super(R.layout.layout_home_live_enter, R.layout.layout_empty);
+        super(R.layout.layout_item_home_live_entrance, R.layout.layout_empty);
         init();
     }
 

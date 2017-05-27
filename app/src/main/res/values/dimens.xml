@@ -10,6 +10,9 @@
     <dimen name="text_size_11">11.0sp</dimen>
     <dimen name="text_size_10">10.0sp</dimen>
     <dimen name="dp190">190.0dip</dimen>
+    <dimen name="dp165">165.0dip</dimen>
+    <dimen name="dp175">175.0dip</dimen>
+    <dimen name="dp170">170.0dip</dimen>
     <dimen name="dp160">160.0dip</dimen>
     <dimen name="dp150">150.0dip</dimen>
     <dimen name="dp100">100.0dip</dimen>
@@ -49,7 +52,6 @@
     <dimen name="dp48">48.0dip</dimen>
     <dimen name="dp22">22.0dip</dimen>
     <dimen name="dp120">120.0dip</dimen>
-    <dimen name="dp170">170.0dip</dimen>
     <dimen name="dp45">45.0dip</dimen>
     <dimen name="dp35">35.0dip</dimen>
     <dimen name="dp24">24.0dip</dimen>

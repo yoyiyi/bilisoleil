@@ -68,7 +68,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp3"
-                    android:gravity="center"
+                    android:maxEms="6"
+                    android:minEms="6"
                     android:text="xxxx"
                     android:textColor="@color/black_alpha_45"
                     android:textSize="@dimen/text_size_12"
@@ -105,15 +106,14 @@
                     android:id="@+id/tv_video_favourite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/dp20"
                     android:gravity="center"
                     android:paddingRight="@dimen/dp4"
                     android:text="xxxx"
                     android:textColor="@color/black_alpha_45"
                     android:textSize="@dimen/text_size_12"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_video_play_num"
                     app:layout_constraintTop_toTopOf="parent"/>
             </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>

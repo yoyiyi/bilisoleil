@@ -13,7 +13,6 @@ import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
-import com.yoyiyi.soleil.utils.image.ImageLoader;
 
 import java.util.List;
 import java.util.Random;
@@ -32,7 +31,7 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
 
     public LiveRecommendPartitionSection(String title, String url, String count,
                                          List<LivePartition.PartitionsBean.LivesBean> data) {
-        super(R.layout.layout_home_live_item_head, R.layout.layout_home_live_item_footer, R.layout.layout_home_live_item_body, data);
+        super(R.layout.layout_item_home_live_head, R.layout.layout_item_home_live_footer, R.layout.layout_item_home_live_body, data);
         this.mUrl = url;
         this.mTitle = title;
         this.mCount = count;
@@ -66,8 +65,15 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
 
     @Override
     public void onBindItemViewHolder(ViewHolder holder, LivePartition.PartitionsBean.LivesBean livesBean) {
-        ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
-                holder.getView(R.id.iv_video_preview));
+        Glide.with(mContext)
+                .load(livesBean.cover.src)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.drawable.bili_default_image_tv)
+                .dontAnimate()
+                .into((ImageView) holder.getView(R.id.iv_video_preview));
+       /* ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
+                holder.getView(R.id.iv_video_preview));*/
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         holder.setText(R.id.tv_video_title, livesBean.title);

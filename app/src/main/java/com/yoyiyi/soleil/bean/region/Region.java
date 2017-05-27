@@ -57,7 +57,7 @@ public class Region {
         public int favourite;
         public boolean is_ad;
         public int cm_mark;
-        public int danmuku;
+        public int danmaku;
 
     }
 }

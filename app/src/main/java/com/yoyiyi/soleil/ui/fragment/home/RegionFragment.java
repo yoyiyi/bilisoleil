@@ -8,8 +8,10 @@ import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RegionPresenter;
+import com.yoyiyi.soleil.ui.adapter.home.section.region.RegionActivityCenterSection;
 import com.yoyiyi.soleil.ui.adapter.home.section.region.RegionEntranceSection;
 import com.yoyiyi.soleil.ui.adapter.home.section.region.RegionSection;
+import com.yoyiyi.soleil.ui.adapter.home.section.region.RegionTopicSection;
 import com.yoyiyi.soleil.ui.widget.section.SectionedRVAdapter;
 
 import java.util.List;
@@ -76,13 +78,12 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
         Stream.of(mList).forEach(region -> {
             String type = region.type;
             if ("topic".equals(type)) {//话题
-
+                mSectionedAdapter.addSection(new RegionTopicSection(region.body.get(0)));
             } else if ("activity".equals(type)) {//活动中心
-
+                mSectionedAdapter.addSection(new RegionActivityCenterSection(region.body));
             } else {//分区和番剧区
                 mSectionedAdapter.addSection(new RegionSection(region.title, region.body));
             }
-
         });
         mSectionedAdapter.notifyDataSetChanged();
     }

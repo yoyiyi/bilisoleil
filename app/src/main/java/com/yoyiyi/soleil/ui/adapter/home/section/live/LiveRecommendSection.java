@@ -38,7 +38,7 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
 
     public LiveRecommendSection(boolean hasHead, boolean hasFooter, String title, String url, String count,
                                 List<LiveRecommend.RecommendDataBean.LivesBean> data) {
-        super(R.layout.layout_home_live_item_head, R.layout.layout_home_live_item_footer, R.layout.layout_home_live_item_body, data);
+        super(R.layout.layout_item_home_live_head, R.layout.layout_item_home_live_footer, R.layout.layout_item_home_live_body, data);
         this.mHasFooter = hasFooter;
         this.mHasHead = hasHead;
         this.mUrl = url;

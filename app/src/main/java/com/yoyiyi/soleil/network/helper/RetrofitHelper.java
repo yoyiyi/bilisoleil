@@ -2,11 +2,14 @@ package com.yoyiyi.soleil.network.helper;
 
 
 import com.yoyiyi.soleil.bean.app.Splash;
+import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
+import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.network.api.AppService;
+import com.yoyiyi.soleil.network.api.BangumiService;
 import com.yoyiyi.soleil.network.api.LiveService;
 import com.yoyiyi.soleil.network.response.HttpResponse;
 
@@ -24,10 +27,12 @@ import io.reactivex.Flowable;
 public class RetrofitHelper {
     private final LiveService mLiveService;
     private final AppService mAppService;
+    private final BangumiService mBangumiService;
 
-    public RetrofitHelper(AppService appService, LiveService liveService) {
+    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService) {
         this.mAppService = appService;
         this.mLiveService = liveService;
+        this.mBangumiService = bangumiService;
 
     }
 
@@ -44,6 +49,7 @@ public class RetrofitHelper {
     public Flowable<HttpResponse<List<Region>>> getRegion() {
         return mAppService.getRegion();
     }
+
     /*******************************LiveApi****************************************/
 
     public Flowable<HttpResponse<LiveRecommend>> getLiveRecommend() {
@@ -54,4 +60,13 @@ public class RetrofitHelper {
         return mLiveService.getLivePartition();
     }
 
+    /*******************************BangumiApi****************************************/
+
+    public Flowable<HttpResponse<ChaseBangumi>> getChaseBangumi() {
+        return mBangumiService.getChaseBangumi();
+    }
+
+    public Flowable<HttpResponse<RecommendBangumi>> getRecommendBangumi() {
+        return mBangumiService.getRecommendBangumi();
+    }
 }

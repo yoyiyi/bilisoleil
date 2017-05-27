@@ -2,13 +2,15 @@ package com.yoyiyi.soleil.ui.adapter.home.section.region;
 
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.ui.widget.section.StatelessSection;
 import com.yoyiyi.soleil.ui.widget.section.ViewHolder;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.image.ImageLoader;
 
 import java.util.List;
 import java.util.Random;
@@ -21,10 +23,9 @@ import java.util.Random;
 public class RegionSection extends StatelessSection<Region.BodyBean> {
     private String mTitle;
     private Random mRandom;
-    private String mUrl;
 
     public RegionSection(String title, List<Region.BodyBean> data) {
-        super(R.layout.layout_home_region_item_head, R.layout.layout_home_region_item_footer, R.layout.layout_home_region_item_body, data);
+        super(R.layout.layout_item_home_region_head, R.layout.layout_item_home_region_footer, R.layout.layout_item_home_region_body, data);
         this.mTitle = title;
         this.mRandom = new Random();
     }
@@ -40,8 +41,15 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
 
     @Override
     public void onBindItemViewHolder(ViewHolder holder, Region.BodyBean bodyBean) {
-        ImageLoader.load(mContext, bodyBean.cover, R.drawable.bili_default_image_tv,
-                holder.getView(R.id.iv_video_preview));
+        Glide.with(mContext)
+                .load(bodyBean.cover)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.drawable.bili_default_image_tv)
+                .dontAnimate()
+                .into((ImageView) holder.getView(R.id.iv_video_preview));
+        /*ImageLoader.load(mContext, bodyBean.cover, R.drawable.bili_default_image_tv,
+                holder.getView(R.id.iv_video_preview));*/
         holder.setText(R.id.tv_video_title, bodyBean.title);
         holder.setText(R.id.tv_video_play_num, NumberUtils.format(bodyBean.play + ""));
         if (TextUtils.equals("番剧区", mTitle)) {
@@ -51,7 +59,7 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
         } else {
             holder.setVisible(R.id.iv_video_online_region, true)
                     .setVisible(R.id.iv_video_online, false)
-                    .setText(R.id.tv_video_favourite, NumberUtils.format(bodyBean.danmuku + ""));
+                    .setText(R.id.tv_video_favourite, NumberUtils.format(bodyBean.danmaku + ""));
         }
     }
 
@@ -155,27 +163,21 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
                 break;
             case "鬼畜区":
                 holder.setText(R.id.bt_more, "更多鬼畜");
-
                 break;
             case "时尚区":
                 holder.setText(R.id.bt_more, "更多时尚");
-
                 break;
             case "广告区":
                 holder.setText(R.id.bt_more, "更多广告");
-
                 break;
             case "娱乐区":
                 holder.setText(R.id.bt_more, "更多娱乐");
-
                 break;
             case "电影区":
                 holder.setText(R.id.bt_more, "更多电影");
-
                 break;
-            case "电视剧":
+            case "电视剧区":
                 holder.setText(R.id.bt_more, "更多电视剧");
-
                 break;
         }
     }
