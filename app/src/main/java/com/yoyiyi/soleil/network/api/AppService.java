@@ -3,14 +3,17 @@ package com.yoyiyi.soleil.network.api;
 import com.yoyiyi.soleil.bean.app.Splash;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
+import com.yoyiyi.soleil.bean.discover.HotSearchTag;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.Region;
+import com.yoyiyi.soleil.bean.search.SearchArchive;
 import com.yoyiyi.soleil.network.response.HttpResponse;
 
 import java.util.List;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -25,7 +28,7 @@ public interface AppService {
      * @return
      */
     @GET("/x/v2/splash?mobi_app=android&build=505000&channel=360&width=1080&height=1920&ver=4344558841496142006")
-    Flowable<Splash> getSplash();
+    Flowable<HttpResponse<Splash>> getSplash();
 
 
     /**
@@ -51,6 +54,7 @@ public interface AppService {
      */
     @GET("/appindex/follow_index_mine?access_key=640efdbe3a382e5522491d7f913118fa&appkey=1d8b6e7d45233436&build=505000&mid=117143614&mobi_app=android&platform=android&ts=1495878887&sign=26909b825ee9aa3136c82f192688829d")
     Flowable<HttpResponse<ChaseBangumi>> getChaseBangumi();
+
     /**
      * 首页追番推荐
      *
@@ -58,4 +62,57 @@ public interface AppService {
      */
     @GET("/appindex/follow_index_page?appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&ts=1495878887&sign=1b069620b35b65619bd18566dacc6342")
     Flowable<HttpResponse<RecommendBangumi>> getRecommendBangumi();
+
+    /**
+     * 综合搜索
+     */
+    @GET(
+            "x/v2/search?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&duration=0&mobi_app=iphone&order=default&platform=ios&rid=0")
+    Flowable<HttpResponse<SearchArchive>> getSearchArchive(
+            @Query("keyword") String keyword, @Query("pn") int page, @Query("ps") int pagesize);
+    /**
+     * 番剧搜索
+     *//*
+    @GET(
+            "x/v2/search/type?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&mobi_app=iphone&platform=ios&type=1")
+    Observable<SearchBangumiInfo> searchBangumi(
+            @Query("keyword") String content, @Query("pn") int page, @Query("ps") int pagesize);
+
+    *//**
+     * up主搜索
+     *//*
+    @GET(
+            "x/v2/search/type?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&mobi_app=iphone&platform=ios&type=2")
+    Observable<SearchUpperInfo> searchUpper(
+            @Query("keyword") String content, @Query("pn") int page, @Query("ps") int pagesize);
+
+    *//**
+     * 影视搜索
+     *//*
+    @GET(
+            "x/v2/search/type?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&mobi_app=iphone&platform=ios&type=3")
+    Observable<SearchMovieInfo> searchMovie(
+            @Query("keyword") String content, @Query("pn") int page, @Query("ps") int pagesize);*/
+
+
+    /**
+     * 首页发现 热门搜索标签
+     *
+     * @return
+     */
+    @GET("/x/v2/search/hot?appkey=1d8b6e7d45233436&build=506000&limit=50&mobi_app=android&platform=android&ts=1495949781&sign=9bc4cea15aa9de8a0b142db86634f11f\n")
+    Flowable<HttpResponse<HotSearchTag>> getHotSearchTag();
+
+    ///x/v2/search?access_key=172e9926859fbbf72b8aef67e67e3669&appkey=1d8b6e7d45233436&build=506000&
+    /// duration=1&keyword=%E8%87%AA%E7%94%B1%E4%B9%8B%E7%BF%BC&mobi_app=android&order=default&platform=android&
+    /// pn=1&ps=20&ts=1495985486&sign=2b81299a7620da51d286c2dae2112a54 HTTP/1.1
+    @GET("/x/v2/search?access_key=172e9926859fbbf72b8aef67e67e3669&appkey=1d8b6e7d45233436&build=506000&" +
+            "order={order}&" +//默认排序 没有；播放多 view；新发布 pubdate 弹幕多 danmaku
+            "duration={duration}&" + // 1 2 3 4
+            "keyword={keyword}&mobi_app=android&platform=android&" + //搜索key
+            "pn={pn}&" + //页数 1 2 3 4 5
+            "rid={rid}&" +//不知道
+            "ps=20&ts=1495985837&sign=af7bf921a8b0bc1b02443f39995b6abf")
+    Flowable<HttpResponse<HotSearchTag>> getHotSearchT222ag();
+
 }

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yoyiyi.soleil.BiliSoleilApplication;
+import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.di.component.DaggerFragmentComponent;
 import com.yoyiyi.soleil.di.component.FragmentComponent;
 import com.yoyiyi.soleil.di.module.FragmentModule;
@@ -39,6 +41,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     //标志位 fragment是否可见
     protected boolean isVisible;
     private Unbinder mUnbinder;
+    private ConstraintLayout mError;
 
     @Override
     public void onAttach(Context context) {
@@ -69,6 +72,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         initInject();
         initPresenter();
         initVariables();
+        mError = ButterKnife.findById(mRootView, R.id.cl_error);
         initWidget();
         finishCreateView(savedInstanceState);
         initDatas();
@@ -185,7 +189,9 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      */
     @Override
     public void showError(String msg) {
-
+        if (mError != null) {
+            visible(mError);
+        }
     }
 
     /**
@@ -193,7 +199,9 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
      */
     @Override
     public void complete() {
-
+        if (mError != null) {
+            gone(mError);
+        }
     }
 
     protected void finishTask() {

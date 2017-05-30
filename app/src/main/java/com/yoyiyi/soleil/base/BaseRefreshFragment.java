@@ -70,6 +70,7 @@ public abstract class BaseRefreshFragment<T extends BaseContract.BasePresenter, 
 
     @Override
     public void complete() {
+        super.complete();
         AppUtils.runOnUIDelayed(() -> {
             if (mRefresh != null)
                 mRefresh.setRefreshing(false);

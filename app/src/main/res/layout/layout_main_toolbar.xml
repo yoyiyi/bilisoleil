@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_drawer_home"/>
 
-                    <com.yoyiyi.soleil.ui.widget.CircleImageView
+                    <com.yoyiyi.soleil.widget.CircleImageView
                         android:id="@+id/toolbar_user_avatar"
                         android:layout_width="@dimen/dp35"
                         android:layout_height="@dimen/dp35"
@@ -71,7 +71,7 @@
                 app:tl_tab_space_equal="true"/>
         </android.support.design.widget.AppBarLayout>
 
-        <com.yoyiyi.soleil.ui.widget.NoScrollViewPager
+        <com.yoyiyi.soleil.widget.NoScrollViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

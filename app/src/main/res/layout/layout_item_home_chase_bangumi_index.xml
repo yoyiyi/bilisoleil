@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp5"
+    android:paddingTop="@dimen/dp6">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_bangumi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/dp5"
+        android:paddingStart="@dimen/dp5">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <ImageView
+            android:id="@+id/iv_bangumi_nav22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bangumi_follow_home_ic_index_bangumi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guideline1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp12"
+            android:src="@drawable/bangumi_follow_home_ic_index_bangumi2"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_bangumi_nav22"
+            />
+
+        <ImageView
+            android:id="@+id/iv_bangumi_domestic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bangumi_follow_home_ic_index_domestic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_bangumi_nav33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp12"
+            android:src="@drawable/bangumi_follow_home_ic_index_domestic2"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_bangumi_domestic"
+            app:layout_constraintStart_toStartOf="@+id/iv_bangumi_domestic"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/v_ver"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="@color/gray_alpha_80"
+        app:layout_constraintTop_toBottomOf="@+id/cl_bangumi"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_index"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35"
+        app:layout_constraintTop_toBottomOf="@id/v_ver">
+
+        <ImageView
+            android:id="@+id/iv_bangumi_timeline"
+            android:layout_width="@dimen/dp35"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp35"
+            android:src="@drawable/bangumi_follow_home_ic_timeline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_bangumi_timeline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp25"
+            android:text="时间表"
+            android:textColor="@color/black_alpha_45"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_bangumi_timeline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <ImageView
+            android:id="@+id/iv_bangumi_index"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp35"
+            android:src="@drawable/bangumi_follow_home_ic_index"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/v_hor"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_bangumi_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp25"
+            android:text="索    引"
+            android:textColor="@color/black_alpha_45"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_bangumi_index"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <View
+            android:id="@+id/v_hor"
+            android:layout_width="@dimen/dp1"
+            android:layout_height="@dimen/dp22"
+            android:background="@color/gray_alpha_80"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp10"
+        android:background="@color/gray_light"
+        app:layout_constraintTop_toBottomOf="@id/cl_index"/>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="40dp"/>
+
+    <TextView
+        android:id="@+id/tv_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="关注"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_all"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp40"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:id="@+id/tv_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/dp6"
+            android:layout_marginTop="8dp"
+            android:text="全部"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_all"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+
+        <ImageView
+            android:id="@+id/iv_all"
+            android:layout_width="@dimen/dp14"
+            android:layout_height="@dimen/dp14"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_bangumi_index_filter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/v_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_alpha_60"
+        app:layout_constraintTop_toBottomOf="@+id/cl_all"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/v_bottom">
+
+        <include layout="@layout/common_layout_error"/>
+
+        <include layout="@layout/common_refresh_recycler"/>
+    </RelativeLayout>
+
+    <com.yoyiyi.soleil.widget.expand.ExpandableLayout
+        android:id="@+id/expand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_30"
+        app:el_expanded="false"
+        app:layout_constraintTop_toBottomOf="@+id/v_bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_all_select"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp40"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="@color/selector_tv_follow"
+                android:textSize="@dimen/text_size_13"/>
+
+            <TextView
+                android:id="@+id/tv_up_select"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp30"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="UP主"
+                android:textColor="@color/selector_tv_follow"
+                android:textSize="@dimen/text_size_13"/>
+
+            <TextView
+                android:id="@+id/tv_bangumi_select"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp30"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="番剧"
+                android:textColor="@color/selector_tv_follow"
+                android:textSize="@dimen/text_size_13"/>
+        </LinearLayout>
+    </com.yoyiyi.soleil.widget.expand.ExpandableLayout>
+
+
+</android.support.constraint.ConstraintLayout>

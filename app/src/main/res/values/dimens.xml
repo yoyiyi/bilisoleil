@@ -56,4 +56,5 @@
     <dimen name="dp35">35.0dip</dimen>
     <dimen name="dp24">24.0dip</dimen>
 
+    <dimen name="dp46">46.0dip</dimen>
 </resources>

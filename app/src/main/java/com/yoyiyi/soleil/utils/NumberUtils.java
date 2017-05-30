@@ -6,7 +6,7 @@ package com.yoyiyi.soleil.utils;
  * 描述:装换
  */
 public class NumberUtils {
-    public static String format (String num) {
+    public static String format   (String num) {
         Integer integer = Integer.valueOf(num);
         if (integer < 10000) {
             return String.valueOf(num);

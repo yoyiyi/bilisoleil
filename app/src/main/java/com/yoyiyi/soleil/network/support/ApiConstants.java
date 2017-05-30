@@ -18,7 +18,7 @@ public interface ApiConstants {
 
     String API_BASE_URL = "http://api.bilibili.cn/";
 
-    String BANGUMI_BASE_URL = "http://bangumi.bilibili.com/";
+    String BANGUMI_BASE_URL = "https://bangumi.bilibili.com/";
 
     String SEARCH_BASE_URL = "http://s.search.bilibili.com/";
 

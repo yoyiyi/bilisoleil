@@ -49,7 +49,10 @@ public abstract class BaseListSubscriber<T> extends ResourceSubscriber<HttpRespo
         if (mView == null) return;
         mView.complete();
         if (response.code == 0) {
-            onSuccess(response.data);
+            if (response.data != null)
+                onSuccess(response.data);
+            if (response.result != null)
+                onSuccess(response.result);
         } else {
             //可以不处理任何东西
             onFailure(response.code, response.message);

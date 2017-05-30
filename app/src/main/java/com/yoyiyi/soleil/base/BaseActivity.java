@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.di.component.ActivityComponent;
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent;
 import com.yoyiyi.soleil.di.module.ActivityModule;
-import com.yoyiyi.soleil.ui.widget.statusbar.StatusBarUtil;
+import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 import com.yoyiyi.soleil.utils.AppUtils;
 
 import javax.inject.Inject;
@@ -34,6 +35,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     protected Context mContext;//上下文环境
     protected DrawerLayout mDrawerLayout;
     protected boolean mBack = true;
+    private ConstraintLayout mError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         ButterKnife.bind(this);
         mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
         mToolbar = ButterKnife.findById(this, R.id.toolbar);
+        mError = ButterKnife.findById(this, R.id.cl_error);
         initStatusBar();
         initInject();
         initPresenter();
@@ -78,6 +81,11 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     }
 
+    /**
+     * 完成请求
+     */
+    protected void finishTask() {
+    }
 
     /**
      * 初始化StatusBar
@@ -86,7 +94,6 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         if (mDrawerLayout != null) {
             StatusBarUtil.setColorNoTranslucentForDrawerLayout((Activity) mContext, mDrawerLayout, AppUtils.getColor(R.color.colorPrimary));
         } else {
-            // StatusBarUtil.setColor((Activity) mContext, AppUtils.getColor(R.color.colorPrimary));
             StatusBarUtil.setColorNoTranslucent((Activity) mContext, AppUtils.getColor(R.color.colorPrimary));
 
         }
@@ -103,12 +110,16 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     @Override
     public void showError(String msg) {
-
+        if (mError != null) {
+            visible(mError);
+        }
     }
 
     @Override
     public void complete() {
-
+        if (mError != null) {
+            gone(mError);
+        }
     }
 
     /**
@@ -125,7 +136,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
      * 初始化Toolbar
      */
     protected void initToolbar() {
-        if (mBack) mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        if (mBack) mToolbar.setNavigationIcon(R.drawable.ic_clip_back_white);
     }
 
     /**
@@ -140,12 +151,20 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     /**
      * 初始化控件
      */
-    protected abstract void initWidget();
+    protected void initWidget() {
+    }
+
+    /**
+     * 加载数据
+     */
+    protected void loadData() {
+    }
 
     /**
      * 初始化数据
      */
     protected void initDatas() {
+        loadData();
     }
 
     /**

@@ -17,17 +17,18 @@
         android:theme="@style/BaseAppTheme">
         <!--主界面-->
         <activity
-            android:name=".ui.activity.home.MainActivity"
-            android:launchMode="singleTask">
+            android:name=".module.home.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <!-- 登录界面-->
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".module.app.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <!-- 欢迎界面-->
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".module.app.SplashActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -37,7 +38,20 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".ui.widget.NetworkService"/>
+        <activity
+            android:name=".module.search.TotalSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".module.region.live.LiveRegionActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".module.region.RegionTypeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <service android:name=".widget.NetworkService"/>
     </application>
 
 </manifest>

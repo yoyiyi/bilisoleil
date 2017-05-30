@@ -10,48 +10,16 @@ import java.util.List;
 
 public class RecommendBangumi {
 
+
     /**
-     * ad : []
-     * recommend_cn : {"foot":[{"cover":"http://i0.hdslb.com/bfs/bangumi/cbac3fc8fe52afa0d511bf314c1af51376d6ae40.jpg","cursor":1.495735320752E12,"id":4951,"is_new":1,"link":"http://www.bilibili.com/blackboard/topic/activity-H1PhfKM-b.html","onDt":"2017-05-26 02:02:00","title":"5\u202229 等你祝叶修生日快乐"}],"recommend":[{"cover":"http://i0.hdslb.com/bfs/bangumi/465effa90d0dc3d916fe9d51a73ec066c831bce9.jpg","favourites":"520779","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495785600,"newest_ep_index":"9","pub_time":1490889600,"season_id":5856,"season_status":2,"title":"银之守墓人","total_count":-1,"watching_count":0,"badge":"付费抢先"},{"badge":"付费抢先","cover":"http://i0.hdslb.com/bfs/bangumi/958cffa5054239ae9695469708949de0caaeabe4.jpg","favourites":"2837498","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495770649,"newest_ep_index":"9","pub_time":1491494400,"season_id":5852,"season_status":7,"title":"全职高手","total_count":-1,"watching_count":0},{"cover":"http://i0.hdslb.com/bfs/bangumi/a7a97abdf146427289d3c752e17d0c25e1c32f2b.jpg","favourites":"7671","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495764000,"newest_ep_index":"1","pub_time":1495728000,"season_id":6186,"season_status":2,"title":"食神魂","total_count":12,"watching_count":0}]}
-     * recommend_jp : {"foot":[{"cover":"http://i0.hdslb.com/bfs/bangumi/408fca63b1a8787735c384a5c256a4de27c8da94.jpg","cursor":1.49579280004E12,"desc":"6月在即，7月还会远吗~","id":4967,"is_new":1,"link":"http://www.bilibili.com/blackboard/topic/activity-SyQqwNNZ-.html","onDt":"2017-05-26 18:00:00","title":"【资讯档】2017年第21周"}],"recommend":[{"cover":"http://i0.hdslb.com/bfs/bangumi/357e75a1fb3e17a80b49f60af35f5d211d639921.jpg","favourites":"3292","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495831922,"newest_ep_index":"59","pub_time":1459526400,"season_id":6041,"season_status":2,"title":"暖暖日记 2nd","total_count":59,"watching_count":0},{"cover":"http://i0.hdslb.com/bfs/bangumi/f56ef640d5f97371536f9cbb9f1a7dd14a6662e6.jpg","favourites":"73760","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495820100,"newest_ep_index":"34","pub_time":1491494400,"season_id":5965,"season_status":2,"title":"忍者少女千鸟～伊势・金崎篇～","total_count":26,"watching_count":0},{"cover":"http://i0.hdslb.com/bfs/bangumi/2298bee824a966a44b3dcff6c2f9377aa1d95fa8.jpg","favourites":"434520","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495805402,"newest_ep_index":"8","pub_time":1491494400,"season_id":5993,"season_status":2,"title":"雏子的笔记","total_count":12,"watching_count":0}]}
+     * ad : [{"img":"http://i0.hdslb.com/bfs/bangumi/095df0181442362ac1bc445d7f542eb6bf66f7da.jpg","index":1,"link":"http://bangumi.bilibili.com/anime/5997","title":"黄漫老师"}]
+     * recommend_cn : {"foot":[{"cover":"http://i0.hdslb.com/bfs/bangumi/21de47368b07316ae9a0ea5ef62d9cd53d4b82d4.jpg","cursor":1495900800158,"desc":"杨敬华再次醒来后发现自己变成年轻了10岁的水灵少年！但这个自称\u201c阳冥司\u201d的白发帅哥却说\u201c你已经死了。少年，和我签订契约吗？\u201d","id":4985,"is_new":1,"link":"http://bangumi.bilibili.com/anime/5102","onDt":"2017-05-28 00:00:00","title":"少年，和我签订契约吗？"}],"recommend":[{"cover":"http://i0.hdslb.com/bfs/bangumi/465effa90d0dc3d916fe9d51a73ec066c831bce9.jpg","favourites":"523329","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495785600,"newest_ep_index":"9","pub_time":1490889600,"season_id":5856,"season_status":2,"title":"银之守墓人","total_count":-1,"watching_count":0,"badge":"付费抢先"},{"badge":"付费抢先","cover":"http://i0.hdslb.com/bfs/bangumi/958cffa5054239ae9695469708949de0caaeabe4.jpg","favourites":"2857653","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495770649,"newest_ep_index":"9","pub_time":1491494400,"season_id":5852,"season_status":7,"title":"全职高手","total_count":-1,"watching_count":0},{"cover":"http://i0.hdslb.com/bfs/bangumi/a7a97abdf146427289d3c752e17d0c25e1c32f2b.jpg","favourites":"10829","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495764000,"newest_ep_index":"1","pub_time":1495728000,"season_id":6186,"season_status":2,"title":"食神魂","total_count":12,"watching_count":0}]}
+     * recommend_jp : {"foot":[{"cover":"http://i0.hdslb.com/bfs/bangumi/608d2d8ca81cee746088bacd6d7b145a508e10df.jpg","cursor":1495879200238,"desc":"弐瓶勉X东亚重工动画制作局","id":4914,"is_new":1,"link":"http://www.bilibili.com/video/av10700614/","onDt":"2017-05-27 18:00:00","reply":"921","title":"【周末剧场】BLAME!"}],"recommend":[{"cover":"http://i0.hdslb.com/bfs/bangumi/f0841da0acbb37bfd2d51700cc2a6c4dfa045295.jpg","favourites":"508376","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495917002,"newest_ep_index":"9","pub_time":1491062400,"season_id":5970,"season_status":2,"title":"自由之翼 第二季（僅台灣地區）","total_count":12,"watching_count":0},{"cover":"http://i0.hdslb.com/bfs/bangumi/a223b1376633625be1cd214c34d8bf34a1e03770.jpg","favourites":"2214504","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495904400,"newest_ep_index":"8","pub_time":1491667200,"season_id":5997,"season_status":2,"title":"埃罗芒阿老师","total_count":12,"watching_count":0},{"cover":"http://i0.hdslb.com/bfs/bangumi/3944fe0b84a5763cde6b0573773b89ba86b4321d.jpg","favourites":"1373787","is_auto":0,"is_finish":0,"is_started":1,"last_time":1495900802,"newest_ep_index":"8","pub_time":1491667200,"season_id":5998,"season_status":2,"title":"Re:CREATORS","total_count":22,"watching_count":0}]}
      */
 
     public RecommendCnBean recommend_cn;
     public RecommendJpBean recommend_jp;
     public List<AdBean> ad;
-
-    public static class AdBean {
-        public List<BodyBean> body;
-        public List<HeadBean> head;
-
-        public static class HeadBean {
-            /**
-             * id : 0
-             * img : http://i0.hdslb.com/bfs/bangumi/177951c41558b18bd9001c512a8ebc14ed395b60.jpg
-             * link : http://bangumi.bilibili.com/anime/5576
-             * pub_time : 2017-05-20 23:00:00
-             * title : 喜欢上你的瞬间
-             */
-
-            public int id;
-            public String img;
-            public String link;
-            public String pub_time;
-            public String title;
-        }
-
-        public static class BodyBean {
-
-            public String img;
-
-            public int index;
-
-            public String link;
-
-            public String title;
-        }
-    }
-
 
     public static class RecommendCnBean {
         public List<FootBean> foot;
@@ -59,17 +27,19 @@ public class RecommendBangumi {
 
         public static class FootBean {
             /**
-             * cover : http://i0.hdslb.com/bfs/bangumi/cbac3fc8fe52afa0d511bf314c1af51376d6ae40.jpg
-             * cursor : 1.495735320752E12
-             * id : 4951
+             * cover : http://i0.hdslb.com/bfs/bangumi/21de47368b07316ae9a0ea5ef62d9cd53d4b82d4.jpg
+             * cursor : 1495900800158
+             * desc : 杨敬华再次醒来后发现自己变成年轻了10岁的水灵少年！但这个自称“阳冥司”的白发帅哥却说“你已经死了。少年，和我签订契约吗？”
+             * id : 4985
              * is_new : 1
-             * link : http://www.bilibili.com/blackboard/topic/activity-H1PhfKM-b.html
-             * onDt : 2017-05-26 02:02:00
-             * title : 5•29 等你祝叶修生日快乐
+             * link : http://bangumi.bilibili.com/anime/5102
+             * onDt : 2017-05-28 00:00:00
+             * title : 少年，和我签订契约吗？
              */
 
             public String cover;
-            public double cursor;
+            public long cursor;
+            public String desc;
             public int id;
             public int is_new;
             public String link;
@@ -80,7 +50,7 @@ public class RecommendBangumi {
         public static class RecommendBean {
             /**
              * cover : http://i0.hdslb.com/bfs/bangumi/465effa90d0dc3d916fe9d51a73ec066c831bce9.jpg
-             * favourites : 520779
+             * favourites : 523329
              * is_auto : 0
              * is_finish : 0
              * is_started : 1
@@ -118,40 +88,42 @@ public class RecommendBangumi {
 
         public static class FootBeanX {
             /**
-             * cover : http://i0.hdslb.com/bfs/bangumi/408fca63b1a8787735c384a5c256a4de27c8da94.jpg
-             * cursor : 1.49579280004E12
-             * desc : 6月在即，7月还会远吗~
-             * id : 4967
+             * cover : http://i0.hdslb.com/bfs/bangumi/608d2d8ca81cee746088bacd6d7b145a508e10df.jpg
+             * cursor : 1495879200238
+             * desc : 弐瓶勉X东亚重工动画制作局
+             * id : 4914
              * is_new : 1
-             * link : http://www.bilibili.com/blackboard/topic/activity-SyQqwNNZ-.html
-             * onDt : 2017-05-26 18:00:00
-             * title : 【资讯档】2017年第21周
+             * link : http://www.bilibili.com/video/av10700614/
+             * onDt : 2017-05-27 18:00:00
+             * reply : 921
+             * title : 【周末剧场】BLAME!
              */
 
             public String cover;
-            public double cursor;
+            public long cursor;
             public String desc;
             public int id;
             public int is_new;
             public String link;
             public String onDt;
+            public String reply;
             public String title;
         }
 
         public static class RecommendBeanX {
             /**
-             * cover : http://i0.hdslb.com/bfs/bangumi/357e75a1fb3e17a80b49f60af35f5d211d639921.jpg
-             * favourites : 3292
+             * cover : http://i0.hdslb.com/bfs/bangumi/f0841da0acbb37bfd2d51700cc2a6c4dfa045295.jpg
+             * favourites : 508376
              * is_auto : 0
              * is_finish : 0
              * is_started : 1
-             * last_time : 1495831922
-             * newest_ep_index : 59
-             * pub_time : 1459526400
-             * season_id : 6041
+             * last_time : 1495917002
+             * newest_ep_index : 9
+             * pub_time : 1491062400
+             * season_id : 5970
              * season_status : 2
-             * title : 暖暖日记 2nd
-             * total_count : 59
+             * title : 自由之翼 第二季（僅台灣地區）
+             * total_count : 12
              * watching_count : 0
              */
 
@@ -169,5 +141,19 @@ public class RecommendBangumi {
             public int total_count;
             public int watching_count;
         }
+    }
+
+    public static class AdBean {
+        /**
+         * img : http://i0.hdslb.com/bfs/bangumi/095df0181442362ac1bc445d7f542eb6bf66f7da.jpg
+         * index : 1
+         * link : http://bangumi.bilibili.com/anime/5997
+         * title : 黄漫老师
+         */
+
+        public String img;
+        public int index;
+        public String link;
+        public String title;
     }
 }

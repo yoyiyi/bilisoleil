@@ -17,7 +17,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.yoyiyi.soleil.ui.widget.NetworkService;
+import com.yoyiyi.soleil.widget.NetworkService;
 
 import java.lang.reflect.Method;
 

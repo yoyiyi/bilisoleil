@@ -10,4 +10,10 @@ public interface Constants {
 
     //是否登录过
     String IS_LOGINED_FLAG = "is_logined_flag";
+    String EXTRA_KEYWORD = "extra_keywork";
+
+    String  EXTRA_PARCELABLE  = "extra_parcelable";
+    String EXTRA_TITLE = "extra_title";
+    String EXTRA_TID = "extra_tid";
+    String EXTRA_BUNDLE="extra_bundle";
 }

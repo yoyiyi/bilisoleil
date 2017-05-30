@@ -8,6 +8,7 @@ package com.yoyiyi.soleil.network.response;
 
 public class HttpResponse<T> {
     public T data;//数据
+    public T result;//数据
     public String message;//信息
     public int code;//服务器状态
 }

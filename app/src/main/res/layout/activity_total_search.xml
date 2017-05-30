@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <include layout="@layout/layout_search_view"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_search_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_card_view">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp48"
+            android:background="@color/gray_light_30"
+            app:tl_indicator_color="@color/colorPrimary"
+            app:tl_indicator_corner_radius="@dimen/dp1"
+            app:tl_indicator_height="@dimen/dp2"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/colorPrimary"
+            app:tl_textUnselectColor="@color/font_normal"/>
+
+        <com.yoyiyi.soleil.widget.NoScrollViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/sliding_tabs"
+            android:overScrollMode="never">
+
+        </com.yoyiyi.soleil.widget.NoScrollViewPager>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_search_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"/>
+</RelativeLayout>

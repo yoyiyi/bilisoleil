@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:paddingBottom="@dimen/dp10"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            app:cardBackgroundColor="@color/card_view_background"
+            app:cardCornerRadius="@dimen/dp1"
+            app:cardElevation="@dimen/dp0">
+
+
+            <ImageView
+                android:id="@+id/iv_search_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_hint_search"
+                android:tint="@color/gray_20"/>
+
+            <TextView
+                android:id="@+id/tv_search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|end"
+                android:layout_marginStart="@dimen/dp40"
+                android:background="@color/card_view_background"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="搜索视频、番剧、up主或av号"
+                android:textColor="@color/black_alpha_45"
+                android:textSize="@dimen/text_size_14"/>
+
+            <ImageView
+                android:id="@+id/iv_search_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:clickable="true"
+                android:padding="@dimen/dp10"
+                android:src="@drawable/ic_scan"
+                android:tint="@color/gray_20"/>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10"
+            android:text="大家都在搜"
+            android:textColor="@color/black_alpha_45"
+            android:textSize="@dimen/text_size_14"/>
+
+        <com.yoyiyi.soleil.widget.flowlayout.TagFlowLayout
+            android:id="@+id/tags_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_marginStart="@dimen/dp5"
+            app:max_select="-1"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/hide_scroll_view"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:overScrollMode="never"
+            android:visibility="gone">
+
+
+            <com.yoyiyi.soleil.widget.flowlayout.TagFlowLayout
+                android:id="@+id/hide_tags_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp5"
+                android:layout_marginStart="@dimen/dp5"
+                app:max_select="-1"/>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/ll_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp1"
+                android:layout_marginStart="@dimen/dp30"
+                android:layout_weight="1"
+                android:background="@color/gray_light"/>
+
+            <TextView
+                android:id="@+id/tv_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp5"
+                android:drawableStart="@drawable/ic_arrow_down_gray_round"
+                android:gravity="center"
+                android:paddingEnd="@dimen/dp5"
+                android:paddingStart="@dimen/dp5"
+                android:text="查看更多"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_12"/>
+
+            <View
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp1"
+                android:layout_marginEnd="@dimen/dp30"
+                android:layout_weight="1"
+                android:background="@color/gray_light"/>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_group"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_group"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_group"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_group"
+                android:text="兴趣圈"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_topic_center"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_topic_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_header_topic_center"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_topic_center"
+                android:text="话题中心"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_activity_center"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_activity_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_header_activity_center"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_activity_center"
+                android:text="活动中心"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_black_list"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_black_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_header_black_list_center"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_black_list"
+                android:text="小黑屋"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_rank_original"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_rank_original"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_btn_rank_original"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_rank_original"
+                android:text="原创排行榜"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_rank_all"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_rank_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_btn_rank_all"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_rank_all"
+                android:text="全区排行榜"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_game"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_btn_game"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_game"
+                android:text="游戏中心"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_mall"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/card_view_background"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_mall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/ic_btn_rank_all"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_toEndOf="@+id/iv_mall"
+                android:text="周边商城"
+                android:textColor="@color/font_normal"
+                android:textSize="@dimen/text_size_14"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/window_background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp60"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

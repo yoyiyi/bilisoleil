@@ -39,6 +39,16 @@ public class ChaseBangumiPresenter extends RxPresenter<ChaseBangumiContract.View
                 });
         addSubscribe(subscriber);
 
+        // mRetrofitHelper.getChaseBangumi().compose(RxUtils.rxSchedulerHelper());
+
+       /* addSubscribe(mRetrofitHelper.getRecommendBangumi()
+                .compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseObjectSubscriber<RecommendBangumi>(mView) {
+            @Override
+            public void onSuccess(RecommendBangumi recommendBangumi) {
+                mView.showRecommendBangumi(recommendBangumi);
+            }
+        }));*/
     }
 
 }
