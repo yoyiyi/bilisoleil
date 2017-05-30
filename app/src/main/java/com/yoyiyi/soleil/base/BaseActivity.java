@@ -81,6 +81,10 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     }
 
+    protected void initRecyclerView() {
+
+    }
+
     /**
      * 完成请求
      */

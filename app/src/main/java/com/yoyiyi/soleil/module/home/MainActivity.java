@@ -3,19 +3,25 @@ package com.yoyiyi.soleil.module.home;
 
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.adapter.home.MainAdapter;
+import com.yoyiyi.soleil.base.BaseActivity;
+import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
 import com.yoyiyi.soleil.widget.NoScrollViewPager;
-import com.yoyiyi.soleil.utils.ToastUtils;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -89,4 +95,53 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        switch (id) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * DrawerLayout侧滑菜单开关
+     */
+    public void toggleDrawer() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            mDrawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+    /**
+     * 监听back键处理DrawerLayout和SearchView
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mDrawerLayout.isDrawerOpen(mDrawerLayout.getChildAt(1))) {
+                mDrawerLayout.closeDrawers();
+            } else {
+                exitApp();
+            }
+        }
+        return true;
+    }
+
+    @OnClick(R.id.ll_navigation)
+    public void onClick(View view) {
+        toggleDrawer();
+    }
 }

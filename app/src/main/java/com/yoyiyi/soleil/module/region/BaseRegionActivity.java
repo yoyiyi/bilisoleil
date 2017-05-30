@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,7 +62,23 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
         mViewPager = ButterKnife.findById(this, R.id.view_pager);
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_region, menu);
+        return true;
+    }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        switch (id) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     protected static class BaseRegionTypeAdapte extends FragmentStatePagerAdapter {
         private List<String> mTitles;
         private List<Fragment> mFragments;

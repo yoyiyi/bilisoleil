@@ -48,7 +48,7 @@
                         app:layout_constraintStart_toEndOf="@+id/iv_back"
                         app:layout_constraintTop_toTopOf="parent"/>
 
-                    <ImageView
+                   <!-- <ImageView
                         android:id="@+id/iv_down"
                         android:layout_width="?attr/actionBarSize"
                         android:layout_height="match_parent"
@@ -62,7 +62,7 @@
                         android:layout_height="match_parent"
                         android:scaleType="center"
                         android:src="@drawable/ic_toolbar_menu_search"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintEnd_toEndOf="parent"/>-->
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.v7.widget.Toolbar>
@@ -74,7 +74,9 @@
                 android:background="@color/colorPrimary"
                 app:tl_indicator_corner_radius="@dimen/dp1"
                 app:tl_indicator_height="@dimen/dp2"
-                app:tl_indicator_width_equal_title="true"/>
+                app:tl_indicator_width_equal_title="true"
+                app:tl_tab_padding="@dimen/dp12"
+                app:tl_tab_space_equal="false"/>
         </android.support.design.widget.AppBarLayout>
 
         <com.yoyiyi.soleil.widget.NoScrollViewPager

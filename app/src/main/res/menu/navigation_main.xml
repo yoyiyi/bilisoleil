@@ -1,4 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item_home"
+            android:checked="true"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="首页"/>
+
+        <item
+            android:id="@+id/item_vip"
+            android:checkable="false"
+            android:icon="@drawable/ic_nav_vip"
+            android:title="我的大会员"/>
+
+        <item
+            android:id="@+id/item_point"
+            android:checkable="false"
+            android:icon="@drawable/ic_nav_point"
+            android:title="会员积分"/>
+        <item
+            android:id="@+id/item_unicom"
+            android:checkable="false"
+            android:icon="@drawable/ic_nav_unicom"
+            android:title="免流量服务"/>
+        <item
+            android:id="@+id/item_down"
+            android:checkable="false"
+            android:icon="@drawable/ic_file_download_black_24dp"
+            android:title="离线缓存"/>
+    </group>
+
+    <group
+        android:id="@+id/group_user"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_view_later"
+            android:checked="false"
+            android:icon="@drawable/ic_view_later_24dp"
+            android:title="稍后再看"/>
+
+        <item
+            android:id="@+id/item_star"
+            android:checkable="false"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="我的收藏"/>
+
+        <item
+            android:id="@+id/item_history"
+            android:checkable="false"
+            android:icon="@drawable/ic_history_black_24dp"
+            android:title="历史记录"/>
+        <item
+            android:id="@+id/item_people"
+            android:checkable="false"
+            android:icon="@drawable/ic_people_black_24dp"
+            android:title="我的关注"/>
+        <item
+            android:id="@+id/item_wallet"
+            android:checkable="false"
+            android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+            android:title="B币钱包"/>
+    </group>
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/item_theme"
+            android:checkable="false"
+            android:icon="@drawable/ic_color_lens_black_24dp"
+            android:title="主题选择"/>
+
+        <!-- <item
+             android:id="@+id/item_app"
+             android:checkable="false"
+             android:icon="@drawable/ic_shop_black_24dp"
+             android:title="@string/item_app" />
+ -->
+
+        <item
+            android:id="@+id/item_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="设置与帮助"/>
+
+    </group>
 </menu>

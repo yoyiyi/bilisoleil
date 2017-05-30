@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/dp6"
+    android:paddingLeft="@dimen/dp10"
+    android:paddingTop="@dimen/dp6"
+    >
+
+    <com.yoyiyi.soleil.widget.CircleImageView
+        android:id="@+id/toolbar_user_avatar"
+        android:layout_width="@dimen/dp38"
+        android:layout_height="@dimen/dp38"
+        android:layout_marginEnd="@dimen/dp3"
+        android:layout_marginStart="@dimen/dp16"
+        android:src="@mipmap/ic_user_yoyiyi"
+        app:border_color="@color/colorPrimary"
+        app:border_width="@dimen/dp1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="10dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="soleil雪寂"
+        android:textColor="@color/font_normal"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintStart_toEndOf="@+id/toolbar_user_avatar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_user_avatar"/>
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="新的风暴已经出现,你准备好了吗?"
+        android:textColor="@color/black_alpha_30"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_user_avatar"
+        app:layout_constraintStart_toEndOf="@+id/toolbar_user_avatar"/>
+</android.support.constraint.ConstraintLayout>

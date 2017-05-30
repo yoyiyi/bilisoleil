@@ -1,13 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp160"
+    android:layout_height="@dimen/dp200"
     android:background="@color/colorPrimary"
     android:gravity="bottom"
     android:paddingLeft="@dimen/dp16"
-    android:paddingTop="@dimen/dp16"
+    android:paddingTop="@dimen/dp25"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-</RelativeLayout>
+    <com.yoyiyi.soleil.widget.CircleImageView
+        android:id="@+id/ic_user"
+        android:layout_width="@dimen/dp74"
+        android:layout_height="@dimen/dp74"
+        android:src="@mipmap/ic_user_yoyiyi"
+        app:border_color="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="soleil雪寂"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintTop_toBottomOf="@+id/ic_user"/>
+
+    <TextView
+        android:id="@+id/tv_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp3"
+        android:background="@drawable/shape_white_border"
+        android:gravity="center"
+        android:text="LV6"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_name"/>
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp6"
+        android:background="@drawable/round_wihte_bg"
+        android:padding="@dimen/dp3"
+        android:text="普通会员"
+        android:textColor="@color/nav_head_roung_text_background"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"/>
+
+    <TextView
+        android:id="@+id/tv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp6"
+        android:padding="@dimen/dp3"
+        android:text="硬币:10"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintTop_toBottomOf="@+id/tv_state"/>
+    <TextView
+        android:id="@+id/tv_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp3"
+        android:text="B币:10"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        android:layout_marginLeft="@dimen/dp5"
+        app:layout_constraintStart_toEndOf="@id/tv_icon"
+        app:layout_constraintTop_toTopOf="@+id/tv_icon"/>
+
+    <ImageView
+        android:id="@+id/iv_head_noftiy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp25"
+        android:src="@drawable/ic_navigation_header_notification"
+        app:layout_constraintEnd_toStartOf="@+id/iv_head_switch_mode"
+        app:layout_constraintTop_toTopOf="@+id/ic_user"/>
+
+
+    <ImageView
+        android:id="@+id/iv_head_switch_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp10"
+        android:src="@drawable/ic_switch_night"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ic_user"/>
+
+    <ImageView
+        android:id="@+id/iv_home_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:src="@drawable/bili_drawerbg_logined"
+        android:tint="@color/nav_head_image_background"/>
+</android.support.constraint.ConstraintLayout>

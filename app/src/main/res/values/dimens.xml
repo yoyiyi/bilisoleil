@@ -9,6 +9,7 @@
     <dimen name="text_size_12">12.0sp</dimen>
     <dimen name="text_size_11">11.0sp</dimen>
     <dimen name="text_size_10">10.0sp</dimen>
+    <dimen name="dp200">200.0dip</dimen>
     <dimen name="dp190">190.0dip</dimen>
     <dimen name="dp165">165.0dip</dimen>
     <dimen name="dp175">175.0dip</dimen>
@@ -57,4 +58,6 @@
     <dimen name="dp24">24.0dip</dimen>
 
     <dimen name="dp46">46.0dip</dimen>
+    <dimen name="dp38">38.0dip</dimen>
+    <dimen name="dp74">74.0dip</dimen>
 </resources>

@@ -8,7 +8,6 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionEnter;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
-import com.yoyiyi.soleil.module.region.live.LiveRegionActivity;
 
 import java.util.List;
 
@@ -50,59 +49,61 @@ public class RegionEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseVie
                         "电视剧",
                         "游戏中心"*/
                 case 0://直播
-                    LiveRegionActivity.startActivity(mContext);
+                    //LiveRegionActivity.startActivity(mContext);
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(0));
+
                     break;
                 case 1:
                     RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
                     break;
                 case 2:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(2));
                     break;
                 case 3://国创
                     // RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1), "国创");
                     break;
                 case 4:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(3));
 
                     break;
                 case 5:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(4));
 
                     break;
                 case 6:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(5));
 
                     break;
                 case 7:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(6));
 
                     break;
                 case 8:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(7));
 
                     break;
                 case 9:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(8));
 
                     break;
                 case 10:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(9));
 
                     break;
-                case 11:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                case 11://广告
+                    //RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(10));
 
                     break;
                 case 12:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(10));
 
                     break;
                 case 13:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(11));
 
                     break;
                 case 14:
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1));
+                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(12));
 
                     break;
                 case 15:
