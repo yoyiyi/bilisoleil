@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp5"
+    android:layout_marginLeft="@dimen/dp10"
+    android:layout_marginRight="@dimen/dp10"
+    android:layout_marginTop="@dimen/dp5"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/card_view_background"
+    app:cardCornerRadius="@dimen/dp4"
+    app:cardElevation="@dimen/dp2">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp5">
+
+        <ImageView
+            android:id="@+id/iv_video_preview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp150"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_video_follow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_shadow_normal_reserve"
+            android:padding="@dimen/dp4"
+            app:layout_constraintBottom_toBottomOf="@id/iv_video_preview">
+
+            <TextView
+                android:id="@+id/tv_video_play_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/bangumi_common_ic_video_views"
+                android:drawableTint="@color/white"
+                android:text="10万"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"/>
+
+            <TextView
+                android:id="@+id/tv_video_danmaku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:drawableLeft="@drawable/bangumi_common_ic_video_danmakus"
+                android:drawableTint="@color/white"
+                android:text="10万"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintStart_toEndOf="@id/tv_video_play_num"/>
+
+            <TextView
+                android:id="@+id/tv_video_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTint="@color/white"
+                android:text="10万"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp4"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/dp2"
+            android:maxLines="2"
+            android:minLines="2"
+            android:paddingLeft="@dimen/dp4"
+            android:paddingRight="@dimen/dp4"
+            android:text="xxxx"
+            android:textColor="@color/font_normal"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintTop_toBottomOf="@id/iv_video_preview"/>
+
+        <TextView
+            android:id="@+id/tv_video_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="@dimen/dp3"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxEms="8"
+            android:paddingLeft="@dimen/dp4"
+            android:paddingRight="@dimen/dp4"
+            android:text="xxxx"
+            android:textColor="@color/black_alpha_45"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintTop_toBottomOf="@+id/tv_video_title"/>
+
+        <ImageView
+            android:id="@+id/iv_view_menu"
+            android:layout_width="@dimen/dp14"
+            android:layout_height="@dimen/dp14"
+            android:layout_marginRight="@dimen/dp2"
+            android:paddingBottom="@dimen/dp2"
+            android:src="@drawable/ic_promo_index_more_v2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

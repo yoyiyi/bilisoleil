@@ -2,14 +2,16 @@ package com.yoyiyi.soleil.module.home;
 
 import android.support.v7.widget.GridLayoutManager;
 
+import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.home.RecommendAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
+import com.yoyiyi.soleil.bean.recommend.MulRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.mvp.contract.home.RecommendContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RecommendPresenter;
-import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
+import com.yoyiyi.soleil.utils.EmptyUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,11 +20,10 @@ import java.util.List;
  * 描述:推荐
  */
 
-public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, Recommend>
+public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, MulRecommend>
         implements RecommendContract.View {
 
-    private List<Recommend.BannerItemBean> mBannerItemBeanList = new ArrayList<>();
-    private SectionedRVAdapter mSectionedAdapter;
+    RecommendAdapter mAdapter;
 
     public static RecommendFragment newInstance() {
         return new RecommendFragment();
@@ -43,40 +44,32 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, R
         mPresenter.getRecommendData();
     }
 
-    @Override
-    protected void clear() {
-        mBannerItemBeanList.clear();
-    }
 
     @Override
     protected void initRecyclerView() {
-        mSectionedAdapter = new SectionedRVAdapter();
+        mAdapter = new RecommendAdapter(mList);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
-        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                switch (mSectionedAdapter.getSectionItemViewType(position)) {
-                    case SectionedRVAdapter.VIEW_TYPE_HEADER:
-                        return 2;//2格
-                    case SectionedRVAdapter.VIEW_TYPE_FOOTER:
-                        return 2;//2格
-                    default:
-                        return 1;
-                }
-            }
-        });
+        mAdapter.setSpanSizeLookup((gridLayoutManager, i) -> mList.get(i).spanSize);
         mRecycler.setLayoutManager(mLayoutManager);
-        mRecycler.setAdapter(mSectionedAdapter);
+        mRecycler.setAdapter(mAdapter);
     }
-
 
     @Override
     public void showRecommend(List<Recommend> recommend) {
-        if (recommend.get(0).banner_item != null) {
-            mBannerItemBeanList.addAll(recommend.get(0).banner_item);
-            mList.addAll(recommend.subList(1, recommend.size() - 1));
-        } else {
-            mList.addAll(recommend);
-        }
+        Stream.of(recommend)
+                .forEach(recommendBean -> {
+                    if (EmptyUtils.isNotEmpty(recommendBean.banner_item)) {
+                        mList.add(new MulRecommend(MulRecommend.TYPR_HEADER, MulRecommend.HEADER_SPAN_SIZE, recommendBean.banner_item));
+                    } else {
+                        mList.add(new MulRecommend(MulRecommend.TYPE_ITEM, MulRecommend.ITEM_SPAN_SIZE, recommendBean));
+                    }
+                });
+        finishTask();
     }
+
+    @Override
+    protected void finishTask() {
+        mAdapter.notifyDataSetChanged();
+    }
+
 }

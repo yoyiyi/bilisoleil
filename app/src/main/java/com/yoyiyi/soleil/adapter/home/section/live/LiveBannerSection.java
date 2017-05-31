@@ -42,7 +42,7 @@ public class LiveBannerSection extends StatelessSection {
                 .start();
     }
 
-    class GlideImageLoader extends ImageLoader {
+    static class GlideImageLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
             Glide.with(context)

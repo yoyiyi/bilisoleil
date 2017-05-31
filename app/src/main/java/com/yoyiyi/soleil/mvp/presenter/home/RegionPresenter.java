@@ -12,11 +12,8 @@ import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
-import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.FileUtils;
-import com.yoyiyi.soleil.utils.IOUtils;
+import com.yoyiyi.soleil.utils.JsonUtils;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +36,7 @@ public class RegionPresenter extends RxPresenter<RegionContract.View> implements
 
     @Override
     public void getRegionData() {
-        BaseListSubscriber<Region> subscriber = Flowable.just(readJson())
+        BaseListSubscriber<Region> subscriber = Flowable.just(JsonUtils.readJson("region.json"))
                 .flatMap(string -> {
                     Gson gson = new Gson();
                     JsonObject object = new JsonParser().parse(string).getAsJsonObject();
@@ -61,13 +58,4 @@ public class RegionPresenter extends RxPresenter<RegionContract.View> implements
         addSubscribe(subscriber);
     }
 
-    /**
-     * 读取本地Json数据
-     */
-    private String readJson() {
-        InputStream inputStream = FileUtils.openAssetFile(AppUtils.getAppContext(), "region.json");
-        String jsonStr = IOUtils.streamToString(inputStream);
-        return jsonStr;
-
-    }
 }

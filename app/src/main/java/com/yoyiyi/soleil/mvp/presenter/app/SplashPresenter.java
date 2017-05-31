@@ -18,7 +18,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/23 9:44
- * 描述:
+ * 描述:启动界面Presenter
  */
 
 public class SplashPresenter extends RxPresenter<SplashContract.View> implements SplashContract.Presenter<SplashContract.View> {
