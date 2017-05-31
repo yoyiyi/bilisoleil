@@ -64,7 +64,7 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_region, menu);
+        getMenuInflater().inflate(R.menu.menu_region  , menu);
         return true;
     }
 

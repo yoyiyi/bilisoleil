@@ -1,19 +1,22 @@
 package com.yoyiyi.soleil.module.home;
 
+import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.base.BaseRefreshFragment;
-import com.yoyiyi.soleil.bean.live.LivePartition;
-import com.yoyiyi.soleil.bean.live.LiveRecommend;
-import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
-import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveBannerSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveEntranceSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveRecommendBannerSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveRecommendPartitionSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveRecommendSection;
+import com.yoyiyi.soleil.adapter.home.section.live.SectionedRVLiveDividerAdapter;
+import com.yoyiyi.soleil.base.BaseRefreshFragment;
+import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.bean.live.LiveRecommend;
+import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
+import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter;
+import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -27,7 +30,7 @@ import java.util.List;
 
 public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecommend.RecommendDataBean.LivesBean> implements LiveContract.View {
 
-    private SectionedRVAdapter mSectionedAdapter;
+    private SectionedRVLiveDividerAdapter mSectionedAdapter;
     private List<LivePartition.BannerBean> mBannerList = new ArrayList<>();//轮播条
     private List<LiveRecommend.RecommendDataBean.BannerDataBean> mBannerRecommendList = new ArrayList<>();//推荐
     private List<LivePartition.PartitionsBean> mPartitionsBeanList = new ArrayList<>();//推荐直播
@@ -40,7 +43,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_home_recommend;
+        return R.layout.fragment_home_live;
     }
 
     @Override
@@ -55,8 +58,10 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
 
     @Override
     protected void initRecyclerView() {
-        mSectionedAdapter = new SectionedRVAdapter();
+
+        mSectionedAdapter = new SectionedRVLiveDividerAdapter();
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
@@ -72,6 +77,14 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
+        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
+                //.color(AppUtils.getColor(android.R.color.transparent))
+                .color(Color.RED)
+                .sizeResId(R.dimen.dp10)
+                .showLastDivider()
+                .visibilityProvider(mSectionedAdapter)
+                .build();
+        mRecycler.addItemDecoration(build);
     }
 
 

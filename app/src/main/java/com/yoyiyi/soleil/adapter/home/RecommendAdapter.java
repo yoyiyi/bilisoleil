@@ -29,7 +29,7 @@ import java.util.List;
 public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, BaseViewHolder> {
     public RecommendAdapter(List<MulRecommend> data) {
         super(data);
-        addItemType(MulRecommend.TYPR_HEADER, R.layout.layout_banner);
+        addItemType(MulRecommend.TYPR_HEADER, R.layout.layout_recommend_banner);
         addItemType(MulRecommend.TYPE_ITEM, R.layout.layout_item_home_recommend_body);
     }
 

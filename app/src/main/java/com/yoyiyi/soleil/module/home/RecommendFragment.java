@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module.home;
 
+import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.annimon.stream.Stream;
@@ -11,6 +12,7 @@ import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.mvp.contract.home.RecommendContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RecommendPresenter;
 import com.yoyiyi.soleil.utils.EmptyUtils;
+import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 
 import java.util.List;
 
@@ -52,6 +54,13 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, M
         mAdapter.setSpanSizeLookup((gridLayoutManager, i) -> mList.get(i).spanSize);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mAdapter);
+        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
+                //.color(AppUtils.getColor(android.R.color.transparent))
+                .color(Color.RED)
+                .sizeResId(R.dimen.dp10)
+                .showLastDivider()
+                .build();
+        mRecycler.addItemDecoration(build);
     }
 
     @Override

@@ -37,7 +37,7 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_home_recommend;
+        return R.layout.fragment_home_live;
     }
 
     @Override
