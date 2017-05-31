@@ -115,7 +115,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
     @Override
     public void showError(String msg) {
         //设置默认图片
-        mIvSplash.setImageResource(R.mipmap.ic_default_bg);
+      //  mIvSplash.setImageResource(R.mipmap.ic_default_bg);
     }
 
 
