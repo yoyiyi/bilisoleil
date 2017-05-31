@@ -88,6 +88,12 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     }
 
+    @Override
+    protected void onDestroy() {
+        if (mPresenter != null) mPresenter.detachView();
+        super.onDestroy();
+    }
+
     private void loadData() {
         mPresenter.getSplashData();
         mPresenter.setCountDown();
@@ -115,15 +121,9 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
     @Override
     public void showError(String msg) {
         //设置默认图片
-      //  mIvSplash.setImageResource(R.mipmap.ic_default_bg);
+        mIvSplash.setImageResource(R.mipmap.ic_default_bg);
     }
 
-
-    @Override
-    protected void onDestroy() {
-        if (mPresenter != null) mPresenter.detachView();
-        super.onDestroy();
-    }
 
     @Override
     public void complete() {
