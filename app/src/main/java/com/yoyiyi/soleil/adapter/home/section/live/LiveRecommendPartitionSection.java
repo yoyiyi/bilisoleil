@@ -8,11 +8,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LivePartition;
-import com.yoyiyi.soleil.widget.section.StatelessSection;
-import com.yoyiyi.soleil.widget.section.ViewHolder;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.ToastUtils;
+import com.yoyiyi.soleil.widget.section.StatelessSection;
+import com.yoyiyi.soleil.widget.section.ViewHolder;
 
 import java.util.List;
 import java.util.Random;
@@ -60,6 +61,11 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .append("个直播")
                 .create();
         holder.setText(R.id.tv_online, builder);
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
+
 
     }
 
@@ -78,6 +84,16 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         holder.setText(R.id.tv_video_title, livesBean.title);
 
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
+        int position = holder.getAdapterPosition();
+        if (position % 2 == 0) {
+            holder.setVisible(R.id.space, false);
+        } else {
+            holder.setVisible(R.id.space, true);
+        }
     }
 
     @Override
@@ -99,5 +115,9 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                         .rotation(360)
                         .setInterpolator(new LinearInterpolator())
                         .setDuration(1000).start());
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
     }
 }

@@ -12,12 +12,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
-import com.yoyiyi.soleil.widget.section.StatelessSection;
-import com.yoyiyi.soleil.widget.section.ViewHolder;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.utils.image.ImageLoader;
+import com.yoyiyi.soleil.widget.section.StatelessSection;
+import com.yoyiyi.soleil.widget.section.ViewHolder;
 
 import java.util.List;
 import java.util.Random;
@@ -93,6 +94,11 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(0, 0);
             holder.itemView.setLayoutParams(params);
         }
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
+
     }
 
     @Override
@@ -106,7 +112,15 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                 .append(livesBean.title);
         holder.setText(R.id.tv_video_title, builder.create());
-
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+        });
+        int position = holder.getAdapterPosition();
+        if (position % 2 == 0) {
+            holder.setVisible(R.id.space, false);
+        } else {
+            holder.setVisible(R.id.space, true);
+        }
     }
 
     @Override
@@ -128,5 +142,9 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, 0);
             holder.itemView.setLayoutParams(params);
         }
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
     }
 }

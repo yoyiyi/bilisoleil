@@ -48,8 +48,6 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
-        /*ImageLoader.load(mContext, bodyBean.cover, R.drawable.bili_default_image_tv,
-                holder.getView(R.id.iv_video_preview));*/
         holder.setText(R.id.tv_video_title, bodyBean.title);
         holder.setText(R.id.tv_video_play_num, NumberUtils.format(bodyBean.play + ""));
         if (TextUtils.equals("番剧区", mTitle)) {
@@ -60,6 +58,12 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
             holder.setVisible(R.id.iv_video_online_region, true)
                     .setVisible(R.id.iv_video_online, false)
                     .setText(R.id.tv_video_favourite, NumberUtils.format(bodyBean.danmaku + ""));
+        }
+        int position = holder.getAdapterPosition();
+        if (position % 2 == 0) {
+            holder.setVisible(R.id.space, false);
+        } else {
+            holder.setVisible(R.id.space, true);
         }
     }
 

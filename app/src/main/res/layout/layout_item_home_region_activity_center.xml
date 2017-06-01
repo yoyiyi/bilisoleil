@@ -6,5 +6,11 @@
 
     <include layout="@layout/layout_item_home_region_head"/>
 
-    <include layout="@layout/common_recycler"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp10">
+
+        <include layout="@layout/common_recycler"/>
+    </FrameLayout>
 </LinearLayout>

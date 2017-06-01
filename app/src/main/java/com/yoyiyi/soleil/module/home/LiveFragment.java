@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.annimon.stream.Stream;
@@ -10,7 +9,6 @@ import com.yoyiyi.soleil.adapter.home.section.live.LiveEntranceSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveRecommendBannerSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveRecommendPartitionSection;
 import com.yoyiyi.soleil.adapter.home.section.live.LiveRecommendSection;
-import com.yoyiyi.soleil.adapter.home.section.live.SectionedRVLiveDividerAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
@@ -30,7 +28,7 @@ import java.util.List;
 
 public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecommend.RecommendDataBean.LivesBean> implements LiveContract.View {
 
-    private SectionedRVLiveDividerAdapter mSectionedAdapter;
+    private SectionedRVAdapter mSectionedAdapter;
     private List<LivePartition.BannerBean> mBannerList = new ArrayList<>();//轮播条
     private List<LiveRecommend.RecommendDataBean.BannerDataBean> mBannerRecommendList = new ArrayList<>();//推荐
     private List<LivePartition.PartitionsBean> mPartitionsBeanList = new ArrayList<>();//推荐直播
@@ -59,9 +57,8 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
     @Override
     protected void initRecyclerView() {
 
-        mSectionedAdapter = new SectionedRVLiveDividerAdapter();
+        mSectionedAdapter = new SectionedRVAdapter();
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
-
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
@@ -77,12 +74,18 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
+        //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                //.color(AppUtils.getColor(android.R.color.transparent))
-                .color(Color.RED)
+                .color(android.R.color.transparent)
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
-                .visibilityProvider(mSectionedAdapter)
+                .visibilityProvider((position, parent) -> {
+                    if (position < 4) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
                 .build();
         mRecycler.addItemDecoration(build);
     }

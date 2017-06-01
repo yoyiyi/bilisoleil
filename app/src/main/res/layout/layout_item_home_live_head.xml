@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp5"
-    android:paddingEnd="@dimen/dp10"
-    android:paddingStart="@dimen/dp10"
+    android:paddingLeft="@dimen/dp10"
     android:paddingTop="@dimen/dp6">
 
     <android.support.constraint.ConstraintLayout

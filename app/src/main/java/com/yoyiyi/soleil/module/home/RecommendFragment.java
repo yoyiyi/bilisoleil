@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.annimon.stream.Stream;
@@ -55,8 +54,7 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, M
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mAdapter);
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                //.color(AppUtils.getColor(android.R.color.transparent))
-                .color(Color.RED)
+                .color(android.R.color.transparent)
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .build();

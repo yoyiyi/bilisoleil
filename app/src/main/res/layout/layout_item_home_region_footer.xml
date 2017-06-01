@@ -5,7 +5,9 @@
     android:id="@+id/cl_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dp10">
+    android:paddingBottom="@dimen/dp10"
+    android:paddingLeft="@dimen/dp10"
+    android:paddingTop="@dimen/dp10">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_more_root"

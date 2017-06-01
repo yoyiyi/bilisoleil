@@ -4,8 +4,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.live.support.LiveEnter;
 import com.yoyiyi.soleil.adapter.home.LiveEntranceAdapter;
+import com.yoyiyi.soleil.bean.live.support.LiveEnter;
+import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -43,6 +44,10 @@ public class LiveEntranceSection extends StatelessSection {
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 5);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new LiveEntranceAdapter(mList));
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
     }
 
 

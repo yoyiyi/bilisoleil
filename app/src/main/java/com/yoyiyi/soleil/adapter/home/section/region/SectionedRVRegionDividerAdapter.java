@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.adapter.home.section.live;
+package com.yoyiyi.soleil.adapter.home.section.region;
 
 import android.support.v7.widget.RecyclerView;
 
@@ -10,16 +10,13 @@ import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
  * @date 创建时间：2017/5/31 23:36
  * 描述:
  */
-public class SectionedRVLiveDividerAdapter extends SectionedRVAdapter implements FlexibleDividerDecoration.VisibilityProvider {
+public class SectionedRVRegionDividerAdapter extends SectionedRVAdapter implements FlexibleDividerDecoration.VisibilityProvider {
 
 
-    public SectionedRVLiveDividerAdapter() {
-
-    }
 
     @Override
     public boolean shouldHideDivider(int position, RecyclerView parent) {
-        if (position < 4) {
+        if (position < 2) {
             return true;
         } else {
             return false;

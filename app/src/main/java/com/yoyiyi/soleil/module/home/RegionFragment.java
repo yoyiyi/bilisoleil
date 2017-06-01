@@ -4,15 +4,16 @@ import android.support.v7.widget.GridLayoutManager;
 
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.home.section.region.RegionActivityCenterSection;
+import com.yoyiyi.soleil.adapter.home.section.region.RegionEntranceSection;
+import com.yoyiyi.soleil.adapter.home.section.region.RegionSection;
+import com.yoyiyi.soleil.adapter.home.section.region.RegionTopicSection;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RegionPresenter;
-import com.yoyiyi.soleil.adapter.home.section.region.RegionActivityCenterSection;
-import com.yoyiyi.soleil.adapter.home.section.region.RegionEntranceSection;
-import com.yoyiyi.soleil.adapter.home.section.region.RegionSection;
-import com.yoyiyi.soleil.adapter.home.section.region.RegionTopicSection;
+import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -56,6 +57,18 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
+        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
+                .color(R.color.transparent)
+                .sizeResId(R.dimen.dp10)
+                .showLastDivider()
+                .visibilityProvider((position, parent) -> {
+                    if (position < 2)
+                        return true;
+                    else
+                        return false;
+                })
+                .build();
+        mRecycler.addItemDecoration(build);
     }
 
     @Override

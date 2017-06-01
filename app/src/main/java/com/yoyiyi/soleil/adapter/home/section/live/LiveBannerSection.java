@@ -40,6 +40,7 @@ public class LiveBannerSection extends StatelessSection {
                 .setImages(urls)
                 .setImageLoader(new GlideImageLoader())
                 .start();
+
     }
 
     static class GlideImageLoader extends ImageLoader {

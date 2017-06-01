@@ -8,10 +8,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
-import com.yoyiyi.soleil.widget.section.StatelessSection;
-import com.yoyiyi.soleil.widget.section.ViewHolder;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.ToastUtils;
+import com.yoyiyi.soleil.widget.section.StatelessSection;
+import com.yoyiyi.soleil.widget.section.ViewHolder;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -35,9 +36,6 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
-
-       /* ImageLoader.load(mContext, mData.cover.src, R.drawable.bili_default_image_tv,
-                holder.getView(R.id.iv_video_preview));*/
         holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(mData.owner.name) ? "未知" : mData.owner.name)//up
                 .setText(R.id.tv_video_online, mData.online + "");//在线人数;
         SpannableStringBuilder builder = new SpannableStringUtils.Builder()
@@ -46,6 +44,10 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                 .create();
         holder.setText(R.id.tv_video_title, builder);
+        holder.itemView.setOnClickListener(v -> {
+            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
+
+        });
     }
 
 }

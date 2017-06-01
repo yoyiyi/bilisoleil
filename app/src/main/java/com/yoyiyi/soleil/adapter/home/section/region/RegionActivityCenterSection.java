@@ -4,8 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.adapter.home.RegionActivityCenterAdapter;
+import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -35,10 +35,14 @@ public class RegionActivityCenterSection extends StatelessSection {
         recyclerView.setNestedScrollingEnabled(false);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
                 StaggeredGridLayoutManager.HORIZONTAL);
-        /*LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,
-                false);*/
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
+       /* VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
+                .color(R.color.transparent)
+                // .color(Color.RED)
+                .sizeResId(R.dimen.dp10)
+                .build();
+        recyclerView.addItemDecoration(build);*/
         recyclerView.setAdapter(new RegionActivityCenterAdapter(mList));
-
     }
 }
