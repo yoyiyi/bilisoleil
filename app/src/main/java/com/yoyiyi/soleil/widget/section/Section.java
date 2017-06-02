@@ -235,8 +235,10 @@ public abstract class Section<T> {
                 onBindLoadingViewHolder(holder);
                 break;
             case LOADED:
-                if (mList != null)
+                if (mList != null) {
                     onBindItemViewHolder(holder, mList.get(position));
+                    convert(holder, mList.get(position), position);
+                }
                 break;
             case FAILED:
                 onBindFailedViewHolder(holder);
@@ -334,6 +336,17 @@ public abstract class Section<T> {
     }
 
     public void onBindItemViewHolder(ViewHolder holder, T t) {
+
+    }
+
+    /**
+     * 分割
+     *
+     * @param holder
+     * @param t
+     * @param position
+     */
+    public void convert(ViewHolder holder, T t, int position) {
 
     }
 

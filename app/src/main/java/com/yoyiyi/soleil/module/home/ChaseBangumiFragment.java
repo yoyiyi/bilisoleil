@@ -1,25 +1,27 @@
 package com.yoyiyi.soleil.module.home;
 
+import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.base.BaseRefreshFragment;
-import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
-import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
-import com.yoyiyi.soleil.mvp.contract.home.ChaseBangumiContract;
-import com.yoyiyi.soleil.mvp.presenter.home.ChaseBangumiPresenter;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseAdSection;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseFollowSection;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseIndexSection;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseRecommendCNSection;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseRecommendJPSection;
-import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
+import com.yoyiyi.soleil.base.BaseRefreshFragment;
+import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
+import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
+import com.yoyiyi.soleil.mvp.contract.home.ChaseBangumiContract;
+import com.yoyiyi.soleil.mvp.presenter.home.ChaseBangumiPresenter;
 import com.yoyiyi.soleil.utils.EmptyUtils;
+import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
+import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/23 14:23
- * 描述:推荐
+ * 描述:首页追番
  */
 
 public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresenter, ChaseBangumi.FollowsBean>
@@ -74,6 +76,21 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
+        //添加分割线
+        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
+                //.color(R.color.transparent)
+                .color(Color.RED)
+                .sizeResId(R.dimen.dp10)
+                .showLastDivider()
+                .visibilityProvider((position, parent) -> {
+                    if (position < 2) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
+                .build();
+        mRecycler.addItemDecoration(build);
     }
 
     @Override

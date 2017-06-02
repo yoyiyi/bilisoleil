@@ -7,10 +7,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
-import com.yoyiyi.soleil.widget.section.StatelessSection;
-import com.yoyiyi.soleil.widget.section.ViewHolder;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.widget.section.StatelessSection;
+import com.yoyiyi.soleil.widget.section.ViewHolder;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class ChaseFollowSection extends StatelessSection<ChaseBangumi.FollowsBea
 
 
     @Override
-    public void onBindItemViewHolder(ViewHolder holder, ChaseBangumi.FollowsBean followsBean) {
+    public void convert(ViewHolder holder, ChaseBangumi.FollowsBean followsBean, int position) {
         Glide.with(mContext)
                 .load(followsBean.cover)
                 .centerCrop()
@@ -55,14 +55,16 @@ public class ChaseFollowSection extends StatelessSection<ChaseBangumi.FollowsBea
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_title, followsBean.title);//
-
         SpannableStringBuilder builder = new SpannableStringUtils.Builder()
                 .append("更新至第 " + followsBean.new_ep.index + " 话")
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color)).create();
         holder.setText(R.id.tv_video_update, builder);
         holder.setText(R.id.tv_video_state, "尚未观看");
-
-
+        if (position == 0) {
+            holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, true);
+        }
     }
 
 

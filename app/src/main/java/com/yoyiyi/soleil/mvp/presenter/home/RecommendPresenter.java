@@ -44,26 +44,6 @@ public class RecommendPresenter extends RxPresenter<RecommendContract.View> impl
                     }
                 });
         addSubscribe(subscriber);*/
-        /*BaseListSubscriber<Region> subscriber = Flowable.just(readJson())
-                .flatMap(string -> {
-                    Gson gson = new Gson();
-                    JsonObject object = new JsonParser().parse(string).getAsJsonObject();
-                    JsonArray array = object.getAsJsonArray("data");
-                    List<RegionType> regionTypes = new ArrayList<>();
-                    for (JsonElement jsonElement : array) {
-                        regionTypes.add(gson.fromJson(jsonElement, RegionType.class));
-                    }
-                    mView.showRegionType(regionTypes);
-                    return mRetrofitHelper.getRegion();
-                })
-                .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseListSubscriber<Region>(mView) {
-                    @Override
-                    public void onSuccess(List<Region> regions) {
-                        mView.showRegion(regions);
-                    }
-                });
-        addSubscribe(subscriber);*/
 
         BaseSubscriber<List<Recommend>> subscriber = Flowable.just(JsonUtils.readJson("recommend.json"))
                 .map(string -> {

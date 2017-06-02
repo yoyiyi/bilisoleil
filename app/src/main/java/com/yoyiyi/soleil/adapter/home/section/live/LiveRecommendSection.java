@@ -102,7 +102,7 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
     }
 
     @Override
-    public void onBindItemViewHolder(ViewHolder holder, LiveRecommend.RecommendDataBean.LivesBean livesBean) {
+    public void convert(ViewHolder holder, LiveRecommend.RecommendDataBean.LivesBean livesBean,int position) {
         ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
                 holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
@@ -115,7 +115,6 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
         holder.itemView.setOnClickListener(v -> {
             ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
         });
-        int position = holder.getAdapterPosition();
         if (position % 2 == 0) {
             holder.setVisible(R.id.space, false);
         } else {

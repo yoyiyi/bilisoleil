@@ -70,7 +70,7 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
     }
 
     @Override
-    public void onBindItemViewHolder(ViewHolder holder, LivePartition.PartitionsBean.LivesBean livesBean) {
+    public void convert(ViewHolder holder, LivePartition.PartitionsBean.LivesBean livesBean, int position) {
         Glide.with(mContext)
                 .load(livesBean.cover.src)
                 .centerCrop()
@@ -78,17 +78,10 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
-       /* ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
-                holder.getView(R.id.iv_video_preview));*/
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         holder.setText(R.id.tv_video_title, livesBean.title);
 
-        holder.itemView.setOnClickListener(v -> {
-            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
-
-        });
-        int position = holder.getAdapterPosition();
         if (position % 2 == 0) {
             holder.setVisible(R.id.space, false);
         } else {

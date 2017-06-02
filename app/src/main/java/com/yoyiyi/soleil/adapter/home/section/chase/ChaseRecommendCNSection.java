@@ -6,9 +6,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
+import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
-import com.yoyiyi.soleil.utils.NumberUtils;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class ChaseRecommendCNSection extends StatelessSection<RecommendBangumi.R
     }
 
     @Override
-    public void onBindItemViewHolder(ViewHolder holder, RecommendBangumi.RecommendCnBean.RecommendBean recommendBean) {
+    public void convert(ViewHolder holder, RecommendBangumi.RecommendCnBean.RecommendBean recommendBean, int position) {
         Glide.with(mContext)
                 .load(recommendBean.cover)
                 .centerCrop()
@@ -46,7 +46,13 @@ public class ChaseRecommendCNSection extends StatelessSection<RecommendBangumi.R
         holder.setText(R.id.tv_video_follow, NumberUtils.format(recommendBean.favourites) + "人追番")
                 .setText(R.id.tv_video_title, recommendBean.title)
                 .setText(R.id.tv_video_update, "更新至第" + recommendBean.newest_ep_index + "话")
-                .setVisible(R.id.tv_video_state,false);
+                .setVisible(R.id.tv_video_state, false);
+        if (position == 0) {
+            holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, false);
+        }
+
     }
 
     @Override
