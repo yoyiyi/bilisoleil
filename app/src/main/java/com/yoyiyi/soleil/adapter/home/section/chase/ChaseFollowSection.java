@@ -63,7 +63,7 @@ public class ChaseFollowSection extends StatelessSection<ChaseBangumi.FollowsBea
         if (position == 0) {
             holder.setVisible(R.id.space, true);
         } else {
-            holder.setVisible(R.id.space, true);
+            holder.setVisible(R.id.space, false);
         }
     }
 

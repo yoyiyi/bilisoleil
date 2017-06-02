@@ -58,7 +58,7 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(R.color.transparent)
+                .color(android.R.color.transparent)
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {

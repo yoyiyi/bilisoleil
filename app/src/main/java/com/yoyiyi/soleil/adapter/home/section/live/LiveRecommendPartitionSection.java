@@ -61,10 +61,6 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .append("个直播")
                 .create();
         holder.setText(R.id.tv_online, builder);
-        holder.itemView.setOnClickListener(v -> {
-            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
-
-        });
 
 
     }

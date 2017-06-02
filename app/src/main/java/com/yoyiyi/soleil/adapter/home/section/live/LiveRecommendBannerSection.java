@@ -10,7 +10,6 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
-import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -44,10 +43,7 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                 .create();
         holder.setText(R.id.tv_video_title, builder);
-        holder.itemView.setOnClickListener(v -> {
-            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
 
-        });
     }
 
 }

@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.yoyiyi.soleil.R;
@@ -78,8 +77,7 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
         mRecycler.setAdapter(mSectionedAdapter);
         //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                //.color(R.color.transparent)
-                .color(Color.RED)
+                .color(android.R.color.transparent)
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {
