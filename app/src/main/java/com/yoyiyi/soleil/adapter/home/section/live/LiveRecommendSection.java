@@ -112,13 +112,10 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                 .append(livesBean.title);
         holder.setText(R.id.tv_video_title, builder.create());
-        holder.itemView.setOnClickListener(v -> {
-            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
-        });
         if (position % 2 == 0) {
-            holder.setVisible(R.id.space, false);
-        } else {
             holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, false);
         }
     }
 

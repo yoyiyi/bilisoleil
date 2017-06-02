@@ -11,7 +11,6 @@ import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
-import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -77,11 +76,10 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         holder.setText(R.id.tv_video_title, livesBean.title);
-
         if (position % 2 == 0) {
-            holder.setVisible(R.id.space, false);
-        } else {
             holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, false);
         }
     }
 
@@ -89,7 +87,6 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
     public void onBindFooterViewHolder(ViewHolder holder) {
         if (mhasMore) {
             holder.setVisible(R.id.bt_more_live, true);
-
         } else {
             holder.setVisible(R.id.bt_more_live, false);
             holder.getView(R.id.bt_more_live).setOnClickListener(view -> {
@@ -97,16 +94,11 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
             });
 
         }
-
         holder.setText(R.id.tv_dynamic, String.valueOf(mRandom.nextInt(200) + "条新动态，点击这里刷新"));
         holder.getView(R.id.iv_refresh).setOnClickListener(view ->
                 view.animate()
                         .rotation(360)
                         .setInterpolator(new LinearInterpolator())
                         .setDuration(1000).start());
-        holder.itemView.setOnClickListener(v -> {
-            ToastUtils.showSingleLongToast(holder.getAdapterPosition() + "");
-
-        });
     }
 }
