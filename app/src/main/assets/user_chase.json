@@ -1,0 +1,106 @@
+{"code": 0,
+  "message": "success",
+  "result": {
+    "delay_notice": [],
+    "follow_count": 8,
+    "follows": [
+      {
+        "brief": "神秘瑰丽的妖灵世界，奇奥无穷的时空妖灵之书，聂离追寻着世界的真相。美丽温柔的叶紫芸、倔强高傲的肖凝儿...",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/c57c4f3a68a3df841cbbb534c407081b431ef2f7.jpg",
+        "ed_jump": 5,
+        "is_finish": "0",
+        "is_started": 1,
+        "limitGroupId": 317,
+        "new_ep": {
+          "episode_id": "107005",
+          "episode_status": 2,
+          "index": "7",
+          "update_time": "2017-05-30 12:00:00.0"
+        },
+        "newest_ep_id": "107005",
+        "newest_ep_index": "7",
+        "pub_time": "2017-05-09 12:00:00",
+        "season_id": "6159",
+        "season_status": 2,
+        "squareCover": "http://i0.hdslb.com/bfs/bangumi/427394ad2c27c23d90acd1b63fa17dde110fd24a.jpg",
+        "title": "妖神记",
+        "total_count": "40",
+        "trailerAid": "-1",
+        "user_season": {
+          "attention": "1",
+          "bp": 0,
+          "last_ep_id": "105246",
+          "last_ep_index": "1",
+          "last_time": "44",
+          "report_ts": 1495900198000
+        },
+        "weekday": "-1"
+      },
+      {
+        "brief": "总北高中自行车竞技部所属的一年级生·小野田坂道，与同年级的今泉俊辅和鸣子章吉、三年级的金城真护、卷岛...",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/afcd8b966344aa3e085b19a955c5e721020d6ce1.jpg",
+        "ed_jump": 5,
+        "is_finish": "0",
+        "is_started": 1,
+        "limitGroupId": 317,
+        "new_ep": {
+          "episode_id": "100449",
+          "episode_status": 2,
+          "index": "21",
+          "update_time": "2017-05-30 09:00:02.0"
+        },
+        "newest_ep_id": "100449",
+        "newest_ep_index": "21",
+        "pub_time": "2017-01-10 01:35:00",
+        "season_id": "5794",
+        "season_status": 2,
+        "squareCover": "http://i0.hdslb.com/bfs/bangumi/b5a5f41250f4f1b114b478e80053401ee964be1a.jpg",
+        "title": "飙速宅男 新世代",
+        "total_count": "13",
+        "trailerAid": "7325921",
+        "user_season": {
+          "attention": "1",
+          "bp": 0,
+          "last_ep_id": "",
+          "last_ep_index": "",
+          "last_time": "0",
+          "report_ts": 0
+        },
+        "weekday": "2"
+      },
+      {
+        "brief": "某日早晨，普通的女子高校生・源内青收到一个神秘包裹。打开后发现里面放了名为FRAME ARMS G...",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/2aca983b744cc949e2c3346a876f9f611be9352a.jpg",
+        "ed_jump": 5,
+        "is_finish": "0",
+        "is_started": 1,
+        "limitGroupId": 317,
+        "new_ep": {
+          "episode_id": "103195",
+          "episode_status": 2,
+          "index": "9",
+          "update_time": "2017-05-30 01:30:00.0"
+        },
+        "newest_ep_id": "103195",
+        "newest_ep_index": "9",
+        "pub_time": "2017-04-04 01:30:00",
+        "season_id": "5994",
+        "season_status": 2,
+        "squareCover": "http://i0.hdslb.com/bfs/bangumi/e7ad94b23f3060bfa0018115478785ca5f37f234.jpg",
+        "title": "机甲少女 FRAME ARMS GIRL",
+        "total_count": "12",
+        "trailerAid": "-1",
+        "user_season": {
+          "attention": "1",
+          "bp": 0,
+          "last_ep_id": "",
+          "last_ep_index": "",
+          "last_time": "0",
+          "report_ts": 0
+        },
+        "weekday": "2"
+      }
+    ],
+    "update_count": 0
+  }
+}

@@ -1,0 +1,127 @@
+{"code": 0,
+  "message": "success",
+  "result": {
+    "ad": [],
+    "recommend_cn": {
+      "foot": [
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/cdd184ce6e51aefd7055103d54753fd63d47e061.jpg",
+          "cursor": 1496246400706,
+          "desc": "叶峰要玩自己的音乐，楚天歌想让麦云洁另眼相看，盖世爱要出风头，石小松要当一流鼓手，四个男孩组成了乐队，感受到青春与音乐的魅力。",
+          "id": 5046,
+          "is_new": 1,
+          "link": "http://bangumi.bilibili.com/anime/2169",
+          "onDt": "2017-06-01 00:00:00",
+          "title": "六一快乐•童年的《我为歌狂》"
+        }
+      ],
+      "recommend": [
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/186560d36c229efd888ef959f796d58abd2fd685.jpg",
+          "favourites": "18056",
+          "is_auto": 0,
+          "is_finish": 0,
+          "is_started": 1,
+          "last_time": 1496318400,
+          "newest_ep_index": "41",
+          "pub_time": 1469116800,
+          "season_id": 6052,
+          "season_status": 2,
+          "title": "叫我僵小鱼 日常篇",
+          "total_count": -1,
+          "watching_count": 0
+        },
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/6e87284e07edb2a7bb0fbe6bd2af0e4601a13f7b.jpg",
+          "favourites": "12383",
+          "is_auto": 0,
+          "is_finish": 0,
+          "is_started": 1,
+          "last_time": 1496304000,
+          "newest_ep_index": "2",
+          "pub_time": 1495641600,
+          "season_id": 6187,
+          "season_status": 2,
+          "title": "盗墓笔记之沙海 第二季",
+          "total_count": -1,
+          "watching_count": 0
+        },
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/6bf4ed92c56f6d9cb51d8e88f8eb8c599476b47b.jpg",
+          "favourites": "20689",
+          "is_auto": 0,
+          "is_finish": 0,
+          "is_started": 1,
+          "last_time": 1496282400,
+          "newest_ep_index": "23",
+          "pub_time": 1482940800,
+          "season_id": 6022,
+          "season_status": 2,
+          "title": "菊叔5岁画",
+          "total_count": -1,
+          "watching_count": 0
+        }
+      ]
+    },
+    "recommend_jp": {
+      "foot": [
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/f57423fba6a308193cd4bf252c41b10ba9c91b62.jpg",
+          "cursor": 1496102400307,
+          "desc": "房东是个可爱的高中生！",
+          "id": 4850,
+          "link": "http://bangumi.bilibili.com/anime/3116",
+          "onDt": "2017-05-30 08:00:00",
+          "title": "【泡面档】房东妹子青春期！"
+        }
+      ],
+      "recommend": [
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/8aa87787edd29b84c4091e8e483ae48422b7bbd0.jpg",
+          "favourites": "926481",
+          "is_auto": 0,
+          "is_finish": 0,
+          "is_started": 1,
+          "last_time": 1496365202,
+          "newest_ep_index": "9",
+          "pub_time": 1491494400,
+          "season_id": 5996,
+          "season_status": 2,
+          "title": "恋爱暴君",
+          "total_count": 12,
+          "watching_count": 0
+        },
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/6fccd08f6f747343c2d3bbcd54e4912a9fa51418.jpg",
+          "favourites": "156031",
+          "is_auto": 0,
+          "is_finish": 0,
+          "is_started": 1,
+          "last_time": 1496341680,
+          "newest_ep_index": "9",
+          "pub_time": 1491494400,
+          "season_id": 5991,
+          "season_status": 2,
+          "title": "青春歌舞伎",
+          "total_count": 12,
+          "watching_count": 0
+        },
+        {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/5ce66f68d54052e3a305524b9b06a76977e974fc.jpg",
+          "favourites": "688042",
+          "is_auto": 0,
+          "is_finish": 0,
+          "is_started": 1,
+          "last_time": 1496335080,
+          "newest_ep_index": "8",
+          "pub_time": 1491408000,
+          "season_id": 5989,
+          "season_status": 2,
+          "title": "月色真美",
+          "total_count": 12,
+          "watching_count": 0
+        }
+      ]
+    }
+  }
+}
