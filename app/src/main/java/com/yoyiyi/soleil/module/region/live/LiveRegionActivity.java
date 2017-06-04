@@ -1,26 +1,24 @@
 package com.yoyiyi.soleil.module.region.live;
 
-import android.content.Context;
-import android.content.Intent;
-
-import com.annimon.stream.Stream;
-import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.live.LiveEntrance;
-import com.yoyiyi.soleil.mvp.contract.region.live.LiveContract;
-import com.yoyiyi.soleil.mvp.presenter.region.LivePresenter;
 import com.yoyiyi.soleil.module.region.BaseRegionActivity;
-import com.yoyiyi.soleil.module.home.LiveFragment;
-
-import java.util.List;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/30 12:12
  * 描述:直播分区
  */
-public class LiveRegionActivity extends BaseRegionActivity<LivePresenter, LiveEntrance> implements LiveContract.View {
+public class LiveRegionActivity extends BaseRegionActivity/*<LivePresenter, LiveEntrance>*/ /*implements LiveContract.View */{
+   /* @Override
+    public void showLiveEntrance(List<LiveEntrance> liveEntrances) {
 
+    }
+*/
     @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
+  /*  @Override
     protected int getLayoutId() {
         return R.layout.activity_live_region;
     }
@@ -67,6 +65,6 @@ public class LiveRegionActivity extends BaseRegionActivity<LivePresenter, LiveEn
         mList.addAll(liveEntrances);
         finishTask();
     }
-
+*/
 
 }

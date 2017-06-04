@@ -10,7 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.adapter.region.RegionEntranceRecommendAdapter;
+import com.yoyiyi.soleil.adapter.region.RegionRecommendEntranceAdapter;
 import com.yoyiyi.soleil.bean.region.RegionEnter;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -132,7 +132,7 @@ public class RegionRecommendEntranceSection extends StatelessSection {
         recyclerView.setNestedScrollingEnabled(false);
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, mList.size() >= 4 ? 4 : mList.size());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new RegionEntranceRecommendAdapter(mList));
+        recyclerView.setAdapter(new RegionRecommendEntranceAdapter(mList));
     }
 }
 

@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.yoyiyi.soleil.di.module.ActivityModule;
 import com.yoyiyi.soleil.di.scope.ActivityScope;
 import com.yoyiyi.soleil.module.app.SplashActivity;
-import com.yoyiyi.soleil.module.region.live.LiveRegionActivity;
+import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 import com.yoyiyi.soleil.module.search.TotalSearchActivity;
 
 import dagger.Component;
@@ -25,8 +25,10 @@ public interface ActivityComponent {
 
     void inject(TotalSearchActivity totalSearchActivity);
 
-    void inject(LiveRegionActivity liveRegionActivity);
+    //void inject(LiveRegionActivity liveRegionActivity);
 
-    //void inject(MainActivity mainActivity);
+    void inject(RegionTypeActivity regionTypeActivity);
+
+
 
 }

@@ -1,14 +1,9 @@
 package com.yoyiyi.soleil.mvp.presenter.region;
 
 
-import com.yoyiyi.soleil.base.BaseListSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
-import com.yoyiyi.soleil.bean.live.LiveEntrance;
-import com.yoyiyi.soleil.mvp.contract.region.live.LiveContract;
-import com.yoyiyi.soleil.network.helper.RetrofitHelper;
-import com.yoyiyi.soleil.rx.RxUtils;
-
-import java.util.List;
+import com.yoyiyi.soleil.event.Event;
+import com.yoyiyi.soleil.mvp.contract.region.BaseRegionContract;
 
 import javax.inject.Inject;
 
@@ -17,8 +12,21 @@ import javax.inject.Inject;
  * @date 创建时间：2017/5/17 18:00
  * 描述:综合界面搜索presenter
  */
+public class RegionTypePresenter extends RxPresenter<BaseRegionContract.View> implements BaseRegionContract.Presenter<BaseRegionContract.View> {
 
-public class RegionTypePresenter extends RxPresenter<LiveContract.View> implements LiveContract.Presenter<LiveContract.View> {
+
+    @Inject
+    public RegionTypePresenter() {
+
+    }
+
+    @Override
+    public void getEventPostion() {
+        addRxBusSubscribe(Event.RegionEntrancePositionEvent.class, act -> mView.showEventPostion(act.position));
+    }
+
+}
+/*public class RegionTypePresenter extends RxPresenter<LiveContract.View> implements LiveContract.Presenter<LiveContract.View> {
     private RetrofitHelper mRetrofitHelper;
 
     @Inject
@@ -40,4 +48,4 @@ public class RegionTypePresenter extends RxPresenter<LiveContract.View> implemen
         addSubscribe(subscriber);
 
     }
-}
+}*/

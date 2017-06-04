@@ -96,6 +96,8 @@ public class RegionTypeRecommendFragment extends BaseRefreshFragment<RegionTypeR
     protected void clear() {
         mRecommendBeanList.clear();
         mDynamicBeanList.clear();
+        mTopBeanList.clear();
+        mSectionedAdapter.removeAllSections();
     }
 
     @Override

@@ -7,8 +7,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionEnter;
+import com.yoyiyi.soleil.rx.RxBus;
 
 import java.util.List;
 
@@ -17,8 +19,8 @@ import java.util.List;
  * @date 创建时间：2017/5/23 23:30
  * 描述:分区入口
  */
-public class RegionEntranceRecommendAdapter extends BaseQuickAdapter<RegionEnter, BaseViewHolder> {
-    public RegionEntranceRecommendAdapter(@Nullable List<RegionEnter> data) {
+public class RegionRecommendEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseViewHolder> {
+    public RegionRecommendEntranceAdapter(@Nullable List<RegionEnter> data) {
         super(R.layout.item_live_entrance, data);
     }
 
@@ -31,6 +33,12 @@ public class RegionEntranceRecommendAdapter extends BaseQuickAdapter<RegionEnter
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_icon));
         holder.setText(R.id.tv_title, item.title);
+        holder.itemView.setOnClickListener(view -> {
+            //发送点击事件
+            Event.RegionEntrancePositionEvent positionEvent = new Event.RegionEntrancePositionEvent();
+            positionEvent.position = holder.getAdapterPosition();
+            RxBus.INSTANCE.post(positionEvent);
+        });
     }
 
 }

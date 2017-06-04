@@ -8,13 +8,17 @@ import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.constant.Constants;
+import com.yoyiyi.soleil.mvp.contract.region.BaseRegionContract;
+import com.yoyiyi.soleil.mvp.presenter.region.RegionTypePresenter;
+
+import javax.annotation.Nullable;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/30 18:11
  * 描述:分区type界面
  */
-public class RegionTypeActivity extends BaseRegionActivity {
+public class RegionTypeActivity extends BaseRegionActivity<RegionTypePresenter, Nullable> implements BaseRegionContract.View {
     private RegionType mRegionType;
     private String mTitle;
 
@@ -36,7 +40,7 @@ public class RegionTypeActivity extends BaseRegionActivity {
         Intent intent = getIntent();
         if (intent != null) {
             Bundle bundle = intent.getBundleExtra(Constants.EXTRA_BUNDLE);
-            mRegionType = (RegionType) bundle.getParcelable(Constants.EXTRA_PARCELABLE);
+            mRegionType = bundle.getParcelable(Constants.EXTRA_PARCELABLE);
         }
         mTitle = mRegionType.name;
         mTitles.add("推荐");
@@ -54,7 +58,7 @@ public class RegionTypeActivity extends BaseRegionActivity {
     @Override
     protected void initWidget() {
         super.initWidget();
-        mViewPager.setOffscreenPageLimit(2);
+        mViewPager.setOffscreenPageLimit(mRegionType.children.size() + 1);
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
         mViewPager.setCurrentItem(0);
@@ -66,5 +70,20 @@ public class RegionTypeActivity extends BaseRegionActivity {
         setTitle(mTitle);
     }
 
+    @Override
+    protected void loadData() {
+        //设置推荐Fragment entrance 监听
+        mPresenter.getEventPostion();
+    }
 
+    @Override
+    public void showEventPostion(int postion) {
+        //设置位置 viewpager
+        mViewPager.setCurrentItem(postion + 1);
+    }
+
+    @Override
+    protected void initInject() {
+        getActivityComponent().inject(this);
+    }
 }
