@@ -15,9 +15,6 @@ public interface RegionTypeRecommendContract {
 
         void showRegionRecommend(RegionRecommend regionRecommend);
 
-
-
-
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {

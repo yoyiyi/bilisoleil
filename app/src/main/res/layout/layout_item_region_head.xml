@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp5"
+    android:paddingLeft="@dimen/dp10"
+    android:paddingTop="@dimen/dp6">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_type_root"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/dp22"
+            android:layout_height="@dimen/dp22"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="xxxxx"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_look_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_count_down"
+            android:padding="@dimen/dp4"
+            android:text="进去看看"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_12"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_btn_rank_bg"
+            android:drawablePadding="@dimen/dp3"
+            android:drawableStart="@drawable/ic_header_indicator_rank"
+            android:gravity="center"
+            android:padding="@dimen/dp2"
+            android:text="排行榜"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_12"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

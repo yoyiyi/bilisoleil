@@ -3,6 +3,7 @@ package com.yoyiyi.soleil.base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.widget.DrawerLayout;
@@ -15,8 +16,8 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.di.component.ActivityComponent;
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent;
 import com.yoyiyi.soleil.di.module.ActivityModule;
-import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
 import javax.inject.Inject;
 
@@ -205,5 +206,45 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
                 }
             }
         }
+    }
+
+    /**
+     * 隐藏View
+     *
+     * @param id
+     */
+    protected void gone(final @IdRes int... id) {
+        if (id != null && id.length > 0) {
+            for (int resId : id) {
+                View view = $(resId);
+                if (view != null)
+                    gone(view);
+            }
+        }
+
+    }
+
+    /**
+     * 显示View
+     *
+     * @param id
+     */
+    protected void visible(final @IdRes int... id) {
+        if (id != null && id.length > 0) {
+            for (int resId : id) {
+                View view = $(resId);
+                if (view != null)
+                    visible(view);
+            }
+        }
+    }
+
+    private View $(@IdRes int id) {
+        View view;
+        if (this != null) {
+            view = this.findViewById(id);
+            return view;
+        }
+        return null;
     }
 }

@@ -124,6 +124,7 @@ public class RegionRecommend {
         public String param;
         @SerializedName("goto")
         public String gotoX;
+        public int danmaku;
         public String name;
         public int pubdate;
         public int duration;

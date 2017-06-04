@@ -12,7 +12,7 @@ public interface RegionTypeContract {
 
     interface View extends BaseContract.BaseView {
 
-        void showEventPostion(int postion);
+      //  void showRegionType(List<Region.>);
 
     }
 

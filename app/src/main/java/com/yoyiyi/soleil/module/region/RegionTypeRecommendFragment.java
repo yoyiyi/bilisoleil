@@ -5,7 +5,10 @@ import android.support.v7.widget.GridLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.region.sectiton.RegionRecommendBannerSection;
+import com.yoyiyi.soleil.adapter.region.sectiton.RegionRecommendDynamicSection;
 import com.yoyiyi.soleil.adapter.region.sectiton.RegionRecommendEntranceSection;
+import com.yoyiyi.soleil.adapter.region.sectiton.RegionRecommendNewSection;
+import com.yoyiyi.soleil.adapter.region.sectiton.RegionRecommendRecommendSection;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.constant.Constants;
@@ -29,17 +32,18 @@ public class RegionTypeRecommendFragment extends BaseRefreshFragment<RegionTypeR
     private List<RegionRecommend.BannerBean.TopBean> mTopBeanList = new ArrayList<>();
     private List<RegionRecommend.DynamicBean> mDynamicBeanList = new ArrayList<>();
     private List<RegionRecommend.RecommendBean> mRecommendBeanList = new ArrayList<>();
+
     private SectionedRVAdapter mSectionedAdapter;
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_region_type;
+        return R.layout.fragment_region_type_recommend;
     }
 
     public static RegionTypeRecommendFragment newInstance(int tid) {
         RegionTypeRecommendFragment fragment = new RegionTypeRecommendFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(Constants.EXTRA_TID,tid);
+        bundle.putInt(Constants.EXTRA_TID, tid);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -119,8 +123,11 @@ public class RegionTypeRecommendFragment extends BaseRefreshFragment<RegionTypeR
     protected void finishTask() {
         mSectionedAdapter.addSection(new RegionRecommendBannerSection(mTopBeanList));
         mSectionedAdapter.addSection(new RegionRecommendEntranceSection(mTid));
-
+        mSectionedAdapter.addSection(new RegionRecommendRecommendSection(mRecommendBeanList));
+        mSectionedAdapter.addSection(new RegionRecommendNewSection(mList));
+        mSectionedAdapter.addSection(new RegionRecommendDynamicSection(mDynamicBeanList));
         mSectionedAdapter.notifyDataSetChanged();
 
     }
+
 }

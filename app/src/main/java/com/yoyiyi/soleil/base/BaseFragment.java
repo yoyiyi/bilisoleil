@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentActivity;
@@ -294,5 +295,46 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
                 }
             }
         }
+    }
+
+
+    /**
+     * 隐藏View
+     *
+     * @param id
+     */
+    protected void gone(final @IdRes int... id) {
+        if (id != null && id.length > 0) {
+            for (int resId : id) {
+                View view = $(resId);
+                if (view != null)
+                    gone(view);
+            }
+        }
+
+    }
+
+    /**
+     * 显示View
+     *
+     * @param id
+     */
+    protected void visible(final @IdRes int... id) {
+        if (id != null && id.length > 0) {
+            for (int resId : id) {
+                View view = $(resId);
+                if (view != null)
+                    visible(view);
+            }
+        }
+    }
+
+    private View $(@IdRes int id) {
+        View view;
+        if (mRootView != null) {
+            view = mRootView.findViewById(id);
+            return view;
+        }
+        return null;
     }
 }
