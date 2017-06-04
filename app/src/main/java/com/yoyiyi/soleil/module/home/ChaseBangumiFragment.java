@@ -13,6 +13,7 @@ import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.mvp.contract.home.ChaseBangumiContract;
 import com.yoyiyi.soleil.mvp.presenter.home.ChaseBangumiPresenter;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.EmptyUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
@@ -77,7 +78,7 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
         mRecycler.setAdapter(mSectionedAdapter);
         //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(android.R.color.transparent)
+                .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {

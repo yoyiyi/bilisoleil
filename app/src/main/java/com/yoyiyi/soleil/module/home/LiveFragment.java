@@ -14,6 +14,7 @@ import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
 import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
@@ -76,7 +77,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
         mRecycler.setAdapter(mSectionedAdapter);
         //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(android.R.color.transparent)
+                .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {

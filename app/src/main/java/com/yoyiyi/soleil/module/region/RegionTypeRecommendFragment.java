@@ -14,6 +14,7 @@ import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.mvp.contract.region.RegionTypeRecommendContract;
 import com.yoyiyi.soleil.mvp.presenter.region.RegionTypeRecommendPresenter;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
@@ -82,7 +83,7 @@ public class RegionTypeRecommendFragment extends BaseRefreshFragment<RegionTypeR
         mRecycler.setAdapter(mSectionedAdapter);
         //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(android.R.color.transparent)
+                .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {

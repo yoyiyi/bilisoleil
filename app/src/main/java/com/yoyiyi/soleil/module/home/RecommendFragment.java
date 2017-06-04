@@ -10,6 +10,7 @@ import com.yoyiyi.soleil.bean.recommend.MulRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.mvp.contract.home.RecommendContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RecommendPresenter;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.EmptyUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 
@@ -54,7 +55,7 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, M
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mAdapter);
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(android.R.color.transparent)
+                .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .build();

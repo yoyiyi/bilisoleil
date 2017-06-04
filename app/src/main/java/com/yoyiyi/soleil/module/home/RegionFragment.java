@@ -13,6 +13,7 @@ import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RegionPresenter;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
@@ -58,7 +59,7 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(android.R.color.transparent)
+                .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {
