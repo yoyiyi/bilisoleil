@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/3 13:47
- * 描述:
+ * 描述:分区推荐
  */
 public class RegionRecommend {
 
