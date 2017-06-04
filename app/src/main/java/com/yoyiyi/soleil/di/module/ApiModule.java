@@ -4,9 +4,11 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.yoyiyi.soleil.di.qualifier.AppUrl;
 import com.yoyiyi.soleil.di.qualifier.BangumiUrl;
 import com.yoyiyi.soleil.di.qualifier.LiveUrl;
+import com.yoyiyi.soleil.di.qualifier.RankUrl;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
 import com.yoyiyi.soleil.network.api.LiveService;
+import com.yoyiyi.soleil.network.api.RankService;
 import com.yoyiyi.soleil.network.helper.OkHttpHelper;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.network.support.ApiConstants;
@@ -49,8 +51,8 @@ public class ApiModule {
 
     @Singleton
     @Provides
-    public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService) {
-        return new RetrofitHelper(appService, liveService, bangumiService);
+    public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService) {
+        return new RetrofitHelper(appService, liveService, bangumiService, rankService);
     }
 
 
@@ -92,6 +94,19 @@ public class ApiModule {
     @Provides
     public BangumiService provideBangumiService(@BangumiUrl Retrofit retrofit) {
         return retrofit.create(BangumiService.class);
+    }
+
+    @Singleton
+    @Provides
+    @RankUrl
+    public Retrofit provideRankRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return createRetrofit(builder, client, ApiConstants.RANK_BASE_URL);
+    }
+
+    @Singleton
+    @Provides
+    public RankService provideRankService(@RankUrl Retrofit retrofit) {
+        return retrofit.create(RankService.class);
     }
 
    /* @Singleton

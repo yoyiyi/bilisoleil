@@ -6,6 +6,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
+import com.yoyiyi.soleil.module.region.AllRegionRankActivity;
+import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -48,5 +50,11 @@ public class RegionRecommendRecommendSection extends StatelessSection<RegionReco
                 .setImageResource(R.id.iv_icon, R.mipmap.ic_category_promo)
                 .setVisible(R.id.tv_rank, true)
                 .setVisible(R.id.tv_look_up, false);
+        holder.getView(R.id.tv_rank).setOnClickListener(view -> {
+            if (mContext instanceof RegionTypeActivity) {
+                RegionTypeActivity activity = (RegionTypeActivity) mContext;
+                AllRegionRankActivity.startActivity(mContext, activity.mTitle);
+            }
+        });
     }
 }

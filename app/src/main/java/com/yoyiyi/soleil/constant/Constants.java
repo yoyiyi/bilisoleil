@@ -17,4 +17,7 @@ public interface Constants {
     String EXTRA_TID = "extra_tid";
     String EXTRA_BUNDLE="extra_bundle";
     String EXTRA_RID = "extra_rid";
+    String EXTRA_POSITION = "extra_position";
+
+    String EXTRA_TYPE  = "extra_type";
 }

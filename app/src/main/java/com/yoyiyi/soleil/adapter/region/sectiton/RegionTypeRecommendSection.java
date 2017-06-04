@@ -30,7 +30,7 @@ public class RegionTypeRecommendSection extends StatelessSection<RegionType.Reco
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)
-                .transform(new GlideRoundTransform(mContext,4))
+                .transform(new GlideRoundTransform(mContext,5))
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_title, recommendBean.title)

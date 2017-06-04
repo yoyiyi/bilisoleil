@@ -50,7 +50,11 @@
             android:name=".module.region.RegionTypeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-
+        <!--全区排行-->
+        <activity
+            android:name=".module.region.AllRegionRankActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
 

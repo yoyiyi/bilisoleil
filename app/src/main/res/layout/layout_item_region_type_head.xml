@@ -5,7 +5,6 @@
     android:id="@+id/cl_root"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp35"
-    android:layout_marginBottom="@dimen/dp5"
     android:paddingLeft="@dimen/dp10">
 
     <TextView
@@ -16,7 +15,7 @@
         android:text="xxxxx"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_icon"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
 </android.support.constraint.ConstraintLayout>

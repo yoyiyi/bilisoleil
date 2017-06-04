@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="exposed-instrumentation-api-publish-0.5">
+    <CLASSES>
+      <root url="file://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/exposed-instrumentation-api-publish-0.5.aar/9c75377dba8096e055f491df3949f344/res" />
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/exposed-instrumentation-api-publish-0.5.aar/9c75377dba8096e055f491df3949f344/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

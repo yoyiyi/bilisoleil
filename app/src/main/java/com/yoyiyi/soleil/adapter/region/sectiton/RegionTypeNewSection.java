@@ -29,7 +29,7 @@ public class RegionTypeNewSection extends StatelessSection<RegionType.NewBean> {
                 .load(newBean.cover)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .transform(new GlideRoundTransform(mContext, 4))
+                .transform(new GlideRoundTransform(mContext, 5))
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));

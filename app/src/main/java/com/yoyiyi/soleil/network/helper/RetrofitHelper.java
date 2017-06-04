@@ -9,6 +9,7 @@ import com.yoyiyi.soleil.bean.live.LiveEntrance;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
+import com.yoyiyi.soleil.bean.region.AllRegionRank;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
@@ -16,6 +17,7 @@ import com.yoyiyi.soleil.bean.search.SearchArchive;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
 import com.yoyiyi.soleil.network.api.LiveService;
+import com.yoyiyi.soleil.network.api.RankService;
 import com.yoyiyi.soleil.network.response.HttpResponse;
 
 import java.util.List;
@@ -33,12 +35,13 @@ public class RetrofitHelper {
     private final LiveService mLiveService;
     private final AppService mAppService;
     private final BangumiService mBangumiService;
+    private final RankService mRankService;
 
-    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService) {
+    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService) {
         this.mAppService = appService;
         this.mLiveService = liveService;
         this.mBangumiService = bangumiService;
-
+        this.mRankService = rankService;
     }
 
 
@@ -94,5 +97,19 @@ public class RetrofitHelper {
     public Flowable<HttpResponse<RecommendBangumi>> getRecommendBangumi() {
         return mBangumiService.getRecommendBangumi();
     }
+
+    /*******************************RankApi****************************************/
+    public Flowable<HttpResponse<AllRegionRank>> getAllRegionRank(String type) {
+        return mRankService.getAllRegionRank(type);
+    }
+
+
+   /* public Flowable<HttpResponse<ChaseBangumi>> getChaseBangumi() {
+        return mBangumiService.getChaseBangumi();
+    }
+
+    public Flowable<HttpResponse<RecommendBangumi>> getRecommendBangumi() {
+        return mBangumiService.getRecommendBangumi();
+    }*/
 
 }

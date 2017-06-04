@@ -25,8 +25,6 @@ public interface ActivityComponent {
 
     void inject(TotalSearchActivity totalSearchActivity);
 
-    //void inject(LiveRegionActivity liveRegionActivity);
-
     void inject(RegionTypeActivity regionTypeActivity);
 
 

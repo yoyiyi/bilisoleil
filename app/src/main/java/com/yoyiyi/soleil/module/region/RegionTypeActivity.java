@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  */
 public class RegionTypeActivity extends BaseRegionActivity<RegionTypePresenter, Nullable> implements BaseRegionContract.View {
     private RegionTagType mRegionType;
-    private String mTitle;
+    public String mTitle;
 
     @Override
     protected int getLayoutId() {
