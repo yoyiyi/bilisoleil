@@ -11,6 +11,7 @@ import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
+import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
@@ -64,6 +65,10 @@ public class RetrofitHelper {
 
     public Flowable<HttpResponse<RegionRecommend>> getRegionRecommend(int rid) {
         return mAppService.getRegionRecommend(rid);
+    }
+
+    public Flowable<HttpResponse<RegionType>> getRegionType(int rid) {
+        return mAppService.getRegionType(rid);
     }
 
     /*******************************LiveApi****************************************/

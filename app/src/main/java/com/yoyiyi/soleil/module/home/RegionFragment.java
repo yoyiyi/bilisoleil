@@ -10,7 +10,7 @@ import com.yoyiyi.soleil.adapter.home.section.region.RegionSection;
 import com.yoyiyi.soleil.adapter.home.section.region.RegionTopicSection;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.region.Region;
-import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RegionPresenter;
 import com.yoyiyi.soleil.utils.AppUtils;
@@ -28,7 +28,7 @@ import java.util.List;
 
 public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region> implements RegionContract.View {
     private SectionedRVAdapter mSectionedAdapter;
-    private volatile List<RegionType> mRegionTypeList = new ArrayList<>();
+    private volatile List<RegionTagType> mRegionTypeList = new ArrayList<>();
 
     public static RegionFragment newInstance() {
         return new RegionFragment();
@@ -90,7 +90,7 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
     }
 
     @Override
-    public void showRegionType(List<RegionType> regionTypes) {
+    public void showRegionType(List<RegionTagType> regionTypes) {
         mRegionTypeList.addAll(regionTypes);
     }
 

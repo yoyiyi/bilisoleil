@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.mvp.contract.region.BaseRegionContract;
 import com.yoyiyi.soleil.mvp.presenter.region.RegionTypePresenter;
@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * 描述:分区type界面
  */
 public class RegionTypeActivity extends BaseRegionActivity<RegionTypePresenter, Nullable> implements BaseRegionContract.View {
-    private RegionType mRegionType;
+    private RegionTagType mRegionType;
     private String mTitle;
 
     @Override
@@ -27,7 +27,7 @@ public class RegionTypeActivity extends BaseRegionActivity<RegionTypePresenter, 
         return R.layout.activity_region_type;
     }
 
-    public static void startActivity(Context context, RegionType type) {
+    public static void startActivity(Context context, RegionTagType type) {
         Bundle bundle = new Bundle();
         Intent intent = new Intent(context, RegionTypeActivity.class);
         bundle.putParcelable(Constants.EXTRA_PARCELABLE, type);

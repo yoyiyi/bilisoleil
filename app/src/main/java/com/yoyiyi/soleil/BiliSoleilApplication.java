@@ -24,11 +24,10 @@ import java.util.Set;
  * 描述: App
  */
 
-public class BiliSoleilApplication extends Application {
+public class  BiliSoleilApplication extends Application {
     private static BiliSoleilApplication mContext;
     private Set<Activity> allActivities;
     private AppComponent mAppComponent;
-
     @Override
     public void onCreate() {
         super.onCreate();

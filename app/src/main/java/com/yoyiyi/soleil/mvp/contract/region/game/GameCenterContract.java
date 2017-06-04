@@ -21,6 +21,6 @@ public interface GameCenterContract {
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
 
-        void getGameCenter();
+        void getGameCenterData();
     }
 }

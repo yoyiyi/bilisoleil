@@ -23,7 +23,7 @@ public class GameCenterPresenter extends RxPresenter<GameCenterContract.View> im
     }
 
     @Override
-    public void getGameCenter() {
+    public void getGameCenterData() {
 
     }
 

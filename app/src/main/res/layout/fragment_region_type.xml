@@ -8,14 +8,4 @@
 
     <include layout="@layout/common_layout_error"/>
 
-    <TextView
-        android:id="@+id/tv_no"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp35"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:text="(╭￣3￣)╭♡ 再怎么找也没有啦"
-        android:textColor="@color/black_alpha_45"
-        android:textSize="@dimen/text_size_12"
-        android:visibility="gone"/>
 </RelativeLayout>

@@ -128,7 +128,6 @@ public class RegionTypeRecommendFragment extends BaseRefreshFragment<RegionTypeR
         mSectionedAdapter.addSection(new RegionRecommendNewSection(mList));
         mSectionedAdapter.addSection(new RegionRecommendDynamicSection(mDynamicBeanList));
         mSectionedAdapter.notifyDataSetChanged();
-
     }
 
 }

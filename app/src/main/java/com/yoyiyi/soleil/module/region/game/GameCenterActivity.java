@@ -78,7 +78,7 @@ public class GameCenterActivity extends BaseActivity<GameCenterPresenter> implem
 
     @Override
     protected void loadData() {
-        mPresenter.getGameCenter();
+        mPresenter.getGameCenterData();
     }
 
 

@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.mvp.contract.region;
 
 import com.yoyiyi.soleil.base.BaseContract;
+import com.yoyiyi.soleil.bean.region.RegionType;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -12,12 +13,12 @@ public interface RegionTypeContract {
 
     interface View extends BaseContract.BaseView {
 
-      //  void showRegionType(List<Region.>);
+        void showRegionType(RegionType regionType);
 
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
 
-        void getEventPostion();
+        void getRegionTypeData(int rid);
     }
 }

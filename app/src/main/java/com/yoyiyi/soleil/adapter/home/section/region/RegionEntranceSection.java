@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionEnter;
-import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.adapter.home.RegionEntranceAdapter;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -21,9 +21,9 @@ import java.util.List;
 public class RegionEntranceSection extends StatelessSection {
 
     private List<RegionEnter> mList;
-    private List<RegionType> mRegionTypeList;
+    private List<RegionTagType> mRegionTypeList;
 
-    public RegionEntranceSection(List<RegionType> regionTypeList) {
+    public RegionEntranceSection(List<RegionTagType> regionTypeList) {
         super(R.layout.layout_item_home_region_entrance, R.layout.layout_empty);
         this.mRegionTypeList = regionTypeList;
         init();

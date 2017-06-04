@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionEnter;
-import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 
 import java.util.List;
@@ -17,10 +17,10 @@ import java.util.List;
  * 描述:
  */
 public class RegionEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseViewHolder> {
-    private List<RegionType> mRegionTypeList;
+    private List<RegionTagType> mRegionTypeList;
 
 
-    public RegionEntranceAdapter(@Nullable List<RegionEnter> data, List<RegionType> regionTypeList) {
+    public RegionEntranceAdapter(@Nullable List<RegionEnter> data, List<RegionTagType> regionTypeList) {
         super(R.layout.item_home_region_entrance, data);
         this.mRegionTypeList = regionTypeList;
     }

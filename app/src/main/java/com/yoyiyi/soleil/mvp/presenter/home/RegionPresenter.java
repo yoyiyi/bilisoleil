@@ -8,7 +8,7 @@ import com.google.gson.JsonParser;
 import com.yoyiyi.soleil.base.BaseListSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.region.Region;
-import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
@@ -41,9 +41,9 @@ public class RegionPresenter extends RxPresenter<RegionContract.View> implements
                     Gson gson = new Gson();
                     JsonObject object = new JsonParser().parse(string).getAsJsonObject();
                     JsonArray array = object.getAsJsonArray("data");
-                    List<RegionType> regionTypes = new ArrayList<>();
+                    List<RegionTagType> regionTypes = new ArrayList<>();
                     for (JsonElement jsonElement : array) {
-                        regionTypes.add(gson.fromJson(jsonElement, RegionType.class));
+                        regionTypes.add(gson.fromJson(jsonElement, RegionTagType.class));
                     }
                     mView.showRegionType(regionTypes);
                     return mRetrofitHelper.getRegion();

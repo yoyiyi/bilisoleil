@@ -2,7 +2,7 @@ package com.yoyiyi.soleil.mvp.contract.home;
 
 import com.yoyiyi.soleil.base.BaseContract;
 import com.yoyiyi.soleil.bean.region.Region;
-import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.region.RegionTagType;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface RegionContract {
     interface View extends BaseContract.BaseView {
         void showRegion(List<Region> regions);
 
-        void showRegionType(List<RegionType> regionTypes);
+        void showRegionType(List<RegionTagType> regionTypes);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {

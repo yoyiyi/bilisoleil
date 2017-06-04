@@ -1,137 +1,67 @@
 package com.yoyiyi.soleil.bean.region;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * @date 创建时间：2017/5/30 18:30
- * 描述:分区类型Type
+ * @date 创建时间：2017/6/4 18:46
+ * 描述:分区tag详情
  */
-public class RegionType implements Parcelable {
-
+public class RegionType {
     /**
-     * tid : 13
-     * reid : 0
-     * name : 番剧
-     * logo :
-     * goto :
-     * param :
-     * children : [{"tid":33,"reid":13,"name":"连载动画","logo":"http://i0.hdslb.com/u_user/54f589cd0573f9ab5c735698ae156d19.png","goto":"","param":""},{"tid":32,"reid":13,"name":"完结动画","logo":"http://i0.hdslb.com/u_user/18ad593e4b2f90b233f817e028bee71d.png","goto":"","param":""},{"tid":153,"reid":13,"name":"国产动画","logo":"http://i0.hdslb.com/u_user/405774aed11d0538a3548109a598fd80.png","goto":"","param":""},{"tid":51,"reid":13,"name":"资讯","logo":"","goto":"","param":""},{"tid":152,"reid":13,"name":"官方延伸","logo":"http://i0.hdslb.com/u_user/a78fa47e8f25772d51db1a19fe8b310f.png","goto":"","param":""}]
+     * title : 【AMV/60fps】视觉的极致盛宴 Umbrella Corp【Nostromo】
+     * cover : http://i0.hdslb.com/bfs/archive/70315d46e396d55cc6785a1bf8caf114cef0cbcc.jpg
+     * uri : bilibili://video/6733923
+     * param : 6733923
+     * goto : av
+     * name : ここにいるよ
+     * play : 224795
+     * danmaku : 1858
+     * reply : 1280
+     * favourite : 40890
      */
 
-    public int tid;
-    public int reid;
-    public String name;
-    public String logo;
-    @SerializedName("goto")
-    public String gotoX;
-    public String param;
-    public List<ChildrenBean> children;
+    public List<RecommendBean> recommend;
 
-    public static class ChildrenBean implements Parcelable {
+    /**
+     * title : 【超燃/AMV】• Runnin ♫♪
+     * cover : http://i1.hdslb.com/bfs/archive/ddbd80d656994ff6d9b1250ca8da7c3fc9154fc1.jpg
+     * uri : bilibili://video/6770288
+     * param : 6770288
+     * goto : av
+     * name : 来自火星的小火龙
+     */
 
-        /**
-         * tid : 33
-         * reid : 13
-         * name : 连载动画
-         * logo : http://i0.hdslb.com/u_user/54f589cd0573f9ab5c735698ae156d19.png
-         * goto :
-         * param :
-         */
+    @SerializedName("new")
+    public List<NewBean> newX;
 
-        public int tid;
-        public int reid;
-        public String name;
-        public String logo;
+    public static class RecommendBean {
+        public String title;
+        public String cover;
+        public String uri;
+        public String param;
         @SerializedName("goto")
         public String gotoX;
+        public String name;
+        public int play;
+        public int danmaku;
+        public int reply;
+        public int favourite;
+
+    }
+
+    public static class NewBean {
+        public String title;
+        public String cover;
+        public String uri;
         public String param;
+        @SerializedName("goto")
+        public String gotoX;
+        public String name;
+        public int play;
+        public int danmaku;
 
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeInt(this.tid);
-            dest.writeInt(this.reid);
-            dest.writeString(this.name);
-            dest.writeString(this.logo);
-            dest.writeString(this.gotoX);
-            dest.writeString(this.param);
-        }
-
-        public ChildrenBean() {
-        }
-
-        protected ChildrenBean(Parcel in) {
-            this.tid = in.readInt();
-            this.reid = in.readInt();
-            this.name = in.readString();
-            this.logo = in.readString();
-            this.gotoX = in.readString();
-            this.param = in.readString();
-        }
-
-        public static final Creator<ChildrenBean> CREATOR = new Creator<ChildrenBean>() {
-            @Override
-            public ChildrenBean createFromParcel(Parcel source) {
-                return new ChildrenBean(source);
-            }
-
-            @Override
-            public ChildrenBean[] newArray(int size) {
-                return new ChildrenBean[size];
-            }
-        };
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.tid);
-        dest.writeInt(this.reid);
-        dest.writeString(this.name);
-        dest.writeString(this.logo);
-        dest.writeString(this.gotoX);
-        dest.writeString(this.param);
-        dest.writeList(this.children);
-    }
-
-    public RegionType() {
-    }
-
-    protected RegionType(Parcel in) {
-        this.tid = in.readInt();
-        this.reid = in.readInt();
-        this.name = in.readString();
-        this.logo = in.readString();
-        this.gotoX = in.readString();
-        this.param = in.readString();
-        this.children = new ArrayList<ChildrenBean>();
-        in.readList(this.children, ChildrenBean.class.getClassLoader());
-    }
-
-    public static final Parcelable.Creator<RegionType> CREATOR = new Parcelable.Creator<RegionType>() {
-        @Override
-        public RegionType createFromParcel(Parcel source) {
-            return new RegionType(source);
-        }
-
-        @Override
-        public RegionType[] newArray(int size) {
-            return new RegionType[size];
-        }
-    };
 }
