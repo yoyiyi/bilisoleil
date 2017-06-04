@@ -41,10 +41,11 @@ public class RegionTypeActivity extends BaseRegionActivity {
         mTitle = mRegionType.name;
         mTitles.add("推荐");
         //推荐
-        mFragments.add(RegionTypeFragment.newInstance(0));
+        mFragments.add(RegionTypeRecommendFragment.newInstance(mRegionType.tid));
         Stream.of(mRegionType.children)
                 .forEach(childrenBean -> {
                     mTitles.add(childrenBean.name);
+                    //其他标签页面
                     mFragments.add(RegionTypeFragment.newInstance(childrenBean.tid));
                 });
 
@@ -64,4 +65,6 @@ public class RegionTypeActivity extends BaseRegionActivity {
         super.initToolbar();
         setTitle(mTitle);
     }
+
+
 }

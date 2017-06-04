@@ -16,6 +16,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp6"
-        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp10"
         android:background="@color/gray_light"/>
 </LinearLayout>

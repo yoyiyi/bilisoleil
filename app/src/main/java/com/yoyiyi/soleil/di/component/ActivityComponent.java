@@ -29,18 +29,4 @@ public interface ActivityComponent {
 
     //void inject(MainActivity mainActivity);
 
-/*
-    void inject(WelcomeActivity welcomeActivity);
-
-    void inject(MainActivity mainActivity);
-
-    void inject(ZhihuDetailActivity zhihuDetailActivity);
-
-    void inject(ThemeActivity themeActivity);
-
-    void inject(SectionActivity sectionActivity);
-
-    void inject(RepliesActivity repliesActivity);
-
-    void inject(NodeListActivity nodeListActivity);*/
 }

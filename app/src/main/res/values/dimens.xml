@@ -60,4 +60,6 @@
     <dimen name="dp46">46.0dip</dimen>
     <dimen name="dp38">38.0dip</dimen>
     <dimen name="dp74">74.0dip</dimen>
+    <dimen name="dp72">72.0dip</dimen>
+
 </resources>

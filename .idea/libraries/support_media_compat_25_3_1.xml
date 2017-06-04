@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="support-media-compat-25.3.1">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/21ff520d35bb8f1dc6887ee013b844a9/jars/classes.jar!/" />
+      <root url="file://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/21ff520d35bb8f1dc6887ee013b844a9/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

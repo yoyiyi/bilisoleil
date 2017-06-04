@@ -6,6 +6,7 @@ import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.Region;
+import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
 import com.yoyiyi.soleil.network.response.HttpResponse;
 
@@ -70,6 +71,13 @@ public interface AppService {
             "x/v2/search?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&duration=0&mobi_app=iphone&order=default&platform=ios&rid=0")
     Flowable<HttpResponse<SearchArchive>> getSearchArchive(
             @Query("keyword") String keyword, @Query("pn") int page, @Query("ps") int pagesize);
+
+    /**
+     * 分区推荐
+     */
+    @GET("x/v2/region/show?access_key=67cbf6a1e9ad7d7f11bfbd918e50c837&actionKey=appkey&appkey=27eb53fc9058f8c3&build=3600&device=phone&mobi_app=iphone&plat=1&platform=ios&sign=959d7b8c09c65e7a66f7e58b1a2bdab9&ts=1472310694")
+    Flowable<HttpResponse<RegionRecommend>> getRegionRecommend(@Query("rid") int rid);
+
     /**
      * 番剧搜索
      *//*

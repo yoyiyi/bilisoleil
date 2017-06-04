@@ -6,10 +6,10 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/dp36"
-        android:layout_height="@dimen/dp36"
+        android:layout_width="@dimen/dp38"
+        android:layout_height="@dimen/dp38"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp15"/>
+        android:layout_marginTop="@dimen/dp10"/>
 
     <TextView
         android:id="@+id/tv_title"
@@ -17,7 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp4"
-        android:padding="@dimen/dp3"
         android:textColor="@color/font_normal"
-        android:textSize="@dimen/text_size_14"/>
+        android:textSize="@dimen/text_size_12"/>
 </LinearLayout>

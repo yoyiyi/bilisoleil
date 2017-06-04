@@ -7,5 +7,5 @@
 
     <include layout="@layout/common_entrance_toolbar"/>
 
-    <!--<include layout="@layout/common_layout_error"/>-->
+   <!-- <include layout="@layout/common_layout_error"/>-->
 </RelativeLayout>

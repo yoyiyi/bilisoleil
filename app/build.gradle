@@ -42,7 +42,6 @@ dependencies {
     //流布局
     //compile 'com.zhy:flowlayout-lib:1.0.3'
     //rxjava2
-
     compile 'io.reactivex.rxjava2:rxjava:2.0.8'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     //permissions
@@ -62,7 +61,6 @@ dependencies {
     compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     //rxbinding
-
     compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     //rxlifecycle
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'

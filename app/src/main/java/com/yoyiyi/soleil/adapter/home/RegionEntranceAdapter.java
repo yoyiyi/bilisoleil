@@ -21,7 +21,7 @@ public class RegionEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseVie
 
 
     public RegionEntranceAdapter(@Nullable List<RegionEnter> data, List<RegionType> regionTypeList) {
-        super(R.layout.item_live_entrance, data);
+        super(R.layout.item_home_region_entrance, data);
         this.mRegionTypeList = regionTypeList;
     }
 

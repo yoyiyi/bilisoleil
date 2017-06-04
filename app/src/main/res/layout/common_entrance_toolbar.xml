@@ -47,22 +47,6 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/iv_back"
                         app:layout_constraintTop_toTopOf="parent"/>
-
-                   <!-- <ImageView
-                        android:id="@+id/iv_down"
-                        android:layout_width="?attr/actionBarSize"
-                        android:layout_height="match_parent"
-                        android:scaleType="center"
-                        android:src="@drawable/ic_toolbar_menu_download"
-                        app:layout_constraintEnd_toStartOf="@+id/iv_search"/>
-
-                    <ImageView
-                        android:id="@+id/iv_search"
-                        android:layout_width="?attr/actionBarSize"
-                        android:layout_height="match_parent"
-                        android:scaleType="center"
-                        android:src="@drawable/ic_toolbar_menu_search"
-                        app:layout_constraintEnd_toEndOf="parent"/>-->
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.v7.widget.Toolbar>
