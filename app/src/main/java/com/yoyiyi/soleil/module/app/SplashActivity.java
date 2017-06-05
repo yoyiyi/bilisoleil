@@ -115,7 +115,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
                 .activityModule(new ActivityModule(this))
                 .build()
                 .inject(this);
-        mPresenter.attachView(this);
+        mPresenter.attachView(this);//依赖 保持p和v生命周期一致
     }
 
     @Override

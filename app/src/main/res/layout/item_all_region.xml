@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:padding="@dimen/dp10">
+
+    <TextView
+        android:id="@+id/tv_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/dp15"
+        android:minWidth="@dimen/dp15"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_video_preview"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="@dimen/dp120"
+        android:layout_marginStart="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="4:3"
+        app:layout_constraintStart_toEndOf="@id/tv_rank"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_video_title"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp4"
+        android:layout_marginTop="@dimen/dp4"
+        android:ellipsize="end"
+        android:lineSpacingExtra="@dimen/dp2"
+        android:maxLines="3"
+        android:minLines="2"
+        android:paddingRight="@dimen/dp4"
+        android:text=""
+        android:textColor="@color/font_normal"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>
+
+    <ImageView
+        android:id="@+id/iv_video_up"
+        android:layout_width="@dimen/dp16"
+        android:layout_height="@dimen/dp16"
+        android:layout_marginBottom="@dimen/dp4"
+        android:layout_marginLeft="@dimen/dp4"
+        android:layout_marginRight="@dimen/dp3"
+        android:src="@drawable/ic_up"
+        app:layout_constraintBottom_toTopOf="@+id/iv_video_play_num"
+        app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>
+
+    <TextView
+        android:id="@+id/tv_video_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp3"
+        android:gravity="center"
+        android:paddingRight="@dimen/dp4"
+        android:text="xxxx"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_video_up"
+        app:layout_constraintStart_toEndOf="@id/iv_video_up"
+        />
+
+    <ImageView
+        android:id="@+id/iv_video_play_num"
+        android:layout_width="@dimen/dp16"
+        android:layout_height="@dimen/dp16"
+        android:layout_marginLeft="@dimen/dp4"
+        android:src="@drawable/ic_upper_info_views"
+        android:tint="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>
+
+    <TextView
+        android:id="@+id/tv_video_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp3"
+        android:maxEms="6"
+        android:minEms="6"
+        android:text="xxxx"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_video_play_num"/>
+
+    <ImageView
+        android:id="@+id/iv_video_danmaku"
+        android:layout_width="@dimen/dp16"
+        android:layout_height="@dimen/dp16"
+        android:layout_marginRight="@dimen/dp3"
+        android:src="@drawable/ic_upper_info_danmakus"
+        android:tint="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_video_danmaku"/>
+
+    <TextView
+        android:id="@+id/tv_video_danmaku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingRight="@dimen/dp4"
+        android:text="xxxx"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_video_play"/>
+</android.support.constraint.ConstraintLayout>

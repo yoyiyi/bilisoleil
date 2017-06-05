@@ -1,12 +1,14 @@
 package com.yoyiyi.soleil.mvp.presenter.region;
 
 
-import com.yoyiyi.soleil.base.BaseObjectSubscriber;
+import com.yoyiyi.soleil.base.BaseListSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.region.AllRegionRank;
 import com.yoyiyi.soleil.mvp.contract.region.AllRegionRankContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -16,7 +18,8 @@ import javax.inject.Inject;
  * 描述:全区排行presenter
  */
 public class AllRegionRankPresenter extends RxPresenter<AllRegionRankContract.View> implements AllRegionRankContract.Presenter<AllRegionRankContract.View> {
-    private  RetrofitHelper mRetrofitHelper;
+
+    private RetrofitHelper mRetrofitHelper;
 
     @Inject
     public AllRegionRankPresenter(RetrofitHelper retrofitHelper) {
@@ -26,11 +29,11 @@ public class AllRegionRankPresenter extends RxPresenter<AllRegionRankContract.Vi
 
     @Override
     public void getAllRegionRankData(String type) {
-        BaseObjectSubscriber<AllRegionRank> subscriber = mRetrofitHelper.getAllRegionRank(type)
+        BaseListSubscriber<AllRegionRank> subscriber = mRetrofitHelper.getAllRegionRank(type)
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseObjectSubscriber<AllRegionRank>(mView) {
+                .subscribeWith(new BaseListSubscriber<AllRegionRank>(mView) {
                     @Override
-                    public void onSuccess(AllRegionRank allRegionRank) {
+                    public void onSuccess(List<AllRegionRank> allRegionRank) {
                         mView.showAllRegionRank(allRegionRank);
                     }
                 });

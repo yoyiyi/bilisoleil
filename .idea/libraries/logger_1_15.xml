@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="logger-1.15">
     <CLASSES>
-      <root url="file://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/logger-1.15.aar/4c435bb2bd5bb7707f584665d3af2663/res" />
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/logger-1.15.aar/4c435bb2bd5bb7707f584665d3af2663/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/logger-1.15.aar/daad7b6692fb481b7c034620a2ad820d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/logger-1.15.aar/daad7b6692fb481b7c034620a2ad820d/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
