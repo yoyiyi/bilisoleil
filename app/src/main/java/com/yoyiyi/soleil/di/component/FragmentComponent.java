@@ -9,6 +9,7 @@ import com.yoyiyi.soleil.module.home.DiscoverFragment;
 import com.yoyiyi.soleil.module.home.LiveFragment;
 import com.yoyiyi.soleil.module.home.RecommendFragment;
 import com.yoyiyi.soleil.module.home.RegionFragment;
+import com.yoyiyi.soleil.module.recommend.AllStationRankFragment;
 import com.yoyiyi.soleil.module.region.AllRegionRankFragment;
 import com.yoyiyi.soleil.module.region.RegionTypeFragment;
 import com.yoyiyi.soleil.module.region.RegionTypeRecommendFragment;
@@ -44,6 +45,8 @@ public interface FragmentComponent {
     void inject(RegionTypeFragment regionTypeFragment);
 
     void inject(AllRegionRankFragment allRegionRankFragment);
+
+    void inject(AllStationRankFragment allStationRankFragment);
 
 
 }
