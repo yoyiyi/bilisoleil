@@ -8,7 +8,7 @@ import com.yoyiyi.soleil.base.BaseContract;
  * 描述:发现Contract
  */
 
-public interface BaseRegionContract {
+public interface AllRegionRankPositionContract {
 
     interface View extends BaseContract.BaseView {
 

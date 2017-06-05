@@ -46,7 +46,7 @@ public class AllRegionRankAdapter extends BaseQuickAdapter<AllRegionRank.RankBea
                     .create();
             holder.setText(R.id.tv_rank, builder);
         } else {
-            holder.setText(R.id.tv_rank, position + "");
+            holder.setText(R.id.tv_rank, (position + 1) + "");
         }
 
         holder.setText(R.id.tv_video_title, allRegionRank.title)

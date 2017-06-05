@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp5"
     android:layout_marginTop="@dimen/dp5"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
     android:orientation="horizontal">
 
     <Space

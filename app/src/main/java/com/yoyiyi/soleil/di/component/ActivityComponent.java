@@ -5,6 +5,8 @@ import android.app.Activity;
 import com.yoyiyi.soleil.di.module.ActivityModule;
 import com.yoyiyi.soleil.di.scope.ActivityScope;
 import com.yoyiyi.soleil.module.app.SplashActivity;
+import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
+import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 import com.yoyiyi.soleil.module.search.TotalSearchActivity;
 
@@ -27,6 +29,8 @@ public interface ActivityComponent {
 
     void inject(RegionTypeActivity regionTypeActivity);
 
+    void inject(TopicCenterActivity topicCenterActivity);
 
+    void inject(ActivityCenterActivity activityCenterActivity);
 
 }

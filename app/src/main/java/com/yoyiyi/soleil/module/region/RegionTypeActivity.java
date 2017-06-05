@@ -8,8 +8,8 @@ import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.constant.Constants;
-import com.yoyiyi.soleil.mvp.contract.region.BaseRegionContract;
-import com.yoyiyi.soleil.mvp.presenter.region.RegionTypePresenter;
+import com.yoyiyi.soleil.mvp.contract.region.AllRegionRankPositionContract;
+import com.yoyiyi.soleil.mvp.presenter.region.AllRegionRankPositionPresenter;
 
 import javax.annotation.Nullable;
 
@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
  * @date 创建时间：2017/5/30 18:11
  * 描述:分区type界面
  */
-public class RegionTypeActivity extends BaseRegionActivity<RegionTypePresenter, Nullable> implements BaseRegionContract.View {
+public class RegionTypeActivity extends BaseRegionActivity<AllRegionRankPositionPresenter, Nullable> implements AllRegionRankPositionContract.View {
     private RegionTagType mRegionType;
     public String mTitle;
 

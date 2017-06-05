@@ -2,6 +2,8 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="135dp"
     android:padding="@dimen/dp10">
@@ -18,10 +20,9 @@
 
     <ImageView
         android:id="@+id/iv_video_preview"
-        android:padding="@dimen/dp2"
+        android:padding="@dimen/dp4"
         android:layout_width="@dimen/dp0"
         android:layout_height="@dimen/dp120"
-        android:layout_marginStart="0dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="4:3"

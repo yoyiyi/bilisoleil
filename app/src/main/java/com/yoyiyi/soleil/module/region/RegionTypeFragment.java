@@ -10,7 +10,7 @@ import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.mvp.contract.region.RegionTypeContract;
-import com.yoyiyi.soleil.mvp.presenter.home.RegionTypePresenter;
+import com.yoyiyi.soleil.mvp.presenter.region.RegionTypePresenter;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;

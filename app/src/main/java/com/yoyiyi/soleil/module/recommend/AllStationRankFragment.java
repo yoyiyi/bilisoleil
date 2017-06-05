@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.adapter.region.AllRegionRankAdapter;
+import com.yoyiyi.soleil.adapter.recommend.AllStationRankAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
-import com.yoyiyi.soleil.bean.region.AllRegionRank;
+import com.yoyiyi.soleil.bean.recommend.AllStationRank;
 import com.yoyiyi.soleil.constant.Constants;
-import com.yoyiyi.soleil.mvp.contract.region.AllRegionRankContract;
-import com.yoyiyi.soleil.mvp.presenter.region.AllRegionRankPresenter;
+import com.yoyiyi.soleil.mvp.contract.recommend.AllStationRankContract;
+import com.yoyiyi.soleil.mvp.presenter.recommend.AllStationRankPresenter;
 
 import java.util.List;
 
@@ -18,11 +18,11 @@ import java.util.List;
  * @date 创建时间：2017/5/30 18:35
  * 描述:全站排行
  */
-public class AllStationRankFragment extends BaseRefreshFragment<AllRegionRankPresenter, AllRegionRank.RankBean.ListBean> implements
-        AllRegionRankContract.View {
+public class AllStationRankFragment extends BaseRefreshFragment<AllStationRankPresenter, AllStationRank.RankBean.ListBean> implements
+        AllStationRankContract.View {
 
     private String mType;
-    private AllRegionRankAdapter mAdapter;
+    private AllStationRankAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -53,12 +53,12 @@ public class AllStationRankFragment extends BaseRefreshFragment<AllRegionRankPre
 
     @Override
     protected void lazyLoadData() {
-        mPresenter.getAllRegionRankData(mType);
+        mPresenter.getAllStationRankData(mType);
     }
 
     @Override
     protected void initRecyclerView() {
-        mAdapter = new AllRegionRankAdapter(mList);
+        mAdapter = new AllStationRankAdapter(mList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
                 false);
         mRecycler.setLayoutManager(layoutManager);
@@ -72,9 +72,8 @@ public class AllStationRankFragment extends BaseRefreshFragment<AllRegionRankPre
     }
 
 
-
     @Override
-    public void showAllRegionRank(List<AllRegionRank.RankBean.ListBean> regionRank) {
+    public void showAllStationRank(List<AllStationRank.RankBean.ListBean> regionRank) {
         mList.addAll(regionRank);
         finishTask();
     }

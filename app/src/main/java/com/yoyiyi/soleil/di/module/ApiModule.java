@@ -1,10 +1,12 @@
 package com.yoyiyi.soleil.di.module;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.yoyiyi.soleil.di.qualifier.ApiUrl;
 import com.yoyiyi.soleil.di.qualifier.AppUrl;
 import com.yoyiyi.soleil.di.qualifier.BangumiUrl;
 import com.yoyiyi.soleil.di.qualifier.LiveUrl;
 import com.yoyiyi.soleil.di.qualifier.RankUrl;
+import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
 import com.yoyiyi.soleil.network.api.LiveService;
@@ -51,8 +53,9 @@ public class ApiModule {
 
     @Singleton
     @Provides
-    public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService) {
-        return new RetrofitHelper(appService, liveService, bangumiService, rankService);
+    public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService
+    ,ApiService apiService) {
+        return new RetrofitHelper(appService, liveService, bangumiService, rankService,apiService);
     }
 
 
@@ -109,6 +112,18 @@ public class ApiModule {
         return retrofit.create(RankService.class);
     }
 
+    @Singleton
+    @Provides
+    @ApiUrl
+    public Retrofit provideApiRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return createRetrofit(builder, client, ApiConstants.API_BASE_URL);
+    }
+
+    @Singleton
+    @Provides
+    public ApiService provideApiService(@ApiUrl Retrofit retrofit) {
+        return retrofit.create(ApiService.class);
+    }
    /* @Singleton
     @Provides
     @AppUrl

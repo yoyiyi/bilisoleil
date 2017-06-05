@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module.home;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.CardView;
@@ -13,9 +14,12 @@ import android.widget.TextView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseFragment;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
+import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
+import com.yoyiyi.soleil.module.recommend.AllStationRankActivity;
+import com.yoyiyi.soleil.module.region.AllRegionRankActivity;
+import com.yoyiyi.soleil.module.search.TotalSearchActivity;
 import com.yoyiyi.soleil.mvp.contract.home.DiscoverContract;
 import com.yoyiyi.soleil.mvp.presenter.home.DiscoverPresenter;
-import com.yoyiyi.soleil.module.search.TotalSearchActivity;
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout;
 import com.yoyiyi.soleil.widget.flowlayout.TagAdapter;
 import com.yoyiyi.soleil.widget.flowlayout.TagFlowLayout;
@@ -157,6 +161,23 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
             Drawable downDrawable = getResources().getDrawable(R.drawable.ic_arrow_down_gray_round);
             downDrawable.setBounds(0, 0, downDrawable.getMinimumWidth(), downDrawable.getMinimumHeight());
             mTvMore.setCompoundDrawables(downDrawable, null, null, null);
+        }
+    }
+
+    @OnClick({R.id.rl_group, R.id.rl_activity_center, R.id.rl_topic_center,
+            R.id.rl_black_list, R.id.rl_rank_original, R.id.rl_rank_all, R.id.rl_game, R.id.rl_mall})
+    void startActivity(View view) {
+        switch (view.getId()) {
+            case R.id.rl_rank_original://原创排行
+                startActivity(new Intent(getApplicationContext(), AllStationRankActivity.class));
+                break;
+            case R.id.rl_rank_all://全站排行
+                AllRegionRankActivity.startActivity(getApplicationContext(), "番剧");
+                break;
+            case R.id.rl_topic_center://话题中心
+                startActivity(new Intent(getApplicationContext(), TopicCenterActivity.class));
+                break;
+
         }
     }
 }

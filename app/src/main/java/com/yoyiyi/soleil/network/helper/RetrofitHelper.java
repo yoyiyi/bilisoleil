@@ -4,16 +4,20 @@ package com.yoyiyi.soleil.network.helper;
 import com.yoyiyi.soleil.bean.app.Splash;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
+import com.yoyiyi.soleil.bean.discover.ActivityCenter;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
+import com.yoyiyi.soleil.bean.discover.TopicCenter;
 import com.yoyiyi.soleil.bean.live.LiveEntrance;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
+import com.yoyiyi.soleil.bean.recommend.AllStationRank;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.AllRegionRank;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
+import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
 import com.yoyiyi.soleil.network.api.LiveService;
@@ -36,12 +40,14 @@ public class RetrofitHelper {
     private final AppService mAppService;
     private final BangumiService mBangumiService;
     private final RankService mRankService;
+    private final ApiService mApiService;
 
-    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService) {
+    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService, ApiService apiService) {
         this.mAppService = appService;
         this.mLiveService = liveService;
         this.mBangumiService = bangumiService;
         this.mRankService = rankService;
+        this.mApiService = apiService;
     }
 
 
@@ -103,13 +109,17 @@ public class RetrofitHelper {
         return mRankService.getAllRegionRank(type);
     }
 
-
-   /* public Flowable<HttpResponse<ChaseBangumi>> getChaseBangumi() {
-        return mBangumiService.getChaseBangumi();
+    public Flowable<AllStationRank> getAllStationRank(String type) {
+        return mRankService.getAllStationRank(type);
     }
 
-    public Flowable<HttpResponse<RecommendBangumi>> getRecommendBangumi() {
-        return mBangumiService.getRecommendBangumi();
-    }*/
+    /*******************************ApiApi****************************************/
+    public Flowable<TopicCenter> getTopicCenter() {
+        return mApiService.getTopicCenter();
+    }
+
+    public Flowable<ActivityCenter> getActivityCenter(int page, int pageSize) {
+        return mApiService.getActivityCenter(page, pageSize);
+    }
 
 }

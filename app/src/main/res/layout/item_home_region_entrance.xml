@@ -2,14 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:clickable="true"
+              android:padding="@dimen/dp15"
+              android:foreground="?attr/selectableItemBackground"
               android:orientation="vertical">
+
 
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/dp38"
         android:layout_height="@dimen/dp38"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp30"/>
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/tv_title"

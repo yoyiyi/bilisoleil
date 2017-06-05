@@ -55,6 +55,16 @@
             android:name=".module.region.AllRegionRankActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--全站排行-->
+        <activity
+            android:name=".module.recommend.AllStationRankActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!--话题中心-->
+        <activity
+            android:name=".module.discover.TopicCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
 

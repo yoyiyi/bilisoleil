@@ -9,5 +9,8 @@ public class Event {
     public static class RegionEntrancePositionEvent {
         public int position;
     }
-    
+
+    public static class AllStationPositionEvent {
+        public int position;
+    }
 }

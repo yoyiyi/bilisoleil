@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class RegionRecommendDynamicSection extends StatelessSection<RegionRecommend.DynamicBean> {
 
-    public RegionRecommendDynamicSection(List<RegionRecommend.DynamicBean> dynamicBeanList) {
+    public  RegionRecommendDynamicSection(List<RegionRecommend.DynamicBean> dynamicBeanList) {
         super(R.layout.layout_item_region_head, R.layout.layout_item_region_footer, R.layout.layout_item_region_body, dynamicBeanList);
     }
 
