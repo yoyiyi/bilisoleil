@@ -56,7 +56,7 @@ public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
     public void onNext(T response) {
         if (mView == null) return;
         mView.complete();
-        onSuccess(response  );
+        onSuccess(response);
     }
 
 

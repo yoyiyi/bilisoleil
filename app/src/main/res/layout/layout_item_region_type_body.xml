@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="135dp"
     android:padding="@dimen/dp10">
+
     <ImageView
         android:id="@+id/iv_video_preview"
         android:layout_width="@dimen/dp0"
         android:layout_height="@dimen/dp120"
         android:layout_marginStart="0dp"
+        android:padding="@dimen/dp2"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="4:3"
@@ -22,24 +24,24 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp4"
         android:layout_marginTop="@dimen/dp4"
+        android:ellipsize="end"
         android:lineSpacingExtra="@dimen/dp2"
         android:maxLines="3"
         android:minLines="2"
-        android:ellipsize="end"
         android:paddingRight="@dimen/dp4"
         android:text=""
         android:textColor="@color/font_normal"
         android:textSize="@dimen/text_size_14"
-        app:layout_constraintStart_toEndOf="@id/iv_video_preview"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>
 
     <ImageView
         android:id="@+id/iv_video_up"
         android:layout_width="@dimen/dp16"
         android:layout_height="@dimen/dp16"
         android:layout_marginBottom="@dimen/dp4"
-        android:layout_marginRight="@dimen/dp3"
         android:layout_marginLeft="@dimen/dp4"
+        android:layout_marginRight="@dimen/dp3"
         android:src="@drawable/ic_up"
         app:layout_constraintBottom_toTopOf="@+id/iv_video_play_num"
         app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>

@@ -99,7 +99,7 @@ public class RetrofitHelper {
     }
 
     /*******************************RankApi****************************************/
-    public Flowable<HttpResponse<List<AllRegionRank>>> getAllRegionRank(String type) {
+    public Flowable<AllRegionRank> getAllRegionRank(String type) {
         return mRankService.getAllRegionRank(type);
     }
 

@@ -4,15 +4,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.region.AllRegionRankAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.region.AllRegionRank;
-import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.mvp.contract.region.AllRegionRankContract;
 import com.yoyiyi.soleil.mvp.presenter.region.AllRegionRankPresenter;
-import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,12 +18,11 @@ import java.util.List;
  * @date 创建时间：2017/5/30 18:35
  * 描述:分区Tag
  */
-public class AllRegionRankFragment extends BaseRefreshFragment<AllRegionRankPresenter, AllRegionRank> implements
+public class AllRegionRankFragment extends BaseRefreshFragment<AllRegionRankPresenter, AllRegionRank.RankBean.ListBean> implements
         AllRegionRankContract.View {
 
     private String mType;
-    private List<RegionType.NewBean> mNewBeanList = new ArrayList<>();
-    private SectionedRVAdapter mSectionedAdapter;
+    private AllRegionRankAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -60,28 +57,25 @@ public class AllRegionRankFragment extends BaseRefreshFragment<AllRegionRankPres
     }
 
     @Override
-    protected void clear() {
-        mNewBeanList.clear();
-        mSectionedAdapter.removeAllSections();
-    }
-
-    @Override
     protected void initRecyclerView() {
-        mSectionedAdapter = new SectionedRVAdapter();
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
+        mAdapter = new AllRegionRankAdapter(mList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
                 false);
-        mRecycler.setLayoutManager(mLayoutManager);
-        mRecycler.setAdapter(mSectionedAdapter);
+        mRecycler.setLayoutManager(layoutManager);
+        mRecycler.setAdapter(mAdapter);
     }
 
 
     @Override
     protected void finishTask() {
-
+        mAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void showAllRegionRank(AllRegionRank regionRank) {
 
+
+    @Override
+    public void showAllRegionRank(List<AllRegionRank.RankBean.ListBean> regionRank) {
+        mList.addAll(regionRank);
+        finishTask();
     }
 }

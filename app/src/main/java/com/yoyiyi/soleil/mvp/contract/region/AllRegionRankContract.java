@@ -15,7 +15,7 @@ public interface AllRegionRankContract {
 
     interface View extends BaseContract.BaseView {
 
-        void showAllRegionRank(List<AllRegionRank> regionRank);
+        void showAllRegionRank(List<AllRegionRank.RankBean.ListBean> regionRank);
 
     }
 
