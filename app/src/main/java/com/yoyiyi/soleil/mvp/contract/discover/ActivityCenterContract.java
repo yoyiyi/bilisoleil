@@ -15,11 +15,11 @@ public interface ActivityCenterContract {
 
     interface View extends BaseContract.BaseView {
 
-        void showActivityCenter(List<ActivityCenter.ListBean> listBeanList);
+        void showActivityCenter(List<ActivityCenter.ListBean> listBeanList, int total);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
 
-        void getActivityCenterData(int page,int pageSize);
+        void getActivityCenterData(int page, int pageSize);
     }
 }

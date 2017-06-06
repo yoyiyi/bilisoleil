@@ -65,6 +65,11 @@
             android:name=".module.discover.TopicCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--活动中心-->
+        <activity
+            android:name=".module.discover.ActivityCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
 

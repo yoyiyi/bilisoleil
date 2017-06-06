@@ -26,10 +26,6 @@ public abstract class BaseSubscriber<T> extends ResourceSubscriber<T> {
         this.mView = view;
     }
 
-    public BaseSubscriber(BaseContract.BaseView view, String message) {
-        this.mView = view;
-        this.mMsg = message;
-    }
 
     public abstract void onSuccess(T t);
 

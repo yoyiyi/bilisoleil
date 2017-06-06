@@ -23,7 +23,6 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
     protected boolean mIsRefreshing = false;
     protected List<K> mList = new ArrayList<>();
 
-
     protected void initRefreshLayout() {
         if (mRefresh != null) {
             mRefresh.setColorSchemeResources(R.color.colorPrimary);
@@ -51,7 +50,7 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
     }
 
     protected void clearData() {
-        mIsRefreshing = false;
+        mIsRefreshing = true;
     }
 
     @Override

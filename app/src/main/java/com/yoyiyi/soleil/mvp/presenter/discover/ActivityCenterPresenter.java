@@ -33,7 +33,7 @@ public class ActivityCenterPresenter extends RxPresenter<ActivityCenterContract.
                     @Override
                     public void onSuccess(ActivityCenter activityCenter) {
                         if (activityCenter.list != null) {
-                            mView.showActivityCenter(activityCenter.list);
+                            mView.showActivityCenter(activityCenter.list, activityCenter.total);
                         }
                     }
                 });
