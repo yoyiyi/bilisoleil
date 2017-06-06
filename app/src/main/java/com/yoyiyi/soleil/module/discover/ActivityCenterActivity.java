@@ -51,6 +51,7 @@ public class ActivityCenterActivity extends BaseRefreshActivity<ActivityCenterPr
         mPage = 1;
         mIsLoadMore = false;
         mIsError = false;
+        //刷新时候关闭上拉加载
         mAdapter.setEnableLoadMore(false);
     }
 
