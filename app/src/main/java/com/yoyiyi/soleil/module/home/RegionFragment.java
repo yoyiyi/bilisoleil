@@ -63,10 +63,11 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .visibilityProvider((position, parent) -> {
-                    if (position < 2)
+                    if (position < 2) {
                         return true;
-                    else
+                    } else {
                         return false;
+                    }
                 })
                 .build();
         mRecycler.addItemDecoration(build);

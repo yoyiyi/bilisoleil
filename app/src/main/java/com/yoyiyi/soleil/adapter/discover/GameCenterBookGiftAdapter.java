@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.adapter.discover;
 
 import android.support.annotation.Nullable;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -9,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.discover.GameCenter;
+import com.yoyiyi.soleil.utils.AppUtils;
 
 import java.util.List;
 
@@ -33,6 +35,16 @@ public class GameCenterBookGiftAdapter extends BaseQuickAdapter<GameCenter.BookG
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_preview));
+        int position = holder.getAdapterPosition();
+        if (position == getItemCount() - 1) {
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT);
+            params.setMargins((int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
+            holder.itemView.setLayoutParams(params);
+        }
 
     }
 }

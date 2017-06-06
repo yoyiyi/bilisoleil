@@ -4,7 +4,6 @@
               android:layout_height="match_parent"
               android:background="@color/white"
               android:paddingBottom="@dimen/dp10"
-              android:paddingRight="@dimen/dp10"
               android:paddingTop="@dimen/dp10">
 
     <include layout="@layout/common_recycler"/>

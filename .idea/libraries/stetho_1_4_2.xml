@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="stetho-1.4.2">
+    <CLASSES>
+      <root url="file://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/stetho-1.4.2.aar/91a7ed6fcd3bca66e980ccc5bb2552ae/res" />
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/stetho-1.4.2.aar/91a7ed6fcd3bca66e980ccc5bb2552ae/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

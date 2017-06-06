@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="rxandroid-2.0.1">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/3a45e4483dc6b2213ffd27b22e08718e/jars/classes.jar!/" />
+      <root url="file://$APPLICATION_HOME_DIR$/gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/3a45e4483dc6b2213ffd27b22e08718e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -20,7 +20,7 @@ public class GameCenterBookGiftSection extends StatelessSection {
     private List<GameCenter.BookGiftBean> mList;
 
     public GameCenterBookGiftSection(List<GameCenter.BookGiftBean> list) {
-        super(R.layout.layout_item_game_center_head, R.layout.layout_item_game_center_book_lift, R.layout.layout_empty);
+        super(R.layout.layout_item_game_center_head, R.layout.layout_item_game_center_book_gift, R.layout.layout_empty);
         this.mList = list;
     }
 

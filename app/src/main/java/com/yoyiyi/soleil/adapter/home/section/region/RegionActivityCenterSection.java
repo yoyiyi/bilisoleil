@@ -19,7 +19,6 @@ import java.util.List;
 public class RegionActivityCenterSection extends StatelessSection {
 
     private List<Region.BodyBean> mList;
-
     public RegionActivityCenterSection(List<Region.BodyBean> list) {
         super(R.layout.layout_item_home_region_activity_center, R.layout.layout_empty);
         this.mList = list;
@@ -37,5 +36,6 @@ public class RegionActivityCenterSection extends StatelessSection {
                 StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new RegionActivityCenterAdapter(mList));
+
     }
 }

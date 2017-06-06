@@ -42,7 +42,7 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
 
 
     @Override
-    public void onBindItemViewHolder(ViewHolder holder, Region.BodyBean bodyBean) {
+    public void convert(ViewHolder holder, Region.BodyBean bodyBean, int position) {
         Glide.with(mContext)
                 .load(bodyBean.cover)
                 .centerCrop()
@@ -61,11 +61,10 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
                     .setVisible(R.id.iv_video_online, false)
                     .setText(R.id.tv_video_favourite, NumberUtils.format(bodyBean.danmaku + ""));
         }
-        int position = holder.getAdapterPosition();
         if (position % 2 == 0) {
-            holder.setVisible(R.id.space, false);
-        } else {
             holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, false);
         }
     }
 

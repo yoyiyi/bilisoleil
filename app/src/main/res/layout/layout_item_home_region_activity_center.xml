@@ -4,7 +4,13 @@
               android:layout_height="wrap_content"
               android:orientation="vertical">
 
-    <include layout="@layout/layout_item_home_region_head"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp10">
+
+        <include layout="@layout/layout_item_home_region_head"/>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

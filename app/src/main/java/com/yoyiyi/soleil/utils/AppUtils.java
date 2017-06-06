@@ -38,7 +38,9 @@ public class AppUtils {
     public static AssetManager getAssets() {
         return mContext.getAssets();
     }
-
+    public static float getDimension(int id) {
+        return getResource().getDimension(id);
+    }
     public static Resources getResource() {
         return mContext.getResources();
     }
