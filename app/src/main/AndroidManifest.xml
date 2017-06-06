@@ -70,6 +70,13 @@
             android:name=".module.discover.ActivityCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--游戏中心-->
+        <activity
+            android:name=".module.discover.GameCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+
         <service android:name=".widget.NetworkService"/>
     </application>
 

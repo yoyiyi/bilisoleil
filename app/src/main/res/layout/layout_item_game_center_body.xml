@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/dp15"
     android:paddingTop="@dimen/dp15">
 
@@ -43,13 +43,18 @@
         app:layout_constraintBottom_toBottomOf="@id/iv_preview"
         app:layout_constraintStart_toEndOf="@id/iv_preview"/>
 
-    <Button
-        android:id="@+id/bt_open"
+    <TextView
+        android:id="@+id/tv_open"
         android:layout_width="@dimen/dp52"
         android:layout_height="@dimen/dp30"
         android:layout_marginEnd="@dimen/dp10"
         android:background="@drawable/shape_btn_game_center_bg"
+        android:gravity="center"
         android:text="打开"
         android:textColor="@color/pink_text_color"
-        android:textSize="@dimen/text_size_16"/>
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
 </android.support.constraint.ConstraintLayout>

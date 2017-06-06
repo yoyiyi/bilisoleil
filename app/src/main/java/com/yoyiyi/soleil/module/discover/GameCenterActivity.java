@@ -3,6 +3,8 @@ package com.yoyiyi.soleil.module.discover;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.discover.section.GameCenterBookGiftSection;
+import com.yoyiyi.soleil.adapter.discover.section.GameCenterGameListSection;
 import com.yoyiyi.soleil.adapter.discover.section.GameCenterUserSection;
 import com.yoyiyi.soleil.base.BaseRefreshActivity;
 import com.yoyiyi.soleil.bean.discover.GameCenter;
@@ -50,8 +52,6 @@ public class GameCenterActivity extends BaseRefreshActivity<ActivityCenterPresen
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
         mRecycler.setLayoutManager(layoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
-
-
     }
 
     @Override
@@ -68,6 +68,8 @@ public class GameCenterActivity extends BaseRefreshActivity<ActivityCenterPresen
     @Override
     protected void finishTask() {
         mSectionedAdapter.addSection(new GameCenterUserSection());
-
+        mSectionedAdapter.addSection(new GameCenterBookGiftSection(mBookGiftBeanList));
+        mSectionedAdapter.addSection(new GameCenterGameListSection(mList));
+        mSectionedAdapter.notifyDataSetChanged();
     }
 }

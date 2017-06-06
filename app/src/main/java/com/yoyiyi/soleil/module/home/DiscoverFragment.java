@@ -15,6 +15,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseFragment;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
+import com.yoyiyi.soleil.module.discover.GameCenterActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
 import com.yoyiyi.soleil.module.recommend.AllStationRankActivity;
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity;
@@ -180,6 +181,9 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 break;
             case R.id.rl_activity_center://活动中心
                 startActivity(new Intent(getApplicationContext(), ActivityCenterActivity.class));
+                break;
+            case R.id.rl_game://游戏中心
+                startActivity(new Intent(getApplicationContext(), GameCenterActivity.class));
                 break;
         }
     }

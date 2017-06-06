@@ -1,5 +1,9 @@
 package com.yoyiyi.soleil.adapter.discover.section;
 
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.discover.GameCenter;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
@@ -20,7 +24,14 @@ public class GameCenterGameListSection extends StatelessSection<GameCenter.GameL
 
     @Override
     public void convert(ViewHolder holder, GameCenter.GameListBean gameListBean, int position) {
-
+        Glide.with(mContext)
+                .load(gameListBean.icon)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontAnimate()
+                .into((ImageView) holder.getView(R.id.iv_preview));
+        holder.setText(R.id.tv_title, gameListBean.title)
+                .setText(R.id.tv_des, gameListBean.summary);
     }
 
     @Override
