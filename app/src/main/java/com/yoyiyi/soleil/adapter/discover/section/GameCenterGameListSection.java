@@ -32,6 +32,13 @@ public class GameCenterGameListSection extends StatelessSection<GameCenter.GameL
                 .into((ImageView) holder.getView(R.id.iv_preview));
         holder.setText(R.id.tv_title, gameListBean.title)
                 .setText(R.id.tv_des, gameListBean.summary);
+        if (gameListBean.hot == 1) {
+            holder.setImageResource(R.id.iv_state, R.drawable.ic_game_center_hot);
+        } else if (gameListBean.newX == 1) {
+            holder.setImageResource(R.id.iv_state, R.drawable.ic_game_center_new);
+        } else {
+            holder.setImageResource(R.id.iv_state, R.color.transparent);
+        }
     }
 
     @Override

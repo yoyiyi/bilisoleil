@@ -34,6 +34,7 @@
             android:layout_width="@dimen/dp75"
             android:layout_height="@dimen/dp30"
             android:background="@drawable/btn_more_pink"
+            android:foreground="?attr/selectableItemBackground"
             android:text="游戏中心"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_14"

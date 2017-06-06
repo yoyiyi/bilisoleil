@@ -31,18 +31,11 @@ public class RegionActivityCenterSection extends StatelessSection {
         holder.setText(R.id.tv_title, "活动中心")
                 .setImageResource(R.id.iv_icon, R.drawable.ic_header_activity_center);
         RecyclerView recyclerView = holder.getView(R.id.recycler);
-        recyclerView.setHasFixedSize(false);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
                 StaggeredGridLayoutManager.HORIZONTAL);
-        //LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-       /* VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
-                .color(R.color.transparent)
-                // .color(Color.RED)
-                .sizeResId(R.dimen.dp10)
-                .build();
-        recyclerView.addItemDecoration(build);*/
         recyclerView.setAdapter(new RegionActivityCenterAdapter(mList));
     }
 }

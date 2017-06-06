@@ -7,7 +7,7 @@
     android:layout_height="170dp"
     android:layout_marginBottom="@dimen/dp5"
     android:layout_marginTop="@dimen/dp5"
-    android:layout_marginRight="@dimen/dp10"
+    android:layout_marginLeft="@dimen/dp10"
     android:clickable="true"
     android:foreground="?attr/selectableItemBackground"
     app:cardBackgroundColor="@color/cardview_light_background"

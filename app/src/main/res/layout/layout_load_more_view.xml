@@ -8,8 +8,8 @@
 
     <com.yoyiyi.soleil.widget.ProgressWheel
         android:id="@+id/pw_loading"
-        android:layout_width="@dimen/dp40"
-        android:layout_height="@dimen/dp40"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
         app:matProg_barColor="@color/colorPrimary"
         app:matProg_barWidth="@dimen/dp4"
         app:matProg_fillRadius="false"

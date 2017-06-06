@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.adapter.discover.section;
 
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.discover.GameCenterBookGiftAdapter;
@@ -20,8 +20,8 @@ public class GameCenterBookGiftSection extends StatelessSection {
     private List<GameCenter.BookGiftBean> mList;
 
     public GameCenterBookGiftSection(List<GameCenter.BookGiftBean> list) {
-        super(R.layout.layout_item_game_center_head, R.layout.layout_item_game_center_book_lift);
-        mList = list;
+        super(R.layout.layout_item_game_center_head, R.layout.layout_item_game_center_book_lift, R.layout.layout_empty);
+        this.mList = list;
     }
 
     @Override
@@ -30,12 +30,14 @@ public class GameCenterBookGiftSection extends StatelessSection {
     }
 
     @Override
-    public void onBindItemViewHolder(ViewHolder holder, Object o) {
+    public void onBindFooterViewHolder(ViewHolder holder) {
         RecyclerView recyclerView = holder.getView(R.id.recycler);
-        recyclerView.setHasFixedSize(false);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 5);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
+                StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new GameCenterBookGiftAdapter(mList));
     }
+
 }

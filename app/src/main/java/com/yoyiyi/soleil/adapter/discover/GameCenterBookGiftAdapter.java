@@ -1,7 +1,10 @@
 package com.yoyiyi.soleil.adapter.discover;
 
 import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
@@ -23,6 +26,13 @@ public class GameCenterBookGiftAdapter extends BaseQuickAdapter<GameCenter.BookG
 
     @Override
     protected void convert(BaseViewHolder holder, GameCenter.BookGiftBean bookGiftBean) {
+        holder.setText(R.id.tv_title, bookGiftBean.name);
+        Glide.with(mContext)
+                .load(bookGiftBean.image)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontAnimate()
+                .into((ImageView) holder.getView(R.id.iv_preview));
 
     }
 }

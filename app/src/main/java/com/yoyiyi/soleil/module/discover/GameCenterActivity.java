@@ -9,7 +9,7 @@ import com.yoyiyi.soleil.adapter.discover.section.GameCenterUserSection;
 import com.yoyiyi.soleil.base.BaseRefreshActivity;
 import com.yoyiyi.soleil.bean.discover.GameCenter;
 import com.yoyiyi.soleil.mvp.contract.discover.GameCenterContract;
-import com.yoyiyi.soleil.mvp.presenter.discover.ActivityCenterPresenter;
+import com.yoyiyi.soleil.mvp.presenter.discover.GameCenterPresenter;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -20,24 +20,24 @@ import java.util.List;
  * @date 创建时间：2017/6/5 22:28
  * 描述:游戏中心
  */
-public class GameCenterActivity extends BaseRefreshActivity<ActivityCenterPresenter, GameCenter.GameListBean> implements GameCenterContract.View {
+public class GameCenterActivity extends BaseRefreshActivity<GameCenterPresenter, GameCenter.GameListBean> implements GameCenterContract.View {
     private SectionedRVAdapter mSectionedAdapter;
     private List<GameCenter.BookGiftBean> mBookGiftBeanList = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_topic_center;
+        return R.layout.activity_game_center;
     }
 
     @Override
     protected void initToolbar() {
         super.initToolbar();
-        mToolbar.setTitle("活动中心");
+        mToolbar.setTitle("游戏中心");
     }
 
     @Override
     protected void loadData() {
-
+        mPresenter.getGameCenterData();
     }
 
 

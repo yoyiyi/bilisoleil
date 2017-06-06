@@ -33,7 +33,9 @@ public class GameCenterPresenter extends RxPresenter<GameCenterContract.View> im
 
     @Override
     public void getGameCenterData() {
-        BaseSubscriber<GameCenter> subscriber = Flowable.just(JsonUtils.readJson("recommend.json"))
+        //接口需要登录账号
+
+        BaseSubscriber<GameCenter> subscriber = Flowable.just(JsonUtils.readJson("game_center.json"))
                 .map(string -> {
                     Gson gson = new Gson();
                     JsonObject object = new JsonParser().parse(string).getAsJsonObject();

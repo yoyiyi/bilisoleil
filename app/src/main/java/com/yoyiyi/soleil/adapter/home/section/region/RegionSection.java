@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home.section.region;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
@@ -8,9 +9,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.Region;
+import com.yoyiyi.soleil.module.discover.GameCenterActivity;
+import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
-import com.yoyiyi.soleil.utils.NumberUtils;
 
 import java.util.List;
 import java.util.Random;
@@ -74,6 +76,9 @@ public class RegionSection extends StatelessSection<Region.BodyBean> {
             holder.setVisible(R.id.bt_more, false)
                     .setVisible(R.id.bt_more_game, true)
                     .setVisible(R.id.bt_game_center, true);
+            //跳转到游戏中心
+            holder.getView(R.id.bt_game_center)
+                    .setOnClickListener(view -> mContext.startActivity(new Intent(mContext, GameCenterActivity.class)));
         } else {
             holder.setVisible(R.id.bt_more, true)
                     .setVisible(R.id.bt_more_game, false)

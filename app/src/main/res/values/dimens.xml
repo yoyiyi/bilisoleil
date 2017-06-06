@@ -61,5 +61,7 @@
     <dimen name="dp38">38.0dip</dimen>
     <dimen name="dp74">74.0dip</dimen>
     <dimen name="dp72">72.0dip</dimen>
+    <dimen name="dp65">65.0dip</dimen>
+    <dimen name="dp68">68.0dip</dimen>
 
 </resources>

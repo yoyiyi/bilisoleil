@@ -4,57 +4,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/dp15"
-    android:paddingTop="@dimen/dp15">
+    android:background="@color/white"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:paddingBottom="@dimen/dp10"
+        android:paddingTop="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/iv_preview"
+            android:layout_width="@dimen/dp65"
+            android:layout_height="@dimen/dp65"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5"
+            android:paddingTop="@dimen/dp5"
+            android:textColor="@color/font_normal"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintStart_toEndOf="@id/iv_preview"/>
+
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5"
+            android:paddingTop="@dimen/dp5"
+            android:textColor="@color/black_alpha_45"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="@id/iv_preview"
+            app:layout_constraintStart_toEndOf="@id/iv_preview"/>
+
+        <TextView
+            android:id="@+id/tv_open"
+            android:layout_width="@dimen/dp52"
+            android:layout_height="@dimen/dp30"
+            android:layout_marginEnd="@dimen/dp10"
+            android:background="@drawable/shape_btn_game_center_bg"
+            android:gravity="center"
+            android:text="打开"
+            android:textColor="@color/pink_text_color"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"/>
+    </android.support.constraint.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/iv_new"
+        android:id="@+id/iv_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
         android:scaleType="fitXY"
         android:src="@drawable/ic_game_center_new"/>
 
-    <ImageView
-        android:id="@+id/iv_preview"
-        android:layout_width="@dimen/dp72"
-        android:layout_height="@dimen/dp72"
-        android:padding="@dimen/dp6"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_alpha_45"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:paddingBottom="@dimen/dp5"
-        android:paddingTop="@dimen/dp5"
-        android:textColor="@color/font_normal"
-        android:textSize="@dimen/text_size_14"
-        app:layout_constraintStart_toEndOf="@id/iv_preview"/>
-
-    <TextView
-        android:id="@+id/tv_des"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:paddingBottom="@dimen/dp5"
-        android:paddingTop="@dimen/dp5"
-        android:textColor="@color/black_alpha_45"
-        android:textSize="@dimen/text_size_12"
-        app:layout_constraintBottom_toBottomOf="@id/iv_preview"
-        app:layout_constraintStart_toEndOf="@id/iv_preview"/>
-
-    <TextView
-        android:id="@+id/tv_open"
-        android:layout_width="@dimen/dp52"
-        android:layout_height="@dimen/dp30"
-        android:layout_marginEnd="@dimen/dp10"
-        android:background="@drawable/shape_btn_game_center_bg"
-        android:gravity="center"
-        android:text="打开"
-        android:textColor="@color/pink_text_color"
-        android:textSize="@dimen/text_size_16"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"/>
 </android.support.constraint.ConstraintLayout>
