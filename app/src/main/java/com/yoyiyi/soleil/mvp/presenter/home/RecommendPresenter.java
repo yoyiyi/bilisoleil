@@ -35,6 +35,7 @@ public class RecommendPresenter extends RxPresenter<RecommendContract.View> impl
 
     @Override
     public void getRecommendData() {
+        //需登录
         /*BaseListSubscriber<Recommend> subscriber = mRetrofitHelper.getRecommend()
                 .compose(RxUtils.rxSchedulerHelper())
                 .subscribeWith(new BaseListSubscriber<Recommend>(mView) {

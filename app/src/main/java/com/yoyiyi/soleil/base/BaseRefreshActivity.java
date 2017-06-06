@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.ToastUtils;
+import com.yoyiyi.soleil.widget.ProgressWheel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
     protected SwipeRefreshLayout mRefresh;
     protected boolean mIsRefreshing = false;
     protected List<K> mList = new ArrayList<>();
+    private ProgressWheel mLoading;
 
     protected void initRefreshLayout() {
         if (mRefresh != null) {
@@ -39,6 +41,8 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
     protected void initWidget() {
         mRefresh = ButterKnife.findById(this, R.id.refresh);
         mRecycler = ButterKnife.findById(this, R.id.recycler);
+        //加载框
+        mLoading = ButterKnife.findById(this, R.id.pw_loading);
         initRefreshLayout();
         initRecyclerView();
     }
@@ -66,6 +70,10 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
             ToastUtils.showSingleLongToast("刷新成功");
         }
         mIsRefreshing = false;
+
+        if (mLoading != null) {
+            gone(mLoading);
+        }
     }
 
     protected void clear() {
@@ -75,7 +83,12 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
     @Override
     protected void initDatas() {
         if (mRefresh == null) {//
-            super.initDatas();
+            if (mLoading != null) {
+                visible(mLoading);
+                AppUtils.runOnUIDelayed(() -> loadData(), 650);
+            } else {
+                super.initDatas();
+            }
         }
     }
 }

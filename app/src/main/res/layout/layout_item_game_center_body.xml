@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dp15"
+    android:paddingTop="@dimen/dp15">
+
+    <ImageView
+        android:id="@+id/iv_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_game_center_new"/>
+
+    <ImageView
+        android:id="@+id/iv_preview"
+        android:layout_width="@dimen/dp72"
+        android:layout_height="@dimen/dp72"
+        android:padding="@dimen/dp6"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:paddingBottom="@dimen/dp5"
+        android:paddingTop="@dimen/dp5"
+        android:textColor="@color/font_normal"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintStart_toEndOf="@id/iv_preview"/>
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:paddingBottom="@dimen/dp5"
+        android:paddingTop="@dimen/dp5"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@id/iv_preview"
+        app:layout_constraintStart_toEndOf="@id/iv_preview"/>
+
+    <Button
+        android:id="@+id/bt_open"
+        android:layout_width="@dimen/dp52"
+        android:layout_height="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp10"
+        android:background="@drawable/shape_btn_game_center_bg"
+        android:text="打开"
+        android:textColor="@color/pink_text_color"
+        android:textSize="@dimen/text_size_16"/>
+</android.support.constraint.ConstraintLayout>

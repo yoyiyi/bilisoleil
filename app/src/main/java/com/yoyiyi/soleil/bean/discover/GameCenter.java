@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.game;
+package com.yoyiyi.soleil.bean.discover;
 
 import com.google.gson.annotations.SerializedName;
 
