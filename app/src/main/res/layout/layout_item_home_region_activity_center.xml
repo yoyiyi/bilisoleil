@@ -9,8 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/dp10"
-        android:paddingRight="@dimen/dp10">
+        android:paddingBottom="@dimen/dp10">
 
         <include layout="@layout/common_recycler"/>
     </FrameLayout>
