@@ -1,7 +1,6 @@
 package com.yoyiyi.soleil.module.home;
 
-import android.graphics.Color;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.section.chase.ChaseAdSection;
@@ -15,7 +14,6 @@ import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.mvp.contract.home.ChaseBangumiContract;
 import com.yoyiyi.soleil.mvp.presenter.home.ChaseBangumiPresenter;
 import com.yoyiyi.soleil.utils.EmptyUtils;
-import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 /**
@@ -60,38 +58,10 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
     @Override
     protected void initRecyclerView() {
         mSectionedAdapter = new SectionedRVAdapter();
-        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
-        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                switch (mSectionedAdapter.getSectionItemViewType(position)) {
-                    case SectionedRVAdapter.VIEW_TYPE_HEADER:
-                        return 3;//2格
-                    case SectionedRVAdapter.VIEW_TYPE_FOOTER:
-                        return 3;//2格
-                    default:
-                        return 1;
-                }
-            }
-        });
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
-        //添加分割线
-        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                //.color(AppUtils.getColor(R.color.transparent))
-                .color(Color.RED)
-                .margin(20,20)
-                .sizeResId(R.dimen.dp10)
-                .showLastDivider()
-                .visibilityProvider((position, parent) -> {
-                    if (position < 2) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                })
-                .build();
-        mRecycler.addItemDecoration(build);
+
     }
 
     @Override

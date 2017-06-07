@@ -19,7 +19,7 @@ public class ChaseAdSection extends StatelessSection {
     private RecommendBangumi.AdBean mAdBean;
 
     public ChaseAdSection(RecommendBangumi.AdBean adBean) {
-        super(R.layout.layout_item_home_cahse_footer, R.layout.layout_empty);
+        super(R.layout.layout_item_home_chase_footer, R.layout.layout_empty);
         this.mAdBean = adBean;
     }
 

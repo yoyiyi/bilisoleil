@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class ChaseFllowAdapter extends BaseQuickAdapter<ChaseBangumi.FollowsBean,BaseViewHolder> {
     public ChaseFllowAdapter( @Nullable List<ChaseBangumi.FollowsBean> data) {
-        super(R.layout.layout_item_home_cahse_head, data);
+        super(R.layout.item_home_chase_body, data);
     }
 
     @Override

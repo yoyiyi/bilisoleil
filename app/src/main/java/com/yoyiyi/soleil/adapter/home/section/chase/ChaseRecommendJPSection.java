@@ -26,7 +26,7 @@ public class ChaseRecommendJPSection extends StatelessSection{
     private List<RecommendBangumi.RecommendJpBean.RecommendBeanX> mList;
 
     public ChaseRecommendJPSection(List<RecommendBangumi.RecommendJpBean.RecommendBeanX> data, RecommendBangumi.RecommendJpBean.FootBeanX footBean) {
-        super(R.layout.layout_item_home_cahse_head, R.layout.layout_item_home_cahse_footer, R.layout.layout_item_home_chase_body, data);
+        super(R.layout.layout_item_home_chase_head, R.layout.layout_item_home_chase_footer, R.layout.layout_item_home_chase_body, data);
         this.mFootBean = footBean;
         this.mList = data;
     }

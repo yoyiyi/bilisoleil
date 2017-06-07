@@ -25,7 +25,7 @@ public class ChaseFollowSection extends StatelessSection {
     private List<ChaseBangumi.FollowsBean> mList;
 
     public ChaseFollowSection(String count, List<ChaseBangumi.FollowsBean> data) {
-        super(R.layout.layout_item_home_cahse_head, R.layout.layout_item_home_chase_body);
+        super(R.layout.layout_item_home_chase_head, R.layout.layout_item_home_chase_body);
         this.mCount = count;
         mList = data;
     }
