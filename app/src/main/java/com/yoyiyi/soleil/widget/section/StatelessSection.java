@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.widget.section;
 
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.List;
 
@@ -102,5 +103,18 @@ public abstract class StatelessSection<T> extends Section<T> {
     @Override
     public final ViewHolder getFailedViewHolder(View view) {
         return super.getFailedViewHolder(view);
+    }
+
+    public void setMargins(View view, int left, int top, int right, int bottom) {
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        params.setMargins(left, top, right, bottom);
+        view.setLayoutParams(params);
+    }
+
+    public void gone(View view) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        params.height = 0;
+        params.width = 0;
+        view.setLayoutParams(params);
     }
 }

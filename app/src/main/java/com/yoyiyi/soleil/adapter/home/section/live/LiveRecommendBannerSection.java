@@ -43,7 +43,10 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                 .create();
         holder.setText(R.id.tv_video_title, builder);
-
+        setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp10),
+                (int) AppUtils.getDimension(R.dimen.dp5),
+                (int) AppUtils.getDimension(R.dimen.dp10),
+                (int) AppUtils.getDimension(R.dimen.dp5));
     }
 
 }

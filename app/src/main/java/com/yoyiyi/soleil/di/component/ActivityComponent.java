@@ -6,6 +6,7 @@ import com.yoyiyi.soleil.di.module.ActivityModule;
 import com.yoyiyi.soleil.di.scope.ActivityScope;
 import com.yoyiyi.soleil.module.app.SplashActivity;
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
+import com.yoyiyi.soleil.module.discover.AllGameActivity;
 import com.yoyiyi.soleil.module.discover.GameCenterActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
@@ -35,5 +36,7 @@ public interface ActivityComponent {
     void inject(ActivityCenterActivity activityCenterActivity);
 
     void inject(GameCenterActivity gameCenterActivity);
+
+    void inject(AllGameActivity allGameActivity);
 
 }

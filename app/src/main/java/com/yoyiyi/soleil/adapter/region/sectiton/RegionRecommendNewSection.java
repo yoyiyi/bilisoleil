@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -36,9 +37,15 @@ public class RegionRecommendNewSection extends StatelessSection<RegionRecommend.
                 .setText(R.id.tv_video_play_num, NumberUtils.format(newBean.play + ""))
                 .setText(R.id.tv_video_favourite, NumberUtils.format(newBean.danmaku + ""));
         if (position % 2 == 0) {
-            holder.setVisible(R.id.space, true);
+            setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
         } else {
-            holder.setVisible(R.id.space, false);
+            setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
         }
     }
 

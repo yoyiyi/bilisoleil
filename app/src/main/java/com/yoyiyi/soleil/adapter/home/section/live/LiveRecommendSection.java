@@ -102,9 +102,14 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
     }
 
     @Override
-    public void convert(ViewHolder holder, LiveRecommend.RecommendDataBean.LivesBean livesBean,int position) {
-        ImageLoader.load(mContext, livesBean.cover.src, R.drawable.bili_default_image_tv,
-                holder.getView(R.id.iv_video_preview));
+    public void convert(ViewHolder holder, LiveRecommend.RecommendDataBean.LivesBean livesBean, int position) {
+        Glide.with(mContext)
+                .load(livesBean.cover.src)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(R.drawable.bili_default_image_tv)
+                .dontAnimate()
+                .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         SpannableStringUtils.Builder builder = new SpannableStringUtils.Builder()
@@ -113,9 +118,15 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
                 .append(livesBean.title);
         holder.setText(R.id.tv_video_title, builder.create());
         if (position % 2 == 0) {
-            holder.setVisible(R.id.space, true);
+            setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
         } else {
-            holder.setVisible(R.id.space, false);
+            setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
         }
     }
 

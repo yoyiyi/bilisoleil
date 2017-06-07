@@ -13,8 +13,6 @@ import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionTagType;
 import com.yoyiyi.soleil.mvp.contract.home.RegionContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RegionPresenter;
-import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -58,19 +56,6 @@ public class RegionFragment extends BaseRefreshFragment<RegionPresenter, Region>
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
-        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(AppUtils.getColor(R.color.transparent))
-                .sizeResId(R.dimen.dp10)
-                .showLastDivider()
-                .visibilityProvider((position, parent) -> {
-                    if (position < 2) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                })
-                .build();
-        mRecycler.addItemDecoration(build);
     }
 
     @Override

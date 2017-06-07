@@ -38,6 +38,7 @@ public class GameCenterBookGiftSection extends StatelessSection {
                 StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new GameCenterBookGiftAdapter(mList));
+
     }
 
 }

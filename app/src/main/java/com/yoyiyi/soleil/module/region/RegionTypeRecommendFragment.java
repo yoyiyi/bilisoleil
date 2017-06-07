@@ -14,8 +14,6 @@ import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.mvp.contract.region.RegionTypeRecommendContract;
 import com.yoyiyi.soleil.mvp.presenter.region.RegionTypeRecommendPresenter;
-import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -81,20 +79,6 @@ public class RegionTypeRecommendFragment extends BaseRefreshFragment<RegionTypeR
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
-        //添加分割线
-        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(AppUtils.getColor(R.color.transparent))
-                .sizeResId(R.dimen.dp10)
-                .showLastDivider()
-                .visibilityProvider((position, parent) -> {
-                    if (position < 4) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                })
-                .build();
-        mRecycler.addItemDecoration(build);
     }
 
     @Override

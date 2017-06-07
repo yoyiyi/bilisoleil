@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="stream-1.1.6">
     <CLASSES>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.6/b708c54d13f0e223803f0d04410cd2684031bb79/stream-1.1.6.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.6/b708c54d13f0e223803f0d04410cd2684031bb79/stream-1.1.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

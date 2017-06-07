@@ -14,8 +14,6 @@ import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract;
 import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter;
-import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import java.util.ArrayList;
@@ -76,7 +74,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
         //添加分割线
-        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
+        /*VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
                 .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
@@ -88,7 +86,7 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
                     }
                 })
                 .build();
-        mRecycler.addItemDecoration(build);
+        mRecycler.addItemDecoration(build);*/
     }
 
 

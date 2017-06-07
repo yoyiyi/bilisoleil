@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
     android:layout_marginBottom="@dimen/dp5"
-    android:foreground="?attr/selectableItemBackground"
-    android:layout_marginTop="@dimen/dp5">
+    android:layout_marginLeft="@dimen/dp10"
+    android:layout_marginRight="@dimen/dp10"
+    android:layout_marginTop="@dimen/dp5"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
 
     <include layout="@layout/layout_item_home_region_head"/>
 
@@ -14,8 +16,6 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginRight="@dimen/dp10"
         android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/card_view_background"
         app:cardCornerRadius="@dimen/dp4"

@@ -24,14 +24,34 @@ public class RegionActivityCenterAdapter extends BaseQuickAdapter<Region.BodyBea
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, Region.BodyBean bodyBean) {
+    protected void convert(BaseViewHolder holder, Region.BodyBean bodyBean) {
         Glide.with(mContext)
                 .load(bodyBean.cover)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
-                .into((ImageView) viewHolder.getView(R.id.iv_video_preview));
-        viewHolder.setText(R.id.tv_video_title, bodyBean.title);
+                .into((ImageView) holder.getView(R.id.iv_video_preview));
+        holder.setText(R.id.tv_video_title, bodyBean.title);
+        int position = holder.getAdapterPosition();
+        if (position == getItemCount() - 1) {
+            holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, false);
+        }
+
+        /*int position = holder.getAdapterPosition();
+        if (position == getItemCount() - 1) {
+            CardView view = holder.getView(R.id.card_view);
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins((int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
+            holder.itemView.setLayoutParams(params);
+        }*/
     }
 }

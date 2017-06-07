@@ -77,9 +77,15 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
         holder.setText(R.id.tv_video_title, livesBean.title);
         if (position % 2 == 0) {
-            holder.setVisible(R.id.space, true);
+            setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
         } else {
-            holder.setVisible(R.id.space, false);
+            setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp5),
+                    (int) AppUtils.getDimension(R.dimen.dp10),
+                    (int) AppUtils.getDimension(R.dimen.dp5));
         }
     }
 

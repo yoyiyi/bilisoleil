@@ -19,8 +19,9 @@ import java.util.List;
 public class RegionActivityCenterSection extends StatelessSection {
 
     private List<Region.BodyBean> mList;
+
     public RegionActivityCenterSection(List<Region.BodyBean> list) {
-        super(R.layout.layout_item_home_region_activity_center, R.layout.layout_empty);
+        super(R.layout.layout_item_home_region_head, R.layout.layout_item_home_region_activity_center, R.layout.layout_empty);
         this.mList = list;
     }
 
@@ -29,6 +30,10 @@ public class RegionActivityCenterSection extends StatelessSection {
     public void onBindHeaderViewHolder(ViewHolder holder) {
         holder.setText(R.id.tv_title, "活动中心")
                 .setImageResource(R.id.iv_icon, R.drawable.ic_header_activity_center);
+    }
+
+    @Override
+    public void onBindFooterViewHolder(ViewHolder holder) {
         RecyclerView recyclerView = holder.getView(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
@@ -36,6 +41,5 @@ public class RegionActivityCenterSection extends StatelessSection {
                 StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new RegionActivityCenterAdapter(mList));
-
     }
 }

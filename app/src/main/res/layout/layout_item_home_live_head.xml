@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp5"
+    android:layout_marginRight="@dimen/dp10"
     android:paddingLeft="@dimen/dp10"
     android:paddingTop="@dimen/dp6">
 
@@ -34,16 +35,28 @@
             app:layout_constraintStart_toEndOf="@+id/iv_icon"
             app:layout_constraintTop_toTopOf="parent"/>
 
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_gray_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
             android:id="@+id/tv_online"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_gray_arrow_right"
+            android:gravity="center_vertical"
             android:text="xxxx"
+            android:layout_marginRight="@dimen/dp4"
             android:textSize="@dimen/text_size_12"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_arrow"
             app:layout_constraintTop_toTopOf="parent"/>
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout

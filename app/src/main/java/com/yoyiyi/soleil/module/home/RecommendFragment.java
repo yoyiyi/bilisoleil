@@ -25,7 +25,7 @@ import java.util.List;
 public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, MulRecommend>
         implements RecommendContract.View {
 
-    RecommendAdapter mAdapter;
+    private RecommendAdapter mAdapter;
 
     public static RecommendFragment newInstance() {
         return new RecommendFragment();
@@ -54,8 +54,10 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, M
         mAdapter.setSpanSizeLookup((gridLayoutManager, i) -> mList.get(i).spanSize);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mAdapter);
+        //添加分割条
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
                 .color(AppUtils.getColor(R.color.transparent))
+                // .color(AppUtils.getColor(R.color.colorPrimary))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .build();
