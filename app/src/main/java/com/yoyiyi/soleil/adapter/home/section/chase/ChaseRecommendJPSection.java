@@ -1,12 +1,15 @@
 package com.yoyiyi.soleil.adapter.home.section.chase;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.home.ChaseRecommendJPAdapter;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
-import com.yoyiyi.soleil.utils.NumberUtils;
+import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -17,13 +20,15 @@ import java.util.List;
  * @date 创建时间：2017/5/26 21:59
  * 描述:
  */
-public class ChaseRecommendJPSection extends StatelessSection<RecommendBangumi.RecommendJpBean.RecommendBeanX> {
+public class ChaseRecommendJPSection extends StatelessSection{
 
     private RecommendBangumi.RecommendJpBean.FootBeanX mFootBean;
+    private List<RecommendBangumi.RecommendJpBean.RecommendBeanX> mList;
 
     public ChaseRecommendJPSection(List<RecommendBangumi.RecommendJpBean.RecommendBeanX> data, RecommendBangumi.RecommendJpBean.FootBeanX footBean) {
         super(R.layout.layout_item_home_cahse_head, R.layout.layout_item_home_cahse_footer, R.layout.layout_item_home_chase_body, data);
         this.mFootBean = footBean;
+        this.mList = data;
     }
 
 
@@ -34,23 +39,20 @@ public class ChaseRecommendJPSection extends StatelessSection<RecommendBangumi.R
     }
 
     @Override
-    public void convert(ViewHolder holder, RecommendBangumi.RecommendJpBean.RecommendBeanX recommendBean, int position) {
-        Glide.with(mContext)
-                .load(recommendBean.cover)
-                .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.bili_default_image_tv)
-                .dontAnimate()
-                .into((ImageView) holder.getView(R.id.iv_video_preview));
-        holder.setText(R.id.tv_video_follow, NumberUtils.format(recommendBean.favourites) + "人追番")
-                .setText(R.id.tv_video_title, recommendBean.title)
-                .setText(R.id.tv_video_update, "更新至第" + recommendBean.newest_ep_index + "话")
-                .setVisible(R.id.tv_video_state, false);
-        if (position == 0) {
-            holder.setVisible(R.id.space, true);
-        } else {
-            holder.setVisible(R.id.space, false);
-        }
+    public void onBindItemViewHolder(ViewHolder holder, int position) {
+        RecyclerView recyclerView = holder.getView(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 3);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(new ChaseRecommendJPAdapter(mList));
+        //添加分割线
+        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
+                .margin(20, 20)
+                .sizeResId(R.dimen.dp10)
+                .showLastDivider()
+                .build();
+        recyclerView.addItemDecoration(build);
     }
 
     @Override

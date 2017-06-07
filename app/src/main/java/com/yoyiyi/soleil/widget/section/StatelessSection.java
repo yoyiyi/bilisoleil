@@ -117,4 +117,5 @@ public abstract class StatelessSection<T> extends Section<T> {
         params.width = 0;
         view.setLayoutParams(params);
     }
+
 }

@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_root"
-    android:clickable="true"
-    android:foreground="?attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dp5"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:paddingEnd="@dimen/dp10"
     android:paddingStart="@dimen/dp10"
     android:paddingTop="@dimen/dp5">
 
@@ -24,6 +25,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/iv_video_preview"
                 android:layout_width="match_parent"

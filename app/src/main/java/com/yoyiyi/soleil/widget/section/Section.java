@@ -53,6 +53,10 @@ public abstract class Section<T> {
         this.mList = (List) (data == null ? new ArrayList() : data);
     }
 
+    public int getListSize() {
+        return mList.size();
+    }
+
     /**
      * 设置Context
      *
@@ -236,8 +240,9 @@ public abstract class Section<T> {
                 break;
             case LOADED:
                 if (mList != null) {
-                    onBindItemViewHolder(holder, mList.get(position));
                     convert(holder, mList.get(position), position);
+                } else {
+                    onBindItemViewHolder(holder, position);
                 }
                 break;
             case FAILED:
@@ -335,7 +340,7 @@ public abstract class Section<T> {
         return new ViewHolder(view);
     }
 
-    public void onBindItemViewHolder(ViewHolder holder, T t) {
+    public void onBindItemViewHolder(ViewHolder holder, int position) {
 
     }
 

@@ -1,14 +1,15 @@
 package com.yoyiyi.soleil.adapter.home.section.chase;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.home.ChaseFllowAdapter;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -19,12 +20,14 @@ import java.util.List;
  * @date 创建时间：2017/5/21 11:57
  * 描述:首页直播推荐主播section
  */
-public class ChaseFollowSection extends StatelessSection<ChaseBangumi.FollowsBean> {
+public class ChaseFollowSection extends StatelessSection {
     private String mCount;
+    private List<ChaseBangumi.FollowsBean> mList;
 
     public ChaseFollowSection(String count, List<ChaseBangumi.FollowsBean> data) {
-        super(R.layout.layout_item_home_cahse_head, R.layout.layout_item_home_chase_body, data);
+        super(R.layout.layout_item_home_cahse_head, R.layout.layout_item_home_chase_body);
         this.mCount = count;
+        mList = data;
     }
 
 
@@ -44,28 +47,22 @@ public class ChaseFollowSection extends StatelessSection<ChaseBangumi.FollowsBea
         }
     }
 
-
     @Override
-    public void convert(ViewHolder holder, ChaseBangumi.FollowsBean followsBean, int position) {
-        Glide.with(mContext)
-                .load(followsBean.cover)
-                .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.bili_default_image_tv)
-                .dontAnimate()
-                .into((ImageView) holder.getView(R.id.iv_video_preview));
-        holder.setText(R.id.tv_video_title, followsBean.title);//
-        SpannableStringBuilder builder = new SpannableStringUtils.Builder()
-                .append("更新至第 " + followsBean.new_ep.index + " 话")
-                .setForegroundColor(AppUtils.getColor(R.color.pink_text_color)).create();
-        holder.setText(R.id.tv_video_update, builder);
-        holder.setText(R.id.tv_video_state, "尚未观看");
-        if (position == 0) {
-            holder.setVisible(R.id.space, true);
-        } else {
-            holder.setVisible(R.id.space, false);
-        }
+    public void onBindItemViewHolder(ViewHolder holder, int position) {
+        RecyclerView recyclerView = holder.getView(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 3);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(new ChaseFllowAdapter(mList));
+        //添加分割线
+        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
+                .color(AppUtils.getColor(R.color.transparent))
+                .margin(20,20)
+                .sizeResId(R.dimen.dp10)
+                .showLastDivider()
+                .build();
+        recyclerView.addItemDecoration(build);
     }
-
 
 }
