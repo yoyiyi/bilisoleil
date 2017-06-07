@@ -9,6 +9,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.ChaseRecommendJPAdapter;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -26,7 +27,7 @@ public class ChaseRecommendJPSection extends StatelessSection{
     private List<RecommendBangumi.RecommendJpBean.RecommendBeanX> mList;
 
     public ChaseRecommendJPSection(List<RecommendBangumi.RecommendJpBean.RecommendBeanX> data, RecommendBangumi.RecommendJpBean.FootBeanX footBean) {
-        super(R.layout.layout_item_home_chase_head, R.layout.layout_item_home_chase_footer, R.layout.layout_item_home_chase_body, data);
+        super(R.layout.layout_item_home_chase_head, R.layout.layout_item_home_chase_footer, R.layout.layout_item_home_chase_body);
         this.mFootBean = footBean;
         this.mList = data;
     }
@@ -48,7 +49,7 @@ public class ChaseRecommendJPSection extends StatelessSection{
         recyclerView.setAdapter(new ChaseRecommendJPAdapter(mList));
         //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
-                .margin(20, 20)
+                .color(AppUtils.getColor(R.color.transparent))
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .build();

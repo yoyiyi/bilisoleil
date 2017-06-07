@@ -58,7 +58,6 @@ public class ChaseFollowSection extends StatelessSection {
         //添加分割线
         VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
                 .color(AppUtils.getColor(R.color.transparent))
-                .margin(20,20)
                 .sizeResId(R.dimen.dp10)
                 .showLastDivider()
                 .build();

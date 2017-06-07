@@ -37,7 +37,7 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_home_live;
+        return R.layout.fragment_home_chase_bangumi;
     }
 
     @Override
@@ -58,10 +58,11 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
     @Override
     protected void initRecyclerView() {
         mSectionedAdapter = new SectionedRVAdapter();
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false);
+        mRecycler.setHasFixedSize(true);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL,false);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
-
     }
 
     @Override
