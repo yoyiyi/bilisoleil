@@ -6,11 +6,7 @@
 
     <include layout="@layout/common_layout_error"/>
 
-    <!--<FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/dp10">-->
 
-        <include layout="@layout/common_refresh_recycler"/>
-    <!--</FrameLayout>-->
+    <include layout="@layout/common_refresh_recycler"/>
+
 </RelativeLayout>
