@@ -80,6 +80,11 @@
             android:name=".module.discover.AllGameActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--番剧时间表-->
+        <activity
+            android:name=".module.bangumi.BangumiScheduleActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
 

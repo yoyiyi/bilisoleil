@@ -3,7 +3,7 @@ package com.yoyiyi.soleil.bean.live;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/30 12:03
- * 描述:
+ * 描述:直播入口
  */
 public class LiveEntrance {
 

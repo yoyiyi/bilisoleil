@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/10 11:42
- * 描述:
+ * 描述:用户
  */
 
 public class UserDetail {

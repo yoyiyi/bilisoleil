@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/24 23:38
- * 描述:
+ * 描述:直播分区
  */
 public class LivePartition {
 

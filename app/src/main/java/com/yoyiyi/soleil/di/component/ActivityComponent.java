@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.yoyiyi.soleil.di.module.ActivityModule;
 import com.yoyiyi.soleil.di.scope.ActivityScope;
 import com.yoyiyi.soleil.module.app.SplashActivity;
+import com.yoyiyi.soleil.module.bangumi.BangumiScheduleActivity;
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
 import com.yoyiyi.soleil.module.discover.AllGameActivity;
 import com.yoyiyi.soleil.module.discover.GameCenterActivity;
@@ -38,5 +39,7 @@ public interface ActivityComponent {
     void inject(GameCenterActivity gameCenterActivity);
 
     void inject(AllGameActivity allGameActivity);
+
+    void inject(BangumiScheduleActivity bangumiScheduleActivity);
 
 }

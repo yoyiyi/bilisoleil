@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/5 22:58
- * 描述:活动中心
+ * 描述:话题中心
  */
 public class TopicCenter {
     public int code;
