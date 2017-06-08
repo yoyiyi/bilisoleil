@@ -35,7 +35,6 @@ public class BangumiScheduleActivity extends BaseRefreshActivity<BangumiSchedule
     private List<BangumiSchedule> mSatList = new ArrayList<>();
     private List<BangumiSchedule> mSunList = new ArrayList<>();
 
-
     private enum Week {
         MON("周一"), TUES("周二"), WEB("周三"), THUR("周四"), FRI("周五"), SAT("周六"), SUN("周日");
         private String week;
