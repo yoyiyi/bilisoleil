@@ -9,7 +9,6 @@ import com.yoyiyi.soleil.adapter.home.ChaseFllowAdapter;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
-import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -55,13 +54,6 @@ public class ChaseFollowSection extends StatelessSection {
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 3);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new ChaseFllowAdapter(mList));
-        //添加分割线
-        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
-                .color(AppUtils.getColor(R.color.transparent))
-                .sizeResId(R.dimen.dp10)
-                .showLastDivider()
-                .build();
-        recyclerView.addItemDecoration(build);
     }
 
 }

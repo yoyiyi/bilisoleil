@@ -59,8 +59,7 @@ public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresen
     protected void initRecyclerView() {
         mSectionedAdapter = new SectionedRVAdapter();
         mRecycler.setHasFixedSize(true);
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
     }

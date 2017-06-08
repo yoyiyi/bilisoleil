@@ -7,7 +7,6 @@
 
     <include layout="@layout/common_layout_error"/>
 
-
     <include layout="@layout/common_refresh_recycler"/>
 
 </RelativeLayout>

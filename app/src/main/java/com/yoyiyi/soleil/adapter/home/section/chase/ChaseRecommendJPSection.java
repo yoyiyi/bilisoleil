@@ -9,8 +9,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.ChaseRecommendJPAdapter;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
-import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -47,13 +45,7 @@ public class ChaseRecommendJPSection extends StatelessSection{
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 3);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new ChaseRecommendJPAdapter(mList));
-        //添加分割线
-        VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(mContext)
-                .color(AppUtils.getColor(R.color.transparent))
-                .sizeResId(R.dimen.dp10)
-                .showLastDivider()
-                .build();
-        recyclerView.addItemDecoration(build);
+
     }
 
     @Override

@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:overScrollMode="never"
+            android:paddingRight="@dimen/dp10"
             android:scrollbars="none"/>
     </RelativeLayout>
 
