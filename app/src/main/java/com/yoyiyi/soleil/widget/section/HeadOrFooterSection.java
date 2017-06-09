@@ -1,7 +1,5 @@
 package com.yoyiyi.soleil.widget.section;
 
-import android.view.View;
-
 import com.yoyiyi.soleil.R;
 
 /**
@@ -12,7 +10,7 @@ import com.yoyiyi.soleil.R;
 
 public class HeadOrFooterSection extends StatelessSection {
 
-    public View mItemView;
+    public ViewHolder holder;
 
     public HeadOrFooterSection(int headerResourceId) {
         super(headerResourceId, R.layout.layout_empty);
@@ -20,6 +18,6 @@ public class HeadOrFooterSection extends StatelessSection {
 
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {
-        mItemView = holder.itemView;
+        this.holder = holder;
     }
 }

@@ -2,8 +2,6 @@ package com.yoyiyi.soleil.module.home;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Guideline;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,10 +33,6 @@ public class DynamicFragment extends BaseRefreshFragment {
     ConstraintLayout mClAll;
     @BindView(R.id.v_bottom)
     View mVBottom;
-    @BindView(R.id.recycler)
-    RecyclerView mRecycler;
-    @BindView(R.id.refresh)
-    SwipeRefreshLayout mRefresh;
     @BindView(R.id.tv_all_select)
     TextView mTvAllSelect;
     @BindView(R.id.tv_up_select)

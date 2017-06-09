@@ -85,7 +85,11 @@
             android:name=".module.bangumi.BangumiScheduleActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--番剧索引-->
+        <activity
+            android:name=".module.bangumi.BangumiIndexActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
-
 </manifest>
