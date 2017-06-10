@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -7,6 +8,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionEnter;
 import com.yoyiyi.soleil.bean.region.RegionTagType;
+import com.yoyiyi.soleil.module.discover.GameCenterActivity;
+import com.yoyiyi.soleil.module.region.AdActivity;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 
 import java.util.List;
@@ -50,7 +53,7 @@ public class RegionEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseVie
                         "游戏中心"*/
                 case 0://直播
                     //LiveRegionActivity.startActivity(mContext);
-                    RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(0));
+                    //RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(0));
 
                     break;
                 case 1:
@@ -91,7 +94,7 @@ public class RegionEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseVie
 
                     break;
                 case 11://广告
-                    //RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(10));
+                    mContext.startActivity(new Intent(mContext, AdActivity.class));
 
                     break;
                 case 12:
@@ -108,8 +111,7 @@ public class RegionEntranceAdapter extends BaseQuickAdapter<RegionEnter, BaseVie
                     break;
                 case 15:
                     //游戏中心
-                    //   RegionTypeActivity.startActivity(mContext, mRegionTypeList.get(1), "番剧");
-
+                    mContext.startActivity(new Intent(mContext, GameCenterActivity.class));
                     break;
 
             }

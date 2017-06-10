@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseFragment;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
+import com.yoyiyi.soleil.constant.Constants;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
 import com.yoyiyi.soleil.module.discover.GameCenterActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
@@ -184,6 +186,12 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 break;
             case R.id.rl_game://游戏中心
                 startActivity(new Intent(getApplicationContext(), GameCenterActivity.class));
+                break;
+            case R.id.rl_mall://周边商城
+                BrowerActivity.startActivity(getActivity(), Constants.SHOP_URL, "bilibili - 周边商城");
+                break;
+            case R.id.rl_black_list://小黑屋
+                BrowerActivity.startActivity(getActivity(), Constants.BLACK_URL, "小黑屋");
                 break;
         }
     }

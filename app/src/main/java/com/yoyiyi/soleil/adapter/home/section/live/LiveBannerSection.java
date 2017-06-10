@@ -12,6 +12,7 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LivePartition;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -40,6 +41,10 @@ public class LiveBannerSection extends StatelessSection {
                 .setImages(urls)
                 .setImageLoader(new GlideImageLoader())
                 .start();
+        bannar.setOnBannerListener(i -> {
+            LivePartition.BannerBean bannerBean = mList.get(i);
+            BrowerActivity.startActivity(mContext,bannerBean.link,bannerBean.title);
+        });
 
     }
 

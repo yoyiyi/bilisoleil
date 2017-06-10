@@ -12,12 +12,17 @@ public interface Constants {
     String IS_LOGINED_FLAG = "is_logined_flag";
     String EXTRA_KEYWORD = "extra_keywork";
 
-    String  EXTRA_PARCELABLE  = "extra_parcelable";
+    String EXTRA_PARCELABLE = "extra_parcelable";
     String EXTRA_TITLE = "extra_title";
     String EXTRA_TID = "extra_tid";
-    String EXTRA_BUNDLE="extra_bundle";
+    String EXTRA_BUNDLE = "extra_bundle";
     String EXTRA_RID = "extra_rid";
     String EXTRA_POSITION = "extra_position";
 
-    String EXTRA_TYPE  = "extra_type";
+    String EXTRA_TYPE = "extra_type";
+
+    String EXTRA_URL = "extra_url";
+    String SHOP_URL = "http://bmall.bilibili.com/";
+    String VIP_URL = "http://vip.bilibili.com/site/vip-faq-h5.html#yv1";
+    String BLACK_URL = "https://www.bilibili.com/blackroom/#/";
 }

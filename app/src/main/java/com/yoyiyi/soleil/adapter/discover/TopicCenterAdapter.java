@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.discover.TopicCenter;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 
 import java.util.List;
 
@@ -33,5 +34,6 @@ public class TopicCenterAdapter extends BaseQuickAdapter<TopicCenter.ListBean, B
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_preview));
         holder.setText(R.id.tv_title, listBean.title);
+        holder.itemView.setOnClickListener(view -> BrowerActivity.startActivity(mContext, listBean.link, listBean.title));
     }
 }

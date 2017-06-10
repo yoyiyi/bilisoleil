@@ -2,6 +2,9 @@ package com.yoyiyi.soleil.network.helper;
 
 
 import com.yoyiyi.soleil.bean.app.Splash;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
 import com.yoyiyi.soleil.bean.bangumi.BangumiIndex;
 import com.yoyiyi.soleil.bean.bangumi.BangumiSchedule;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
@@ -114,6 +117,14 @@ public class RetrofitHelper {
         return mBangumiService.getBangumiIndex();
     }
 
+    public Flowable<HttpResponse<BangumiDetail>> getBangumiDetail() {
+        return mBangumiService.getBangumiDetail();
+    }
+
+    public Flowable<HttpResponse<BangumiDetailRecommend>> getBangumiDetailRecommend() {
+        return mBangumiService.getBangumiDetailRecommend();
+    }
+
     /*******************************RankApi****************************************/
     public Flowable<AllRegionRank> getAllRegionRank(String type) {
         return mRankService.getAllRegionRank(type);
@@ -130,6 +141,10 @@ public class RetrofitHelper {
 
     public Flowable<ActivityCenter> getActivityCenter(int page, int pageSize) {
         return mApiService.getActivityCenter(page, pageSize);
+    }
+
+    public Flowable<HttpResponse<BangumiDetailComment>> getBangumiDetailComment() {
+        return mApiService.getBangumiDetailComment();
     }
 
 }

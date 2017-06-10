@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.discover.GameCenter;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.utils.AppUtils;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class GameCenterBookGiftAdapter extends BaseQuickAdapter<GameCenter.BookG
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_preview));
+        holder.itemView.setOnClickListener(view -> BrowerActivity.startActivity(mContext, bookGiftBean.link, bookGiftBean.name));
         int position = holder.getAdapterPosition();
         if (position == getItemCount() - 1) {
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,

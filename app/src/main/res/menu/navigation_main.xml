@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/group_nomal">
         <item
             android:id="@+id/item_home"
             android:checked="true"
@@ -63,8 +64,9 @@
             android:icon="@drawable/ic_account_balance_wallet_black_24dp"
             android:title="B币钱包"/>
     </group>
-    <group android:checkableBehavior="single">
-
+    <group android:checkableBehavior="single"
+           android:id="@+id/gruop_setting"
+        >
 
         <item
             android:id="@+id/item_theme"

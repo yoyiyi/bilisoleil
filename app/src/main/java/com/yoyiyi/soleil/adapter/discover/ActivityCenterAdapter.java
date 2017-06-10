@@ -1,7 +1,6 @@
 package com.yoyiyi.soleil.adapter.discover;
 
 import android.support.annotation.Nullable;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -10,7 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.discover.ActivityCenter;
-import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 
 import java.util.List;
 
@@ -36,6 +35,6 @@ public class ActivityCenterAdapter extends BaseQuickAdapter<ActivityCenter.ListB
                 .into((ImageView) holder.getView(R.id.iv_preview));
         holder.setText(R.id.tv_title, listBean.title).
                 setImageResource(R.id.iv_state, listBean.state == 1 ? R.drawable.ic_badge_end : R.drawable.ic_badge_going);
-
+         holder.itemView.setOnClickListener(view-> BrowerActivity.startActivity(mContext,listBean.link,listBean.title));
     }
 }

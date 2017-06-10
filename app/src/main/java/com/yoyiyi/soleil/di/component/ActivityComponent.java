@@ -11,6 +11,7 @@ import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
 import com.yoyiyi.soleil.module.discover.AllGameActivity;
 import com.yoyiyi.soleil.module.discover.GameCenterActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
+import com.yoyiyi.soleil.module.region.AdActivity;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 import com.yoyiyi.soleil.module.search.TotalSearchActivity;
 
@@ -45,5 +46,6 @@ public interface ActivityComponent {
 
     void inject(BangumiIndexActivity bangumiIndexActivity);
 
+    void inject(AdActivity adActivity);
 
 }

@@ -71,7 +71,6 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
         switch (id) {
 

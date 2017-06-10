@@ -15,6 +15,7 @@ import com.youth.banner.loader.ImageLoader;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.recommend.MulRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.TimeUtils;
 
@@ -44,6 +45,10 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .setImages(urls)
                         .setImageLoader(new GlideImageLoader())
                         .start();
+                bannar.setOnBannerListener(i -> {
+                    Recommend.BannerItemBean bannerBean = banner_item.get(i);
+                    BrowerActivity.startActivity(mContext,bannerBean.click_url,bannerBean.title);
+                });
                 break;
 
             case MulRecommend.TYPE_ITEM:

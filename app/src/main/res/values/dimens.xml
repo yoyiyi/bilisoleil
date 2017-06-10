@@ -63,5 +63,7 @@
     <dimen name="dp72">72.0dip</dimen>
     <dimen name="dp65">65.0dip</dimen>
     <dimen name="dp68">68.0dip</dimen>
+    <dimen name="dp330">330dp</dimen>
+    <dimen name="dp32">32dp</dimen>
 
 </resources>

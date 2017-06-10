@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.module.home;
 
 
+import android.content.Intent;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +17,9 @@ import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.MainAdapter;
 import com.yoyiyi.soleil.base.BaseActivity;
+import com.yoyiyi.soleil.module.discover.GameCenterActivity;
+import com.yoyiyi.soleil.module.entrance.VipActivity;
+import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
 import com.yoyiyi.soleil.widget.NoScrollViewPager;
@@ -23,7 +27,7 @@ import com.yoyiyi.soleil.widget.NoScrollViewPager;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.toolbar_user_avatar)
     CircleImageView mToolbarUserAvatar;
@@ -49,6 +53,7 @@ public class MainActivity extends BaseActivity {
     protected void initWidget() {
         initViewPager();
         disableNavigationViewScrollbars(mNavView);
+        mNavView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -95,6 +100,27 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 侧滑面板监听事件
+     *
+     * @param item
+     * @return
+     */
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        AppUtils.runOnUIDelayed(() -> {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.item_vip:
+                    startActivity(new Intent(MainActivity.this, VipActivity.class));
+                    break;
+            }
+        }, 230);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -105,10 +131,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
         switch (id) {
-
+            case R.id.menu_game:
+                startActivity(new Intent(mContext, GameCenterActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

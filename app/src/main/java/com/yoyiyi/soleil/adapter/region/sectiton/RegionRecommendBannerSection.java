@@ -12,6 +12,7 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
+import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -38,7 +39,10 @@ public class RegionRecommendBannerSection extends StatelessSection {
                 .setImages(urls)
                 .setImageLoader(new GlideImageLoader())
                 .start();
-
+        bannar.setOnBannerListener(i -> {
+            RegionRecommend.BannerBean.TopBean bannerBean = mList.get(i);
+            BrowerActivity.startActivity(mContext,bannerBean.uri,bannerBean.title);
+        });
     }
 
     static class GlideImageLoader extends ImageLoader {

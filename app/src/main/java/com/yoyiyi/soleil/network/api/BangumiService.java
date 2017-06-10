@@ -1,5 +1,7 @@
 package com.yoyiyi.soleil.network.api;
 
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
 import com.yoyiyi.soleil.bean.bangumi.BangumiIndex;
 import com.yoyiyi.soleil.bean.bangumi.BangumiSchedule;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
@@ -48,4 +50,23 @@ public interface BangumiService {
     @GET(
             "api/bangumi_index_cond?access_key=19946e1ef3b5cad1a756c475a67185bb&actionKey=appkey&appkey=27eb53fc9058f8c3&build=3940&device=phone&mobi_app=iphone&platform=ios&sign=cfc6903a13ba89e81c904b4c589e5369&ts=1477974966&type=0")
     Flowable<HttpResponse<BangumiIndex>> getBangumiIndex();
+
+   /* *//**
+     * 首页番剧
+     *//*
+    @GET("api/app_index_page_v4?build=3940&device=phone&mobi_app=iphone&platform=ios")
+    Observable<BangumiAppIndexInfo> getBangumiAppIndex();*/
+
+    /**
+     * 番剧详情番剧推荐
+     */
+    @GET("api/season/recommend/5070.json?access_key=19946e1ef3b5cad1a756c475a67185bb&actionKey=appkey&appkey=27eb53fc9058f8c3&build=3940&device=phone&mobi_app=iphone&platform=ios&season_id=5070&sign=744e3a3f52829e4344c33908f7a0c1ef&ts=1477898527")
+    Flowable<HttpResponse<BangumiDetailRecommend>> getBangumiDetailRecommend();
+
+    /**
+     * 番剧详情
+     */
+    @GET(
+            "api/season_v4?access_key=19946e1ef3b5cad1a756c475a67185bb&actionKey=appkey&appkey=27eb53fc9058f8c3&build=3940&device=phone&mobi_app=iphone&platform=ios&season_id=5070&sign=3e5d4d7460961d9bab5da2341fd98dc1&ts=1477898526&type=bangumi")
+    Flowable<HttpResponse<BangumiDetail>> getBangumiDetail();
 }
