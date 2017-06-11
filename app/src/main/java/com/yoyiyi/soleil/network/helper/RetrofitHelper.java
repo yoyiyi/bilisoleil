@@ -63,7 +63,7 @@ public class RetrofitHelper {
 
 
     /*******************************AppApi****************************************/
-    public Flowable<HttpResponse<Splash>> getSplash() {
+    public Flowable<Splash> getSplash() {
         return mAppService.getSplash();
     }
 

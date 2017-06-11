@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.mvp.presenter.app;
 
 
-import com.yoyiyi.soleil.base.BaseObjectSubscriber;
+import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.app.Splash;
 import com.yoyiyi.soleil.mvp.contract.app.SplashContract;
@@ -32,9 +32,9 @@ public class SplashPresenter extends RxPresenter<SplashContract.View> implements
 
     @Override
     public void getSplashData() {
-        BaseObjectSubscriber<Splash> subscriber = mRetrofitHelper.getSplash()
+        BaseSubscriber<Splash> subscriber = mRetrofitHelper.getSplash()
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseObjectSubscriber<Splash>(mView) {
+                .subscribeWith(new BaseSubscriber<Splash>(mView) {
                     @Override
                     public void onSuccess(Splash splash) {
                         mView.showSplash(splash);
