@@ -27,7 +27,6 @@
         android:textColor="@color/pink_text_color"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toEndtOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"/>
 

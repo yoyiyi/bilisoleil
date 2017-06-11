@@ -54,6 +54,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
     //glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
     //network
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'

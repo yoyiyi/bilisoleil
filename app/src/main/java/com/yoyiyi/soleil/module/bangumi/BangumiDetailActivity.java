@@ -5,25 +5,25 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.bangumi.BangumiDetailAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshActivity;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
+import com.yoyiyi.soleil.bean.bangumi.MulBangumiDetail;
 import com.yoyiyi.soleil.mvp.contract.bangumi.BangumiDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.bangumi.BangumiDetailPresenter;
-import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
-
-import javax.annotation.Nullable;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/10 14:39
  * 描述:番剧详情界面
  */
-public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPresenter, Nullable> implements BangumiDetailContract.View {
+public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPresenter, MulBangumiDetail> implements BangumiDetailContract.View {
 
     private int mDistanceY;
-    private SectionedRVAdapter mSectionedAdapter;
+    private BangumiDetail mBangumiDetail;
+    private BangumiDetailAdapter mAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -37,16 +37,17 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     protected void initToolbar() {
-
+        super.initToolbar();
+       // StatusBarUtil.setTranslucentForCoordinatorLayout(this, 1);
     }
 
     @Override
     protected void initRecyclerView() {
-        mSectionedAdapter = new SectionedRVAdapter();
+        mAdapter = new BangumiDetailAdapter(mList);
         mRecycler.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(mContext);
         mRecycler.setLayoutManager(mLayoutManager);
-        mRecycler.setAdapter(mSectionedAdapter);
+        mRecycler.setAdapter(mAdapter);
     }
 
     @Override
@@ -87,12 +88,11 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     public void showBangumiDetail(BangumiDetail bangumiDetail) {
-
+        mBangumiDetail = bangumiDetail;
     }
 
     @Override
     public void showBangumiDetailComment(BangumiDetailComment bangumiDetailComment) {
-
         finishTask();
     }
 
@@ -104,6 +104,8 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     protected void finishTask() {
-
+        mToolbar.setTitle(mBangumiDetail.title);//设置标题
+        mList.add(new MulBangumiDetail(MulBangumiDetail.TYPE_HEAD, mBangumiDetail));
+        mAdapter.notifyDataSetChanged();
     }
 }

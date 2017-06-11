@@ -149,7 +149,7 @@ public class RetrofitHelper {
         return mApiService.getActivityCenter(page, pageSize);
     }
 
-    public Flowable<HttpResponse<BangumiDetailComment>> getBangumiDetailComment() {
+    public Flowable<BangumiDetailComment> getBangumiDetailComment() {
         return mApiService.getBangumiDetailComment();
     }
 

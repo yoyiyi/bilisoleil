@@ -6,11 +6,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionType;
-import com.yoyiyi.soleil.utils.image.GlideRoundTransform;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -30,7 +31,7 @@ public class RegionTypeRecommendSection extends StatelessSection<RegionType.Reco
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)
-                .transform(new GlideRoundTransform(mContext,5))
+                .bitmapTransform(new RoundedCornersTransformation(mContext, 5, 0))
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_title, recommendBean.title)

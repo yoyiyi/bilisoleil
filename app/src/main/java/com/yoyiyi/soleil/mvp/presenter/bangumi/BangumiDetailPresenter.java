@@ -1,9 +1,9 @@
 package com.yoyiyi.soleil.mvp.presenter.bangumi;
 
 
-import com.yoyiyi.soleil.base.BaseObjectSubscriber;
+import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
-import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
 import com.yoyiyi.soleil.mvp.contract.bangumi.BangumiDetailContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
@@ -28,7 +28,7 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
 
     @Override
     public void getBangumiDetailData() {
-        BaseObjectSubscriber<BangumiDetailRecommend> subscriber = mRetrofitHelper.getBangumiDetail()
+        BaseSubscriber<BangumiDetailComment> subscriber = mRetrofitHelper.getBangumiDetail()
                 .compose(RxUtils.handleResult())
                 .flatMap(bangumiDetail -> {
                             mView.showBangumiDetail(bangumiDetail);
@@ -37,15 +37,14 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
                 )
                 .compose(RxUtils.handleResult())
                 .flatMap(bangumiDetailRecommend -> {
-                            mView.showBangumiDetailRecommend(bangumiDetailRecommend);
-                            return mRetrofitHelper.getBangumiDetailRecommend();
-                        }
-                )
+                    mView.showBangumiDetailRecommend(bangumiDetailRecommend);
+                    return mRetrofitHelper.getBangumiDetailComment();
+                })
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseObjectSubscriber<BangumiDetailRecommend>(mView) {
+                .subscribeWith(new BaseSubscriber<BangumiDetailComment>(mView) {
                     @Override
-                    public void onSuccess(BangumiDetailRecommend bangumiDetailRecommend) {
-                        mView.showBangumiDetailRecommend(bangumiDetailRecommend);
+                    public void onSuccess(BangumiDetailComment bangumiDetailComment) {
+                        mView.showBangumiDetailComment(bangumiDetailComment);
                     }
                 });
         addSubscribe(subscriber);

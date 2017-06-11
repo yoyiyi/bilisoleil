@@ -12,9 +12,10 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.recommend.AllStationRank;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
-import com.yoyiyi.soleil.utils.image.GlideRoundTransform;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -34,7 +35,7 @@ public class AllStationRankAdapter extends BaseQuickAdapter<AllStationRank.RankB
                 .load(allRegionRank.pic)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .transform(new GlideRoundTransform(mContext, 5))
+                .bitmapTransform(new RoundedCornersTransformation(mContext, 5, 0))
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));

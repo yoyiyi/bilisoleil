@@ -79,7 +79,7 @@ public abstract class BaseObjectSubscriber<T> extends ResourceSubscriber<HttpRes
             mView.showError("数据加载失败ヽ(≧Д≦)ノ");
         } else {
             mView.showError("未知错误ヽ(≧Д≦)ノ");
-            LogUtil.d(e.toString());
+            LogUtil.e("MYERROR:"+e.toString());
         }
     }
 }

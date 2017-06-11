@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.yoyiyi.soleil.BiliSoleilApplication;
@@ -17,12 +19,11 @@ import com.yoyiyi.soleil.bean.app.Splash;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent;
 import com.yoyiyi.soleil.di.module.ActivityModule;
+import com.yoyiyi.soleil.module.home.MainActivity;
 import com.yoyiyi.soleil.mvp.contract.app.SplashContract;
 import com.yoyiyi.soleil.mvp.presenter.app.SplashPresenter;
-import com.yoyiyi.soleil.module.home.MainActivity;
-import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 import com.yoyiyi.soleil.utils.PrefsUtils;
-import com.yoyiyi.soleil.utils.image.ImageLoader;
+import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -133,7 +134,12 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
     @Override
     public void showSplash(Splash splash) {
         if (splash.data.size() != 0)
-            ImageLoader.load(this, splash.data.get(0).thumb, mIvSplash);
+            Glide.with(this)
+                    .load(splash.data.get(0).thumb)
+                    .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .dontAnimate()
+                    .into(mIvSplash);
     }
 
     @Override

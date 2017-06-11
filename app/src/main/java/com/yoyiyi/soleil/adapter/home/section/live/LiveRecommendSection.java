@@ -16,7 +16,6 @@ import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpannableStringUtils;
 import com.yoyiyi.soleil.utils.ToastUtils;
-import com.yoyiyi.soleil.utils.image.ImageLoader;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -76,8 +75,12 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
 
             if (mBannerDataBean != null) {
                 holder.setVisible(R.id.cl_video_root, true);
-                ImageLoader.load(mContext, mBannerDataBean.cover.src, R.drawable.bili_default_image_tv,
-                        holder.getView(R.id.iv_video_preview));
+                Glide.with(mContext)
+                        .load(mBannerDataBean.cover.src)
+                        .centerCrop()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .dontAnimate()
+                        .into((ImageView) holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_live_up, mBannerDataBean.owner.name)//up
                         .setText(R.id.tv_video_online, mBannerDataBean.online + "");//在线人数;
                 SpannableStringBuilder builder = new SpannableStringUtils.Builder()

@@ -60,7 +60,7 @@
                 app:tl_indicator_height="@dimen/dp2"
                 app:tl_indicator_width_equal_title="true"
                 app:tl_tab_padding="@dimen/dp12"
-                app:tl_tab_space_equal="true"/>
+                app:tl_tab_space_equal="false"/>
         </android.support.design.widget.AppBarLayout>
 
         <com.yoyiyi.soleil.widget.NoScrollViewPager
