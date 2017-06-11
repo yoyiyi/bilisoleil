@@ -18,6 +18,7 @@ import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity;
 import com.yoyiyi.soleil.module.discover.GameCenterActivity;
+import com.yoyiyi.soleil.module.discover.InterestActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
 import com.yoyiyi.soleil.module.recommend.AllStationRankActivity;
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity;
@@ -192,6 +193,9 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 break;
             case R.id.rl_black_list://小黑屋
                 BrowerActivity.startActivity(getActivity(), Constants.BLACK_URL, "小黑屋");
+                break;
+            case R.id.rl_group://小黑屋
+                startActivity(new Intent(getApplicationContext(), InterestActivity.class));
                 break;
         }
     }

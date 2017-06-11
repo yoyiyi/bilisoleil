@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_recycler"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@+id/v_ver"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp10"
+                android:drawableRight="@drawable/ic_group_discover_more_grey"
+                android:drawableTint="@color/colorPrimary"
+                android:text="全部推荐圈子"
+                android:textColor="@color/pink_text_color"
+                android:textSize="@dimen/text_size_12"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/v_ver"
+            android:layout_width="1px"
+            android:layout_height="@dimen/dp20"
+            android:background="@color/gray_alpha_80"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp40"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/v_ver">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp10"
+                android:drawableRight="@drawable/ic_group_discover_more_grey"
+                android:drawableTint="@color/gray"
+                android:text="查看全部圈子"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_12"/>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp12"
+    android:paddingRight="@dimen/dp12"
+    android:paddingTop="@dimen/dp12">
+
+    <com.yoyiyi.soleil.widget.CircleImageView
+        android:id="@+id/iv_author_avatar"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"/>
+
+    <!--/**
+    * author_avatar : http://i1.hdslb.com/bfs/face/d5feee58476452c0c43ef71fab38c50e4119294f.jpg
+    * author_mid : 3061924
+    * author_name : 路过的小轩
+    * chosen_time : 1481107581000
+    * image_count : 2
+    * last_reply_author : 51xx点info
+    * last_reply_mid : 82581258
+    * last_reply_time : 1496979724000
+    * level : 4
+    * modify_time : 1481049163000
+    * post_id : 11636
+    * post_image_list : [{"height":155,"id":43197,"image_id":"49e55c70bbe211e6b4bb00163e00043c","image_url":"http://img.yo9.com/49e55c70bbe211e6b4bb00163e00043c","img_suffix":"jpg","praise_count":0,"width":220},{"height":359,"id":43198,"image_id":"3e471e30bbe211e6b4bb00163e00043c","image_url":"http://img.yo9.com/3e471e30bbe211e6b4bb00163e00043c","img_suffix":"jpg","praise_count":0,"width":640}]
+    * post_summary : 灰与幻想的格林姆迦尔我觉得是一部良番了（虽然推图进度慢的可以）画风清新音乐好听，和素晴（没有日）是同一时间的番，据说销量也是黑马，在此强推没有看过的可以去看看。...
+    * post_time : 1481049163000
+    * post_title : 为哈尔希洛而拉票（没想到我居然会为男的拉选票）长文本注意！
+    * praise_count : 17
+    * reply_count : 80
+    * sex : 0
+    * tags : []
+    */-->
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@id/iv_author_avatar"
+        app:layout_constraintStart_toEndOf="@id/iv_author_avatar"
+        app:layout_constraintTop_toTopOf="@+id/iv_author_avatar"/>
+
+    <TextView
+        android:id="@+id/tv_reply_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_comment_grey"
+        android:drawableTint="@color/gray"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@id/iv_author_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_author_avatar"
+        />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_des"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="@dimen/dp74"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp6"
+        app:layout_constraintEnd_toStartOf="@+id/iv_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_author_avatar">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black_80"
+            android:textSize="@dimen/text_size_14"/>
+
+        <TextView
+            android:id="@+id/tv_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/font_gray"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="@dimen/dp65"
+        android:layout_height="@dimen/dp78"
+        android:layout_marginTop="@dimen/dp6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_author_avatar"/>
+
+    <TextView
+
+        android:id="@+id/tv_img_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_img_count_bg"
+        android:drawableLeft="@drawable/ic_pic_num"
+        android:ellipsize="end"
+        android:minEms="3"
+        android:paddingBottom="@dimen/dp1"
+        android:paddingLeft="@dimen/dp6"
+        android:paddingTop="@dimen/dp1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_image"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintTop_toBottomOf="@+id/cl_des"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:ellipsize="end"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_des"/>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="@dimen/dp10"
+        app:layout_constraintTop_toBottomOf="@id/tv_group"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_alpha_80"
+        android:paddingTop="@dimen/dp10"
+        app:layout_constraintTop_toBottomOf="@+id/space"/>
+</android.support.constraint.ConstraintLayout>

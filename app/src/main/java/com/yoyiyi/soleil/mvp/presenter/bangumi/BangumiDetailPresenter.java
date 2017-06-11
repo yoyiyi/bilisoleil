@@ -50,21 +50,4 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
                 });
         addSubscribe(subscriber);
     }
-
-
-
-    /*@Override
-    public void getBangumiIndex() {
-        BaseObjectSubscriber<BangumiIndex> subscriber = mRetrofitHelper.getBangumiIndex()
-                .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseObjectSubscriber<BangumiIndex>(mView) {
-                    @Override
-                    public void onSuccess(BangumiIndex bangumiIndex) {
-                        mView.showBangumiIndex(bangumiIndex);
-                    }
-                });
-        addSubscribe(subscriber);
-
-    }*/
-
 }

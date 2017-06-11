@@ -137,6 +137,11 @@
             android:name=".module.entrance.VipActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!--vip-->
+        <activity
+            android:name=".module.discover.InterestActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
 </manifest>

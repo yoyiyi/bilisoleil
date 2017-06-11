@@ -66,4 +66,5 @@
     <dimen name="dp330">330dp</dimen>
     <dimen name="dp32">32dp</dimen>
 
+    <dimen name="dp78">78.0dip</dimen>
 </resources>

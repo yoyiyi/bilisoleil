@@ -40,7 +40,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:maxLines="1"
-                        android:text="直播"
+                        android:text="兴趣圈"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_16"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,8 +72,4 @@
     </android.support.design.widget.CoordinatorLayout>
 
 </FrameLayout>
-
-
-
-
 

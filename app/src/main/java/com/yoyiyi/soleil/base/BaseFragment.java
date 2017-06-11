@@ -42,7 +42,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
     //标志位 fragment是否可见
     protected boolean isVisible;
     private Unbinder mUnbinder;
-    private ConstraintLayout mError;
+    public ConstraintLayout mError;
 
     @Override
     public void onAttach(Context context) {

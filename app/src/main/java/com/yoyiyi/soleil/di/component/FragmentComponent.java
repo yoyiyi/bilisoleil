@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.yoyiyi.soleil.di.module.FragmentModule;
 import com.yoyiyi.soleil.di.scope.FragmentScope;
+import com.yoyiyi.soleil.module.discover.InterestFragment;
 import com.yoyiyi.soleil.module.home.ChaseBangumiFragment;
 import com.yoyiyi.soleil.module.home.DiscoverFragment;
 import com.yoyiyi.soleil.module.home.LiveFragment;
@@ -48,5 +49,6 @@ public interface FragmentComponent {
 
     void inject(AllStationRankFragment allStationRankFragment);
 
+    void inject(InterestFragment interestFragment);
 
 }

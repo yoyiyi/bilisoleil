@@ -32,7 +32,7 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
     protected List<String> mTitles = new ArrayList<>();
     protected List<Fragment> mFragments = new ArrayList<>();
     protected SlidingTabLayout mSlidingTabLayout;
-    protected ViewPager mViewPager;
+    public ViewPager mViewPager;
 
     @SuppressLint("CheckResult")
     @Override

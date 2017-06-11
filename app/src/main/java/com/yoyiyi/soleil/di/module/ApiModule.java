@@ -4,11 +4,13 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.yoyiyi.soleil.di.qualifier.ApiUrl;
 import com.yoyiyi.soleil.di.qualifier.AppUrl;
 import com.yoyiyi.soleil.di.qualifier.BangumiUrl;
+import com.yoyiyi.soleil.di.qualifier.Im9Url;
 import com.yoyiyi.soleil.di.qualifier.LiveUrl;
 import com.yoyiyi.soleil.di.qualifier.RankUrl;
 import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
+import com.yoyiyi.soleil.network.api.Im9Service;
 import com.yoyiyi.soleil.network.api.LiveService;
 import com.yoyiyi.soleil.network.api.RankService;
 import com.yoyiyi.soleil.network.helper.OkHttpHelper;
@@ -54,8 +56,8 @@ public class ApiModule {
     @Singleton
     @Provides
     public RetrofitHelper provideRetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService
-    ,ApiService apiService) {
-        return new RetrofitHelper(appService, liveService, bangumiService, rankService,apiService);
+    ,ApiService apiService,Im9Service im9Service) {
+        return new RetrofitHelper(appService, liveService, bangumiService, rankService,apiService,im9Service);
     }
 
 
@@ -123,6 +125,18 @@ public class ApiModule {
     @Provides
     public ApiService provideApiService(@ApiUrl Retrofit retrofit) {
         return retrofit.create(ApiService.class);
+    }
+    @Singleton
+    @Provides
+    @Im9Url
+    public Retrofit provideIm9Retrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return createRetrofit(builder, client, ApiConstants.IM9_BASE_URL);
+    }
+
+    @Singleton
+    @Provides
+    public Im9Service provideIm9Service(@Im9Url Retrofit retrofit) {
+        return retrofit.create(Im9Service.class);
     }
    /* @Singleton
     @Provides

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/dp0"
+              android:orientation="vertical">
+
+    <com.yoyiyi.soleil.widget.CircleImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/dp38"
+        android:layout_height="@dimen/dp38"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp10"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp4"
+        android:textColor="@color/font_normal"
+        android:textSize="@dimen/text_size_12"/>
+</LinearLayout>

@@ -3,6 +3,8 @@ package com.yoyiyi.soleil.rx;
 import com.yoyiyi.soleil.network.exception.ApiException;
 import com.yoyiyi.soleil.network.response.HttpResponse;
 
+import java.util.List;
+
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableTransformer;
@@ -54,6 +56,27 @@ public class RxUtils {
     public static <T> FlowableTransformer<HttpResponse<T>, T> handleResult() {
         return httpResponseFlowable ->
                 httpResponseFlowable.flatMap((Function<HttpResponse<T>, Flowable<T>>) httpResponse -> {
+                    if (httpResponse.code == 0) {
+                        if (httpResponse.data != null)
+                            return createData(httpResponse.data);
+                        if (httpResponse.result != null)
+                            return createData(httpResponse.result);
+                        return Flowable.error(new ApiException("服务器返回error"));
+                    } else {
+                        return Flowable.error(new ApiException("服务器返回error"));
+                    }
+                });
+    }
+
+    /**
+     * 统一返回结果处理
+     *
+     * @param <T>
+     * @return
+     */
+    public static <T> FlowableTransformer<HttpResponse<List<T>>, List<T>> handleListResult() {
+        return httpResponseFlowable ->
+                httpResponseFlowable.flatMap((Function<HttpResponse<List<T>>, Flowable<List<T>>>) httpResponse -> {
                     if (httpResponse.code == 0) {
                         if (httpResponse.data != null)
                             return createData(httpResponse.data);

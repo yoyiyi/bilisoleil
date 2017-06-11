@@ -11,6 +11,8 @@ import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.bean.discover.ActivityCenter;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
+import com.yoyiyi.soleil.bean.discover.InterestAd;
+import com.yoyiyi.soleil.bean.discover.InterestCategrory;
 import com.yoyiyi.soleil.bean.discover.TopicCenter;
 import com.yoyiyi.soleil.bean.live.LiveEntrance;
 import com.yoyiyi.soleil.bean.live.LivePartition;
@@ -22,9 +24,11 @@ import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
+import com.yoyiyi.soleil.bean.discover.Community;
 import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
+import com.yoyiyi.soleil.network.api.Im9Service;
 import com.yoyiyi.soleil.network.api.LiveService;
 import com.yoyiyi.soleil.network.api.RankService;
 import com.yoyiyi.soleil.network.response.HttpResponse;
@@ -46,13 +50,15 @@ public class RetrofitHelper {
     private final BangumiService mBangumiService;
     private final RankService mRankService;
     private final ApiService mApiService;
+    private final Im9Service mIm9Service;
 
-    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService, ApiService apiService) {
+    public RetrofitHelper(AppService appService, LiveService liveService, BangumiService bangumiService, RankService rankService, ApiService apiService, Im9Service im9Service) {
         this.mAppService = appService;
         this.mLiveService = liveService;
         this.mBangumiService = bangumiService;
         this.mRankService = rankService;
         this.mApiService = apiService;
+        this.mIm9Service = im9Service;
     }
 
 
@@ -147,4 +153,17 @@ public class RetrofitHelper {
         return mApiService.getBangumiDetailComment();
     }
 
+    /*******************************Im9Api****************************************/
+
+    public Flowable<HttpResponse<InterestCategrory>> getInterestCategrory() {
+        return mIm9Service.getInterestCategrory();
+    }
+
+    public Flowable<HttpResponse<Community>> getCommunity() {
+        return mIm9Service.getCommunity();
+    }
+
+    public Flowable<HttpResponse<InterestAd>> getInterestAd() {
+        return mIm9Service.getInterestAd();
+    }
 }
