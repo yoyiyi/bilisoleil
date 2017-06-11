@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true"
+        android:drawable="@drawable/bangumi_season_title_background_first"
+        >
+        <stroke android:color="@color/colorPrimary"/>
+
+    </item>
+    <item android:state_enabled="false">
+        <shape>
+            <stroke android:width="1.0px" android:color="@color/white"/>
+            <solid android:color="@color/gray_light"/>
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+</selector>

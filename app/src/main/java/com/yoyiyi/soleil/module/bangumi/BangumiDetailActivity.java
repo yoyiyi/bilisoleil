@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.module.bangumi;
 
 import android.graphics.Color;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yoyiyi.soleil.R;
@@ -10,6 +11,7 @@ import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
 import com.yoyiyi.soleil.mvp.contract.bangumi.BangumiDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.bangumi.BangumiDetailPresenter;
+import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 import javax.annotation.Nullable;
 
@@ -21,6 +23,7 @@ import javax.annotation.Nullable;
 public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPresenter, Nullable> implements BangumiDetailContract.View {
 
     private int mDistanceY;
+    private SectionedRVAdapter mSectionedAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -35,6 +38,15 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
     @Override
     protected void initToolbar() {
 
+    }
+
+    @Override
+    protected void initRecyclerView() {
+        mSectionedAdapter = new SectionedRVAdapter();
+        mRecycler.setHasFixedSize(true);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(mContext);
+        mRecycler.setLayoutManager(mLayoutManager);
+        mRecycler.setAdapter(mSectionedAdapter);
     }
 
     @Override
@@ -81,10 +93,12 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
     @Override
     public void showBangumiDetailComment(BangumiDetailComment bangumiDetailComment) {
 
+        finishTask();
     }
 
     @Override
     public void showBangumiDetailRecommend(BangumiDetailRecommend bangumiDetailRecommend) {
+
 
     }
 

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp10"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/dp10"
+        app:cardBackgroundColor="@color/card_view_background"
+        app:cardCornerRadius="@dimen/dp2"
+        app:cardElevation="@dimen/dp0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_pay_bangumi_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:padding="@dimen/dp10"
+                android:src="@drawable/ic_pay_bangumi_tips"/>
+
+            <TextView
+                android:id="@+id/tv_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_toEndOf="@+id/iv_pay_bangumi_tips"
+                android:paddingTop="@dimen/dp5"
+                android:text="请承包我吧"
+                android:textColor="@color/yellow_30"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintStart_toEndOf="@id/iv_pay_bangumi_tips"
+                app:layout_constraintTop_toTopOf="@+id/iv_pay_bangumi_tips"/>
+
+            <TextView
+                android:id="@+id/tv_pay_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_pay"
+                android:layout_toEndOf="@+id/iv_pay_bangumi_tips"
+                android:text="已有10086人承包了这部番"
+                android:textColor="@color/yellow_30"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintStart_toEndOf="@id/iv_pay_bangumi_tips"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pay"/>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="@dimen/dp30"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp20"
+                android:background="@drawable/shape_bangumi_index_yellow_bg"
+                android:gravity="center"
+                android:text="承包"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <View
+                android:id="@id/v_hor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/iv_pay_bangumi_tips"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp10"
+                android:background="@color/line_bg"
+                app:layout_constraintTop_toBottomOf="@+id/iv_pay_bangumi_tips"/>
+
+            <com.yoyiyi.soleil.widget.CircleImageView
+                android:id="@+id/iv_avatar1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp12"
+                android:src="@drawable/bili_default_avatar"
+                app:border_color="@color/white"
+                app:border_width="@dimen/dp1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_hor"/>
+
+            <com.yoyiyi.soleil.widget.CircleImageView
+                android:id="@+id/iv_avatar2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="@dimen/dp22"
+                android:layout_marginTop="@dimen/dp12"
+                android:src="@drawable/bili_default_avatar"
+                app:border_color="@color/white"
+                app:border_width="@dimen/dp1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_hor"/>
+
+            <com.yoyiyi.soleil.widget.CircleImageView
+                android:id="@+id/iv_avatar3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="@dimen/dp12"
+                android:src="@drawable/bili_default_avatar"
+                app:border_color="@color/white"
+                app:border_width="@dimen/dp1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_hor"/>
+
+            <com.yoyiyi.soleil.widget.CircleImageView
+                android:id="@+id/iv_avatar4"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="@dimen/dp46"
+                android:layout_marginTop="@dimen/dp12"
+                android:src="@drawable/bili_default_avatar"
+                app:border_color="@color/white"
+                app:border_width="@dimen/dp1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_hor"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp6"
+                android:paddingBottom="@dimen/dp10"
+                android:paddingTop="@dimen/dp10"
+                android:text="等34人七日内承包了这部番"
+                android:textColor="@color/black_alpha_45"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar4"
+                app:layout_constraintTop_toBottomOf="@id/v_hor"/>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="25dp"
+                android:layout_margin="@dimen/dp10"
+                android:gravity="center"
+                android:text="查看榜单"
+                android:textColor="@color/yellow_30"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
