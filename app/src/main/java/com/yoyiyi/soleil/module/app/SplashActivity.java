@@ -133,9 +133,10 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     @Override
     public void showSplash(Splash splash) {
-        if (splash.data.size() != 0)
+        if (!splash.data.isEmpty())
             Glide.with(this)
                     .load(splash.data.get(0).thumb)
+                    //.load("http://i0.hdslb.com/bfs/archive/ba17d4df28fb0c28c8f596082d7328b4415ee28b.png")
                     .centerCrop()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .dontAnimate()
