@@ -83,7 +83,7 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
                 if (mDistanceY <= toolbarHeight) {
                     float scale = (float) mDistanceY / toolbarHeight;
                     float alpha = scale * 255;
-                    mToolbar.setBackgroundColor(Color.argb((int) alpha, 128, 0, 0));
+                    mToolbar.setBackgroundColor(Color.argb((int) alpha, 251, 114, 153));
                 } else {
                     //上述虽然判断了滑动距离与toolbar高度相等的情况，但是实际测试时发现，标题栏的背景色
                     //很少能达到完全不透明的情况，所以这里又判断了滑动距离大于toolbar高度的情况，
@@ -98,9 +98,6 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
     @Override
     protected void initStatusBar() {
         StatusBarUtil.setTranslucentForCoordinatorLayout(this, 0);
-        //StatusBarUtil.setTransparent(this,);
-        //StatusBarUtil.setTranslucentForImageView(this, 0, null);
-        //StatusBarUtil.setColorNoTranslucent((Activity) mContext, AppUtils.getColor(android.R.color.transparent));
     }
 
     @Override

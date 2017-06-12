@@ -89,7 +89,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                 break;
             case MulBangumiDetail.TYPE_EPISODE_HEAD://选集头部
                 holder.setText(R.id.tv_title, "选集");
-                if (TextUtils.equals(mulBangumiDetail.isFinish, "0")) {
+                if (TextUtils.equals(mulBangumiDetail.isFinish, "1")) {
                     holder.setText(R.id.tv_online, "一共 " + mulBangumiDetail.totalCount + " 话");
                 } else {
                     holder.setText(R.id.tv_online, "更新至第 " + mulBangumiDetail.totalCount + " 话");
