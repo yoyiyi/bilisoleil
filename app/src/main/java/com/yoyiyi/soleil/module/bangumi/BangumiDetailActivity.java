@@ -117,10 +117,6 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     protected void finishTask() {
-        Arrays.asList(new MulBangumiDetail()
-                .setItemType(MulBangumiDetail.TYPE_HEAD)
-                .setPlayCount(mBangumiDetail.play_count));
-
         mTvTitle.setText(mBangumiDetail.title);
         mList.addAll(Arrays.asList(
                 new MulBangumiDetail()
