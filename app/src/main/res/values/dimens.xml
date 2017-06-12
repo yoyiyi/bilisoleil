@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="statusbar_view_height">0dp</dimen>
+
     <dimen name="text_size_20">20.0sp</dimen>
     <dimen name="text_size_18">18.0sp</dimen>
     <dimen name="text_size_16">16.0sp</dimen>
@@ -9,36 +11,152 @@
     <dimen name="text_size_12">12.0sp</dimen>
     <dimen name="text_size_11">11.0sp</dimen>
     <dimen name="text_size_10">10.0sp</dimen>
+
+    <dimen name="dp330">330dp</dimen>
+
+    <dimen name="dp300">300.0dip</dimen>
+    <dimen name="dp290">290.0dip</dimen>
+    <dimen name="dp280">280.0dip</dimen>
+    <dimen name="dp270">270.0dip</dimen>
+    <dimen name="dp260">260.0dip</dimen>
+    <dimen name="dp250">250.0dip</dimen>
+    <dimen name="dp240">240.0dip</dimen>
+    <dimen name="dp230">230.0dip</dimen>
+    <dimen name="dp220">220.0dip</dimen>
+    <dimen name="dp210">210.0dip</dimen>
     <dimen name="dp200">200.0dip</dimen>
+
+    <dimen name="dp195">195.0dip</dimen>
     <dimen name="dp190">190.0dip</dimen>
-    <dimen name="dp165">165.0dip</dimen>
+
+    <dimen name="dp185">185.0dip</dimen>
+    <dimen name="dp180">180.0dip</dimen>
+
     <dimen name="dp175">175.0dip</dimen>
     <dimen name="dp170">170.0dip</dimen>
+
+    <dimen name="dp165">165.0dip</dimen>
     <dimen name="dp160">160.0dip</dimen>
+
+    <dimen name="dp155">155.0dip</dimen>
     <dimen name="dp150">150.0dip</dimen>
-    <dimen name="dp100">100.0dip</dimen>
-    <dimen name="dp90">90.0dip</dimen>
-    <dimen name="dp55">55.0dip</dimen>
-    <dimen name="dp49">49.0dip</dimen>
-    <dimen name="dp75">75.0dip</dimen>
+
+    <dimen name="dp145">145.0dip</dimen>
+    <dimen name="dp140">140.0dip</dimen>
+
+    <dimen name="dp135">135.0dip</dimen>
+    <dimen name="dp130">130.0dip</dimen>
+
+    <dimen name="dp126">126.0dip</dimen>
+    <dimen name="dp125">125.0dip</dimen>
+    <dimen name="dp120">120.0dip</dimen>
+
+    <dimen name="dp115">115.0dip</dimen>
     <dimen name="dp110">110.0dip</dimen>
+
+    <dimen name="dp100">100.0dip</dimen>
+    <dimen name="dp99">99.0dip</dimen>
+    <dimen name="dp98">98.0dip</dimen>
+    <dimen name="dp97">97.0dip</dimen>
+    <dimen name="dp96">96.0dip</dimen>
+    <dimen name="dp95">95.0dip</dimen>
+    <dimen name="dp94">94.0dip</dimen>
+    <dimen name="dp93">93.0dip</dimen>
+    <dimen name="dp92">92.0dip</dimen>
+    <dimen name="dp91">91.0dip</dimen>
+
+    <dimen name="dp90">90.0dip</dimen>
+    <dimen name="dp89">89.0dip</dimen>
+    <dimen name="dp88">88.0dip</dimen>
+    <dimen name="dp87">87.0dip</dimen>
+    <dimen name="dp86">86.0dip</dimen>
+    <dimen name="dp85">85.0dip</dimen>
+    <dimen name="dp84">84.0dip</dimen>
+    <dimen name="dp83">83.0dip</dimen>
+    <dimen name="dp82">82.0dip</dimen>
+    <dimen name="dp81">81.0dip</dimen>
+
+    <dimen name="dp80">80.0dip</dimen>
+    <dimen name="dp79">79.0dip</dimen>
+    <dimen name="dp78">78.0dip</dimen>
+    <dimen name="dp77">77.0dip</dimen>
+    <dimen name="dp76">76.0dip</dimen>
+    <dimen name="dp75">75.0dip</dimen>
+    <dimen name="dp74">74.0dip</dimen>
+    <dimen name="dp73">73.0dip</dimen>
+    <dimen name="dp72">72.0dip</dimen>
+    <dimen name="dp71">71.0dip</dimen>
+
+    <dimen name="dp70">70.0dip</dimen>
+    <dimen name="dp69">69.0dip</dimen>
+    <dimen name="dp68">68.0dip</dimen>
+    <dimen name="dp67">67.0dip</dimen>
+    <dimen name="dp66">66.0dip</dimen>
+    <dimen name="dp65">65.0dip</dimen>
+    <dimen name="dp64">64.0dip</dimen>
+    <dimen name="dp63">63.0dip</dimen>
+    <dimen name="dp62">62.0dip</dimen>
+    <dimen name="dp61">61.0dip</dimen>
+
+    <dimen name="dp60">60.0dip</dimen>
+    <dimen name="dp59">59.0dip</dimen>
+    <dimen name="dp58">58.0dip</dimen>
+    <dimen name="dp57">57.0dip</dimen>
+    <dimen name="dp56">56.0dip</dimen>
+    <dimen name="dp55">55.0dip</dimen>
+    <dimen name="dp54">54.0dip</dimen>
+    <dimen name="dp53">53.0dip</dimen>
     <dimen name="dp52">52.0dip</dimen>
+    <dimen name="dp51">51.0dip</dimen>
+
+    <dimen name="dp50">50.0dip</dimen>
+    <dimen name="dp49">49.0dip</dimen>
+    <dimen name="dp48">48.0dip</dimen>
+    <dimen name="dp47">47.0dip</dimen>
+    <dimen name="dp46">46.0dip</dimen>
+    <dimen name="dp45">45.0dip</dimen>
+    <dimen name="dp44">44.0dip</dimen>
+    <dimen name="dp43">43.0dip</dimen>
+    <dimen name="dp42">42.0dip</dimen>
+    <dimen name="dp41">41.0dip</dimen>
+
     <dimen name="dp40">40.0dip</dimen>
+    <dimen name="dp39">39.0dip</dimen>
+    <dimen name="dp38">38.0dip</dimen>
+    <dimen name="dp37">37.0dip</dimen>
     <dimen name="dp36">36.0dip</dimen>
+    <dimen name="dp35">35.0dip</dimen>
+    <dimen name="dp34">34.0dip</dimen>
+    <dimen name="dp33">33.0dip</dimen>
+    <dimen name="dp32">32.0dip</dimen>
+    <dimen name="dp31">31.0dip</dimen>
+
     <dimen name="dp30">30.0dip</dimen>
+    <dimen name="dp29">29.0dip</dimen>
     <dimen name="dp28">28.0dip</dimen>
+    <dimen name="dp27">27.0dip</dimen>
+    <dimen name="dp26">26.0dip</dimen>
     <dimen name="dp25">25.0dip</dimen>
+    <dimen name="dp24">24.0dip</dimen>
+    <dimen name="dp23">23.0dip</dimen>
+    <dimen name="dp22">22.0dip</dimen>
+    <dimen name="dp21">21.0dip</dimen>
+
     <dimen name="dp20">20.0dip</dimen>
+    <dimen name="dp19">19.0dip</dimen>
     <dimen name="dp18">18.0dip</dimen>
+    <dimen name="dp17">17.0dip</dimen>
     <dimen name="dp16">16.0dip</dimen>
     <dimen name="dp15">15.0dip</dimen>
     <dimen name="dp14">14.0dip</dimen>
     <dimen name="dp13">13.0dip</dimen>
     <dimen name="dp12">12.0dip</dimen>
+    <dimen name="dp11">12.0dip</dimen>
+
     <dimen name="dp10">10.0dip</dimen>
+    <dimen name="dp9">9.0dip</dimen>
     <dimen name="dp8">8.0dip</dimen>
     <dimen name="dp7">7.0dip</dimen>
-    <dimen name="dp9">9.0dip</dimen>
     <dimen name="dp6">6.0dip</dimen>
     <dimen name="dp5">5.0dip</dimen>
     <dimen name="dp4">4.0dip</dimen>
@@ -46,25 +164,6 @@
     <dimen name="dp2">2.0dip</dimen>
     <dimen name="dp1">1.0dip</dimen>
     <dimen name="dp0">0.0dip</dimen>
-    <dimen name="dp50">50.0dip</dimen>
-    <dimen name="dp126">126.0dip</dimen>
-    <dimen name="dp80">80.0dip</dimen>
-    <dimen name="dp60">60.0dip</dimen>
-    <dimen name="dp48">48.0dip</dimen>
-    <dimen name="dp22">22.0dip</dimen>
-    <dimen name="dp120">120.0dip</dimen>
-    <dimen name="dp45">45.0dip</dimen>
-    <dimen name="dp35">35.0dip</dimen>
-    <dimen name="dp24">24.0dip</dimen>
 
-    <dimen name="dp46">46.0dip</dimen>
-    <dimen name="dp38">38.0dip</dimen>
-    <dimen name="dp74">74.0dip</dimen>
-    <dimen name="dp72">72.0dip</dimen>
-    <dimen name="dp65">65.0dip</dimen>
-    <dimen name="dp68">68.0dip</dimen>
-    <dimen name="dp330">330dp</dimen>
-    <dimen name="dp32">32dp</dimen>
 
-    <dimen name="dp78">78.0dip</dimen>
 </resources>

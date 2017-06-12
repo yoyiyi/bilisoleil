@@ -25,6 +25,7 @@ import com.yoyiyi.soleil.mvp.presenter.app.SplashPresenter;
 import com.yoyiyi.soleil.utils.PrefsUtils;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -133,14 +134,18 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
 
     @Override
     public void showSplash(Splash splash) {
-        if (!splash.data.isEmpty())
+        if (!splash.data.isEmpty()) {
+            int pos = new Random().nextInt(splash.data.size());
             Glide.with(this)
-                    .load(splash.data.get(0).thumb)
+                    .load(splash.data.get(pos).thumb)
                     //.load("http://i0.hdslb.com/bfs/archive/ba17d4df28fb0c28c8f596082d7328b4415ee28b.png")
                     .centerCrop()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .dontAnimate()
                     .into(mIvSplash);
+        } else {
+            mIvSplash.setImageResource(R.mipmap.ic_default_bg);
+        }
     }
 
     @Override

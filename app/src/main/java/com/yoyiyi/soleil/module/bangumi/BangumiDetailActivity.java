@@ -3,6 +3,7 @@ package com.yoyiyi.soleil.module.bangumi;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.bangumi.BangumiDetailAdapter;
@@ -13,6 +14,11 @@ import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
 import com.yoyiyi.soleil.bean.bangumi.MulBangumiDetail;
 import com.yoyiyi.soleil.mvp.contract.bangumi.BangumiDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.bangumi.BangumiDetailPresenter;
+import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
+
+import java.util.Arrays;
+
+import butterknife.BindView;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -21,6 +27,8 @@ import com.yoyiyi.soleil.mvp.presenter.bangumi.BangumiDetailPresenter;
  */
 public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPresenter, MulBangumiDetail> implements BangumiDetailContract.View {
 
+    @BindView(R.id.tv_title)
+    TextView mTvTitle;
     private int mDistanceY;
     private BangumiDetail mBangumiDetail;
     private BangumiDetailAdapter mAdapter;
@@ -35,10 +43,12 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
         getActivityComponent().inject(this);
     }
 
+
     @Override
     protected void initToolbar() {
         super.initToolbar();
-       // StatusBarUtil.setTranslucentForCoordinatorLayout(this, 1);
+        mToolbar.setTitle("");//设置标题
+
     }
 
     @Override
@@ -83,7 +93,10 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     protected void initStatusBar() {
-
+        StatusBarUtil.setTranslucentForCoordinatorLayout(this, 0);
+        //StatusBarUtil.setTransparent(this,);
+        //StatusBarUtil.setTranslucentForImageView(this, 0, null);
+        //StatusBarUtil.setColorNoTranslucent((Activity) mContext, AppUtils.getColor(android.R.color.transparent));
     }
 
     @Override
@@ -104,8 +117,34 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     protected void finishTask() {
-        mToolbar.setTitle(mBangumiDetail.title);//设置标题
-        mList.add(new MulBangumiDetail(MulBangumiDetail.TYPE_HEAD, mBangumiDetail));
+        Arrays.asList(new MulBangumiDetail()
+                .setItemType(MulBangumiDetail.TYPE_HEAD)
+                .setPlayCount(mBangumiDetail.play_count));
+
+        mTvTitle.setText(mBangumiDetail.title);
+        mList.addAll(Arrays.asList(
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_HEAD)
+                        .setPlayCount(mBangumiDetail.play_count),
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_SEASON)
+                        .setSeasonsTitle(mBangumiDetail.season_title)
+                        .setSeasonsBeanList(mBangumiDetail.seasons),
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_EPISODE_HEAD),
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_EPISODE_ITEM)
+                        .setEpisodesBeans(mBangumiDetail.episodes),
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_CONTRACTED),
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM)
+                /* .setHotsBeanList()*/,
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_CONTRACTED)));
+
         mAdapter.notifyDataSetChanged();
     }
+
+
 }

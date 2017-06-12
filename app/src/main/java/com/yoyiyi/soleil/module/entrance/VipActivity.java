@@ -51,8 +51,7 @@ public class VipActivity extends AppCompatActivity {
 
     private void initWedgit() {
         initToolar();
-        StatusBarUtil.setTranslucentForCoordinatorLayout(this, 1);
-
+        StatusBarUtil.setTranslucentForCoordinatorLayout(this, 0);
     }
 
     private void initToolar() {

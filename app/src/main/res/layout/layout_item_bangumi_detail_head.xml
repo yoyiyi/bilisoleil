@@ -18,6 +18,7 @@
             android:id="@+id/iv_icon"
             android:layout_width="@dimen/dp22"
             android:layout_height="@dimen/dp22"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -2,6 +2,8 @@ package com.yoyiyi.soleil.bean.bangumi;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
+import java.util.List;
+
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/11 21:52
@@ -10,7 +12,19 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 public class MulBangumiDetail implements MultiItemEntity {
 
     public int mItemType;
-    public BangumiDetail mBangumiDetail;
+    public List<BangumiDetailComment.DataBean.HotsBean> mHotsBeanList;
+    public List<BangumiDetailRecommend.ListBean> mBangumiRecommendList;
+    public int mFlag;
+    public String mEvaluate;
+    public List<BangumiDetail.TagsBean> mTagsBeanList;
+    public int mTotalCount;
+    public String mPlayCount;
+    public int mFavorites;
+    public String mIsFinish;
+    public String mCover;
+    public List<BangumiDetail.EpisodesBean> mEpisodesBeans;
+    public List<BangumiDetail.SeasonsBean> mSeasonsBeanList;
+    public String mSeasonsTitle;
 
     public static final int TYPE_HEAD = 1;
 
@@ -32,17 +46,84 @@ public class MulBangumiDetail implements MultiItemEntity {
 
     public static final int TYPE_COMMENT_HOT_ITEM = 10;
 
-    public static final int TYPE_COMMENT_MORE_ = 11;
+    public static final int TYPE_COMMENT_MORE = 11;
 
     public static final int TYPE_COMMENT_NOMAL_ITEM = 12;
+
+    public MulBangumiDetail setItemType(int itemType) {
+        mItemType = itemType;
+        return this;
+    }
+
+    public MulBangumiDetail setHotsBeanList(List<BangumiDetailComment.DataBean.HotsBean> hotsBeanList) {
+        mHotsBeanList = hotsBeanList;
+        return this;
+    }
+
+    public MulBangumiDetail setBangumiRecommendList(List<BangumiDetailRecommend.ListBean> bangumiRecommendList) {
+        mBangumiRecommendList = bangumiRecommendList;
+        return this;
+    }
+
+    public MulBangumiDetail setFlag(int flag) {
+        mFlag = flag;
+        return this;
+    }
+
+    public MulBangumiDetail setEvaluate(String evaluate) {
+        mEvaluate = evaluate;
+        return this;
+    }
+
+    public MulBangumiDetail setTagsBeanList(List<BangumiDetail.TagsBean> tagsBeanList) {
+        mTagsBeanList = tagsBeanList;
+        return this;
+    }
+
+    public MulBangumiDetail setTotalCount(int totalCount) {
+        mTotalCount = totalCount;
+        return this;
+    }
+
+    public MulBangumiDetail setPlayCount(String playCount) {
+        mPlayCount = playCount;
+        return this;
+
+    }
+
+    public MulBangumiDetail setFavorites(int favorites) {
+        mFavorites = favorites;
+        return this;
+    }
+
+    public MulBangumiDetail setIsFinish(String isFinish) {
+        mIsFinish = isFinish;
+        return this;
+    }
+
+    public MulBangumiDetail setCover(String cover) {
+        mCover = cover;
+        return this;
+    }
+
+    public MulBangumiDetail setEpisodesBeans(List<BangumiDetail.EpisodesBean> episodesBeans) {
+        mEpisodesBeans = episodesBeans;
+        return this;
+    }
+
+    public MulBangumiDetail setSeasonsBeanList(List<BangumiDetail.SeasonsBean> seasonsBeanList) {
+        mSeasonsBeanList = seasonsBeanList;
+        return this;
+    }
+
+    public MulBangumiDetail setSeasonsTitle(String seasonsTitle) {
+        mSeasonsTitle = seasonsTitle;
+        return this;
+    }
 
     @Override
     public int getItemType() {
         return mItemType;
     }
 
-    public MulBangumiDetail(int itemType, BangumiDetail bangumiDetail) {
-        this.mItemType = itemType;
-        mBangumiDetail = bangumiDetail;
-    }
 }

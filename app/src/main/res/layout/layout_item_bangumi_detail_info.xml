@@ -8,19 +8,20 @@
     <ImageView
         android:id="@+id/iv_pic_big"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp110"/>
-
+        android:layout_height="180dp"
+        android:background="@color/window_background"
+        android:scaleType="centerCrop"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="@dimen/dp100"
         android:layout_height="@dimen/dp0"
-        app:layout_constraintBottom_toBottomOf="@+id/ll_root"
         android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp83"
         app:cardBackgroundColor="@color/card_view_background"
         app:cardCornerRadius="@dimen/dp2"
         app:cardElevation="@dimen/dp0"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_root"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

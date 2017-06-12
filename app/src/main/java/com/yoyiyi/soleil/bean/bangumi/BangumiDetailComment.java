@@ -362,7 +362,7 @@ public class BangumiDetailComment {
                      */
 
                     public int vipType;
-                    public int vipDueDate;
+                    public long vipDueDate;
                     public String dueRemark;
                     public int accessStatus;
                     public int vipStatus;
