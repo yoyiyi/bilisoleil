@@ -33,9 +33,6 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDetail, BaseViewHolder> {
 
 
-    private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLayoutManager;
-
     public BangumiDetailAdapter(List<MulBangumiDetail> data) {
         super(data);
         addItemType(MulBangumiDetail.TYPE_HEAD, R.layout.layout_item_bangumi_detail_info);//头部信息
@@ -45,29 +42,29 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
         addItemType(MulBangumiDetail.TYPE_CONTRACTED, R.layout.layout_bangumi_detail_contracted);//追番
         addItemType(MulBangumiDetail.TYPE_DES, R.layout.layout_item_bangumi_detail_des);//简介
         addItemType(MulBangumiDetail.TYPE_RECOMMEND_HEAD, R.layout.layout_item_bangumi_detail_head);//更多推荐
-        addItemType(MulBangumiDetail.TYPE_RECOMMEND_ITEM, R.layout.common_recycler);//更多推荐
+        addItemType(MulBangumiDetail.TYPE_RECOMMEND_ITEM, R.layout.layout_item_bangumi_detail_recommend);//更多推荐
         addItemType(MulBangumiDetail.TYPE_COMMENT_HEAD, R.layout.layout_item_bangumi_detail_head);//更多推荐
-        addItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM, R.layout.common_recycler);//更多推荐
-        addItemType(MulBangumiDetail.TYPE_COMMENT_MORE, R.layout.common_recycler);//更多推荐
-        addItemType(MulBangumiDetail.TYPE_COMMENT_NOMAL_ITEM, R.layout.common_recycler);//更多推荐
+        addItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM, R.layout.item_bangumi_detail_comment);//更多推荐
+        addItemType(MulBangumiDetail.TYPE_COMMENT_MORE, R.layout.layout_item_bangumi_detail_more);//更多推荐
+        addItemType(MulBangumiDetail.TYPE_COMMENT_NOMAL_ITEM, R.layout.item_bangumi_detail_comment);//更多推荐
 
     }
 
     @Override
     protected void convert(BaseViewHolder holder, MulBangumiDetail mulBangumiDetail) {
-        switch (mulBangumiDetail.mItemType) {
+        switch (mulBangumiDetail.itemType) {
             case MulBangumiDetail.TYPE_HEAD://头部信息
-                holder.setText(R.id.tv_play, "播放:" + NumberUtils.format(mulBangumiDetail.mPlayCount + ""))
-                        .setText(R.id.tv_follow, "追番" + NumberUtils.format(mulBangumiDetail.mFavorites + ""))
-                        .setText(R.id.tv_state, TextUtils.equals(mulBangumiDetail.mIsFinish, "0") ? "连载中" : "已完结");
+                holder.setText(R.id.tv_play, "播放:" + NumberUtils.format(mulBangumiDetail.playCount + ""))
+                        .setText(R.id.tv_follow, "追番" + NumberUtils.format(mulBangumiDetail.favorites + ""))
+                        .setText(R.id.tv_state, TextUtils.equals(mulBangumiDetail.isFinish, "0") ? "连载中" : "已完结");
                 Glide.with(mContext)
-                        .load(mulBangumiDetail.mCover)
+                        .load(mulBangumiDetail.cover)
                         .centerCrop()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .into((ImageView) holder.getView(R.id.iv_pic));
                 Glide.with(mContext)
-                        .load(mulBangumiDetail.mCover)
+                        .load(mulBangumiDetail.cover)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .bitmapTransform(new BlurTransformation(mContext, 26))
                         .dontAnimate()
@@ -75,27 +72,27 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                 break;
 
             case MulBangumiDetail.TYPE_SEASON://分季
-                mRecyclerView = holder.getView(R.id.recycler);
-                mRecyclerView.setHasFixedSize(true);
-                mRecyclerView.setNestedScrollingEnabled(false);
-                mLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
-                mRecyclerView.setLayoutManager(mLayoutManager);
-                mRecyclerView.setAdapter(new BangumiDetailSeasonAdapter(mulBangumiDetail.mSeasonsBeanList, mulBangumiDetail.mSeasonsTitle));
+                RecyclerView recyclerSeason = holder.getView(R.id.recycler);
+                recyclerSeason.setHasFixedSize(true);
+                recyclerSeason.setNestedScrollingEnabled(false);
+                LinearLayoutManager layoutManagerSeason= new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+                recyclerSeason.setLayoutManager(layoutManagerSeason);
+                recyclerSeason.setAdapter(new BangumiDetailSeasonAdapter(mulBangumiDetail.seasonsBeanList, mulBangumiDetail.seasonsTitle));
                 break;
             case MulBangumiDetail.TYPE_EPISODE_ITEM://选集
-                mRecyclerView = holder.getView(R.id.recycler);
-                mRecyclerView.setHasFixedSize(true);
-                mRecyclerView.setNestedScrollingEnabled(false);
-                mLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
-                mRecyclerView.setLayoutManager(mLayoutManager);
-                mRecyclerView.setAdapter(new BangumiDetailEpisodeAdapter(mulBangumiDetail.mEpisodesBeans));
+                RecyclerView recyclerEpisode= holder.getView(R.id.recycler);
+                recyclerEpisode.setHasFixedSize(true);
+                recyclerEpisode.setNestedScrollingEnabled(false);
+                LinearLayoutManager layoutManagerEpisode= new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+                recyclerEpisode.setLayoutManager(layoutManagerEpisode);
+                recyclerEpisode.setAdapter(new BangumiDetailEpisodeAdapter(mulBangumiDetail.episodesBeans));
                 break;
             case MulBangumiDetail.TYPE_EPISODE_HEAD://选集头部
                 holder.setText(R.id.tv_title, "选集");
-                if (TextUtils.equals(mulBangumiDetail.mIsFinish, "0")) {
-                    holder.setText(R.id.tv_online, "一共 " + mulBangumiDetail.mTotalCount + " 话");
+                if (TextUtils.equals(mulBangumiDetail.isFinish, "0")) {
+                    holder.setText(R.id.tv_online, "一共 " + mulBangumiDetail.totalCount + " 话");
                 } else {
-                    holder.setText(R.id.tv_online, "更新至第 " + mulBangumiDetail.mTotalCount + " 话");
+                    holder.setText(R.id.tv_online, "更新至第 " + mulBangumiDetail.totalCount + " 话");
                 }
 
                 break;
@@ -103,10 +100,10 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
 
                 break;
             case MulBangumiDetail.TYPE_DES://简介
-                holder.setText(R.id.tv_title, mulBangumiDetail.mEvaluate)
+                holder.setText(R.id.tv_title, mulBangumiDetail.evaluate)
                         .setText(R.id.tv_online, "更多");
                 TagFlowLayout tagsLayout = holder.getView(R.id.tags_layout);
-                tagsLayout.setAdapter(new TagAdapter<BangumiDetail.TagsBean>(mulBangumiDetail.mTagsBeanList) {
+                tagsLayout.setAdapter(new TagAdapter<BangumiDetail.TagsBean>(mulBangumiDetail.tagsBeanList) {
                     @Override
                     public View getView(FlowLayout flowLayout, int i, BangumiDetail.TagsBean listBean) {
                         TextView mTags = (TextView) LayoutInflater.from(mContext)
@@ -124,12 +121,12 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                         .setVisible(R.id.iv_arrow, false);
                 break;
             case MulBangumiDetail.TYPE_RECOMMEND_ITEM://推荐内容
-                mRecyclerView = holder.getView(R.id.recycler);
-                mRecyclerView.setHasFixedSize(true);
-                mRecyclerView.setNestedScrollingEnabled(false);
+                RecyclerView recyclerRecommend = holder.getView(R.id.recycler);
+                recyclerRecommend.setHasFixedSize(true);
+                recyclerRecommend.setNestedScrollingEnabled(false);
                 GridLayoutManager layoutManager = new GridLayoutManager(mContext, 3);
-                mRecyclerView.setLayoutManager(layoutManager);
-                mRecyclerView.setAdapter(new BangumiDetailRecommendAdapter(mulBangumiDetail.mBangumiRecommendList));
+                recyclerRecommend.setLayoutManager(layoutManager);
+                recyclerRecommend.setAdapter(new BangumiDetailRecommendAdapter(mulBangumiDetail.bangumiRecommendList));
                 break;
             case MulBangumiDetail.TYPE_COMMENT_HEAD://评论头部
 
@@ -144,6 +141,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
             case MulBangumiDetail.TYPE_COMMENT_NOMAL_ITEM://更多评论
 
                 break;
+
         }
     }
 }

@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.bangumi.BangumiDetailAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshActivity;
@@ -32,6 +33,8 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
     private int mDistanceY;
     private BangumiDetail mBangumiDetail;
     private BangumiDetailAdapter mAdapter;
+    private BangumiDetailComment mBangumiDetailComment;
+    private BangumiDetailRecommend mBangumiDetailRecommend;
 
     @Override
     protected int getLayoutId() {
@@ -55,6 +58,7 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
     protected void initRecyclerView() {
         mAdapter = new BangumiDetailAdapter(mList);
         mRecycler.setHasFixedSize(true);
+        mRecycler.setNestedScrollingEnabled(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(mContext);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mAdapter);
@@ -106,13 +110,13 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
 
     @Override
     public void showBangumiDetailComment(BangumiDetailComment bangumiDetailComment) {
+        mBangumiDetailComment = bangumiDetailComment;
         finishTask();
     }
 
     @Override
     public void showBangumiDetailRecommend(BangumiDetailRecommend bangumiDetailRecommend) {
-
-
+        mBangumiDetailRecommend = bangumiDetailRecommend;
     }
 
     @Override
@@ -120,25 +124,47 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
         mTvTitle.setText(mBangumiDetail.title);
         mList.addAll(Arrays.asList(
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_HEAD)
-                        .setPlayCount(mBangumiDetail.play_count),
+                        .setItemType(MulBangumiDetail.TYPE_HEAD)//头部
+                        .setPlayCount(mBangumiDetail.play_count)
+                        .setCover(mBangumiDetail.cover)
+                        .setFavorites(mBangumiDetail.favorites)
+                        .setIsFinish(mBangumiDetail.is_finish),
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_SEASON)
+                        .setItemType(MulBangumiDetail.TYPE_SEASON)//分季节
                         .setSeasonsTitle(mBangumiDetail.season_title)
                         .setSeasonsBeanList(mBangumiDetail.seasons),
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_EPISODE_HEAD),
+                        .setItemType(MulBangumiDetail.TYPE_EPISODE_HEAD)
+                        .setTotalCount(mBangumiDetail.total_count)
+                        .setIsFinish(mBangumiDetail.is_finish),//分集头部
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_EPISODE_ITEM)
+                        .setItemType(MulBangumiDetail.TYPE_EPISODE_ITEM)//分集
                         .setEpisodesBeans(mBangumiDetail.episodes),
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_CONTRACTED),
+                        .setItemType(MulBangumiDetail.TYPE_CONTRACTED)
+                        .setlistBeanList(mBangumiDetail.rank.list)
+                        .setTotalBpCount(mBangumiDetail.rank.total_bp_count)
+                        .setWeekBpCount(mBangumiDetail.rank.week_bp_count),//承包
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM)
-                /* .setHotsBeanList()*/,
+                        .setItemType(MulBangumiDetail.TYPE_DES)
+                        .setEvaluate(mBangumiDetail.evaluate)
+                        .setTagsBeanList(mBangumiDetail.tags),//简介
                 new MulBangumiDetail()
-                        .setItemType(MulBangumiDetail.TYPE_CONTRACTED)));
+                        .setItemType(MulBangumiDetail.TYPE_RECOMMEND_HEAD),//推荐头部
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_RECOMMEND_ITEM)
+                        .setBangumiRecommendList(mBangumiDetailRecommend.list),//推荐
+                new MulBangumiDetail()
+                        .setItemType(MulBangumiDetail.TYPE_COMMENT_HEAD)
+                        .setNum(mBangumiDetailComment.data.page.num)
+                        .setAccount(mBangumiDetailComment.data.page.acount)));//评论头部
 
+        Stream.of(mBangumiDetailComment.data.hots).forEach(hotsBean -> mList.add(new MulBangumiDetail()
+                .setItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM)));
+        mList.add(new MulBangumiDetail().setItemType(MulBangumiDetail.TYPE_COMMENT_MORE));
+
+        Stream.of(mBangumiDetailComment.data.replies).forEach(repliesBean -> mList.add(new MulBangumiDetail()
+                .setItemType(MulBangumiDetail.TYPE_COMMENT_NOMAL_ITEM)));
         mAdapter.notifyDataSetChanged();
     }
 

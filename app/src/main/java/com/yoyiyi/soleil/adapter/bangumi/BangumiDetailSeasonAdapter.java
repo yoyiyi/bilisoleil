@@ -33,7 +33,7 @@ public class BangumiDetailSeasonAdapter extends BaseQuickAdapter<BangumiDetail.S
         if (TextUtils.equals(seasonsBean.title, mSeasonTitle)) {
             mOldPos = holder.getAdapterPosition();
             holder.getView(R.id.tv_index_title).setEnabled(true);
-            notifyDataSetChanged();
+//            notifyDataSetChanged();
         }
         holder.itemView.setOnClickListener(view -> {
             mNewPos = holder.getAdapterPosition();//新位置
