@@ -15,6 +15,9 @@ public class Dynamic {
     public List<ItemBean> item;
 
     public static class ItemBean {
+        public int isRecent;
+        public int position;//折叠的位置
+
         /**
          * title : 【炒鸡饿搬运】【Tasty】超简单巧克力甜甜圈
          * cover : http://i1.hdslb.com/bfs/archive/656d2dface08d8a2a2864f1c9af90141a6ba3721.jpg
@@ -22,8 +25,8 @@ public class Dynamic {
          * param : 10962203
          * goto : av
          * desc : YouTube
-         原视频：https://www.youtube.com/watch?v=VcjmqrCJYm4
-         来源：Tasty
+         * 原视频：https://www.youtube.com/watch?v=VcjmqrCJYm4
+         * 来源：Tasty
          * play : 45
          * danmaku : 5
          * reply : 2
@@ -106,8 +109,8 @@ public class Dynamic {
              * param : 10959798
              * goto : av
              * desc : YouTube
-             原视频： https://www.youtube.com/watch?v=1xn2l1uUQEU&amp;t=0s
-             来源：Tasty Japan
+             * 原视频： https://www.youtube.com/watch?v=1xn2l1uUQEU&amp;t=0s
+             * 来源：Tasty Japan
              * play : 138
              * danmaku : 2
              * reply : 3
