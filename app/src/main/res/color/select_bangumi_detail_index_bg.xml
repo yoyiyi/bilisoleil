@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:color="@color/pink_text_color" android:state_focused="true"/>
+    <item android:color="@color/pink_text_color" android:state_enabled="true"/>
     <item android:color="@color/pink_text_color" android:state_selected="true"/>
     <item android:color="@color/pink_text_color" android:state_pressed="true"/>
-
-    <item android:color="@color/black_80"/>
+    <item android:color="@color/black_alpha_30"/>
 </selector>

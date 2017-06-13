@@ -3,26 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     >
 
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:overScrollMode="never"
-                android:scrollbars="none"/>
+        <include layout="@layout/common_layout_error"/>
+        <com.yoyiyi.soleil.widget.ProgressWheel
+            android:id="@+id/pw_loading"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_centerInParent="true"
+            app:matProg_barColor="@color/colorPrimary"
+            app:matProg_barWidth="@dimen/dp4"
+            app:matProg_fillRadius="false"
+            app:matProg_linearProgress="true"
+            app:matProg_progressIndeterminate="true"/>
 
-            <include layout="@layout/common_layout_error"/>
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 
     <android.support.v7.widget.Toolbar

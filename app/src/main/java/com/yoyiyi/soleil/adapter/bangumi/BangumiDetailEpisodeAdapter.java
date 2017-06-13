@@ -18,7 +18,7 @@ import java.util.List;
 public class BangumiDetailEpisodeAdapter extends BaseQuickAdapter<BangumiDetail.EpisodesBean, BaseViewHolder> {
 
     private int mOldPos;
-    private int mNewPos = 1;
+    private int mNewPos;
 
     public BangumiDetailEpisodeAdapter(@Nullable List<BangumiDetail.EpisodesBean> data) {
         super(R.layout.item_bangumi_detail_episodes, data);
@@ -30,18 +30,28 @@ public class BangumiDetailEpisodeAdapter extends BaseQuickAdapter<BangumiDetail.
         holder.setText(R.id.tv_index_title, episodesBean.index_title);
         holder.itemView.setOnClickListener(view -> {
             mNewPos = holder.getAdapterPosition();//新位置
+            mOldPos = mNewPos;
             notifyDataSetChanged();
         });
-        if (holder.getAdapterPosition() == mNewPos && holder.getAdapterPosition() != mOldPos) {
+
+        if (holder.getAdapterPosition() == mNewPos) {
             holder.getView(R.id.tv_index_title).setEnabled(true);
             holder.getView(R.id.tv_index).setEnabled(true);
-            holder.getView(R.id.button).setEnabled(true);
-        }
-        if (holder.getAdapterPosition() == mOldPos && holder.getAdapterPosition() != mNewPos) {
+            holder.getView(R.id.ll_root).setEnabled(true);
+        } else {
             holder.getView(R.id.tv_index_title).setEnabled(false);
             holder.getView(R.id.tv_index).setEnabled(false);
-            holder.getView(R.id.button).setEnabled(false);
+            holder.getView(R.id.ll_root).setEnabled(false);
         }
-        mOldPos = mNewPos;
+        if (mNewPos != mOldPos) {
+            holder.getView(R.id.tv_index_title).setEnabled(false);
+            holder.getView(R.id.tv_index).setEnabled(false);
+            holder.getView(R.id.ll_root).setEnabled(false);
+        }
+        if (holder.getAdapterPosition() == getItemCount() - 1) {
+            holder.setVisible(R.id.space, true);
+        } else {
+            holder.setVisible(R.id.space, false);
+        }
     }
 }
