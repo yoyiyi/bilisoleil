@@ -33,7 +33,7 @@ class BangumiDetailRecommendAdapter extends BaseQuickAdapter<BangumiDetailRecomm
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
-        holder.setText(R.id.tv_video_follow, NumberUtils.format(listBean.follow + ""))
+        holder.setText(R.id.tv_video_follow, NumberUtils.format(listBean.follow + "") + "追番")
                 .setText(R.id.tv_video_title, listBean.title);
     }
 }

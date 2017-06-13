@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.adapter.home.section.live;
 
-import android.text.SpannableStringBuilder;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
@@ -10,7 +9,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LivePartition;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -53,13 +52,12 @@ public class LiveRecommendPartitionSection extends StatelessSection<LivePartitio
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_icon));
         holder.setText(R.id.tv_title, mTitle);
-        SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+        holder.setText(R.id.tv_online, new SpanUtils()
                 .append("当前")
                 .append("" + mCount)
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                 .append("个直播")
-                .create();
-        holder.setText(R.id.tv_online, builder);
+                .create());
 
 
     }

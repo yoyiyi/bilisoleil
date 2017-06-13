@@ -14,7 +14,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -83,13 +83,11 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
                         .into((ImageView) holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_live_up, mBannerDataBean.owner.name)//up
                         .setText(R.id.tv_video_online, mBannerDataBean.online + "");//在线人数;
-                SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+                holder.setText(R.id.tv_video_title, new SpanUtils()
                         .append("#" + mBannerDataBean.area + "#")
                         .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                         .append(mBannerDataBean.title)
-                        .create();
-                holder.setText(R.id.tv_video_title, builder);
-
+                        .create());
             } else {
                 holder.setVisible(R.id.card_view, false);
             }
@@ -115,11 +113,10 @@ public class LiveRecommendSection extends StatelessSection<LiveRecommend.Recomme
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, livesBean.owner.name)//up
                 .setText(R.id.tv_video_online, NumberUtils.format(livesBean.online + ""));//在线人数;
-        SpannableStringUtils.Builder builder = new SpannableStringUtils.Builder()
+        holder.setText(R.id.tv_video_title, new SpanUtils()
                 .append("#" + livesBean.area + "#")
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
-                .append(livesBean.title);
-        holder.setText(R.id.tv_video_title, builder.create());
+                .append(livesBean.title).create());
         if (position % 2 == 0) {
             setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp10),
                     (int) AppUtils.getDimension(R.dimen.dp5),

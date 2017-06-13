@@ -3,7 +3,6 @@ package com.yoyiyi.soleil.adapter.home;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
@@ -24,7 +23,7 @@ import com.yoyiyi.soleil.bean.live.MulLive;
 import com.yoyiyi.soleil.bean.live.support.LiveEnter;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -84,12 +83,11 @@ public class LiveAdapter extends BaseMultiItemQuickAdapter<MulLive, BaseViewHold
                         .into((ImageView) holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(bannerDataBean.owner.name) ? "未知" : bannerDataBean.owner.name)//up
                         .setText(R.id.tv_video_online, bannerDataBean.online + "");//在线人数;
-                SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+                holder.setText(R.id.tv_video_title, new SpanUtils()
                         .append("#" + bannerDataBean.area + "#")
                         .append(bannerDataBean.title)
                         .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
-                        .create();
-                holder.setText(R.id.tv_video_title, builder);
+                        .create());
 
                 break;
             case MulLive.TYPR_HEADER:
@@ -100,13 +98,12 @@ public class LiveAdapter extends BaseMultiItemQuickAdapter<MulLive, BaseViewHold
                         .dontAnimate()
                         .into((ImageView) holder.getView(R.id.iv_icon));
                 holder.setText(R.id.tv_title, mulLive.mTitle);
-                SpannableStringBuilder headBuilder = new SpannableStringUtils.Builder()
+                holder.setText(R.id.tv_online,  new SpanUtils()
                         .append("当前")
                         .append("" + mulLive.mCount)
                         .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                         .append("个直播")
-                        .create();
-                holder.setText(R.id.tv_online, headBuilder);
+                        .create());
 
                 break;
             case MulLive.TYPE_RECOMMEND_ITEM:
@@ -120,11 +117,10 @@ public class LiveAdapter extends BaseMultiItemQuickAdapter<MulLive, BaseViewHold
                         .into((ImageView) holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_live_up, recommendLivesBean.owner.name)//up
                         .setText(R.id.tv_video_online, NumberUtils.format(recommendLivesBean.online + ""));//在线人数;
-                SpannableStringUtils.Builder Recommendbuilder = new SpannableStringUtils.Builder()
+                holder.setText(R.id.tv_video_title, new SpanUtils()
                         .append("#" + recommendLivesBean.area + "#")
                         .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
-                        .append(recommendLivesBean.title);
-                holder.setText(R.id.tv_video_title, Recommendbuilder.create());
+                        .append(recommendLivesBean.title).create());
                /* if (position % 2 == 0) {
                     holder.setVisible(R.id.space, true);
                 } else {

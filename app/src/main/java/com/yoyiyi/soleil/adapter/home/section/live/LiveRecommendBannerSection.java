@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.adapter.home.section.live;
 
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -9,7 +8,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.live.LiveRecommend;
 import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -37,12 +36,11 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(mData.owner.name) ? "未知" : mData.owner.name)//up
                 .setText(R.id.tv_video_online, mData.online + "");//在线人数;
-        SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+        holder.setText(R.id.tv_video_title, new SpanUtils()
                 .append("#" + mData.area + "#")
                 .append(mData.title)
                 .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
-                .create();
-        holder.setText(R.id.tv_video_title, builder);
+                .create());
         setMargins(holder.itemView, (int) AppUtils.getDimension(R.dimen.dp10),
                 (int) AppUtils.getDimension(R.dimen.dp5),
                 (int) AppUtils.getDimension(R.dimen.dp10),

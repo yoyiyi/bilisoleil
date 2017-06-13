@@ -2,7 +2,6 @@ package com.yoyiyi.soleil.adapter.home;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.text.SpannableStringBuilder;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -13,7 +12,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
 import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 
 import java.util.List;
 
@@ -37,10 +36,9 @@ public class ChaseFllowAdapter extends BaseQuickAdapter<ChaseBangumi.FollowsBean
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_title, followsBean.title);//
-        SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+        holder.setText(R.id.tv_video_update, new SpanUtils()
                 .append("更新至第 " + followsBean.new_ep.index + " 话")
-                .setForegroundColor(AppUtils.getColor(R.color.pink_text_color)).create();
-        holder.setText(R.id.tv_video_update, builder);
+                .setForegroundColor(AppUtils.getColor(R.color.pink_text_color)).create());
         holder.setText(R.id.tv_video_state, "尚未观看");
         holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, BangumiDetailActivity.class)));
 

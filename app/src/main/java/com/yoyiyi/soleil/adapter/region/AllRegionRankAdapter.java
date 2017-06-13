@@ -1,7 +1,6 @@
 package com.yoyiyi.soleil.adapter.region;
 
 import android.support.annotation.Nullable;
-import android.text.SpannableStringBuilder;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -11,7 +10,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.AllRegionRank;
 import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 
 import java.util.List;
 
@@ -42,10 +41,10 @@ public class AllRegionRankAdapter extends BaseQuickAdapter<AllRegionRank.RankBea
 
         int position = holder.getAdapterPosition();
         if (position < 3) {
-            SpannableStringBuilder builder = new SpannableStringUtils.Builder()
-                    .append((position + 1) + "").setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
-                    .create();
-            holder.setText(R.id.tv_rank, builder);
+            holder.setText(R.id.tv_rank, new SpanUtils()
+                    .append((position + 1) + "")
+                    .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
+                    .create());
         } else {
             holder.setText(R.id.tv_rank, (position + 1) + "");
         }

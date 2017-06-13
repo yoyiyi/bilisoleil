@@ -2,13 +2,12 @@ package com.yoyiyi.soleil.adapter.home.section.chase;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableStringBuilder;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.ChaseFllowAdapter;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.SpannableStringUtils;
+import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -38,11 +37,10 @@ public class ChaseFollowSection extends StatelessSection {
         if ("0".equals(mCount)) {
             holder.setText(R.id.tv_more, "查看更多");
         } else {
-            SpannableStringBuilder builder = new SpannableStringUtils.Builder()
+            holder.setText(R.id.tv_more, new SpanUtils()
                     .append("最近更新 ")
                     .append(mCount)
-                    .setForegroundColor(AppUtils.getColor(R.color.pink_text_color)).create();
-            holder.setText(R.id.tv_more, builder);
+                    .setForegroundColor(AppUtils.getColor(R.color.pink_text_color)).create());
         }
     }
 

@@ -156,12 +156,14 @@ public class BangumiDetailActivity extends BaseRefreshActivity<BangumiDetailPres
                         .setNum(mBangumiDetailComment.data.page.num)
                         .setAccount(mBangumiDetailComment.data.page.acount)));//评论头部
 
-        Stream.of(mBangumiDetailComment.data.hots).forEach(hotsBean -> mList.add(new MulBangumiDetail()
-                .setItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM)));
+        Stream.of(mBangumiDetailComment.data.hots).forEach(hotsBean -> mList.add(new MulBangumiDetail()//热门评论
+                .setItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM)
+                .setHotsBean(hotsBean)));
         mList.add(new MulBangumiDetail().setItemType(MulBangumiDetail.TYPE_COMMENT_MORE));
 
-        Stream.of(mBangumiDetailComment.data.replies).forEach(repliesBean -> mList.add(new MulBangumiDetail()
-                .setItemType(MulBangumiDetail.TYPE_COMMENT_NOMAL_ITEM)));
+        Stream.of(mBangumiDetailComment.data.replies).forEach(repliesBean -> mList.add(new MulBangumiDetail()//普通评论
+                .setItemType(MulBangumiDetail.TYPE_COMMENT_NOMAL_ITEM)
+                .setRepliesBean(repliesBean)));
         mAdapter.notifyDataSetChanged();
     }
 

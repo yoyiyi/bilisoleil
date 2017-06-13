@@ -7,12 +7,14 @@ import java.util.List;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/11 21:52
- * 描述:
+ * 描述:番剧详情
  */
 public class MulBangumiDetail implements MultiItemEntity {
 
     public int itemType;
-    public List<BangumiDetailComment.DataBean.HotsBean> hotsBeanList;
+    public BangumiDetailComment.DataBean.HotsBean hotsBean;
+    public BangumiDetailComment.DataBean.RepliesBean repliesBean;
+
     public List<BangumiDetailRecommend.ListBean> bangumiRecommendList;
     public String evaluate;
     public List<BangumiDetail.TagsBean> tagsBeanList;
@@ -60,8 +62,13 @@ public class MulBangumiDetail implements MultiItemEntity {
         return this;
     }
 
-    public MulBangumiDetail setHotsBeanList(List<BangumiDetailComment.DataBean.HotsBean> hotsBeanList) {
-        this.hotsBeanList = hotsBeanList;
+    public MulBangumiDetail setRepliesBean(BangumiDetailComment.DataBean.RepliesBean repliesBean) {
+        this.repliesBean = repliesBean;
+        return this;
+    }
+
+    public MulBangumiDetail setHotsBean(BangumiDetailComment.DataBean.HotsBean hotsBean) {
+        this.hotsBean = hotsBean;
         return this;
     }
 
