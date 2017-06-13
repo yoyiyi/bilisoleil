@@ -2,13 +2,20 @@ package com.yoyiyi.soleil.module.home;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Guideline;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.home.DynamicAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
+import com.yoyiyi.soleil.bean.dynamic.MulDynamic;
+import com.yoyiyi.soleil.mvp.contract.home.DynamicContract;
+import com.yoyiyi.soleil.mvp.presenter.home.DynamicPresenter;
 import com.yoyiyi.soleil.widget.expand.ExpandableLayout;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -19,7 +26,7 @@ import butterknife.OnClick;
  * 描述:推荐
  */
 
-public class DynamicFragment extends BaseRefreshFragment {
+public class DynamicFragment extends BaseRefreshFragment<DynamicPresenter, MulDynamic> implements DynamicContract.View {
 
     @BindView(R.id.guideline)
     Guideline mGuideline;
@@ -43,6 +50,7 @@ public class DynamicFragment extends BaseRefreshFragment {
     ExpandableLayout mExpand;
 
     private String mTextSelect;
+    private DynamicAdapter mAdapter;
 
     public static DynamicFragment newInstance() {
         return new DynamicFragment();
@@ -58,12 +66,22 @@ public class DynamicFragment extends BaseRefreshFragment {
 
     }
 
+    @Override
+    protected void lazyLoadData() {
+        mPresenter.getMulDynamicData();
+    }
+
+    @Override
+    protected void initInject() {
+        getFragmentComponent().inject(this);
+    }
 
     @OnClick(R.id.cl_all)
     public void onClickAllExpand(View view) {
         if (mExpand.isExpanded()) {
             mExpand.collapse();
         } else {
+            mTvAllSelect.setSelected(true);
             mExpand.expand();
         }
     }
@@ -93,4 +111,23 @@ public class DynamicFragment extends BaseRefreshFragment {
         }
     }
 
+    @Override
+    protected void initRecyclerView() {
+        mAdapter = new DynamicAdapter(mList);
+        mRecycler.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mRecycler.setLayoutManager(layoutManager);
+        mRecycler.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void showMulDynamic(List<MulDynamic> mulDynamic) {
+        mList.addAll(mulDynamic);
+        finishTask();
+    }
+
+    @Override
+    protected void finishTask() {
+        mAdapter.notifyDataSetChanged();
+    }
 }

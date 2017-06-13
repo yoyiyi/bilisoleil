@@ -31,7 +31,8 @@
         android:gravity="center"
         android:padding="@dimen/dp4"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_14"/>
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintStart_toEndOf="@id/iv_avatar"/>
 
     <TextView
         android:id="@+id/tv_tag"
@@ -52,10 +53,11 @@
 
     <TextView
         android:id="@+id/tv_duration"
-        android:layout_width="@dimen/dp32"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp10"
         android:background="@color/black_alpha_60"
+        android:minWidth="@dimen/dp32"
         android:padding="@dimen/dp2"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_12"
@@ -69,9 +71,8 @@
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp10"
         android:ellipsize="end"
-        android:gravity="center"
         android:maxLines="2"
-        android:textColor="@color/black_alpha_30"
+        android:textColor="@color/black_80"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline6"
@@ -104,9 +105,7 @@
             android:id="@+id/tv_video_play_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp3"
-            android:maxEms="2"
-            android:minEms="2"
+            android:minWidth="@dimen/dp35"
             android:text="xxxx"
             android:textColor="@color/black_alpha_45"
             android:textSize="@dimen/text_size_12"
@@ -171,8 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp3"
-            android:maxEms="2"
-            android:minEms="2"
+            android:minWidth="@dimen/dp35"
             android:text="xxxx"
             android:textColor="@color/black_alpha_45"
             android:textSize="@dimen/text_size_12"
@@ -196,6 +194,7 @@
             android:id="@+id/tv_tag_video_favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp3"
             android:gravity="center"
             android:paddingRight="@dimen/dp4"
             android:text="xxxx"
@@ -217,36 +216,45 @@
         app:layout_constraintEnd_toEndOf="@id/cl_vedio_tag"
         app:layout_constraintTop_toTopOf="@id/cl_vedio_tag"/>
 
-
-    <RelativeLayout
-        android:id="@+id/fl_recent"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp24"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp10"
-        android:background="@color/gray_light"
-        app:layout_constraintBottom_toTopOf="@id/space"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/iv_preview">
 
-        <TextView
-            android:id="@+id/tv_recent"
+        <RelativeLayout
+            android:id="@+id/fl_recent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="还有4个视频被隐藏"
-            android:textSize="@dimen/text_size_12"/>
-    </RelativeLayout>
+            android:layout_height="@dimen/dp28"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@color/gray_light"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintBottom_toTopOf="@id/space"
+            app:layout_constraintTop_toBottomOf="@+id/iv_preview">
 
-    <Space
-        android:id="@+id/space"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        app:layout_constraintBottom_toTopOf="@id/v_hor"/>
+            <TextView
+                android:id="@+id/tv_recent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="还有4个视频被隐藏"
+                android:textSize="@dimen/text_size_12"/>
+        </RelativeLayout>
 
-    <View
-        android:id="@+id/v_hor"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/gray_light"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toTopOf="@id/v_hor"/>
+
+        <View
+            android:id="@+id/v_hor"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_light"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

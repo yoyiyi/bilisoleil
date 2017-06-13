@@ -7,6 +7,7 @@ import com.yoyiyi.soleil.di.scope.FragmentScope;
 import com.yoyiyi.soleil.module.discover.InterestFragment;
 import com.yoyiyi.soleil.module.home.ChaseBangumiFragment;
 import com.yoyiyi.soleil.module.home.DiscoverFragment;
+import com.yoyiyi.soleil.module.home.DynamicFragment;
 import com.yoyiyi.soleil.module.home.LiveFragment;
 import com.yoyiyi.soleil.module.home.RecommendFragment;
 import com.yoyiyi.soleil.module.home.RegionFragment;
@@ -50,5 +51,7 @@ public interface FragmentComponent {
     void inject(AllStationRankFragment allStationRankFragment);
 
     void inject(InterestFragment interestFragment);
+
+    void inject(DynamicFragment dynamicFragment);
 
 }
