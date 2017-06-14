@@ -2,6 +2,8 @@ package com.yoyiyi.soleil.network.helper;
 
 
 import com.yoyiyi.soleil.bean.app.Splash;
+import com.yoyiyi.soleil.bean.app.VideoDetail;
+import com.yoyiyi.soleil.bean.app.VideoDetailComment;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
@@ -10,6 +12,7 @@ import com.yoyiyi.soleil.bean.bangumi.BangumiSchedule;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.bean.discover.ActivityCenter;
+import com.yoyiyi.soleil.bean.discover.Community;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
 import com.yoyiyi.soleil.bean.discover.InterestAd;
 import com.yoyiyi.soleil.bean.discover.InterestCategrory;
@@ -24,7 +27,6 @@ import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
-import com.yoyiyi.soleil.bean.discover.Community;
 import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
@@ -89,6 +91,14 @@ public class RetrofitHelper {
 
     public Flowable<HttpResponse<RegionType>> getRegionType(int rid) {
         return mAppService.getRegionType(rid);
+    }
+
+    public Flowable<HttpResponse<VideoDetail>> getVideoDetail() {
+        return mAppService.getVideoDetail();
+    }
+
+    public Flowable<HttpResponse<VideoDetailComment>> getVideoDetailComment() {
+        return mAppService.getVideoDetailComment();
     }
 
     /*******************************LiveApi****************************************/

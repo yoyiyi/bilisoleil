@@ -16,6 +16,7 @@
 
     <dimen name="dp300">300.0dip</dimen>
     <dimen name="dp290">290.0dip</dimen>
+    <dimen name="dp226">226.0dip</dimen>
     <dimen name="dp280">280.0dip</dimen>
     <dimen name="dp270">270.0dip</dimen>
     <dimen name="dp260">260.0dip</dimen>
@@ -46,6 +47,7 @@
 
     <dimen name="dp135">135.0dip</dimen>
     <dimen name="dp130">130.0dip</dimen>
+    <dimen name="dp128">128.0dip</dimen>
 
     <dimen name="dp126">126.0dip</dimen>
     <dimen name="dp125">125.0dip</dimen>

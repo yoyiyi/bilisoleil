@@ -1,6 +1,8 @@
 package com.yoyiyi.soleil.network.api;
 
 import com.yoyiyi.soleil.bean.app.Splash;
+import com.yoyiyi.soleil.bean.app.VideoDetail;
+import com.yoyiyi.soleil.bean.app.VideoDetailComment;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
@@ -84,6 +86,18 @@ public interface AppService {
      */
     @GET("x/v2/region/show/child?build=3600")
     Flowable<HttpResponse<RegionType>> getRegionType(@Query("rid") int rid);
+
+    /**
+     * 视频详情
+     */
+    @GET("/x/v2/view?access_key=0e6adb874025dfabaa3ced3a7b22049d&aid=9938411&appkey=1d8b6e7d45233436&build=505000&from=3&mobi_app=android&plat=0&platform=android&trackid=6475482883510618178&ts=1497422373&sign=75f3393be59e612325d75d7134e612a8")
+    Flowable<HttpResponse<VideoDetail>> getVideoDetail();
+
+    /**
+     * 视频评论
+     */
+    @GET("/x/v2/reply?access_key=0e6adb874025dfabaa3ced3a7b22049d&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&oid=9938411&plat=2&platform=android&pn=1&ps=20&sort=0&ts=1497422373&type=1&sign=071c418a32ebc452e078308a04e1be4e")
+    Flowable<HttpResponse<VideoDetailComment>> getVideoDetailComment();
 
     /**
      * 番剧搜索
