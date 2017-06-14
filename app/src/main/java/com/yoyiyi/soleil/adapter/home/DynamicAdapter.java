@@ -54,11 +54,11 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 }
                 switch (itemBean.type) {
                     case 0://关注up
-                        FormatUtils.getDescriptionTimeFromDate(com.yoyiyi.soleil.utils.time.TimeUtils.millis2Date(itemBean.ctime));
                         holder.setVisible(R.id.iv_avatar, true)
                                 .setVisible(R.id.tv_tag, false)
                                 .setVisible(R.id.tv_title_time, true)
                                 .setVisible(R.id.tv_title_tag_time, false)
+                                .setVisible(R.id.tv_title,true)
                                 .setText(R.id.tv_title_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
                                 .setText(R.id.tv_title, itemBean.name)
                                 .setText(R.id.tv_video_title, itemBean.title)

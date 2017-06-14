@@ -33,7 +33,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     protected T mPresenter;
     protected Toolbar mToolbar;//Toolbar
     protected Context mContext;//上下文环境
-   // protected DrawerLayout mDrawerLayout;
+    // protected DrawerLayout mDrawerLayout;
     protected boolean mBack = true;
     private ConstraintLayout mError;
 
@@ -43,7 +43,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         setContentView(getLayoutId());
         mContext = this;
         ButterKnife.bind(this);
-       // mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
+        // mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
         mToolbar = ButterKnife.findById(this, R.id.toolbar);
         mError = ButterKnife.findById(this, R.id.cl_error);
         initStatusBar();
@@ -98,10 +98,16 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         /*if (mDrawerLayout != null) {
             StatusBarUtil.setColorNoTranslucentForDrawerLayout((Activity) mContext, mDrawerLayout, AppUtils.getColor(R.color.colorPrimary));
         } else {*/
-            StatusBarUtil.setColorNoTranslucent((Activity) mContext, AppUtils.getColor(R.color.colorPrimary));
-       // }
+        StatusBarUtil.setColorNoTranslucent((Activity) mContext, AppUtils.getColor(R.color.colorPrimary));
+        // }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+   //如果用以下这种做法则不保存状态，再次进来的话会显示默认tab
+   //总是执行这句代码来调用父类去保存视图层的状态
+    //super.onSaveInstanceState(outState);
+    }
 
     /**
      * 初始化Presenter

@@ -78,8 +78,12 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     //ijk
+
     compile 'tv.danmaku.ijk.media:ijkplayer-java:0.8.0'
     compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.0'
+
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.0'
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.0'
     //烈焰弹幕使
     compile 'com.github.ctiao:DanmakuFlameMaster:0.8.3'
     compile 'com.github.ctiao:ndkbitmap-armv7a:0.8.3'
