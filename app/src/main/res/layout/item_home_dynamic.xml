@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp24"
+        android:layout_height="@dimen/dp26"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
         android:padding="@dimen/dp4"
@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/tv_title_time"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp24"
+        android:layout_height="@dimen/dp26"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
         android:padding="@dimen/dp4"
@@ -48,7 +48,7 @@
     <TextView
         android:id="@+id/tv_title_tag_time"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp24"
+        android:layout_height="@dimen/dp26"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
         android:padding="@dimen/dp4"
@@ -58,7 +58,7 @@
     <TextView
         android:id="@+id/tv_tag"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp24"
+        android:layout_height="@dimen/dp26"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
         android:paddingLeft="@dimen/dp4"

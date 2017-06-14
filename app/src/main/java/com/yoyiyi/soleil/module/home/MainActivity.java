@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
 
     private void initFragment() {
-        mFragments = Arrays.asList(new HomeFragment());
+        mFragments = Arrays.asList(HomeFragment.newInstance());
 
     }
 

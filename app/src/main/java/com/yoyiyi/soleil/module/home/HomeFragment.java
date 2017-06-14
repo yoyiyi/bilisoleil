@@ -1,8 +1,6 @@
 package com.yoyiyi.soleil.module.home;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,7 +9,6 @@ import com.flyco.tablayout.SlidingTabLayout;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.home.MainAdapter;
-import com.yoyiyi.soleil.base.BaseFragment;
 import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.module.discover.GameCenterActivity;
 import com.yoyiyi.soleil.rx.RxBus;
@@ -23,10 +20,10 @@ import butterknife.OnClick;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/14 12:20
- * 描述:
+ * 描述:首页Fragment
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseHomeFragment {
 
     @BindView(R.id.stl_tabs)
     SlidingTabLayout mStlTabs;
@@ -34,26 +31,20 @@ public class HomeFragment extends BaseFragment {
     NoScrollViewPager mViewPager;
     @BindView(R.id.search_view)
     MaterialSearchView mSearchView;
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-
 
     @Override
     public int getLayoutId() {
         return R.layout.fragment_main_home;
     }
 
-    @Override
-    public void initWidget() {
-        initToolbar();
-        initViewPager();
+    public static HomeFragment newInstance() {
+        return new HomeFragment();
     }
 
-    private void initToolbar() {
-        mToolbar.setTitle("");
-        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
-        //换成下面这句就OK了
-        mToolbar.inflateMenu(R.menu.menu_main);
+    @Override
+    public void initWidget() {
+        super.initWidget();
+        initViewPager();
     }
 
 

@@ -57,6 +57,8 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                         FormatUtils.getDescriptionTimeFromDate(com.yoyiyi.soleil.utils.time.TimeUtils.millis2Date(itemBean.ctime));
                         holder.setVisible(R.id.iv_avatar, true)
                                 .setVisible(R.id.tv_tag, false)
+                                .setVisible(R.id.tv_title_time, true)
+                                .setVisible(R.id.tv_title_tag_time, false)
                                 .setText(R.id.tv_title_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
                                 .setText(R.id.tv_title, itemBean.name)
                                 .setText(R.id.tv_video_title, itemBean.title)
@@ -90,7 +92,8 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                     case 2://国产动画
                         holder.setVisible(R.id.iv_avatar, false)
                                 .setVisible(R.id.tv_title, false)
-                                .setVisible(R.id.tv_duration, false)
+                                .setVisible(R.id.tv_title_time, false)
+                                .setVisible(R.id.tv_title_tag_time, true).setVisible(R.id.tv_duration, false)
                                 .setText(R.id.tv_title_tag_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
                                 .setVisible(R.id.tv_tag, true)
                                 .setText(R.id.tv_tag, "国产动画")
@@ -120,6 +123,8 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                         holder.setVisible(R.id.iv_avatar, false)
                                 .setVisible(R.id.tv_tag, true)
                                 .setVisible(R.id.tv_title, false)
+                                .setVisible(R.id.tv_title_time, false)
+                                .setVisible(R.id.tv_title_tag_time, true)
                                 .setVisible(R.id.tv_duration, false)
                                 .setText(R.id.tv_title_tag_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
                                 .setText(R.id.tv_tag, "番剧")
