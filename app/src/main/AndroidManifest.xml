@@ -149,6 +149,12 @@
             android:name=".module.bangumi.BangumiDetailActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+
+        <!--视频详情-->
+        <activity
+            android:name=".module.app.video.VideoDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
     </application>
 </manifest>

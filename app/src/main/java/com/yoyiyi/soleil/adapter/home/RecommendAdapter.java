@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.adapter.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.ImageView;
 
 import com.annimon.stream.Collectors;
@@ -16,6 +17,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.recommend.MulRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.module.app.BrowerActivity;
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.TimeUtils;
 
@@ -47,7 +49,7 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .start();
                 bannar.setOnBannerListener(i -> {
                     Recommend.BannerItemBean bannerBean = banner_item.get(i);
-                    BrowerActivity.startActivity(mContext,bannerBean.click_url,bannerBean.title);
+                    BrowerActivity.startActivity(mContext, bannerBean.click_url, bannerBean.title);
                 });
                 break;
 
@@ -64,6 +66,8 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .setText(R.id.tv_video_danmaku, NumberUtils.format(mulRecommend.mRecommend.danmaku + ""))
                         .setText(R.id.tv_video_title, mulRecommend.mRecommend.title);
                 // .setText(R.id.tv_video_tag, mulRecommend.mRecommend.tname + " · " + mulRecommend.mRecommend.tag.tag_name);
+                holder.itemView.setOnClickListener(view ->
+                        mContext.startActivity(new Intent(mContext, VideoDetailActivity.class)));
                 break;
         }
     }

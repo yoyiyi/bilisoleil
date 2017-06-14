@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.mvp.presenter.app;
 
 
-import com.yoyiyi.soleil.base.BaseObjectSubscriber;
+import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.app.VideoDetailComment;
 import com.yoyiyi.soleil.mvp.contract.app.VideoDetailContract;
@@ -27,8 +27,7 @@ public class VideoDetailPresenter extends RxPresenter<VideoDetailContract.View> 
 
     @Override
     public void getVideoDetailData() {
-        BaseObjectSubscriber<VideoDetailComment> subscriber = mRetrofitHelper.getVideoDetail()
-                .compose(RxUtils.handleResult())
+       /* BaseObjectSubscriber<VideoDetailComment> subscriber = mRetrofitHelper.getVideoDetail()
                 .flatMap(videoDetail -> {
                     mView.showVideoDetail(videoDetail);
                     return mRetrofitHelper.getVideoDetailComment();
@@ -39,7 +38,19 @@ public class VideoDetailPresenter extends RxPresenter<VideoDetailContract.View> 
                     public void onSuccess(VideoDetailComment videoDetailComment) {
                         mView.showVideoDetailComment(videoDetailComment);
                     }
+                });*/
+        BaseSubscriber<VideoDetailComment> subscriber = mRetrofitHelper.getVideoDetail()
+                .flatMap(videoDetail -> {
+                    mView.showVideoDetail(videoDetail.data);
+                    return mRetrofitHelper.getVideoDetailComment();
+                }).compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseSubscriber<VideoDetailComment>(mView) {
+                    @Override
+                    public void onSuccess(VideoDetailComment videoDetailComment) {
+                        mView.showVideoDetailComment(videoDetailComment.data);
+                    }
                 });
+
         addSubscribe(subscriber);
     }
 }

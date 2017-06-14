@@ -93,12 +93,12 @@ public class RetrofitHelper {
         return mAppService.getRegionType(rid);
     }
 
-    public Flowable<HttpResponse<VideoDetail>> getVideoDetail() {
+    public Flowable<VideoDetail> getVideoDetail() {
         return mAppService.getVideoDetail();
     }
 
-    public Flowable<HttpResponse<VideoDetailComment>> getVideoDetailComment() {
-        return mAppService.getVideoDetailComment();
+    public Flowable<VideoDetailComment> getVideoDetailComment() {
+        return mApiService.getVideoDetailComment();
     }
 
     /*******************************LiveApi****************************************/

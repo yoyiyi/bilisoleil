@@ -4,6 +4,8 @@ import android.app.Activity;
 
 import com.yoyiyi.soleil.di.module.FragmentModule;
 import com.yoyiyi.soleil.di.scope.FragmentScope;
+import com.yoyiyi.soleil.module.app.video.CommentFragment;
+import com.yoyiyi.soleil.module.app.video.SummaryFragment;
 import com.yoyiyi.soleil.module.discover.InterestFragment;
 import com.yoyiyi.soleil.module.home.ChaseBangumiFragment;
 import com.yoyiyi.soleil.module.home.DiscoverFragment;
@@ -53,5 +55,9 @@ public interface FragmentComponent {
     void inject(InterestFragment interestFragment);
 
     void inject(DynamicFragment dynamicFragment);
+
+    void inject(SummaryFragment summaryFragment);
+
+    void inject(CommentFragment commentFragment);
 
 }

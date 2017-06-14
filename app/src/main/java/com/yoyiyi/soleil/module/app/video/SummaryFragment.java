@@ -1,6 +1,10 @@
 package com.yoyiyi.soleil.module.app.video;
 
+import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseFragment;
+import com.yoyiyi.soleil.bean.app.VideoDetail;
+import com.yoyiyi.soleil.mvp.contract.app.live.SummaryContract;
+import com.yoyiyi.soleil.mvp.presenter.app.live.SummaryPresenter;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -8,9 +12,32 @@ import com.yoyiyi.soleil.base.BaseFragment;
  * 描述:简介
  */
 
-public class SummaryFragment extends BaseFragment {
+public class SummaryFragment extends BaseFragment<SummaryPresenter> implements SummaryContract.View {
+
+    private VideoDetail.DataBean mVideoDetail;
+
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_summary;
+    }
+
+    public static SummaryFragment newInstance() {
+        return new SummaryFragment();
+    }
+
+
+    @Override
+    protected void loadData() {
+        mPresenter.getSummaryData();
+    }
+
+    @Override
+    protected void initInject() {
+        getFragmentComponent().inject(this);
+    }
+
+    @Override
+    public void showSummary(VideoDetail.DataBean videoDetail) {
+        mVideoDetail = videoDetail;
     }
 }

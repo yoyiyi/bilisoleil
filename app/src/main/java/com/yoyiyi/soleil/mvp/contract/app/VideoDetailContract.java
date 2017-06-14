@@ -12,9 +12,9 @@ import com.yoyiyi.soleil.bean.app.VideoDetailComment;
 
 public interface VideoDetailContract {
     interface View extends BaseContract.BaseView {
-        void showVideoDetail(VideoDetail videoDetail);
+        void showVideoDetail(VideoDetail.DataBean videoDetail);
 
-        void showVideoDetailComment(VideoDetailComment videoDetailComment);
+        void showVideoDetailComment(VideoDetailComment.DataBean videoDetailComment);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
