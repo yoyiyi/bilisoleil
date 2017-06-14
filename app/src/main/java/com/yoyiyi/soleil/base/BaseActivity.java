@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -34,7 +33,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     protected T mPresenter;
     protected Toolbar mToolbar;//Toolbar
     protected Context mContext;//上下文环境
-    protected DrawerLayout mDrawerLayout;
+   // protected DrawerLayout mDrawerLayout;
     protected boolean mBack = true;
     private ConstraintLayout mError;
 
@@ -44,7 +43,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         setContentView(getLayoutId());
         mContext = this;
         ButterKnife.bind(this);
-        mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
+       // mDrawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
         mToolbar = ButterKnife.findById(this, R.id.toolbar);
         mError = ButterKnife.findById(this, R.id.cl_error);
         initStatusBar();
@@ -96,12 +95,11 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
      * 初始化StatusBar
      */
     protected void initStatusBar() {
-        if (mDrawerLayout != null) {
+        /*if (mDrawerLayout != null) {
             StatusBarUtil.setColorNoTranslucentForDrawerLayout((Activity) mContext, mDrawerLayout, AppUtils.getColor(R.color.colorPrimary));
-        } else {
+        } else {*/
             StatusBarUtil.setColorNoTranslucent((Activity) mContext, AppUtils.getColor(R.color.colorPrimary));
-
-        }
+       // }
     }
 
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -49,6 +50,12 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         mActivity = (Activity) context;
         mContext = context;
         super.onAttach(context);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);//支持menu
     }
 
     @Override

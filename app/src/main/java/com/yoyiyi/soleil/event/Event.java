@@ -13,4 +13,7 @@ public class Event {
     public static class AllStationPositionEvent {
         public int position;
     }
+    public static class StartNavigationEvent {
+        public boolean start;
+    }
 }

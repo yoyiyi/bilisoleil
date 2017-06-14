@@ -33,6 +33,7 @@
         android:textColor="@color/black_80"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintStart_toEndOf="@id/iv_avatar"/>
+
     <TextView
         android:id="@+id/tv_title_time"
         android:layout_width="wrap_content"
@@ -43,22 +44,37 @@
         android:textColor="@color/font_gray"
         android:textSize="@dimen/text_size_12"
         app:layout_constraintStart_toEndOf="@id/tv_title"/>
+
+    <TextView
+        android:id="@+id/tv_title_tag_time"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:padding="@dimen/dp4"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintStart_toEndOf="@id/tv_tag"/>
     <TextView
         android:id="@+id/tv_tag"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp24"
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
+        android:paddingLeft="@dimen/dp4"
+        android:paddingRight="@dimen/dp4"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
         android:id="@+id/iv_preview"
         android:layout_width="@dimen/dp0"
         android:layout_height="@dimen/dp100"
-        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp34"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_duration"
@@ -78,14 +94,13 @@
         android:layout_width="@dimen/dp0"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp10"
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@color/black_80"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"/>
+        app:layout_constraintTop_toTopOf="@+id/iv_preview"/>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_vedio_info"

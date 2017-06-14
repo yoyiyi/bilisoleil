@@ -12,7 +12,6 @@ import com.yoyiyi.soleil.bean.dynamic.Dynamic;
 import com.yoyiyi.soleil.bean.dynamic.MulDynamic;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.utils.TimeUtils;
 import com.yoyiyi.soleil.utils.time.FormatUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
@@ -55,9 +54,10 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 }
                 switch (itemBean.type) {
                     case 0://关注up
-                        FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime));
+                        FormatUtils.getDescriptionTimeFromDate(com.yoyiyi.soleil.utils.time.TimeUtils.millis2Date(itemBean.ctime));
                         holder.setVisible(R.id.iv_avatar, true)
                                 .setVisible(R.id.tv_tag, false)
+                                .setText(R.id.tv_title_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
                                 .setText(R.id.tv_title, itemBean.name)
                                 .setText(R.id.tv_video_title, itemBean.title)
                                 .setText(R.id.tv_duration, TimeUtils.long2String(itemBean.duration + ""))
@@ -89,16 +89,12 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                         break;
                     case 2://国产动画
                         holder.setVisible(R.id.iv_avatar, false)
+                                .setVisible(R.id.tv_title, false)
                                 .setVisible(R.id.tv_duration, false)
+                                .setText(R.id.tv_title_tag_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
                                 .setVisible(R.id.tv_tag, true)
-                                .setText(R.id.tv_tag, new SpanUtils()
-                                        .setBackgroundColor(AppUtils.getColor(R.color.yellow_30))
-                                        .append("国产动画").create())
-                                .setText(R.id.tv_title, new SpanUtils()
-                                        .append(FormatUtils.getDescriptionTimeFromDateString(itemBean.ctime + ""))
-                                        .setFontSize(12)
-                                        .setForegroundColor(AppUtils.getColor(R.color.font_gray))
-                                        .create())
+                                .setText(R.id.tv_tag, "国产动画")
+                                .setBackgroundColor(R.id.tv_tag, AppUtils.getColor(R.color.yellow_30))
                                 .setText(R.id.tv_video_title, itemBean.title)
                                 .setVisible(R.id.iv_video_play_num, false)
                                 .setVisible(R.id.tv_video_play_num, true)
@@ -123,15 +119,11 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                     case 1://可能是番剧 不知道参数意思
                         holder.setVisible(R.id.iv_avatar, false)
                                 .setVisible(R.id.tv_tag, true)
+                                .setVisible(R.id.tv_title, false)
                                 .setVisible(R.id.tv_duration, false)
-                                .setText(R.id.tv_tag, new SpanUtils()
-                                        .setBackgroundColor(AppUtils.getColor(R.color.yellow_30))
-                                        .append("国产动画").create())
-                                .setText(R.id.tv_title, new SpanUtils()
-                                        .append(FormatUtils.getDescriptionTimeFromDateString(itemBean.ctime + ""))
-                                        .setFontSize(12)
-                                        .setForegroundColor(AppUtils.getColor(R.color.font_gray))
-                                        .create())
+                                .setText(R.id.tv_title_tag_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
+                                .setText(R.id.tv_tag, "番剧")
+                                .setBackgroundColor(R.id.tv_tag, AppUtils.getColor(R.color.pink_text_color))
                                 .setText(R.id.tv_video_title, itemBean.title)
                                 .setVisible(R.id.iv_video_play_num, false)
                                 .setVisible(R.id.tv_video_play_num, true)
@@ -160,7 +152,7 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 holder.setVisible(R.id.iv_avatar, true)
                         .setVisible(R.id.tv_tag, false)
                         .setText(R.id.tv_title, recent.name)
-                        //.setText(R.id.tv_title_time, )
+                        .setText(R.id.tv_title_time, FormatUtils.getDescriptionTimeFromDate(new Date(recent.ctime)))
                         .setVisible(R.id.fl_recent, false)
                         .setText(R.id.tv_video_title, recent.title)
                         .setText(R.id.tv_duration, TimeUtils.long2String(recent.duration + ""))
