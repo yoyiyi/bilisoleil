@@ -20,9 +20,7 @@ public class MulDynamic extends AbstractExpandableItem<MulDynamic> implements Mu
 
     public int itemType;
     public Dynamic.ItemBean group;
-
     public boolean flag;
-
     public Dynamic.ItemBean.RecentBean recent;
     public List<MulDynamic> child;//
     public int level;

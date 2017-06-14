@@ -28,7 +28,7 @@ public class FormatUtils {
     private static final String ONE_YEAR_AGO = "年前";
 
     private static SimpleDateFormat sdf = new SimpleDateFormat();
-    public final static String FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm:ss.SSS";
+    public final static String FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * 根据时间字符串获取描述性时间，如3分钟前，1天前

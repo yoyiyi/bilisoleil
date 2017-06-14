@@ -17,6 +17,7 @@ import com.yoyiyi.soleil.utils.TimeUtils;
 import com.yoyiyi.soleil.utils.time.FormatUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -54,6 +55,7 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 }
                 switch (itemBean.type) {
                     case 0://关注up
+                        FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime));
                         holder.setVisible(R.id.iv_avatar, true)
                                 .setVisible(R.id.tv_tag, false)
                                 .setText(R.id.tv_title, itemBean.name)
@@ -158,6 +160,7 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 holder.setVisible(R.id.iv_avatar, true)
                         .setVisible(R.id.tv_tag, false)
                         .setText(R.id.tv_title, recent.name)
+                        //.setText(R.id.tv_title_time, )
                         .setVisible(R.id.fl_recent, false)
                         .setText(R.id.tv_video_title, recent.title)
                         .setText(R.id.tv_duration, TimeUtils.long2String(recent.duration + ""))
