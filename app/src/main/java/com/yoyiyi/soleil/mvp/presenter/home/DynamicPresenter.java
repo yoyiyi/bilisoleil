@@ -81,8 +81,9 @@ public class DynamicPresenter extends RxPresenter<DynamicContract.View> implemen
                                                     .setGroup(itemBean)
                                                     .setItemType(MulDynamic.TYPE_LV0)
                                                     .setLevel(MulDynamic.TYPE_LV0)
-                                                    .setChild(getRecent(itemBean))
-                                                    .addSubItem()));
+                                                    // .setChild(getRecent(itemBean))
+                                                    .addSubItem(getRecent(itemBean))
+                                                    .setFlag(getRecent(itemBean).isEmpty() ? false : true)));
                     return mulDynamics;
                 })
                 .compose(RxUtils.rxSchedulerHelper())
@@ -103,7 +104,7 @@ public class DynamicPresenter extends RxPresenter<DynamicContract.View> implemen
             Stream.of(recent)
                     .forEach(recentBean ->
                             list.add(new MulDynamic()
-                                    .setGroup(itemBean)
+                                    //.setGroup(itemBean)
                                     .setItemType(MulDynamic.TYPE_LV1)
                                     .setRecent(recentBean)
                                     .setLevel(MulDynamic.TYPE_LV1)));

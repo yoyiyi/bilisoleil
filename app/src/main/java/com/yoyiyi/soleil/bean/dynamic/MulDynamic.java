@@ -21,6 +21,7 @@ public class MulDynamic extends AbstractExpandableItem<MulDynamic> implements Mu
     public int itemType;
     public Dynamic.ItemBean group;
 
+    public boolean flag;
 
     public Dynamic.ItemBean.RecentBean recent;
     public List<MulDynamic> child;//
@@ -28,6 +29,12 @@ public class MulDynamic extends AbstractExpandableItem<MulDynamic> implements Mu
 
     public MulDynamic setLevel(int level) {
         this.level = level;
+        return this;
+    }
+
+
+    public MulDynamic setFlag(boolean flag) {
+        this.flag = flag;
         return this;
     }
 
@@ -59,6 +66,16 @@ public class MulDynamic extends AbstractExpandableItem<MulDynamic> implements Mu
         }
         return this;
     }
+
+    public MulDynamic addSubItem(List<MulDynamic> child) {
+        this.child = child;
+        if (EmptyUtils.isNotEmpty(child)) {
+            for (MulDynamic mulDynamic : child)
+                addSubItem(mulDynamic);
+        }
+        return this;
+    }
+
     @Override
     public int getItemType() {
         return itemType;

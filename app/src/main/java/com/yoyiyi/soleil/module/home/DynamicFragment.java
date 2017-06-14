@@ -63,7 +63,7 @@ public class DynamicFragment extends BaseRefreshFragment<DynamicPresenter, MulDy
 
     @Override
     public void initWidget() {
-
+        mTvAllSelect.setSelected(true);
     }
 
     @Override
@@ -81,7 +81,6 @@ public class DynamicFragment extends BaseRefreshFragment<DynamicPresenter, MulDy
         if (mExpand.isExpanded()) {
             mExpand.collapse();
         } else {
-            mTvAllSelect.setSelected(true);
             mExpand.expand();
         }
     }

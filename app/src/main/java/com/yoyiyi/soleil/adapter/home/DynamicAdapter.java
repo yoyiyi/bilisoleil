@@ -11,7 +11,6 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.dynamic.Dynamic;
 import com.yoyiyi.soleil.bean.dynamic.MulDynamic;
 import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.EmptyUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.utils.TimeUtils;
@@ -39,32 +38,25 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
             case MulDynamic.TYPE_LV0:
                 Dynamic.ItemBean itemBean = mulDynamic.group;
                 holder.setVisible(R.id.fl_recent, itemBean.isRecent == 1 ? true : false);
-                holder.setText(R.id.tv_recent, "还有" + itemBean.recent_count + "个视频被隐藏");
-                if (EmptyUtils.isNotEmpty(mulDynamic.child)) {
+                holder.getView(R.id.fl_recent)
+                        .setOnClickListener(view -> {
+                            mulDynamic.flag = false;
+                            int pos = holder.getAdapterPosition();
+                            notifyItemChanged(pos);
+                            expand(pos, false);
+
+                        });
+                if (mulDynamic.flag) {
                     holder.setVisible(R.id.fl_recent, true);
                     holder.setText(R.id.tv_recent, "还有" + itemBean.recent_count + "个视频被隐藏");
                 } else {
                     holder.setVisible(R.id.fl_recent, false);
                 }
-                holder.getView(R.id.fl_recent)
-                        .setOnClickListener(view -> {
-                            int pos = holder.getAdapterPosition();
-                            expand(pos, true);
-                            holder.setVisible(R.id.fl_recent, false);
-                        });
                 switch (itemBean.type) {
                     case 0://关注up
                         holder.setVisible(R.id.iv_avatar, true)
                                 .setVisible(R.id.tv_tag, false)
-                                .setText(R.id.tv_title, new SpanUtils()
-                                        .append(itemBean.name)
-                                        .setFontSize(14)
-                                        .setForegroundColor(AppUtils.getColor(R.color.black_alpha_30))
-                                        .appendSpace(5)
-                                        .append(FormatUtils.getDescriptionTimeFromDateString(itemBean.ctime + ""))
-                                        .setFontSize(12)
-                                        .setForegroundColor(AppUtils.getColor(R.color.font_gray))
-                                        .create())
+                                .setText(R.id.tv_title, itemBean.name)
                                 .setText(R.id.tv_video_title, itemBean.title)
                                 .setText(R.id.tv_duration, TimeUtils.long2String(itemBean.duration + ""))
                                 .setVisible(R.id.tv_duration, true)
@@ -165,28 +157,21 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 Dynamic.ItemBean.RecentBean recent = mulDynamic.recent;
                 holder.setVisible(R.id.iv_avatar, true)
                         .setVisible(R.id.tv_tag, false)
-                        .setText(R.id.tv_title, new SpanUtils()
-                                .append(recent.name)
-                                .setFontSize(14)
-                                .setForegroundColor(AppUtils.getColor(R.color.black_alpha_30))
-                                .appendSpace(5)
-                                .append(FormatUtils.getDescriptionTimeFromDateString(recent.ctime + ""))
-                                .setFontSize(12)
-                                .setForegroundColor(AppUtils.getColor(R.color.font_gray))
-                                .create())
+                        .setText(R.id.tv_title, recent.name)
+                        .setVisible(R.id.fl_recent, false)
                         .setText(R.id.tv_video_title, recent.title)
+                        .setText(R.id.tv_duration, TimeUtils.long2String(recent.duration + ""))
+                        .setVisible(R.id.tv_duration, true)
                         .setVisible(R.id.iv_video_play_num, true)
                         .setVisible(R.id.tv_video_play_num, true)
                         .setVisible(R.id.tv_video_favourite, true)
                         .setVisible(R.id.iv_video_online_region, true)
-                        .setText(R.id.tv_video_play_num, NumberUtils.format(recent.play + ""))
-                        .setText(R.id.tv_video_favourite, NumberUtils.format(recent.favorite + ""))
+                        .setText(R.id.tv_video_play_num, " " + NumberUtils.format(recent.play + ""))
+                        .setText(R.id.tv_video_favourite, " " + NumberUtils.format(recent.favorite + ""))
                         .setVisible(R.id.iv_tag_video_play_num, false)
                         .setVisible(R.id.tv_tag_video_favourite, false)
-                        .setVisible(R.id.tv_tag_video_favourite, false)
-                        .setVisible(R.id.fl_recent, false)
-                        .setText(R.id.tv_tag_video_play_num, recent.tname
-                                + recent.tag == null ? "" : " · " + recent.tag.tag_name);
+                        .setVisible(R.id.iv_tag_video_online_region, false)
+                        .setText(R.id.tv_tag_video_play_num, recent.tname + (recent.tag == null ? "" : " · " + recent.tag.tag_name));
                 Glide.with(mContext)
                         .load(recent.face)
                         .centerCrop()

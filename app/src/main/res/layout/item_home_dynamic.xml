@@ -30,10 +30,19 @@
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center"
         android:padding="@dimen/dp4"
-        android:textColor="@color/white"
+        android:textColor="@color/black_80"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintStart_toEndOf="@id/iv_avatar"/>
-
+    <TextView
+        android:id="@+id/tv_title_time"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp10"
+        android:gravity="center"
+        android:padding="@dimen/dp4"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintStart_toEndOf="@id/tv_title"/>
     <TextView
         android:id="@+id/tv_tag"
         android:layout_width="wrap_content"
