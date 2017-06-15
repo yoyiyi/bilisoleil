@@ -24,7 +24,7 @@ public class MulSummary implements MultiItemEntity {
 
     public String title;
 
-    public List<String > tags;//标签
+    public List<VideoDetail.DataBean.TagBean> tags;//标签
 
     public VideoDetail.DataBean.StatBean state;//硬币 播放相关
 
@@ -59,7 +59,7 @@ public class MulSummary implements MultiItemEntity {
         return this;
     }
 
-    public MulSummary setTags(List<String > tags) {
+    public MulSummary setTags(List<VideoDetail.DataBean.TagBean> tags) {
         this.tags = tags;
         return this;
     }

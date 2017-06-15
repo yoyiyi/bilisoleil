@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.annimon.stream.Stream;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
@@ -17,6 +18,7 @@ import com.yoyiyi.soleil.widget.flowlayout.FlowLayout;
 import com.yoyiyi.soleil.widget.flowlayout.TagAdapter;
 import com.yoyiyi.soleil.widget.flowlayout.TagFlowLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,10 +61,12 @@ public class SummaryAdapter extends BaseMultiItemQuickAdapter<MulSummary, BaseVi
                 String date = TimeUtils.millis2String((long) (mulSummary.ctime * Math.pow(10, 3)));
                 String[] split = date.split("-");
                 holder.setText(R.id.tv_name, mulSummary.owner.name)
-                        .setText(R.id.tv_time, split[0] + "年" + split[1] + "月" + split[2] + "日" + "投递");
+                        .setText(R.id.tv_time, split[0] + "年" + split[1] + "月" +  (split[2].split(" "))[0] + "日" + "投递");
 
                 TagFlowLayout tagsLayout = holder.getView(R.id.tags_layout);
-                tagsLayout.setAdapter(new TagAdapter<String>(mulSummary.tags) {
+                List<String > tag = new ArrayList<>();
+                Stream.of(mulSummary.tags).forEach(tagBean -> tag.add(tagBean.tag_name));
+                tagsLayout.setAdapter(new TagAdapter<String>(tag) {
                     @Override
                     public View getView(FlowLayout flowLayout, int i, String  listBean) {
                         TextView mTags = (TextView) LayoutInflater.from(mContext)
@@ -85,10 +89,10 @@ public class SummaryAdapter extends BaseMultiItemQuickAdapter<MulSummary, BaseVi
                         .placeholder(R.drawable.bili_default_image_tv)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
-                        .into((ImageView) holder.getView(R.id.iv_preview));
+                        .into((ImageView) holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_title, mulSummary.relates.title)
-                        .setText(R.id.iv_video_up, mulSummary.relates.owner.name)
-                        .setText(R.id.tv_video_play_num, NumberUtils.format(mulSummary.relates.stat.view + ""))
+                        .setText(R.id.tv_video_up, mulSummary.relates.owner.name)
+                        .setText(R.id.tv_video_play, NumberUtils.format(mulSummary.relates.stat.view + ""))
                         .setText(R.id.tv_video_danmaku, NumberUtils.format(mulSummary.relates.stat.danmaku + ""));
                 break;
         }

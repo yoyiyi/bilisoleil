@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module.app.video;
 
+import android.support.design.widget.FloatingActionButton;
 import android.view.Menu;
 
 import com.yoyiyi.soleil.R;
@@ -12,6 +13,7 @@ import com.yoyiyi.soleil.mvp.presenter.app.VideoDetailPresenter;
 import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
+import butterknife.BindView;
 import io.reactivex.annotations.Nullable;
 
 /**
@@ -22,6 +24,8 @@ import io.reactivex.annotations.Nullable;
 
 public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter, Nullable> implements VideoDetailContract.View {
 
+    @BindView(R.id.fab)
+    FloatingActionButton mFab;
     private VideoDetail.DataBean mVideoDetail;
     private VideoDetailComment.DataBean mVideoDetailComment;
 
@@ -57,20 +61,27 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     protected void finishTask() {
         mTitles.add("简介");
         mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
-       /// RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
+        /// RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
+        mFragments.add(SummaryFragment.newInstance());
+        mFragments.add(CommentFragment.newInstance());
+        mViewPager.setOffscreenPageLimit(mTitles.size());
+        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
+        mSlidingTabLayout.setViewPager(mViewPager);
+
 
         Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
         videoDetailEvent.videoDetail = mVideoDetail;
+
+       // RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
+        Event.VideoDetailCommentEvent videoDetailCommentEvent = new Event.VideoDetailCommentEvent();
+        videoDetailCommentEvent.videoDetailComment = mVideoDetailComment;
+
         RxBus.INSTANCE.post(videoDetailEvent);
+        RxBus.INSTANCE.post(videoDetailCommentEvent);
 
-        mFragments.add(SummaryFragment.newInstance());
-        mFragments.add(CommentFragment.newInstance());
-
-        mViewPager.setOffscreenPageLimit(mTitles.size());
-
-
-        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);
+       /* Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
+        videoDetailEvent.videoDetail = mVideoDetail;
+        RxBus.INSTANCE.post(videoDetailEvent);*/
     }
 
     @Override
@@ -86,6 +97,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     @Override
     protected void initWidget() {
         super.initWidget();
+
 
     }
 

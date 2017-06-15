@@ -6,18 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.app.video.SummaryAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
 import com.yoyiyi.soleil.bean.app.video.MulSummary;
-import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.mvp.contract.app.live.SummaryContract;
 import com.yoyiyi.soleil.mvp.presenter.app.live.SummaryPresenter;
-import com.yoyiyi.soleil.rx.RxBus;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import io.reactivex.functions.Consumer;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -30,7 +26,6 @@ public class SummaryFragment extends BaseFragment<SummaryPresenter> implements S
     RecyclerView mRecycler;
     private List<MulSummary> mList = new ArrayList<>();
     private SummaryAdapter mAdapter;
-    private VideoDetail.DataBean mVideoDetail;
 
     @Override
     public int getLayoutId() {
@@ -78,13 +73,6 @@ public class SummaryFragment extends BaseFragment<SummaryPresenter> implements S
     @Override
     public void initWidget() {
         initRecyclerView();
-        RxBus.INSTANCE.toDefaultFlowable(Event.VideoDetailEvent.class, new Consumer<Event.VideoDetailEvent>() {
-            @Override
-            public void accept(Event.VideoDetailEvent videoDetailEvent) throws Exception {
-                mVideoDetail = videoDetailEvent.videoDetail;
-            }
-        });
-
-        VideoDetail.DataBean videoDetail = mVideoDetail;
     }
+
 }

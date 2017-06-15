@@ -1,130 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinatorLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp226"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:statusBarScrim="@android:color/transparent">
-            <!--封面图片-->
-            <ImageView
-                android:id="@+id/iv_video_preview"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dp226"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.7"/>
-            <!--视频及弹幕控件-->
-            <FrameLayout
-                android:id="@+id/video_danmu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:visibility="gone"
-                app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.7">
-                <!--ijk播放器-->
-                <VideoView
-                    android:id="@+id/video_view"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:statusBarScrim="@android:color/transparent">
+                <!--封面图片-->
+                <ImageView
+                    android:id="@+id/iv_video_preview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    />
-                <!--哔哩哔哩开源的弹幕控件-->
-                <master.flame.danmaku.ui.widget.DanmakuView
-                    android:id="@+id/danmaku"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </FrameLayout>
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
-
-                <!--自定义带图片的立即播放按钮-->
-                <android.support.v7.widget.ButtonBarLayout
-                    android:id="@+id/playButton"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7"/>
+                <!--视频及弹幕控件-->
+                <FrameLayout
+                    android:id="@+id/video_danmu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
+                    android:fitsSystemWindows="true"
+                    android:visibility="gone"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7">
+                    <!--ijk播放器-->
+                    <VideoView
+                        android:id="@+id/video_view"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_tv_play"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="立即播放"
-                        android:textColor="#ffffff"
                         />
-                </android.support.v7.widget.ButtonBarLayout>
+                    <!--哔哩哔哩开源的弹幕控件-->
+                    <master.flame.danmaku.ui.widget.DanmakuView
+                        android:id="@+id/danmaku"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </FrameLayout>
 
-            </android.support.v7.widget.Toolbar>
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                    <!--自定义带图片的立即播放按钮-->
+                    <android.support.v7.widget.ButtonBarLayout
+                        android:id="@+id/playButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/ic_tv_play"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="立即播放"
+                            android:textColor="#ffffff"
+                            />
+                    </android.support.v7.widget.ButtonBarLayout>
+
+                </android.support.v7.widget.Toolbar>
 
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
 
-        <com.flyco.tablayout.SlidingTabLayout
-            android:id="@+id/sliding_tabs"
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/sliding_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/white_80"
+                app:tl_indicator_color="@color/bili_logo_pink_color"
+                app:tl_indicator_corner_radius="@dimen/dp2"
+                app:tl_indicator_height="@dimen/dp3"
+                app:tl_indicator_width_equal_title="true"
+                app:tl_tab_space_equal="false"
+                app:tl_textSelectColor="@color/pink_text_color"
+                app:tl_textUnselectColor="@color/font_normal"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1"
+                android:background="@color/white_80"/>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp40"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/white_80"
-            app:tl_indicator_color="@color/bili_logo_pink_color"
-            app:tl_indicator_corner_radius="@dimen/dp2"
-            app:tl_indicator_height="@dimen/dp3"
-            app:tl_indicator_width_equal_title="true"
-            app:tl_tab_space_equal="false"
-            app:tl_textSelectColor="@color/pink_text_color"
-            app:tl_textUnselectColor="@color/font_normal"/>
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <View
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp1"
-            android:background="@color/white_80"/>
-    </android.support.design.widget.AppBarLayout>
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        </android.support.v4.widget.NestedScrollView>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp4"
+            android:src="@drawable/ic_fab_play"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|end"/>
+    </android.support.design.widget.CoordinatorLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp4"
-        android:src="@drawable/ic_fab_play"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"/>
-
-
-</android.support.design.widget.CoordinatorLayout>
     <!--
 
 
@@ -286,3 +299,4 @@
 
 
     -->
+</FrameLayout>

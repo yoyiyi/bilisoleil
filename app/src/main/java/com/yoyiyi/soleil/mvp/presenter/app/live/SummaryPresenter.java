@@ -12,6 +12,7 @@ import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.rx.RxUtils;
 import com.yoyiyi.soleil.utils.LogUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,13 +33,13 @@ public class SummaryPresenter extends RxPresenter<SummaryContract.View> implemen
 
     @Override
     public void getSummaryData() {
-        Class<Event.VideoDetailEvent> eventClass = Event.VideoDetailEvent.class;
         BaseSubscriber<List<MulSummary>> subscriber =
                 RxBus.INSTANCE.toFlowable(Event.VideoDetailEvent.class)
                         .map(videoDetailEvent -> {
-                            LogUtils.d("ceshi",videoDetailEvent.videoDetail);
                             VideoDetail.DataBean videoDetail = videoDetailEvent.videoDetail;
-                            List<MulSummary> mulSummaries = Arrays.asList(new MulSummary()
+                            LogUtils.d("只想" + videoDetail.desc);
+                            List<MulSummary> mulSummaries = new ArrayList<>();
+                            mulSummaries.addAll(Arrays.asList(new MulSummary()
                                             .setItemType(MulSummary.TYPE_DES)
                                             .setTitle(videoDetail.title)
                                             .setDesc(videoDetail.desc)
@@ -47,13 +48,15 @@ public class SummaryPresenter extends RxPresenter<SummaryContract.View> implemen
                                             .setItemType(MulSummary.TYPE_OWNER)
                                             .setOwner(videoDetail.owner)
                                             .setCtime(videoDetail.ctime)
-                                            .setTags(videoDetail.tags),
+                                            .setTags(videoDetail.tag),
                                     new MulSummary()
-                                            .setItemType(MulSummary.TYPE_RELATE_HEAD));
-                            Stream.of(videoDetail.relates).forEach(
-                                    relatesBean -> mulSummaries.add(new MulSummary()
-                                            .setItemType(MulSummary.TYPE_RELATE)
-                                            .setRelates(relatesBean)));
+                                            .setItemType(MulSummary.TYPE_RELATE_HEAD)));
+                            List<VideoDetail.DataBean.RelatesBean> relates = videoDetail.relates;
+                            Stream.of(relates)
+                                    .forEach(relatesBean ->
+                                            mulSummaries.add(new MulSummary()
+                                                    .setItemType(MulSummary.TYPE_RELATE)
+                                                    .setRelates(relatesBean)));
                             return mulSummaries;
                         })
                         .compose(RxUtils.rxSchedulerHelper())

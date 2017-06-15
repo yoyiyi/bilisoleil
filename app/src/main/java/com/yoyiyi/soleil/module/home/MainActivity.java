@@ -71,12 +71,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                         toggleDrawer();//打开
                     }
                 });
-       /* RxBus.INSTANCE
-                .toDefaultFlowable(Event.StartNavigationEvent.class, event -> {
-                    if (event.start) {
-                        toggleDrawer();//打开
-                    }
-                });*/
     }
 
     private void switchFragmentIndex(int pos) {
