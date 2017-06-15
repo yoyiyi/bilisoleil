@@ -64,12 +64,19 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     protected void initVariables() {
         initFragment();
         //监听事件
-        RxBus.INSTANCE
-                .toDefaultFlowable(Event.StartNavigationEvent.class, event -> {
+        RxBus.INSTANCE.toFlowable(Event.StartNavigationEvent.class)
+                .compose(bindToLifecycle())
+                .subscribe(event -> {
                     if (event.start) {
                         toggleDrawer();//打开
                     }
                 });
+       /* RxBus.INSTANCE
+                .toDefaultFlowable(Event.StartNavigationEvent.class, event -> {
+                    if (event.start) {
+                        toggleDrawer();//打开
+                    }
+                });*/
     }
 
     private void switchFragmentIndex(int pos) {
