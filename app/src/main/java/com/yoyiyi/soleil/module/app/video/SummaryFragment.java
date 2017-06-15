@@ -84,5 +84,6 @@ public class SummaryFragment extends BaseFragment<SummaryPresenter> implements S
                 mVideoDetail = videoDetailEvent.videoDetail;
             }
         });
+        VideoDetail.DataBean videoDetail = mVideoDetail;
     }
 }
