@@ -65,7 +65,7 @@ public class Dynamic {
         public int tid;
         public String tname;
         public TagBean tag;
-        public int ctime;
+        public long ctime;
         public int duration;
         public int mid;
         public String name;

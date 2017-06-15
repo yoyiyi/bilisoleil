@@ -12,11 +12,10 @@ import com.yoyiyi.soleil.bean.dynamic.Dynamic;
 import com.yoyiyi.soleil.bean.dynamic.MulDynamic;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.TimeUtils;
 import com.yoyiyi.soleil.utils.time.FormatUtils;
+import com.yoyiyi.soleil.utils.time.TimeUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -58,11 +57,12 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                                 .setVisible(R.id.tv_tag, false)
                                 .setVisible(R.id.tv_title_time, true)
                                 .setVisible(R.id.tv_title_tag_time, false)
-                                .setVisible(R.id.tv_title,true)
-                                .setText(R.id.tv_title_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
+                                .setVisible(R.id.tv_title, true)
+                                .setText(R.id.tv_title_time,
+                                        TimeUtils.getFriendlyTimeSpanByNow(itemBean.ctime))
                                 .setText(R.id.tv_title, itemBean.name)
                                 .setText(R.id.tv_video_title, itemBean.title)
-                                .setText(R.id.tv_duration, TimeUtils.long2String(itemBean.duration + ""))
+                                .setText(R.id.tv_duration, FormatUtils.formatDuration(itemBean.duration + ""))
                                 .setVisible(R.id.tv_duration, true)
                                 .setVisible(R.id.iv_video_play_num, true)
                                 .setVisible(R.id.tv_video_play_num, true)
@@ -94,7 +94,7 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                                 .setVisible(R.id.tv_title, false)
                                 .setVisible(R.id.tv_title_time, false)
                                 .setVisible(R.id.tv_title_tag_time, true).setVisible(R.id.tv_duration, false)
-                                .setText(R.id.tv_title_tag_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
+                                .setText(R.id.tv_title_tag_time,  TimeUtils.getFriendlyTimeSpanByNow(itemBean.ctime))
                                 .setVisible(R.id.tv_tag, true)
                                 .setText(R.id.tv_tag, "国产动画")
                                 .setBackgroundColor(R.id.tv_tag, AppUtils.getColor(R.color.yellow_30))
@@ -126,7 +126,7 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                                 .setVisible(R.id.tv_title_time, false)
                                 .setVisible(R.id.tv_title_tag_time, true)
                                 .setVisible(R.id.tv_duration, false)
-                                .setText(R.id.tv_title_tag_time, FormatUtils.getDescriptionTimeFromDate(new Date(itemBean.ctime)))
+                                .setText(R.id.tv_title_tag_time,  TimeUtils.getFriendlyTimeSpanByNow(itemBean.ctime))
                                 .setText(R.id.tv_tag, "番剧")
                                 .setBackgroundColor(R.id.tv_tag, AppUtils.getColor(R.color.pink_text_color))
                                 .setText(R.id.tv_video_title, itemBean.title)
@@ -157,10 +157,10 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
                 holder.setVisible(R.id.iv_avatar, true)
                         .setVisible(R.id.tv_tag, false)
                         .setText(R.id.tv_title, recent.name)
-                        .setText(R.id.tv_title_time, FormatUtils.getDescriptionTimeFromDate(new Date(recent.ctime)))
+                        .setText(R.id.tv_title_time, TimeUtils.getFriendlyTimeSpanByNow(recent.ctime))
                         .setVisible(R.id.fl_recent, false)
                         .setText(R.id.tv_video_title, recent.title)
-                        .setText(R.id.tv_duration, TimeUtils.long2String(recent.duration + ""))
+                        .setText(R.id.tv_duration, FormatUtils.formatDuration(recent.duration + ""))
                         .setVisible(R.id.tv_duration, true)
                         .setVisible(R.id.iv_video_play_num, true)
                         .setVisible(R.id.tv_video_play_num, true)

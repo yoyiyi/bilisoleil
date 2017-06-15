@@ -39,5 +39,11 @@ public class SummaryFragment extends BaseFragment<SummaryPresenter> implements S
     @Override
     public void showSummary(VideoDetail.DataBean videoDetail) {
         mVideoDetail = videoDetail;
+        finishTask();
+    }
+
+    @Override
+    protected void finishTask() {
+
     }
 }

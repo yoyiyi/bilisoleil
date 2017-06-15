@@ -30,6 +30,26 @@ public class FormatUtils {
     private static SimpleDateFormat sdf = new SimpleDateFormat();
     public final static String FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 
+    public static String formatDuration(String time) {
+        Integer integer = Integer.valueOf(time);
+        StringBuffer buffer = new StringBuffer();
+        int minute = integer / 60;
+        int second = integer % 60;
+        if (minute < 10) {
+            buffer.append("0" + minute);
+        } else {
+            buffer.append(minute);
+        }
+        buffer.append(":");
+        if (second < 10) {
+            buffer.append("0" + second);
+        } else {
+            buffer.append(second);
+        }
+        return buffer.toString();
+    }
+
+
     /**
      * 根据时间字符串获取描述性时间，如3分钟前，1天前
      *
@@ -47,7 +67,6 @@ public class FormatUtils {
         }
         return "";
     }
-
 
 
     public static String getDescriptionTimeFromDate(Date date) {

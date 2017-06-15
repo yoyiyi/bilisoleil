@@ -11,11 +11,13 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.bangumi.BangumiSchedule;
 import com.yoyiyi.soleil.utils.AppUtils;
-import com.yoyiyi.soleil.utils.TimeUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -63,7 +65,9 @@ public class BangumiScheduleSection extends StatelessSection<BangumiSchedule> {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setWeekData(ViewHolder holder, int iconRes) {
-        if (TextUtils.equals(mDate, TimeUtils.formatDate(TimeUtils.getCurrentTime("yyyy-MM-dd")))) {
+        Date nowDate = com.yoyiyi.soleil.utils.time.TimeUtils.getNowDate();
+        String date2String = com.yoyiyi.soleil.utils.time.TimeUtils.date2String(nowDate, new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()));
+        if (TextUtils.equals(mDate, date2String /*TimeUtils.formatDate(TimeUtils.getCurrentTime("yyyy-MM-dd")))*/)) {
             holder.setText(R.id.tv_date, "今天")
                     .setTextColor(R.id.tv_date, AppUtils.getColor(R.color.colorPrimary))
                     .setTextColor(R.id.tv_title, AppUtils.getColor(R.color.colorPrimary));

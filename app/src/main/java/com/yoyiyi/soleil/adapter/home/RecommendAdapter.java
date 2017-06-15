@@ -19,7 +19,7 @@ import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.module.app.BrowerActivity;
 import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
-import com.yoyiyi.soleil.utils.TimeUtils;
+import com.yoyiyi.soleil.utils.time.FormatUtils;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .dontAnimate()
                         .into((ImageView) holder.getView(R.id.iv_video_preview));
                 holder.setText(R.id.tv_video_play_num, NumberUtils.format(mulRecommend.mRecommend.play + ""))
-                        .setText(R.id.tv_video_time, TimeUtils.long2String(mulRecommend.mRecommend.duration + ""))
+                        .setText(R.id.tv_video_time, FormatUtils.formatDuration(mulRecommend.mRecommend.duration + ""))
                         .setText(R.id.tv_video_danmaku, NumberUtils.format(mulRecommend.mRecommend.danmaku + ""))
                         .setText(R.id.tv_video_title, mulRecommend.mRecommend.title);
                 // .setText(R.id.tv_video_tag, mulRecommend.mRecommend.tname + " · " + mulRecommend.mRecommend.tag.tag_name);

@@ -21,7 +21,6 @@ import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.EmptyUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpanUtils;
-import com.yoyiyi.soleil.utils.TimeUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout;
 import com.yoyiyi.soleil.widget.flowlayout.TagAdapter;
@@ -171,7 +170,8 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                         .create())
                         .setText(R.id.tv_like, mulBangumiDetail.hotsBean.like + "")
                         .setText(R.id.tv_floor, "#" + mulBangumiDetail.hotsBean.floor)
-                        .setText(R.id.tv_time, TimeUtils.longToString(mulBangumiDetail.hotsBean.ctime, TimeUtils.FORMAT_DATE_TIME))
+                        // .setText(R.id.tv_time, TimeUtils.longToString(mulBangumiDetail.hotsBean.ctime, TimeUtils.FORMAT_DATE_TIME))
+                        .setText(R.id.tv_title_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String((mulBangumiDetail.hotsBean.ctime)))
                         .setText(R.id.tv_message, mulBangumiDetail.hotsBean.content.message)
                         .setText(R.id.tv_rcount, "共有" + mulBangumiDetail.hotsBean.rcount + "条回复 >");
                 Glide.with(mContext)
@@ -196,7 +196,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                                 .appendImage(getIdRes(mulBangumiDetail.repliesBean.member.level_info.current_level), SpanUtils.ALIGN_CENTER)
                                 .create())
                         .setText(R.id.tv_floor, "#" + mulBangumiDetail.repliesBean.floor)
-                        .setText(R.id.tv_time, TimeUtils.longToString(mulBangumiDetail.repliesBean.ctime, TimeUtils.FORMAT_DATE_TIME))
+                        .setText(R.id.tv_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String(mulBangumiDetail.repliesBean.ctime))
                         .setText(R.id.tv_message, mulBangumiDetail.repliesBean.content.message);
                 Glide.with(mContext)
                         .load(mulBangumiDetail.repliesBean.member.avatar)
