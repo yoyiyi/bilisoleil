@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="@dimen/dp10"
+    android:paddingRight="@dimen/dp10"
+    android:paddingTop="@dimen/dp10">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_alpha_30"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_video_play_num"
+        android:layout_width="@dimen/dp16"
+        android:layout_height="@dimen/dp16"
+        android:src="@drawable/ic_upper_info_views"
+        android:tint="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+
+    <TextView
+        android:id="@+id/tv_video_play_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/dp35"
+        android:text="xxxx"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_video_play_num"
+        app:layout_constraintStart_toEndOf="@id/iv_video_play_num"
+        app:layout_constraintTop_toTopOf="@id/iv_video_play_num"/>
+
+
+    <ImageView
+        android:id="@+id/iv_video_danmaku"
+        android:layout_width="@dimen/dp16"
+        android:layout_height="@dimen/dp16"
+        android:layout_marginRight="@dimen/dp3"
+        android:src="@drawable/ic_upper_info_danmakus"
+        android:tint="@color/gray"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_video_play_num"
+        app:layout_constraintStart_toEndOf="@id/tv_video_play_num"
+        app:layout_constraintTop_toTopOf="@id/iv_video_play_num"/>
+
+    <TextView
+        android:id="@+id/tv_video_danmaku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingRight="@dimen/dp4"
+        android:text="xxxx"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_video_play_num"
+        app:layout_constraintStart_toEndOf="@id/iv_video_danmaku"
+        app:layout_constraintTop_toTopOf="@id/iv_video_play_num"/>
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dp4"
+        android:paddingRight="@dimen/dp4"
+        android:text="xxxx"
+        android:textColor="@color/black_alpha_45"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintTop_toBottomOf="@+id/iv_video_play_num"/>
+
+    <View
+        android:id="@+id/v_hor"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@color/line_bg"
+        app:layout_constraintTop_toBottomOf="@+id/tv_des"/>
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75"/>
+
+    <TextView
+        android:id="@+id/tv_down"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:drawableLeft="@drawable/ic_header_activity_center"
+        android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="ddd"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/v_hor"/>
+
+    <TextView
+        android:id="@+id/tv_favourite"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:drawableLeft="@drawable/ic_collect"
+        android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="ddd"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toEndOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/v_hor"/>
+
+    <TextView
+        android:id="@+id/tv_coin"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:drawableLeft="@drawable/ic_coin"
+        android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="ddd"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toEndOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/v_hor"/>
+
+    <TextView
+        android:id="@+id/tv_share"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:drawableLeft="@drawable/ic_share_green"
+        android:gravity="center"
+        android:padding="@dimen/dp5"
+        android:text="ddd"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toEndOf="@id/guideline1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_hor"/>
+</android.support.constraint.ConstraintLayout>

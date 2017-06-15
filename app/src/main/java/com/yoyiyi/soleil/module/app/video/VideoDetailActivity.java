@@ -56,13 +56,20 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     @Override
     protected void finishTask() {
         mTitles.add("简介");
-        mTitles.add("评论()");
-        // mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
+        mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
         RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
-        RxBus.INSTANCE.post(new Event.VideoDetailEvent().videoDetail = mVideoDetail);
+
+        Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
+        videoDetailEvent.videoDetail = mVideoDetail;
+        RxBus.INSTANCE.post(videoDetailEvent);
+
         mFragments.add(SummaryFragment.newInstance());
         mFragments.add(CommentFragment.newInstance());
-        mViewPager.setOffscreenPageLimit(mTitles.size() + 1);
+
+        mViewPager.setOffscreenPageLimit(mTitles.size());
+
+
+
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
     }

@@ -34,7 +34,11 @@ public class CommentPresenter extends RxPresenter<CommentContract.View> implemen
         BaseSubscriber<List<MulComment>> subscriber = RxBus.INSTANCE.toFlowable(Event.VideoDetailCommentEvent.class)
                 .map(videoDetailCommentEvent -> {
                     VideoDetailComment.DataBean videoDetailComment = videoDetailCommentEvent.videoDetailComment;
-                    List<MulComment> mulComments = Arrays.asList();
+                    List<MulComment> mulComments = Arrays.asList(
+
+
+
+                    );
 
 
                     return mulComments;

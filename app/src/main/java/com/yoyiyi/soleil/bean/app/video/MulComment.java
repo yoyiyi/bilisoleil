@@ -9,6 +9,10 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
  */
 
 public class MulComment implements MultiItemEntity{
+
+    public static final int TYPE_DES = 1;//
+
+
     public int itemType;
 
     @Override

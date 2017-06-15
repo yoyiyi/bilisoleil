@@ -13,19 +13,31 @@ import java.util.List;
 
 public class MulSummary implements MultiItemEntity {
 
+    public static final int TYPE_DES = 34;
+    public static final int TYPE_OWNER = 35;
+    public static final int TYPE_RELATE = 36;
+    public static final int TYPE_RELATE_HEAD = 37;
+
     public int itemType;
 
     public String desc;
 
     public String title;
 
-    public List<VideoDetail.DataBean.TagBean> tags;
+    public List<String > tags;//标签
 
-    public VideoDetail.DataBean.StatBean state;
+    public VideoDetail.DataBean.StatBean state;//硬币 播放相关
 
+    public VideoDetail.DataBean.RelatesBean relates;//视频推荐
     public long ctime;
 
     public VideoDetail.DataBean.OwnerBean owner;
+
+
+    public MulSummary setRelates(VideoDetail.DataBean.RelatesBean relates) {
+        this.relates = relates;
+        return this;
+    }
 
     @Override
     public int getItemType() {
@@ -47,7 +59,7 @@ public class MulSummary implements MultiItemEntity {
         return this;
     }
 
-    public MulSummary setTags(List<VideoDetail.DataBean.TagBean> tags) {
+    public MulSummary setTags(List<String > tags) {
         this.tags = tags;
         return this;
     }

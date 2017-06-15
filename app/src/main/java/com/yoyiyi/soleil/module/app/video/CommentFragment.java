@@ -6,14 +6,18 @@ import android.support.v7.widget.RecyclerView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.app.video.CommentAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
+import com.yoyiyi.soleil.bean.app.VideoDetail;
 import com.yoyiyi.soleil.bean.app.video.MulComment;
+import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.mvp.contract.app.live.CommentContract;
 import com.yoyiyi.soleil.mvp.presenter.app.live.CommentPresenter;
+import com.yoyiyi.soleil.rx.RxBus;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -51,6 +55,8 @@ public class CommentFragment extends BaseFragment<CommentPresenter> implements C
     @Override
     public void initWidget() {
         initRecyclerView();
+
+
     }
 
     @Override
@@ -70,6 +76,6 @@ public class CommentFragment extends BaseFragment<CommentPresenter> implements C
 
     @Override
     protected void finishTask() {
-        super.finishTask();
+        mAdapter.notifyDataSetChanged();
     }
 }
