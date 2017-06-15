@@ -4,6 +4,7 @@ package com.yoyiyi.soleil.mvp.presenter.bangumi;
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
+import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
 import com.yoyiyi.soleil.bean.bangumi.MulBangumiDetail;
 import com.yoyiyi.soleil.mvp.contract.bangumi.BangumiDetailContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
@@ -11,6 +12,7 @@ import com.yoyiyi.soleil.rx.RxUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -39,6 +41,8 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
                 .compose(RxUtils.handleResult())
                 .flatMap(bangumiDetail -> {
                     title.append(bangumiDetail.title);
+                    List<BangumiDetail.EpisodesBean> episodes = bangumiDetail.episodes;
+                    Collections.reverse(episodes);//反转
                     mulBangumiDetails.addAll(Arrays.asList(
                             new MulBangumiDetail()
                                     .setItemType(MulBangumiDetail.TYPE_HEAD)//头部
@@ -56,7 +60,7 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
                                     .setIsFinish(bangumiDetail.is_finish),//分集头部
                             new MulBangumiDetail()
                                     .setItemType(MulBangumiDetail.TYPE_EPISODE_ITEM)//分集
-                                    .setEpisodesBeans(bangumiDetail.episodes),
+                                    .setEpisodesBeans(episodes),
                             new MulBangumiDetail()
                                     .setItemType(MulBangumiDetail.TYPE_CONTRACTED)
                                     .setlistBeanList(bangumiDetail.rank.list)

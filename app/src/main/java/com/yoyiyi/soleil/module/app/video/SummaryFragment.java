@@ -1,10 +1,19 @@
 package com.yoyiyi.soleil.module.app.video;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.app.video.SummaryAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.MulSummary;
 import com.yoyiyi.soleil.mvp.contract.app.live.SummaryContract;
 import com.yoyiyi.soleil.mvp.presenter.app.live.SummaryPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -13,8 +22,10 @@ import com.yoyiyi.soleil.mvp.presenter.app.live.SummaryPresenter;
  */
 
 public class SummaryFragment extends BaseFragment<SummaryPresenter> implements SummaryContract.View {
-
-    private VideoDetail.DataBean mVideoDetail;
+    @BindView(R.id.recycler)
+    RecyclerView mRecycler;
+    private List<MulSummary> mList = new ArrayList<>();
+    private SummaryAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -36,14 +47,30 @@ public class SummaryFragment extends BaseFragment<SummaryPresenter> implements S
         getFragmentComponent().inject(this);
     }
 
+
     @Override
-    public void showSummary(VideoDetail.DataBean videoDetail) {
-        mVideoDetail = videoDetail;
-        finishTask();
+    protected void initRecyclerView() {
+        mAdapter = new SummaryAdapter(mList);
+        mRecycler.setHasFixedSize(true);
+        mRecycler.setNestedScrollingEnabled(false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        mRecycler.setLayoutManager(layoutManager);
+        mRecycler.setAdapter(mAdapter);
     }
 
     @Override
     protected void finishTask() {
+        mAdapter.notifyDataSetChanged();
+    }
 
+    @Override
+    public void showSummary(List<MulSummary> mulSummaries) {
+        mList.addAll(mulSummaries);
+    }
+
+
+    @Override
+    public void initWidget() {
+        initRecyclerView();
     }
 }

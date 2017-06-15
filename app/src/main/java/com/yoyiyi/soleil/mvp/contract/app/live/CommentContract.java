@@ -2,7 +2,9 @@ package com.yoyiyi.soleil.mvp.contract.app.live;
 
 
 import com.yoyiyi.soleil.base.BaseContract;
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.MulComment;
+
+import java.util.List;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -12,7 +14,7 @@ import com.yoyiyi.soleil.bean.app.VideoDetailComment;
 
 public interface CommentContract {
     interface View extends BaseContract.BaseView {
-        void showComment(VideoDetailComment.DataBean videoDetailComment);
+        void showComment(List<MulComment> mulComments);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {

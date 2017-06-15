@@ -1,10 +1,19 @@
 package com.yoyiyi.soleil.module.app.video;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.app.video.CommentAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.MulComment;
 import com.yoyiyi.soleil.mvp.contract.app.live.CommentContract;
 import com.yoyiyi.soleil.mvp.presenter.app.live.CommentPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -13,7 +22,11 @@ import com.yoyiyi.soleil.mvp.presenter.app.live.CommentPresenter;
  */
 
 public class CommentFragment extends BaseFragment<CommentPresenter> implements CommentContract.View {
-    private VideoDetailComment.DataBean mVideoDetailComment;
+    @BindView(R.id.recycler)
+    RecyclerView mRecycler;
+
+    private CommentAdapter mAdapter;
+    private List<MulComment> mList = new ArrayList<>();
 
     @Override
     public int getLayoutId() {
@@ -34,8 +47,29 @@ public class CommentFragment extends BaseFragment<CommentPresenter> implements C
         mPresenter.getCommentData();
     }
 
+
     @Override
-    public void showComment(VideoDetailComment.DataBean videoDetailComment) {
-        mVideoDetailComment = videoDetailComment;
+    public void initWidget() {
+        initRecyclerView();
+    }
+
+    @Override
+    protected void initRecyclerView() {
+        mAdapter = new CommentAdapter(mList);
+        mRecycler.setHasFixedSize(true);
+        mRecycler.setNestedScrollingEnabled(false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        mRecycler.setLayoutManager(layoutManager);
+        mRecycler.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void showComment(List<MulComment> mulComments) {
+        mList.addAll(mulComments);
+    }
+
+    @Override
+    protected void finishTask() {
+        super.finishTask();
     }
 }

@@ -2,7 +2,9 @@ package com.yoyiyi.soleil.mvp.contract.app.live;
 
 
 import com.yoyiyi.soleil.base.BaseContract;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.MulSummary;
+
+import java.util.List;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -12,7 +14,7 @@ import com.yoyiyi.soleil.bean.app.VideoDetail;
 
 public interface SummaryContract {
     interface View extends BaseContract.BaseView {
-       void  showSummary(VideoDetail.DataBean videoDetail);
+       void  showSummary(List<MulSummary> mulSummaries);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
