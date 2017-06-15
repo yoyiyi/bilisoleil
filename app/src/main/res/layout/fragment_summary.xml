@@ -3,6 +3,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
-
+    <TextView
+        android:text="ddddddddd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <include layout="@layout/common_recycler"/>
 </LinearLayout>
