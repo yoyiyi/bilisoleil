@@ -22,7 +22,7 @@ import io.reactivex.annotations.Nullable;
 
 public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter, Nullable> implements VideoDetailContract.View {
 
-    private volatile VideoDetail.DataBean mVideoDetail;
+    private VideoDetail.DataBean mVideoDetail;
     private VideoDetailComment.DataBean mVideoDetailComment;
 
     @Override
@@ -57,7 +57,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     protected void finishTask() {
         mTitles.add("简介");
         mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
-        RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
+       /// RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
 
         Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
         videoDetailEvent.videoDetail = mVideoDetail;
@@ -67,7 +67,6 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
         mFragments.add(CommentFragment.newInstance());
 
         mViewPager.setOffscreenPageLimit(mTitles.size());
-
 
 
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
