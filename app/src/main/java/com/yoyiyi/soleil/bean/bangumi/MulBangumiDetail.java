@@ -15,6 +15,9 @@ public class MulBangumiDetail implements MultiItemEntity {
     public BangumiDetailComment.DataBean.HotsBean hotsBean;
     public BangumiDetailComment.DataBean.RepliesBean repliesBean;
 
+
+    public boolean isPrepare = false;//准备
+
     public List<BangumiDetailRecommend.ListBean> bangumiRecommendList;
     public String evaluate;
     public List<BangumiDetail.TagsBean> tagsBeanList;
@@ -59,6 +62,11 @@ public class MulBangumiDetail implements MultiItemEntity {
 
     public MulBangumiDetail setItemType(int itemType) {
         this.itemType = itemType;
+        return this;
+    }
+
+    public MulBangumiDetail setPrepare(boolean prepare) {
+        isPrepare = prepare;
         return this;
     }
 

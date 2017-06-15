@@ -726,6 +726,7 @@ public final class TimeUtils {
      * </ul>
      */
     public static String getFriendlyTimeSpanByNow(long millis) {
+        String string = millis2String(millis);
         long now = System.currentTimeMillis();
         long span = now - millis;
         if (span < 0)
@@ -736,17 +737,27 @@ public final class TimeUtils {
             return String.format(Locale.getDefault(), "%d秒前", span / TimeConstants.SEC);
         } else if (span < TimeConstants.HOUR) {
             return String.format(Locale.getDefault(), "%d分钟前", span / TimeConstants.MIN);
+        } else if (span < TimeConstants.DAY) {
+            return String.format(Locale.getDefault(), "%d小时前", span / TimeConstants.HOUR);
+        } else if (span < TimeConstants.MONTH) {
+            return String.format(Locale.getDefault(), "%d天前", span / TimeConstants.DAY);
+        } else if (span < TimeConstants.YEAR) {
+            return String.format(Locale.getDefault(), "%d月前", span / TimeConstants.MONTH);
+        } else if (span >= TimeConstants.YEAR) {
+            return String.format(Locale.getDefault(), "%d年前", span / TimeConstants.YEAR);
+        } else {
+            return "未知";
         }
         // 获取当天00:00
-        long wee = (now / TimeConstants.DAY) * TimeConstants.DAY - 8 * TimeConstants.HOUR;
+       /* long wee = (now / TimeConstants.DAY) * TimeConstants.DAY - 8 * TimeConstants.HOUR;
         if (millis >= wee) {
             return String.format("今天%tR", millis);
         } else if (millis >= wee - TimeConstants.DAY) {
             return String.format("昨天%tR", millis);
-        } else {
+        } else if (millis >){
             // return String.format("%tF", millis);
             return "1年前";
-        }
+        }*/
     }
 
     /**

@@ -21,6 +21,7 @@ import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.EmptyUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpanUtils;
+import com.yoyiyi.soleil.utils.time.TimeUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout;
 import com.yoyiyi.soleil.widget.flowlayout.TagAdapter;
@@ -59,21 +60,23 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
     protected void convert(BaseViewHolder holder, MulBangumiDetail mulBangumiDetail) {
         switch (mulBangumiDetail.itemType) {
             case MulBangumiDetail.TYPE_HEAD://头部信息
-                holder.setText(R.id.tv_play, "播放:" + NumberUtils.format(mulBangumiDetail.playCount + ""))
-                        .setText(R.id.tv_follow, "追番" + NumberUtils.format(mulBangumiDetail.favorites + ""))
-                        .setText(R.id.tv_state, TextUtils.equals(mulBangumiDetail.isFinish, "0") ? "连载中" : "已完结");
-                Glide.with(mContext)
-                        .load(mulBangumiDetail.cover)
-                        .centerCrop()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .dontAnimate()
-                        .into((ImageView) holder.getView(R.id.iv_pic));
-                Glide.with(mContext)
-                        .load(mulBangumiDetail.cover)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .bitmapTransform(new BlurTransformation(mContext, 26))
-                        .dontAnimate()
-                        .into((ImageView) holder.getView(R.id.iv_pic_big));
+                if (!mulBangumiDetail.isPrepare) {
+                    holder.setText(R.id.tv_play, "播放:" + NumberUtils.format(mulBangumiDetail.playCount + ""))
+                            .setText(R.id.tv_follow, "追番" + NumberUtils.format(mulBangumiDetail.favorites + ""))
+                            .setText(R.id.tv_state, TextUtils.equals(mulBangumiDetail.isFinish, "0") ? "连载中" : "已完结");
+                    Glide.with(mContext)
+                            .load(mulBangumiDetail.cover)
+                            .centerCrop()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .dontAnimate()
+                            .into((ImageView) holder.getView(R.id.iv_pic));
+                    Glide.with(mContext)
+                            .load(mulBangumiDetail.cover)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .bitmapTransform(new BlurTransformation(mContext, 26))
+                            .dontAnimate()
+                            .into((ImageView) holder.getView(R.id.iv_pic_big));
+                }
                 break;
 
             case MulBangumiDetail.TYPE_SEASON://分季
@@ -170,8 +173,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                         .create())
                         .setText(R.id.tv_like, mulBangumiDetail.hotsBean.like + "")
                         .setText(R.id.tv_floor, "#" + mulBangumiDetail.hotsBean.floor)
-                        // .setText(R.id.tv_time, TimeUtils.longToString(mulBangumiDetail.hotsBean.ctime, TimeUtils.FORMAT_DATE_TIME))
-                        .setText(R.id.tv_title_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String((mulBangumiDetail.hotsBean.ctime)))
+                        .setText(R.id.tv_time, TimeUtils.millis2String((long) (mulBangumiDetail.hotsBean.ctime * Math.pow(10, 3))))
                         .setText(R.id.tv_message, mulBangumiDetail.hotsBean.content.message)
                         .setText(R.id.tv_rcount, "共有" + mulBangumiDetail.hotsBean.rcount + "条回复 >");
                 Glide.with(mContext)
@@ -196,7 +198,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                                 .appendImage(getIdRes(mulBangumiDetail.repliesBean.member.level_info.current_level), SpanUtils.ALIGN_CENTER)
                                 .create())
                         .setText(R.id.tv_floor, "#" + mulBangumiDetail.repliesBean.floor)
-                        .setText(R.id.tv_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String(mulBangumiDetail.repliesBean.ctime))
+                        .setText(R.id.tv_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String((long) (mulBangumiDetail.repliesBean.ctime * Math.pow(10, 3))))
                         .setText(R.id.tv_message, mulBangumiDetail.repliesBean.content.message);
                 Glide.with(mContext)
                         .load(mulBangumiDetail.repliesBean.member.avatar)

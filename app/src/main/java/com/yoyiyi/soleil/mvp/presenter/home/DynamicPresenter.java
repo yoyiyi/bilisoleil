@@ -41,25 +41,6 @@ public class DynamicPresenter extends RxPresenter<DynamicContract.View> implemen
 
     @Override
     public void getMulDynamicData() {
-        /*BaseSubscriber<List<Recommend>> subscriber = Flowable.just(JsonUtils.readJson("recommend.json"))
-                .map(string -> {
-                    Gson gson = new Gson();
-                    JsonObject object = new JsonParser().parse(string).getAsJsonObject();
-                    JsonArray array = object.getAsJsonArray("data");
-                    List<Recommend> recommends = new ArrayList<>();
-                    for (JsonElement jsonElement : array) {
-                        recommends.add(gson.fromJson(jsonElement, Recommend.class));
-                    }
-                    return recommends;
-                })
-                .compose(RxUtils.rxSchedulerHelper())
-                .subscribeWith(new BaseSubscriber<List<Recommend>>(mView) {
-                    @Override
-                    public void onSuccess(List<Recommend> recommends) {
-                        mView.showRecommend(recommends);
-                    }
-                });
-        addSubscribe(subscriber);*/
         BaseSubscriber<List<MulDynamic>> subscriber = Flowable.just(JsonUtils.readJson("dynamic.json"))
                 .map(string -> {
                     Gson gson = new Gson();
