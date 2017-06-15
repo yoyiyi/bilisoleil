@@ -113,11 +113,10 @@
                 android:background="@color/white_80"/>
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.widget.NestedScrollView
+      <!--  <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:overScrollMode="never"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
@@ -126,7 +125,7 @@
             android:overScrollMode="never"
             android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-        </android.support.v4.widget.NestedScrollView>
+       <!-- </android.support.v4.widget.NestedScrollView>-->
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
