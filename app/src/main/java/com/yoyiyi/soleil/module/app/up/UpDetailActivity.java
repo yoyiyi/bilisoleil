@@ -126,12 +126,14 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         //设置基本信息
         mTvUname.setText(new SpanUtils()
                 .append(mUpDetail.data.card.name)
+                .appendSpace(18)
                 .appendImage(getSex(mUpDetail.data.card.sex), SpanUtils.ALIGN_CENTER)
+                .appendSpace(18)
                 .appendImage(getLv(mUpDetail.data.card.level_info.current_level), SpanUtils.ALIGN_CENTER)
                 .create());
         mTvFans.setText(NumberUtils.format(mUpDetail.data.card.fans + "") + " 粉丝");
         mTvFavourite.setText(NumberUtils.format(mUpDetail.data.card.attention + "") + " 关注");
-        mTvUserDes.setText(mUpDetail.data.card.description);
+        mTvUserDes.setText(mUpDetail.data.card.sign);
     }
 
     @Override
@@ -166,34 +168,34 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         int idRes;
         switch (lv) {
             case 1:
-                idRes = R.drawable.ic_lv1;
+                idRes = R.drawable.ic_lv1_large;
                 break;
             case 2:
-                idRes = R.drawable.ic_lv2;
+                idRes = R.drawable.ic_lv2_large;
                 break;
             case 3:
-                idRes = R.drawable.ic_lv3;
+                idRes = R.drawable.ic_lv3_large;
                 break;
             case 4:
-                idRes = R.drawable.ic_lv4;
+                idRes = R.drawable.ic_lv4_large;
                 break;
             case 5:
-                idRes = R.drawable.ic_lv5;
+                idRes = R.drawable.ic_lv5_large;
                 break;
             case 6:
-                idRes = R.drawable.ic_lv6;
+                idRes = R.drawable.ic_lv6_large;
                 break;
             case 7:
-                idRes = R.drawable.ic_lv7;
+                idRes = R.drawable.ic_lv7_large;
                 break;
             case 8:
-                idRes = R.drawable.ic_lv8;
+                idRes = R.drawable.ic_lv8_large;
                 break;
             case 9:
-                idRes = R.drawable.ic_lv9;
+                idRes = R.drawable.ic_lv9_large;
                 break;
             default:
-                idRes = R.drawable.ic_lv0;
+                idRes = R.drawable.ic_lv0_large;
                 break;
         }
         return idRes;

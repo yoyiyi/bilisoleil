@@ -16,7 +16,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
@@ -26,7 +26,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/card_view_background"
                 android:fitsSystemWindows="true">
 
@@ -52,10 +52,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
-                    android:layout_marginTop="@dimen/dp15"
-                    android:text="sssssssss"
-                    android:textColor="@color/black_80"
-                    android:textSize="@dimen/text_size_18"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:textColor="@color/font_normal"
+                    android:textSize="@dimen/text_size_16"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/iv_avatar"/>
 
@@ -64,8 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
-                    android:text="sssssssss"
-                    android:textColor="@color/font_normal"
+                    android:textColor="@color/black_alpha_30"
                     android:textSize="@dimen/text_size_14"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_uname"/>
@@ -75,8 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
-                    android:text="sssssssss"
-                    android:textColor="@color/font_normal"
+                    android:textColor="@color/black_alpha_30"
                     android:textSize="@dimen/text_size_14"
                     app:layout_constraintStart_toEndOf="@id/tv_favourite"
                     app:layout_constraintTop_toBottomOf="@+id/tv_uname"/>
@@ -86,9 +83,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
-                    android:text="ssss"
-                    android:textColor="@color/font_normal"
+                    android:paddingRight="@dimen/dp10"
+                    android:textColor="@color/black_alpha_30"
                     android:textSize="@dimen/text_size_14"
+                    android:layout_marginBottom="@dimen/dp10"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_fans"/>
 
@@ -160,7 +159,7 @@
             app:tl_indicator_corner_radius="@dimen/dp2"
             app:tl_indicator_height="@dimen/dp3"
             app:tl_indicator_width_equal_title="true"
-            app:tl_tab_padding="@dimen/dp6"
+            app:tl_tab_padding="@dimen/dp10"
             app:tl_tab_space_equal="false"
             app:tl_textSelectColor="@color/pink_text_color"
             app:tl_textUnselectColor="@color/font_normal"/>

@@ -131,6 +131,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     @Override
     protected void initToolbar() {
         //mToolbar.setNavigationIcon(R.drawable.ic_clip_back_white);
+        super.initToolbar();
         mToolbar.setTitle("");
     }
 
