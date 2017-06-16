@@ -42,9 +42,9 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
     public BangumiDetailAdapter(List<MulBangumiDetail> data) {
         super(data);
         addItemType(MulBangumiDetail.TYPE_HEAD, R.layout.layout_item_bangumi_detail_info);//头部信息
-        addItemType(MulBangumiDetail.TYPE_SEASON, R.layout.common_recycler);//分季
+        addItemType(MulBangumiDetail.TYPE_SEASON, R.layout.layout_item_bangumi_detail_recycler);//分季
         addItemType(MulBangumiDetail.TYPE_EPISODE_HEAD, R.layout.layout_item_bangumi_detail_head);//分集头部
-        addItemType(MulBangumiDetail.TYPE_EPISODE_ITEM, R.layout.common_recycler);//分集
+        addItemType(MulBangumiDetail.TYPE_EPISODE_ITEM, R.layout.layout_item_bangumi_detail_recycler   );//分集
         addItemType(MulBangumiDetail.TYPE_CONTRACTED, R.layout.layout_bangumi_detail_contracted);//承包
         addItemType(MulBangumiDetail.TYPE_DES, R.layout.layout_item_bangumi_detail_des);//简介
         addItemType(MulBangumiDetail.TYPE_RECOMMEND_HEAD, R.layout.layout_item_bangumi_detail_head);//推荐头部
@@ -82,7 +82,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
             case MulBangumiDetail.TYPE_SEASON://分季
                 RecyclerView recyclerSeason = holder.getView(R.id.recycler);
                 recyclerSeason.setHasFixedSize(true);
-                recyclerSeason.setNestedScrollingEnabled(false);
+              //  recyclerSeason.setNestedScrollingEnabled(false);
                 LinearLayoutManager layoutManagerSeason = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
                 recyclerSeason.setLayoutManager(layoutManagerSeason);
                 recyclerSeason.setAdapter(new BangumiDetailSeasonAdapter(mulBangumiDetail.seasonsBeanList, mulBangumiDetail.seasonsTitle));
@@ -90,7 +90,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
             case MulBangumiDetail.TYPE_EPISODE_ITEM://选集
                 RecyclerView recyclerEpisode = holder.getView(R.id.recycler);
                 recyclerEpisode.setHasFixedSize(true);
-                recyclerEpisode.setNestedScrollingEnabled(false);
+            //    recyclerEpisode.setNestedScrollingEnabled(false);
                 LinearLayoutManager layoutManagerEpisode = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
                 recyclerEpisode.setLayoutManager(layoutManagerEpisode);
                 recyclerEpisode.setAdapter(new BangumiDetailEpisodeAdapter(mulBangumiDetail.episodesBeans));
