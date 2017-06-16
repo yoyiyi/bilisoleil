@@ -57,7 +57,6 @@ public class CommentFragment extends BaseFragment<CommentPresenter> implements C
     protected void initRecyclerView() {
         mAdapter = new CommentAdapter(mList);
         mRecycler.setHasFixedSize(true);
-        mRecycler.setNestedScrollingEnabled(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         mRecycler.setLayoutManager(layoutManager);
         mRecycler.setAdapter(mAdapter);

@@ -52,7 +52,6 @@ public class SummaryFragment extends BaseFragment<SummaryPresenter> implements S
     protected void initRecyclerView() {
         mAdapter = new SummaryAdapter(mList);
         mRecycler.setHasFixedSize(true);
-        mRecycler.setNestedScrollingEnabled(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         mRecycler.setLayoutManager(layoutManager);
         mRecycler.setAdapter(mAdapter);

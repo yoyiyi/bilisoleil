@@ -33,9 +33,11 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
+
             <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
             <intent-filter>
                 <data android:scheme="tencent100371282"/>
+
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.BROWSABLE"/>
@@ -45,21 +47,22 @@
             <!-- 新浪微博客户端分享回调必须配置 -->
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <!--主界面-->
+        <!-- 主界面 -->
         <activity
             android:name=".module.home.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
         </activity>
-        <!-- 登录界面-->
+        <!-- 登录界面 -->
         <activity
             android:name=".module.app.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!-- 欢迎界面-->
+        <!-- 欢迎界面 -->
         <activity
             android:name=".module.app.SplashActivity"
             android:launchMode="singleTask"
@@ -70,7 +73,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".module.search.TotalSearchActivity"
             android:launchMode="singleTask"
@@ -83,78 +85,87 @@
             android:name=".module.region.RegionTypeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--全区排行-->
+        <!-- 全区排行 -->
         <activity
             android:name=".module.region.AllRegionRankActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--全站排行-->
+        <!-- 全站排行 -->
         <activity
             android:name=".module.recommend.AllStationRankActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--话题中心-->
+        <!-- 话题中心 -->
         <activity
             android:name=".module.discover.TopicCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--活动中心-->
+        <!-- 活动中心 -->
         <activity
             android:name=".module.discover.ActivityCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--游戏中心-->
+        <!-- 游戏中心 -->
         <activity
             android:name=".module.discover.GameCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--全部游戏-->
+        <!-- 全部游戏 -->
         <activity
             android:name=".module.discover.AllGameActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--番剧时间表-->
+        <!-- 番剧时间表 -->
         <activity
             android:name=".module.bangumi.BangumiScheduleActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--番剧索引-->
+        <!-- 番剧索引 -->
         <activity
             android:name=".module.bangumi.BangumiIndexActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--广告界面-->
+        <!-- 广告界面 -->
         <activity
             android:name=".module.region.AdActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--浏览器界面-->
+        <!-- 浏览器界面 -->
         <activity
             android:name=".module.app.BrowerActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+
         <service android:name=".widget.NetworkService"/>
-        <!--vip-->
+        <!-- vip -->
         <activity
             android:name=".module.entrance.VipActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--vip-->
+        <!-- vip -->
         <activity
             android:name=".module.discover.InterestActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!--番剧详情-->
+        <!-- 番剧详情 -->
         <activity
             android:name=".module.bangumi.BangumiDetailActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
-        <!--视频详情-->
+        <!-- 视频详情 -->
         <activity
             android:name=".module.app.video.VideoDetailActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+
         <service android:name=".widget.NetworkService"/>
+
+        <activity
+            android:name=".module.app.video.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/BaseAppTheme">
+        </activity>
     </application>
+
 </manifest>

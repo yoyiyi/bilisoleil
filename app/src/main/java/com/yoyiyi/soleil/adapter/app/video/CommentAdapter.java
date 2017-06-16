@@ -24,7 +24,7 @@ public class CommentAdapter extends BaseMultiItemQuickAdapter<MulComment, BaseVi
         super(data);
         addItemType(MulComment.TYPE_COMMENT_HOT_ITEM, R.layout.layout_item_video_detail_comment);
         addItemType(MulComment.TYPE_COMMENT_MORE, R.layout.layout_item_video_detail_more);
-        addItemType(MulComment.TYPE_COMMENT_HOT_ITEM, R.layout.layout_item_video_detail_comment);
+        addItemType(MulComment.TYPE_COMMENT_NOMAL_ITEM, R.layout.layout_item_video_detail_comment);
 
     }
 
@@ -55,26 +55,26 @@ public class CommentAdapter extends BaseMultiItemQuickAdapter<MulComment, BaseVi
 
                 break;
 
-                case MulComment.TYPE_COMMENT_NOMAL_ITEM:
-                    holder.setVisible(R.id.tv_rcount, false)
-                            .setText(R.id.tv_like, mulComment.repliesBean.like + "")
-                            .setText(R.id.tv_uname, new SpanUtils()
-                                    .append(mulComment.repliesBean.member.uname + " ")
-                                    .setForegroundColor(AppUtils.getColor(R.color.gray_20))
-                                    .appendSpace(10)
-                                    .appendImage(getIdRes(mulComment.repliesBean.member.level_info.current_level), SpanUtils.ALIGN_CENTER)
-                                    .create())
-                            .setText(R.id.tv_floor, "#" + mulComment.repliesBean.floor)
-                            .setText(R.id.tv_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String((long) (mulComment.repliesBean.ctime * Math.pow(10, 3))))
-                            .setText(R.id.tv_message, mulComment.repliesBean.content.message);
-                    Glide.with(mContext)
-                            .load(mulComment.repliesBean.member.avatar)
-                            .centerCrop()
-                            .placeholder(R.drawable.bili_default_avatar)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .dontAnimate()
-                            .into((CircleImageView) holder.getView(R.id.iv_avatar));
-                    break;
+            case MulComment.TYPE_COMMENT_NOMAL_ITEM:
+                holder.setVisible(R.id.tv_rcount, false)
+                        .setText(R.id.tv_like, mulComment.repliesBean.like + "")
+                        .setText(R.id.tv_uname, new SpanUtils()
+                                .append(mulComment.repliesBean.member.uname + " ")
+                                .setForegroundColor(AppUtils.getColor(R.color.gray_20))
+                                .appendSpace(10)
+                                .appendImage(getIdRes(mulComment.repliesBean.member.level_info.current_level), SpanUtils.ALIGN_CENTER)
+                                .create())
+                        .setText(R.id.tv_floor, "#" + mulComment.repliesBean.floor)
+                        .setText(R.id.tv_time, com.yoyiyi.soleil.utils.time.TimeUtils.millis2String((long) (mulComment.repliesBean.ctime * Math.pow(10, 3))))
+                        .setText(R.id.tv_message, mulComment.repliesBean.content.message);
+                Glide.with(mContext)
+                        .load(mulComment.repliesBean.member.avatar)
+                        .centerCrop()
+                        .placeholder(R.drawable.bili_default_avatar)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .dontAnimate()
+                        .into((CircleImageView) holder.getView(R.id.iv_avatar));
+                break;
         }
     }
 
