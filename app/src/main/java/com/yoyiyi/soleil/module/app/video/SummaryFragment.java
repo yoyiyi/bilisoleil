@@ -7,7 +7,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.adapter.app.video.SummaryAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
 import com.yoyiyi.soleil.bean.app.video.MulSummary;
-import com.yoyiyi.soleil.mvp.contract.app.live.SummaryContract;
+import com.yoyiyi.soleil.mvp.contract.app.video.SummaryContract;
 import com.yoyiyi.soleil.mvp.presenter.app.live.SummaryPresenter;
 
 import java.util.ArrayList;

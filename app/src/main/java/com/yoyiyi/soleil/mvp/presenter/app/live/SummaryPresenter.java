@@ -7,7 +7,7 @@ import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.app.VideoDetail;
 import com.yoyiyi.soleil.bean.app.video.MulSummary;
 import com.yoyiyi.soleil.event.Event;
-import com.yoyiyi.soleil.mvp.contract.app.live.SummaryContract;
+import com.yoyiyi.soleil.mvp.contract.app.video.SummaryContract;
 import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.rx.RxUtils;
 import com.yoyiyi.soleil.utils.LogUtils;

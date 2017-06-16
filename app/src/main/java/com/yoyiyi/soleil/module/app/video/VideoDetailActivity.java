@@ -61,7 +61,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     protected void finishTask() {
         mTitles.add("简介");
         mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
-        /// RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
+
         mFragments.add(SummaryFragment.newInstance());
         mFragments.add(CommentFragment.newInstance());
         mViewPager.setOffscreenPageLimit(mTitles.size());
@@ -72,16 +72,13 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
         Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
         videoDetailEvent.videoDetail = mVideoDetail;
 
-       // RxBus.INSTANCE.post(new Event.VideoDetailCommentEvent().videoDetailComment = mVideoDetailComment);
         Event.VideoDetailCommentEvent videoDetailCommentEvent = new Event.VideoDetailCommentEvent();
         videoDetailCommentEvent.videoDetailComment = mVideoDetailComment;
 
         RxBus.INSTANCE.post(videoDetailEvent);
         RxBus.INSTANCE.post(videoDetailCommentEvent);
 
-       /* Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
-        videoDetailEvent.videoDetail = mVideoDetail;
-        RxBus.INSTANCE.post(videoDetailEvent);*/
+
     }
 
     @Override

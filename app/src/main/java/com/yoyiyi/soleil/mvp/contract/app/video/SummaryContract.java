@@ -1,8 +1,8 @@
-package com.yoyiyi.soleil.mvp.contract.app.live;
+package com.yoyiyi.soleil.mvp.contract.app.video;
 
 
 import com.yoyiyi.soleil.base.BaseContract;
-import com.yoyiyi.soleil.bean.app.video.MulComment;
+import com.yoyiyi.soleil.bean.app.video.MulSummary;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ import java.util.List;
  * 描述:欢迎界面Contract
  */
 
-public interface CommentContract {
+public interface SummaryContract {
     interface View extends BaseContract.BaseView {
-        void showComment(List<MulComment> mulComments);
+       void  showSummary(List<MulSummary> mulSummaries);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
 
-        void getCommentData();
+        void getSummaryData();
 
 
     }
