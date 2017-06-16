@@ -160,6 +160,7 @@
             app:tl_indicator_corner_radius="@dimen/dp2"
             app:tl_indicator_height="@dimen/dp3"
             app:tl_indicator_width_equal_title="true"
+            app:tl_tab_padding="@dimen/dp6"
             app:tl_tab_space_equal="false"
             app:tl_textSelectColor="@color/pink_text_color"
             app:tl_textUnselectColor="@color/font_normal"/>
@@ -169,5 +170,12 @@
             android:layout_height="@dimen/dp1"
             android:background="@color/white_80"/>
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </android.support.design.widget.CoordinatorLayout>

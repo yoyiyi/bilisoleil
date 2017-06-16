@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.app.video;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +13,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.app.video.MulSummary;
+import com.yoyiyi.soleil.module.app.up.UpDetailActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.time.TimeUtils;
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout;
@@ -58,17 +60,21 @@ public class SummaryAdapter extends BaseMultiItemQuickAdapter<MulSummary, BaseVi
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .into((ImageView) holder.getView(R.id.iv_avatar));
+                holder.getView(R.id.iv_avatar).setOnClickListener(view ->
+                        mContext.startActivity(new Intent(mContext, UpDetailActivity.class))
+                );
+
                 String date = TimeUtils.millis2String((long) (mulSummary.ctime * Math.pow(10, 3)));
                 String[] split = date.split("-");
                 holder.setText(R.id.tv_name, mulSummary.owner.name)
-                        .setText(R.id.tv_time, split[0] + "年" + split[1] + "月" +  (split[2].split(" "))[0] + "日" + "投递");
+                        .setText(R.id.tv_time, split[0] + "年" + split[1] + "月" + (split[2].split(" "))[0] + "日" + "投递");
 
                 TagFlowLayout tagsLayout = holder.getView(R.id.tags_layout);
-                List<String > tag = new ArrayList<>();
+                List<String> tag = new ArrayList<>();
                 Stream.of(mulSummary.tags).forEach(tagBean -> tag.add(tagBean.tag_name));
                 tagsLayout.setAdapter(new TagAdapter<String>(tag) {
                     @Override
-                    public View getView(FlowLayout flowLayout, int i, String  listBean) {
+                    public View getView(FlowLayout flowLayout, int i, String listBean) {
                         TextView mTags = (TextView) LayoutInflater.from(mContext)
                                 .inflate(R.layout.layout_hot_tags_item, flowLayout, false);
                         mTags.setText(listBean);
