@@ -23,7 +23,6 @@ import com.yoyiyi.soleil.module.region.BaseRegionActivity;
 import com.yoyiyi.soleil.mvp.contract.app.VideoDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.app.VideoDetailPresenter;
 import com.yoyiyi.soleil.rx.RxBus;
-import com.yoyiyi.soleil.utils.LogUtils;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
 import butterknife.BindView;
@@ -152,7 +151,6 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
      * @param target
      */
     private void setViewsTranslation(int target) {
-        LogUtils.d("target:" + target);
         mFab.setTranslationY(target);
         if (target == 0) {
             mFab.animate().scaleX(1f).scaleY(1f)

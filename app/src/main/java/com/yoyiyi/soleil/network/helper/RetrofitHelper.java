@@ -27,6 +27,7 @@ import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
+import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
 import com.yoyiyi.soleil.network.api.BangumiService;
@@ -99,6 +100,10 @@ public class RetrofitHelper {
 
     public Flowable<VideoDetailComment> getVideoDetailComment() {
         return mApiService.getVideoDetailComment();
+    }
+
+    public Flowable<UpDetail> getUpDetail() {
+        return mAppService.getUpDetail();
     }
 
     /*******************************LiveApi****************************************/
