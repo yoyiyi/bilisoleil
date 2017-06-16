@@ -165,39 +165,39 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
 
 
     private int getLv(int lv) {
-        int idRes;
+        int lvRes;
         switch (lv) {
             case 1:
-                idRes = R.drawable.ic_lv1_large;
+                lvRes = R.drawable.ic_lv1_large;
                 break;
             case 2:
-                idRes = R.drawable.ic_lv2_large;
+                lvRes = R.drawable.ic_lv2_large;
                 break;
             case 3:
-                idRes = R.drawable.ic_lv3_large;
+                lvRes = R.drawable.ic_lv3_large;
                 break;
             case 4:
-                idRes = R.drawable.ic_lv4_large;
+                lvRes = R.drawable.ic_lv4_large;
                 break;
             case 5:
-                idRes = R.drawable.ic_lv5_large;
+                lvRes = R.drawable.ic_lv5_large;
                 break;
             case 6:
-                idRes = R.drawable.ic_lv6_large;
+                lvRes = R.drawable.ic_lv6_large;
                 break;
             case 7:
-                idRes = R.drawable.ic_lv7_large;
+                lvRes = R.drawable.ic_lv7_large;
                 break;
             case 8:
-                idRes = R.drawable.ic_lv8_large;
+                lvRes = R.drawable.ic_lv8_large;
                 break;
             case 9:
-                idRes = R.drawable.ic_lv9_large;
+                lvRes = R.drawable.ic_lv9_large;
                 break;
             default:
-                idRes = R.drawable.ic_lv0_large;
+                lvRes = R.drawable.ic_lv0_large;
                 break;
         }
-        return idRes;
+        return lvRes;
     }
 }
