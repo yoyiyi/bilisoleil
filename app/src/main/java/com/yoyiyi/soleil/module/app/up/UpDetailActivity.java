@@ -186,6 +186,7 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
                 lvRes = R.drawable.ic_lv6_large;
                 break;
             case 7:
+
                 lvRes = R.drawable.ic_lv7_large;
                 break;
             case 8:
