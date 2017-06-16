@@ -1,7 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-</LinearLayout>
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@style/CollapsingToolbarTitleStyle.About"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/card_view_background"
+                android:fitsSystemWindows="true">
+
+                <ImageView
+                    android:id="@+id/iv_zone_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp160"
+                    android:background="@drawable/ic_zone_background"/>
+
+                <com.yoyiyi.soleil.widget.CircleImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="@dimen/dp84"
+                    android:layout_height="@dimen/dp84"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp110"
+                    app:border_color="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/bili_default_avatar"/>
+
+                <TextView
+                    android:id="@+id/tv_uname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:text="sssssssss"
+                    android:textColor="@color/black_80"
+                    android:textSize="@dimen/text_size_18"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_avatar"/>
+
+                <TextView
+                    android:id="@+id/tv_favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:text="sssssssss"
+                    android:textColor="@color/font_normal"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_uname"/>
+
+                <TextView
+                    android:id="@+id/tv_fans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:text="sssssssss"
+                    android:textColor="@color/font_normal"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintStart_toEndOf="@id/tv_favourite"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_uname"/>
+
+                <TextView
+                    android:id="@+id/tv_user_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:text="ssss"
+                    android:textColor="@color/font_normal"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fans"/>
+
+                <TextView
+                    android:id="@+id/tv_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/shape_tv_electricize"
+                    android:paddingBottom="@dimen/dp3"
+                    android:paddingLeft="@dimen/dp6"
+                    android:paddingRight="@dimen/dp6"
+                    android:paddingTop="@dimen/dp3"
+                    android:text="+关注"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_zone_bg"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_letter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp15"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/shape_tv_favourite"
+                    android:paddingBottom="@dimen/dp3"
+                    android:paddingLeft="@dimen/dp6"
+                    android:paddingRight="@dimen/dp6"
+                    android:paddingTop="@dimen/dp3"
+                    android:text=" 私信"
+                    android:textColor="@color/pink_text_color"
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_pay"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_zone_bg"
+
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextAppearance="@style/Toolbar.TitleText"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_gravity="bottom"
+            android:background="@color/gray_light"/>
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white_80"
+            app:tl_indicator_color="@color/bili_logo_pink_color"
+            app:tl_indicator_corner_radius="@dimen/dp2"
+            app:tl_indicator_height="@dimen/dp3"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_space_equal="false"
+            app:tl_textSelectColor="@color/pink_text_color"
+            app:tl_textUnselectColor="@color/font_normal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/white_80"/>
+    </android.support.design.widget.AppBarLayout>
+
+</android.support.design.widget.CoordinatorLayout>

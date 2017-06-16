@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.yoyiyi.soleil.di.module.ActivityModule;
 import com.yoyiyi.soleil.di.scope.ActivityScope;
 import com.yoyiyi.soleil.module.app.SplashActivity;
+import com.yoyiyi.soleil.module.app.up.UpDetailActivity;
 import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
 import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
 import com.yoyiyi.soleil.module.bangumi.BangumiIndexActivity;
@@ -54,5 +55,6 @@ public interface ActivityComponent {
 
     void inject(VideoDetailActivity videoDetailActivity);
 
+    void inject(UpDetailActivity upDetailActivity);
 
 }

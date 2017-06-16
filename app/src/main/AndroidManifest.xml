@@ -161,6 +161,13 @@
 
         <service android:name=".widget.NetworkService"/>
 
+        <!-- up主详情 -->
+        <activity
+            android:name=".module.app.up.UpDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <service android:name=".widget.NetworkService"/>
         <activity
             android:name=".module.app.video.ScrollingActivity"
             android:label="@string/title_activity_scrolling"

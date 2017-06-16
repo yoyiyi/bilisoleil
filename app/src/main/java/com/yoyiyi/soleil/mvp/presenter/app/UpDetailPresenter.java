@@ -1,9 +1,12 @@
 package com.yoyiyi.soleil.mvp.presenter.app;
 
 
+import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
+import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.mvp.contract.app.UpDetailContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
+import com.yoyiyi.soleil.rx.RxUtils;
 
 import javax.inject.Inject;
 
@@ -23,7 +26,16 @@ public class UpDetailPresenter extends RxPresenter<UpDetailContract.View> implem
     }
 
     @Override
-    public void setUpDetailData() {
+    public void getUpDetailData() {
+        BaseSubscriber<UpDetail> subscriber = mRetrofitHelper.getUpDetail()
+                .compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseSubscriber<UpDetail>(mView) {
+                    @Override
+                    public void onSuccess(UpDetail upDetail) {
+                        mView.showUpDetail(upDetail);
+                    }
+                });
+        addSubscribe(subscriber);
 
     }
 }

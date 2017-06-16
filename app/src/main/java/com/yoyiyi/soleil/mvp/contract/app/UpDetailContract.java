@@ -19,7 +19,7 @@ public interface UpDetailContract {
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
 
-        void setUpDetailData();
+        void getUpDetailData();
 
     }
 }
