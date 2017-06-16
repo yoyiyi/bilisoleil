@@ -49,6 +49,8 @@
 
                 <TextView
                     android:id="@+id/tv_uname"
+                    android:paddingTop="@dimen/dp4"
+                    android:paddingBottom="@dimen/dp4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10"
