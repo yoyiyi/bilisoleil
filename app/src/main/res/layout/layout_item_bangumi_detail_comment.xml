@@ -46,7 +46,7 @@
         android:minEms="3"
         android:textColor="@color/black_alpha_30"
         android:textSize="@dimen/text_size_12"
-        app:layout_constraintEnd_toStartOf="@id/tv_dis_like"
+        app:layout_constraintEnd_toStartOf="@+id/tv_dis_like"
         app:layout_constraintTop_toTopOf="@id/iv_view_menu"
         />
 

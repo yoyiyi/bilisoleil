@@ -1,4 +1,16 @@
+//2.3使用
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'//2.3使用
 
 android {
     compileSdkVersion 25
@@ -62,7 +74,6 @@ dependencies {
     compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     //rxbinding
-
     compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     //rxlifecycle
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'
