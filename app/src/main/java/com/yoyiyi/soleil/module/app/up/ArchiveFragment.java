@@ -1,11 +1,23 @@
 package com.yoyiyi.soleil.module.app.up;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.app.up.ArchiveAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
+import com.yoyiyi.soleil.bean.user.MulUpDetail;
 import com.yoyiyi.soleil.constant.Constants;
+import com.yoyiyi.soleil.mvp.contract.app.up.ArchiveContract;
 import com.yoyiyi.soleil.mvp.presenter.app.up.ArchivePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -13,9 +25,18 @@ import com.yoyiyi.soleil.mvp.presenter.app.up.ArchivePresenter;
  * 描述:主页
  */
 
-public class ArchiveFragment extends BaseFragment<ArchivePresenter> {
+public class ArchiveFragment extends BaseFragment<ArchivePresenter> implements ArchiveContract.View {
+
+    @BindView(R.id.recycler)
+    RecyclerView mRecycler;
+    @BindView(R.id.iv_empty)
+    ImageView mIvEmpty;
+    @BindView(R.id.cl_error)
+    ConstraintLayout mClError;
 
     private int mSetting;
+    private List<MulUpDetail> mList = new ArrayList<>();
+    private ArchiveAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -31,16 +52,6 @@ public class ArchiveFragment extends BaseFragment<ArchivePresenter> {
     }
 
     @Override
-    protected void initInject() {
-        getFragmentComponent().inject(this);
-    }
-
-    @Override
-    protected void loadData() {
-        mPresenter.getArchiveData();
-    }
-
-    @Override
     public void initVariables() {
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -53,4 +64,47 @@ public class ArchiveFragment extends BaseFragment<ArchivePresenter> {
         }
     }
 
+    @Override
+    protected void initInject() {
+        getFragmentComponent().inject(this);
+    }
+
+    @Override
+    protected void loadData() {
+        if (mSetting == 1)
+            mPresenter.getArchiveData();
+    }
+
+    @Override
+    protected void initRecyclerView() {
+        mAdapter = new ArchiveAdapter(mList);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+        mAdapter.setSpanSizeLookup((gridLayoutManager, position) -> mList.get(position).spanSize);
+        mRecycler.setLayoutManager(mLayoutManager);
+        mRecycler.setAdapter(mAdapter);
+    }
+
+
+    @Override
+    public void initWidget() {
+        initRecyclerView();
+    }
+
+    @Override
+    protected void finishTask() {
+        gone(mIvEmpty, mClError);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showError(String msg) {
+        visible(mClError);
+        gone(mIvEmpty);
+    }
+
+    @Override
+    public void showArchive(List<MulUpDetail> mulUpDetailList) {
+        mList.addAll(mulUpDetailList);
+        finishTask();
+    }
 }

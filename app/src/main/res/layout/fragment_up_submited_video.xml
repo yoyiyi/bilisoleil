@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp40"
-        android:src="@drawable/ic_no_income"/>
+        android:src="@drawable/img_tips_error_space_no_permission"/>
 
     <include layout="@layout/common_layout_error"/>
 </RelativeLayout>

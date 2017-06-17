@@ -33,10 +33,18 @@ public class Event {
     }
 
     public static class UpDetailArchiveEvent {
-        public List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList;
+        public UpDetail.DataBean.ArchiveBean archive;
+        public UpDetail.DataBean.SettingBean setting;
+        public UpDetail.DataBean.FavouriteBean favourite;
+        public UpDetail.DataBean.LiveBean live;
+
     }
 
     public static class UpDetailSubmitedVideoEvent {
         public List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList;
+    }
+
+    public static class UpDetailFavourteEvent {
+        public List<UpDetail.DataBean.FavouriteBean.ItemBeanX> favouriteList;
     }
 }

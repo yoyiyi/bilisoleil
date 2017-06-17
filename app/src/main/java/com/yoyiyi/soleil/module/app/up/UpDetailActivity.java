@@ -125,7 +125,11 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         Event.UpDetailSubmitedVideoEvent upDetailSubmitedVideoEvent = new Event.UpDetailSubmitedVideoEvent();
         upDetailSubmitedVideoEvent.archivList = mUpDetail.data.archive.item;
         RxBus.INSTANCE.post(upDetailSubmitedVideoEvent);
-        //
+        //收藏
+        Event.UpDetailFavourteEvent upDetailFavourteEvent = new Event.UpDetailFavourteEvent();
+        upDetailFavourteEvent.favouriteList = mUpDetail.data.favourite.item;
+        RxBus.INSTANCE.post(upDetailFavourteEvent);
+
     }
 
 

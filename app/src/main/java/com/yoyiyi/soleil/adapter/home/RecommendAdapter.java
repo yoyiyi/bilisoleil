@@ -49,7 +49,7 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .start();
                 bannar.setOnBannerListener(i -> {
                     Recommend.BannerItemBean bannerBean = banner_item.get(i);
-                    BrowerActivity.startActivity(mContext, bannerBean.click_url, bannerBean.title);
+                    BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title);
                 });
                 break;
 
@@ -72,7 +72,7 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
         }
     }
 
-    static class GlideImageLoader extends ImageLoader {
+    private static class GlideImageLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
             Glide.with(context)

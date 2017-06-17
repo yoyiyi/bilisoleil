@@ -4,12 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="120dp"
+    android:layout_marginLeft="@dimen/dp10"
+    android:layout_marginRight="@dimen/dp10"
     android:clickable="true"
-    android:background="@color/white"
     android:foreground="?attr/selectableItemBackground"
     android:paddingBottom="@dimen/dp5"
-    android:paddingLeft="@dimen/dp10"
-    android:paddingRight="@dimen/dp10"
     android:paddingTop="@dimen/dp5">
 
 
@@ -37,8 +36,8 @@
         android:textColor="@color/font_normal"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/iv_video_preview"
-        app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>
+        app:layout_constraintStart_toEndOf="@id/iv_video_preview"
+        app:layout_constraintTop_toTopOf="@id/iv_video_preview"/>
 
     <TextView
         android:id="@+id/tv_duration"
@@ -53,6 +52,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/iv_video_preview"
         app:layout_constraintEnd_toEndOf="@id/iv_video_preview"
         />
+
     <ImageView
         android:id="@+id/iv_video_play_num"
         android:layout_width="@dimen/dp16"
@@ -97,4 +97,5 @@
         android:textSize="@dimen/text_size_12"
         app:layout_constraintBottom_toBottomOf="@id/iv_video_preview"
         app:layout_constraintStart_toEndOf="@+id/tv_video_play"/>
+
 </android.support.constraint.ConstraintLayout>

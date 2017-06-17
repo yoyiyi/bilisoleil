@@ -11,7 +11,6 @@ import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.rx.RxUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,20 +29,64 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
 
     @Override
     public void getArchiveData() {
-        RxBus.INSTANCE.toFlowable(Event.UpDetailArchiveEvent.class)
-                .map(upDetailArchiveEvent -> {
-                    List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList = upDetailArchiveEvent.archivList;
-                    List<MulUpDetail> mulUpDetailList = new ArrayList<>();
-                    mulUpDetailList.addAll(Arrays.asList(
-                            new MulUpDetail().setItemType(MulUpDetail.TYPE_SUBMITED_VIDEO_ELEC)
-                    ));
-                    Stream.of(archivList)
-                            .forEach(
-                                    archiveBean ->
-                                            mulUpDetailList.add(new MulUpDetail()
-                                                    .setItemType(MulUpDetail.TYPE_SUBMITED_VIDEO_ITEM)
-                                                    .setArchiveBean(archiveBean)));
+        BaseSubscriber<List<MulUpDetail>> subscriber = RxBus.INSTANCE.toFlowable(Event.UpDetailArchiveEvent.class)
+                .map(event -> {
+                    List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList = event.archive.item;
 
+                    List<MulUpDetail> mulUpDetailList = new ArrayList<>();
+
+                    mulUpDetailList.add(new MulUpDetail()    //正在直播
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_LIVE)
+                            .setLive(event.live)
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE));
+
+                    mulUpDetailList.add(new MulUpDetail()//全部投稿
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setState(1)
+                            .setTitle("全部投稿")
+                            .setCount(event.archive.count)
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD));
+                    Stream.of(archivList.subList(0, 2)) //全部投稿内容
+                            .forEach(
+                                    itemBean ->
+                                            mulUpDetailList.add(new MulUpDetail()
+                                                    .setItemType(MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO)
+                                                    .setSpanSize(MulUpDetail.ONE_SPAN_SIZE)
+                                                    .setArchiveBean(itemBean)));
+
+                    mulUpDetailList.add(new MulUpDetail()//最近硬币
+                            .setTitle("最近投硬币的视频")
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
+                            .setState(event.setting.coins_video));
+
+                    mulUpDetailList.add(new MulUpDetail()//收藏夹
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setTitle("TA的收藏夹")
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
+                            .setState(event.setting.fav_video));
+                    mulUpDetailList.add(new MulUpDetail()
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setItemType(MulUpDetail.TYPE_FAVOURITE_ITEM)
+                            .setFavourite(event.favourite));
+
+                    mulUpDetailList.add(new MulUpDetail()//追番
+                            .setTitle("TA的追番")
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
+                            .setState(event.setting.bangumi));
+
+                    mulUpDetailList.add(new MulUpDetail()//圈子
+                            .setTitle("TA的圈子")
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
+                            .setState(event.setting.groups));
+
+                    mulUpDetailList.add(new MulUpDetail()//游戏
+                            .setTitle("TA玩的游戏")
+                            .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
+                            .setState(event.setting.played_game));
 
                     return mulUpDetailList;
                 })
@@ -54,5 +97,6 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
                         mView.showArchive(mulUpDetailList);
                     }
                 });
+        addSubscribe(subscriber);
     }
 }
