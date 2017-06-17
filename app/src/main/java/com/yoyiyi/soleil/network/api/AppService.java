@@ -93,7 +93,11 @@ public interface AppService {
     @GET("/x/v2/view?access_key=0e6adb874025dfabaa3ced3a7b22049d&aid=9938411&appkey=1d8b6e7d45233436&build=505000&from=3&mobi_app=android&plat=0&platform=android&trackid=6475482883510618178&ts=1497422373&sign=75f3393be59e612325d75d7134e612a8")
     Flowable<VideoDetail> getVideoDetail();
 
-    @GET("/x/v2/space?access_key=91c3f4aa6761385fd99998b4f07e193f&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&ps=10&ts=1497595431&vmid=12617707&sign=465dc5c1d330999eb86514482cc7a1f3")
+    /**
+     * up主详情界面
+     * @return
+     */
+    @GET("/x/v2/space?access_key=91c3f4aa6761385fd99998b4f07e193f&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&ps=50&ts=1497595431&vmid=12617707&sign=465dc5c1d330999eb86514482cc7a1f3")
     Flowable<UpDetail> getUpDetail();
 
 

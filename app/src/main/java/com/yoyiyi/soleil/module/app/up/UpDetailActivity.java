@@ -13,9 +13,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.user.UpDetail;
+import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.module.region.BaseRegionActivity;
 import com.yoyiyi.soleil.mvp.contract.app.UpDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.app.UpDetailPresenter;
+import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpanUtils;
 import com.yoyiyi.soleil.widget.CircleImageView;
@@ -90,8 +92,6 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
     @Override
     protected void finishTask() {
         initUpInfo();
-
-
         mTitles.addAll(Arrays.asList(
                 "主页",
                 "投稿(" + mUpDetail.data.archive.count + ")",
@@ -112,7 +112,22 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mViewPager.setOffscreenPageLimit(mTitles.size());
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
+
+        initEvent();
     }
+
+
+    /**
+     * 初始化发射事件
+     */
+    private void initEvent() {
+        //投稿
+        Event.UpDetailSubmitedVideoEvent upDetailSubmitedVideoEvent = new Event.UpDetailSubmitedVideoEvent();
+        upDetailSubmitedVideoEvent.archivList = mUpDetail.data.archive.item;
+        RxBus.INSTANCE.post(upDetailSubmitedVideoEvent);
+        //
+    }
+
 
     private void initUpInfo() {
         //设置图片
@@ -136,10 +151,6 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mTvUserDes.setText(mUpDetail.data.card.sign);
     }
 
-    @Override
-    protected void initWidget() {
-        super.initWidget();
-    }
 
     @Override
     protected void initToolbar() {

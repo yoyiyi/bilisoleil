@@ -40,7 +40,19 @@
         app:layout_constraintTop_toTopOf="@id/iv_video_preview"
         app:layout_constraintStart_toEndOf="@id/iv_video_preview"/>
 
-
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:background="@color/black_alpha_60"
+        android:minWidth="@dimen/dp32"
+        android:padding="@dimen/dp2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_video_preview"
+        app:layout_constraintEnd_toEndOf="@id/iv_video_preview"
+        />
     <ImageView
         android:id="@+id/iv_video_play_num"
         android:layout_width="@dimen/dp16"

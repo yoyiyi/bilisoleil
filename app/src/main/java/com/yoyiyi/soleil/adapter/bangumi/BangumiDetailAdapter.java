@@ -73,6 +73,7 @@ public class BangumiDetailAdapter extends BaseMultiItemQuickAdapter<MulBangumiDe
                     Glide.with(mContext)
                             .load(mulBangumiDetail.cover)
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .placeholder(R.drawable.bili_default_image_tv)
                             .bitmapTransform(new BlurTransformation(mContext, 26))
                             .dontAnimate()
                             .into((ImageView) holder.getView(R.id.iv_pic_big));

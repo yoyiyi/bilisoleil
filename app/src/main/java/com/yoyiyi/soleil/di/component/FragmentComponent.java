@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.yoyiyi.soleil.di.module.FragmentModule;
 import com.yoyiyi.soleil.di.scope.FragmentScope;
+import com.yoyiyi.soleil.module.app.up.SubmitedVideoFragment;
 import com.yoyiyi.soleil.module.app.video.CommentFragment;
 import com.yoyiyi.soleil.module.app.video.SummaryFragment;
 import com.yoyiyi.soleil.module.discover.InterestFragment;
@@ -59,5 +60,10 @@ public interface FragmentComponent {
     void inject(SummaryFragment summaryFragment);
 
     void inject(CommentFragment commentFragment);
+
+    void inject(com.yoyiyi.soleil.module.app.up.ArchiveFragment archiveFragment);
+
+    void inject(SubmitedVideoFragment submitedVideoFragment);
+
 
 }

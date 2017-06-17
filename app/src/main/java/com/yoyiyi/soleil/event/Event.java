@@ -2,6 +2,9 @@ package com.yoyiyi.soleil.event;
 
 import com.yoyiyi.soleil.bean.app.VideoDetail;
 import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.user.UpDetail;
+
+import java.util.List;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -27,5 +30,13 @@ public class Event {
 
     public static class VideoDetailCommentEvent {
         public VideoDetailComment.DataBean videoDetailComment;
+    }
+
+    public static class UpDetailArchiveEvent {
+        public List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList;
+    }
+
+    public static class UpDetailSubmitedVideoEvent {
+        public List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList;
     }
 }

@@ -9,11 +9,27 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
  */
 
 public class MulUpDetail implements MultiItemEntity {
+    public static final int TYPE_SUBMITED_VIDEO_ELEC = 1;
+    public static final int TYPE_SUBMITED_VIDEO_ITEM = 2;
+
+
     public int itemType;
+    public UpDetail.DataBean.ArchiveBean.ItemBean archiveBean;
+
 
 
     @Override
     public int getItemType() {
         return itemType;
+    }
+
+    public MulUpDetail setItemType(int itemType) {
+        this.itemType = itemType;
+        return this;
+    }
+
+    public MulUpDetail setArchiveBean(UpDetail.DataBean.ArchiveBean.ItemBean archiveBean) {
+        this.archiveBean = archiveBean;
+        return this;
     }
 }

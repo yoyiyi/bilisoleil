@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -331,7 +330,7 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         }
     }
 
-    private View $(@IdRes int id) {
+    public View $(@IdRes int id) {
         View view;
         if (mRootView != null) {
             view = mRootView.findViewById(id);
