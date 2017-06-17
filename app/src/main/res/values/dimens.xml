@@ -52,6 +52,8 @@
 
     <dimen name="dp126">126.0dip</dimen>
     <dimen name="dp125">125.0dip</dimen>
+    <dimen name="dp122">122.0dip</dimen>
+
     <dimen name="dp120">120.0dip</dimen>
 
     <dimen name="dp115">115.0dip</dimen>

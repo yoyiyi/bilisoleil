@@ -11,7 +11,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
-        android:layout_width="@dimen/dp112"
+        android:layout_width="@dimen/dp122"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp10"
         android:layout_marginLeft="@dimen/dp10"
@@ -29,22 +29,25 @@
 
             <ImageView
                 android:id="@+id/iv_view1"
-                android:layout_width="@dimen/dp112"
-                android:layout_height="@dimen/dp50"/>
+                android:layout_width="@dimen/dp122"
+                android:layout_height="@dimen/dp60"
+                android:scaleType="fitXY"/>
 
             <ImageView
                 android:id="@+id/iv_view2"
-                android:layout_width="@dimen/dp55"
-                android:layout_height="@dimen/dp50"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
                 android:layout_marginTop="@dimen/dp2"
+                android:scaleType="fitXY"
                 app:layout_constraintTop_toBottomOf="@id/iv_view1"/>
 
             <ImageView
                 android:id="@+id/iv_view3"
-                android:layout_width="@dimen/dp110"
-                android:layout_height="@dimen/dp50"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
                 android:layout_marginLeft="@dimen/dp2"
                 android:layout_marginTop="@dimen/dp2"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toEndOf="@id/iv_view2"
                 app:layout_constraintTop_toBottomOf="@id/iv_view1"/>
 
@@ -76,5 +79,6 @@
     <Space
         android:id="@+id/space"
         android:layout_width="@dimen/dp10"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 </LinearLayout>

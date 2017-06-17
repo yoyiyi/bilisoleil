@@ -63,11 +63,12 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
                     mulUpDetailList.add(new MulUpDetail()//收藏夹
                             .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
                             .setTitle("TA的收藏夹")
+                            .setCount(event.favourite.count)
                             .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
                             .setState(event.setting.fav_video));
                     mulUpDetailList.add(new MulUpDetail()
                             .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
-                            .setItemType(MulUpDetail.TYPE_FAVOURITE_ITEM)
+                            .setItemType(MulUpDetail.TYPE_ARCHIVE_FAVOURITE)
                             .setFavourite(event.favourite));
 
                     mulUpDetailList.add(new MulUpDetail()//追番

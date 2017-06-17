@@ -129,6 +129,16 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         Event.UpDetailFavourteEvent upDetailFavourteEvent = new Event.UpDetailFavourteEvent();
         upDetailFavourteEvent.favouriteList = mUpDetail.data.favourite.item;
         RxBus.INSTANCE.post(upDetailFavourteEvent);
+        //主页
+        Event.UpDetailArchiveEvent upDetailArchiveEvent = new Event.UpDetailArchiveEvent();
+        upDetailArchiveEvent.archive = mUpDetail.data.archive;
+        upDetailArchiveEvent.setting = mUpDetail.data.setting;
+        upDetailArchiveEvent.favourite = mUpDetail.data.favourite;
+        upDetailArchiveEvent.live = mUpDetail.data.live;
+        RxBus.INSTANCE.post(upDetailArchiveEvent);
+        //追番
+        //兴趣圈
+        //投币
 
     }
 
@@ -138,7 +148,7 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         Glide.with(mContext)
                 .load(mUpDetail.data.card.face)
                 .centerCrop()
-                .placeholder(R.drawable.bili_default_image_tv)
+                .placeholder(R.drawable.bili_default_avatar)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into(mIvAvatar);

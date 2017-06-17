@@ -31,7 +31,7 @@ public class ArchiveFavouriteAdapter extends BaseQuickAdapter<UpDetail.DataBean.
         if (EmptyUtils.isNotEmpty(cover)) {
             for (int i = 0; i < cover.size(); i++) {
                 Glide.with(mContext)
-                        .load(cover)
+                        .load(cover.get(i).pic)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .into((ImageView) holder.getView(coverId[i]));

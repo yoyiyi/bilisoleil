@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.user.MulUpDetail;
 import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.utils.LogUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.SpanUtils;
 
@@ -26,10 +27,10 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
 
     public ArchiveAdapter(List<MulUpDetail> data) {
         super(data);
-        addItemType(MulUpDetail.TYPE_ARCHIVE_LIVE, R.layout.layout_item_up_detail_archive_live);
+        addItemType(MulUpDetail.TYPE_ARCHIVE_LIVE,R.layout.layout_item_up_detail_archive_live);
         addItemType(MulUpDetail.TYPE_ARCHIVE_HEAD, R.layout.layout_item_up_detail_archive_head);
         addItemType(MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO, R.layout.layout_item_up_detail_archive_submited_video_item);
-        addItemType(MulUpDetail.TYPE_ARCHIVE_FAVOURITE, R.layout.item_up_detail_archive_favourite);
+        addItemType(MulUpDetail.TYPE_ARCHIVE_FAVOURITE, R.layout.layout_item_up_detail_archive_favourite);
 
     }
 
@@ -38,7 +39,7 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
     protected void convert(BaseViewHolder holder, MulUpDetail mulUpDetail) {
         switch (mulUpDetail.itemType) {
             case MulUpDetail.TYPE_ARCHIVE_LIVE:
-                holder.setText(R.id.tv_live_state,mulUpDetail.live.title);
+                holder.setText(R.id.tv_live_state,"正在轮播: "+mulUpDetail.live.title);
                 break;
             case MulUpDetail.TYPE_ARCHIVE_HEAD:
                 SpanUtils span = new SpanUtils();
@@ -47,6 +48,7 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
                             .appendSpace(10)
                             .append(mulUpDetail.count + "")
                             .setForegroundColor(AppUtils.getColor(R.color.font_gray))
+                            .appendSpace(10)
                             .appendImage(R.drawable.ic_invisible)
                             .append("未公开")
                             .setForegroundColor(AppUtils.getColor(R.color.font_gray));
@@ -59,6 +61,11 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
                 holder.setVisible(R.id.tv_more, mulUpDetail.count == 0 ? false : true);
                 break;
             case MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO:
+                LogUtils.d("shiAda",holder.getAdapterPosition());
+                LogUtils.d("shiLay",holder.getLayoutPosition());
+                LogUtils.d("shiOld",holder.getOldPosition());
+
+
                 holder.setText(R.id.tv_video_title, mulUpDetail.archiveBean.title)
                         .setText(R.id.tv_video_play_num, NumberUtils.format(mulUpDetail.archiveBean.play + ""))
                         .setText(R.id.tv_video_favourite, NumberUtils.format(mulUpDetail.archiveBean.danmaku + ""));
