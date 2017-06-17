@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp10"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/dp10"
+        app:cardBackgroundColor="@color/card_view_background"
+        app:cardCornerRadius="@dimen/dp2"
+        app:cardElevation="@dimen/dp0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_pay_bangumi_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:padding="@dimen/dp10"
+                android:src="@drawable/ic_charge_power"/>
+
+            <TextView
+                android:id="@+id/tv_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_toEndOf="@+id/iv_pay_bangumi_tips"
+                android:paddingTop="@dimen/dp5"
+                android:text="请赐予我力量吧！"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintStart_toEndOf="@id/iv_pay_bangumi_tips"
+                app:layout_constraintTop_toTopOf="@+id/iv_pay_bangumi_tips"/>
+
+            <TextView
+                android:id="@+id/tv_pay_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_pay"
+                android:layout_toEndOf="@+id/iv_pay_bangumi_tips"
+                android:text="已有10086人为我充电"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintStart_toEndOf="@id/iv_pay_bangumi_tips"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pay"/>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="@dimen/dp30"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp20"
+                android:background="@drawable/shape_bangumi_index_pink_bg"
+                android:gravity="center"
+                android:text="充电"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <View
+                android:id="@id/v_hor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/iv_pay_bangumi_tips"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp10"
+                android:background="@color/line_bg"
+                app:layout_constraintTop_toBottomOf="@+id/iv_pay_bangumi_tips"/>
+
+            <TextView
+                android:id="@+id/tv_week_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingBottom="@dimen/dp10"
+                android:paddingTop="@dimen/dp10"
+                android:text="更多电量，更多灵感 ヾ (o ° ω °  ) ノ"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar4"
+                app:layout_constraintTop_toBottomOf="@id/v_hor"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
