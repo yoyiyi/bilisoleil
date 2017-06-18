@@ -4,6 +4,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -119,6 +120,12 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         initUpInfo();
         super.finishTask();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //  getMenuInflater().inflate(R.menu.menu_region, menu);
+        return false;
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.search.Search;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.network.response.HttpResponse;
@@ -95,10 +96,17 @@ public interface AppService {
 
     /**
      * up主详情界面
+     *
      * @return
      */
     @GET("/x/v2/space?access_key=91c3f4aa6761385fd99998b4f07e193f&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&ps=20&ts=1497595431&vmid=12617707&sign=465dc5c1d330999eb86514482cc7a1f3")
     Flowable<UpDetail> getUpDetail();
+
+    /**
+     * 搜索
+     */
+    @GET("/x/v2/search?access_key=a1ad8aad60bddd751a4d417e2ab4a87e&appkey=1d8b6e7d45233436&build=505000&duration=0&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497764672&sign=5f83c141d366f7fda8f7d5df8c584b50")
+    Flowable<Search> getSearch();
 
 
     /**

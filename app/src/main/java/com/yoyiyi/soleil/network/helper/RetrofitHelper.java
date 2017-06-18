@@ -26,6 +26,7 @@ import com.yoyiyi.soleil.bean.region.AllRegionRank;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.search.Search;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.network.api.ApiService;
@@ -104,6 +105,10 @@ public class RetrofitHelper {
 
     public Flowable<UpDetail> getUpDetail() {
         return mAppService.getUpDetail();
+    }
+
+    public Flowable<Search> getSearch() {
+        return mAppService.getSearch();
     }
 
     /*******************************LiveApi****************************************/
