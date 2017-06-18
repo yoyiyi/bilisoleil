@@ -72,7 +72,7 @@
         android:layout_marginLeft="@dimen/dp8"
         android:paddingRight="@dimen/dp4"
         android:text=""
-        android:textColor="@color/font_gray"
+        android:textColor="@color/black_alpha_30"
         android:textSize="@dimen/text_size_14"
         app:layout_constraintBottom_toBottomOf="@+id/iv_video_preview"
         app:layout_constraintEnd_toEndOf="parent"

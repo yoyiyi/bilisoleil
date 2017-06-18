@@ -36,7 +36,7 @@ public class GameCenterBookGiftAdapter extends BaseQuickAdapter<GameCenter.BookG
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_preview));
-        holder.itemView.setOnClickListener(view -> BrowerActivity.startActivity(mContext, bookGiftBean.link, bookGiftBean.name));
+        holder.itemView.setOnClickListener(view -> BrowerActivity.startActivity(mContext, bookGiftBean.link, bookGiftBean.name,bookGiftBean.image));
         int position = holder.getAdapterPosition();
         if (position == getItemCount() - 1) {
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,

@@ -30,8 +30,8 @@ public class FavouritePresenter extends RxPresenter<FavouriteContract.View> impl
     @Override
     public void getFavouriteData() {
         BaseSubscriber<List<MulUpDetail>> subscriber = RxBus.INSTANCE.toFlowable(Event.UpDetailFavourteEvent.class)
-                .map(upDetailFavourteEvent -> {
-                    List<UpDetail.DataBean.FavouriteBean.ItemBeanX> favouriteList = upDetailFavourteEvent.favouriteList;
+                .map(event -> {
+                    List<UpDetail.DataBean.FavouriteBean.ItemBeanX> favouriteList = event.favouriteList;
                     List<MulUpDetail> mulUpDetailList = new ArrayList<>();
                     Stream.of(favouriteList).forEach(itemBeanX ->
                             mulUpDetailList.add(new MulUpDetail()

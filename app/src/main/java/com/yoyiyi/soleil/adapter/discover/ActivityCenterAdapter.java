@@ -35,6 +35,6 @@ public class ActivityCenterAdapter extends BaseQuickAdapter<ActivityCenter.ListB
                 .into((ImageView) holder.getView(R.id.iv_preview));
         holder.setText(R.id.tv_title, listBean.title).
                 setImageResource(R.id.iv_state, listBean.state == 1 ? R.drawable.ic_badge_end : R.drawable.ic_badge_going);
-         holder.itemView.setOnClickListener(view-> BrowerActivity.startActivity(mContext,listBean.link,listBean.title));
+         holder.itemView.setOnClickListener(view-> BrowerActivity.startActivity(mContext,listBean.link,listBean.title,listBean.cover));
     }
 }

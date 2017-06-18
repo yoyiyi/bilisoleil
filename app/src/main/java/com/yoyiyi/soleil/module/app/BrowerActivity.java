@@ -28,7 +28,6 @@ import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
@@ -48,6 +47,7 @@ public class BrowerActivity extends AppCompatActivity {
     private String mUrl;
     private WebClient mWebChromeClient;
     private WebClientBase mWebViewClient;
+    private String mImg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,14 +58,16 @@ public class BrowerActivity extends AppCompatActivity {
 
         initWedgit();
         //调用shareSDK
-        ShareSDK.initSDK(this, "");
+        // ShareSDK.initSDK(this, "");
 
     }
 
-    public static void startActivity(Context context, String url, String title) {
+    public static void startActivity(Context context, String url, String title, String img) {
         Intent intent = new Intent(context, BrowerActivity.class);
         intent.putExtra(Constants.EXTRA_TITLE, title);
         intent.putExtra(Constants.EXTRA_URL, url);
+        intent.putExtra(Constants.EXTRA_IMAGE, img);
+
         context.startActivity(intent);
     }
 
@@ -82,7 +84,7 @@ public class BrowerActivity extends AppCompatActivity {
         initWebView();
         StatusBarUtil.setColorNoTranslucent(this, AppUtils.getColor(R.color.colorPrimary));
         //强制隐藏加载框
-        AppUtils.runOnUIDelayed(() -> mPwLoading.setVisibility(View.GONE), 650);
+        // AppUtils.runOnUIDelayed(() -> mPwLoading.setVisibility(View.GONE), 650);
     }
 
     protected void initVariables() {
@@ -90,6 +92,7 @@ public class BrowerActivity extends AppCompatActivity {
         if (intent != null) {
             mTitle = intent.getStringExtra(Constants.EXTRA_TITLE);
             mUrl = intent.getStringExtra(Constants.EXTRA_URL);
+            mImg = intent.getStringExtra(Constants.EXTRA_IMAGE);
         }
     }
 
@@ -190,7 +193,7 @@ public class BrowerActivity extends AppCompatActivity {
 
         @Override
         public void onProgressChanged(WebView webView, int i) {
-            if (i >= 80) {
+            if (i >= 40) {
                 mPwLoading.setVisibility(View.GONE);
             } else {
                 mPwLoading.setVisibility(View.VISIBLE);
@@ -207,26 +210,27 @@ public class BrowerActivity extends AppCompatActivity {
     }
 
     private void showShare() {
-        ShareSDK.initSDK(this);
+        //  ShareSDK.initSDK(this);
         OnekeyShare oks = new OnekeyShare();
         //关闭sso授权
         oks.disableSSOWhenAuthorize();
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
-        oks.setTitle("来自bili-soleil的分享");
+        oks.setTitle("来自" + getString(R.string.app_name) + "的分享");
         // titleUrl是标题的网络链接，QQ和QQ空间等使用
         oks.setTitleUrl(mUrl);
         // text是分享文本，所有平台都需要这个字段
-        oks.setText(mTitle);
+        oks.setText(mTitle+"" + mUrl);
+        oks.setImageUrl(mImg);
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
         //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
         // url仅在微信（包括好友和朋友圈）中使用
         oks.setUrl(mUrl);
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("我是测试评论文本");
+        oks.setComment("文本");
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://sharesdk.cn");
+        oks.setSiteUrl(mUrl);
         // 启动分享GUI
         oks.show(this);
     }

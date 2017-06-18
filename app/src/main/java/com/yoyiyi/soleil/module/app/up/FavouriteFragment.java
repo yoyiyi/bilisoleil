@@ -54,6 +54,7 @@ public class FavouriteFragment extends BaseFragment<FavouritePresenter> implemen
     @Override
     public void showFavourite(List<MulUpDetail> mulUpDetailList) {
         mList.addAll(mulUpDetailList);
+        finishTask();
     }
 
     @Override

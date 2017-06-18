@@ -65,6 +65,7 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
     private UpDetail mUpDetail;
+    private String mName;
 
     @Override
     protected int getLayoutId() {
@@ -92,6 +93,13 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
     protected void initWidget() {
         super.initWidget();
         visible(R.id.pw_loading);
+        mAppBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            if (verticalOffset == 0) {
+                mToolbar.setTitle(mName);
+            } else {
+                mToolbar.setTitle("");
+            }
+        });
     }
 
     @Override
@@ -139,9 +147,9 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mViewPager.setOffscreenPageLimit(mTitles.size());
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
+        mViewPager.setCurrentItem(1);
 
     }
-
 
 
     /**
@@ -181,8 +189,9 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
                 .dontAnimate()
                 .into(mIvAvatar);
         //设置基本信息
+        mName = mUpDetail.data.card.name;
         mTvUname.setText(new SpanUtils()
-                .append(mUpDetail.data.card.name)
+                .append(mName)
                 .appendSpace(18)
                 .appendImage(getSex(mUpDetail.data.card.sex), SpanUtils.ALIGN_CENTER)
                 .appendSpace(18)
@@ -191,6 +200,7 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mTvFans.setText(NumberUtils.format(mUpDetail.data.card.fans + "") + " 粉丝");
         mTvFavourite.setText(NumberUtils.format(mUpDetail.data.card.attention + "") + " 关注");
         mTvUserDes.setText(mUpDetail.data.card.sign);
+
     }
 
 

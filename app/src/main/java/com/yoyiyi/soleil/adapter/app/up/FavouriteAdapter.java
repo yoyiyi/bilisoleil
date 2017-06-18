@@ -29,15 +29,22 @@ public class FavouriteAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, Bas
 
     @Override
     protected void convert(BaseViewHolder holder, MulUpDetail mulUpDetail) {
-        Glide.with(mContext)
-                .load(mulUpDetail.favouriteBean.cover)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.bili_default_image_tv)
-                .bitmapTransform(new RoundedCornersTransformation(mContext, 5, 0))
-                .dontAnimate()
-                .into((ImageView) holder.getView(R.id.iv_video_preview));
+        switch (mulUpDetail.getItemType()) {
+            case MulUpDetail.TYPE_FAVOURITE_ITEM:
+                Glide.with(mContext)
+                        .load(mulUpDetail.favouriteBean.cover.get(0).pic)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .placeholder(R.drawable.bili_default_image_tv)
+                        .bitmapTransform(new RoundedCornersTransformation(mContext, 5, 0))
+                        .dontAnimate()
+                        .into((ImageView) holder.getView(R.id.iv_video_preview));
 
-        holder.setText(R.id.tv_video_title, mulUpDetail.favouriteBean.name)
-                .setText(R.id.tv_video_state, mulUpDetail.favouriteBean.state == 2 ? "公开 · " + mulUpDetail.favouriteBean.cur_count + "个内容" : "私密");
+                holder.setText(R.id.tv_video_title, mulUpDetail.favouriteBean.name)
+                        .setText(R.id.tv_favourite_count,mulUpDetail.favouriteBean.cur_count+"")
+                        .setText(R.id.tv_video_state, mulUpDetail.favouriteBean.state == 2 ? "公开 · " + mulUpDetail.favouriteBean.cur_count + "个内容" : "私密");
+                break;
+
+        }
+
     }
 }

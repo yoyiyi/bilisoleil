@@ -41,7 +41,7 @@ public class RegionRecommendBannerSection extends StatelessSection {
                 .start();
         bannar.setOnBannerListener(i -> {
             RegionRecommend.BannerBean.TopBean bannerBean = mList.get(i);
-            BrowerActivity.startActivity(mContext,bannerBean.uri,bannerBean.title);
+            BrowerActivity.startActivity(mContext,bannerBean.uri,bannerBean.title,bannerBean.image);
         });
     }
 

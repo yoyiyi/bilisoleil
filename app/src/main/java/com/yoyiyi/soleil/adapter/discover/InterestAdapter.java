@@ -53,7 +53,7 @@ public class InterestAdapter extends BaseMultiItemQuickAdapter<MulInterest, Base
                         .start();
                 banner.setOnBannerListener(i -> {
                     InterestAd.ResultBean interestAd = adList.get(i);
-                    BrowerActivity.startActivity(mContext, interestAd.ads_image_link, interestAd.ads_title);
+                    BrowerActivity.startActivity(mContext, interestAd.ads_image_link, interestAd.ads_title,interestAd.ads_image);
                 });
                 break;
             case MulInterest.TYPE_CATEGRORY:

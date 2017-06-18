@@ -34,6 +34,6 @@ public class TopicCenterAdapter extends BaseQuickAdapter<TopicCenter.ListBean, B
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_preview));
         holder.setText(R.id.tv_title, listBean.title);
-        holder.itemView.setOnClickListener(view -> BrowerActivity.startActivity(mContext, listBean.link, listBean.title));
+        holder.itemView.setOnClickListener(view -> BrowerActivity.startActivity(mContext, listBean.link, listBean.title,listBean.cover));
     }
 }

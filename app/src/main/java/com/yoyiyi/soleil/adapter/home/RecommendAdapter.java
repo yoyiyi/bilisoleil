@@ -49,7 +49,7 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .start();
                 bannar.setOnBannerListener(i -> {
                     Recommend.BannerItemBean bannerBean = banner_item.get(i);
-                    BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title);
+                    BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title,bannerBean.image);
                 });
                 break;
 

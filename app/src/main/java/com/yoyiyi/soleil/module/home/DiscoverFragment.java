@@ -189,10 +189,10 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 startActivity(new Intent(getApplicationContext(), GameCenterActivity.class));
                 break;
             case R.id.rl_mall://周边商城
-                BrowerActivity.startActivity(getActivity(), Constants.SHOP_URL, "bilibili - 周边商城");
+                BrowerActivity.startActivity(getActivity(), Constants.SHOP_URL, "bilibili - 周边商城","");
                 break;
             case R.id.rl_black_list://小黑屋
-                BrowerActivity.startActivity(getActivity(), Constants.BLACK_URL, "小黑屋");
+                BrowerActivity.startActivity(getActivity(), Constants.BLACK_URL, "小黑屋","");
                 break;
             case R.id.rl_group://小黑屋
                 startActivity(new Intent(getApplicationContext(), InterestActivity.class));

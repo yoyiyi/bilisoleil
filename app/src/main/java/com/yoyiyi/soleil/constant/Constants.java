@@ -27,4 +27,5 @@ public interface Constants {
     String BLACK_URL = "https://www.bilibili.com/blackroom/#/";
 
     String  EXTRA_SETTING  = "extra_setting";
+    String EXTRA_IMAGE ="extra_image";
 }

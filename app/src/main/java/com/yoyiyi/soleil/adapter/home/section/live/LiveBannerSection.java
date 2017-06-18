@@ -43,7 +43,7 @@ public class LiveBannerSection extends StatelessSection {
                 .start();
         bannar.setOnBannerListener(i -> {
             LivePartition.BannerBean bannerBean = mList.get(i);
-            BrowerActivity.startActivity(mContext,bannerBean.link,bannerBean.title);
+            BrowerActivity.startActivity(mContext,bannerBean.link,bannerBean.title,bannerBean.img);
         });
 
     }
