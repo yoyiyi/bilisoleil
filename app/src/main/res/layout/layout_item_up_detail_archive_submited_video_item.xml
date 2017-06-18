@@ -19,7 +19,7 @@
             android:id="@+id/iv_video_preview"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp120"
-            android:scaleType="center"/>
+            android:scaleType="fitXY"/>
 
         <TextView
             android:id="@+id/tv_video_title"

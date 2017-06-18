@@ -55,6 +55,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     CoordinatorLayout mMainContent;
     @BindView(R.id.fab)
     FloatingActionButton mFab;
+
     private VideoDetail.DataBean mVideoDetail;
     private VideoDetailComment.DataBean mVideoDetailComment;
 
@@ -71,6 +72,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     protected int getLayoutId() {
         return R.layout.activity_video_detail1;
     }
+
 
     @Override
     public void showVideoDetail(VideoDetail.DataBean videoDetail) {
@@ -105,17 +107,12 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into(mIvVideoPreview);
+        super.finishTask();
+        initEvent();
+    }
 
-        mTitles.add("简介");
-        mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
-
-        mFragments.add(SummaryFragment.newInstance());
-        mFragments.add(CommentFragment.newInstance());
-        mViewPager.setOffscreenPageLimit(mTitles.size());
-        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);
-
-
+    @Override
+    protected void initEvent() {
         Event.VideoDetailEvent videoDetailEvent = new Event.VideoDetailEvent();
         videoDetailEvent.videoDetail = mVideoDetail;
 
@@ -124,8 +121,23 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
 
         RxBus.INSTANCE.post(videoDetailEvent);
         RxBus.INSTANCE.post(videoDetailCommentEvent);
+    }
 
 
+    @Override
+    protected void initTitle() {
+        mTitles.add("简介");
+        mTitles.add("评论(" + mVideoDetailComment.page.acount + ")");
+
+    }
+
+    @Override
+    protected void initFragment() {
+        mFragments.add(SummaryFragment.newInstance());
+        mFragments.add(CommentFragment.newInstance());
+        mViewPager.setOffscreenPageLimit(mTitles.size());
+        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
+        mSlidingTabLayout.setViewPager(mViewPager);
     }
 
     @Override
@@ -174,6 +186,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
         });
         */
         // initFAB();
+        visible(R.id.pw_loading);
         initAppBar();
     }
 
@@ -201,6 +214,19 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
                 mTvAv.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void showError(String msg) {
+        super.showError(msg);
+        gone(R.id.pw_loading);
+
+    }
+
+    @Override
+    public void complete() {
+        super.complete();
+        gone(R.id.pw_loading);
     }
 }
 

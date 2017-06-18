@@ -88,10 +88,33 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         getActivityComponent().inject(this);
     }
 
+    @Override
+    protected void initWidget() {
+        super.initWidget();
+        visible(R.id.pw_loading);
+    }
+
+    @Override
+    public void showError(String msg) {
+        super.showError(msg);
+        gone(R.id.pw_loading);
+    }
+
+    @Override
+    public void complete() {
+        super.complete();
+        gone(R.id.pw_loading);
+    }
 
     @Override
     protected void finishTask() {
         initUpInfo();
+        super.finishTask();
+
+    }
+
+    @Override
+    protected void initTitle() {
         mTitles.addAll(Arrays.asList(
                 "主页",
                 "投稿(" + mUpDetail.data.archive.count + ")",
@@ -101,6 +124,10 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
                 "投币",
                 "游戏"
         ));
+    }
+
+    @Override
+    protected void initFragment() {
         mFragments.add(ArchiveFragment.newInstance(1));
         mFragments.add(SubmitedVideoFragment.newInstance(mUpDetail.data.setting.submited_video));
         mFragments.add(FavouriteFragment.newInstance(mUpDetail.data.setting.fav_video));
@@ -113,14 +140,15 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
 
-        initEvent();
     }
+
 
 
     /**
      * 初始化发射事件
      */
-    private void initEvent() {
+    @Override
+    protected void initEvent() {
         //投稿
         Event.UpDetailSubmitedVideoEvent upDetailSubmitedVideoEvent = new Event.UpDetailSubmitedVideoEvent();
         upDetailSubmitedVideoEvent.archivList = mUpDetail.data.archive.item;

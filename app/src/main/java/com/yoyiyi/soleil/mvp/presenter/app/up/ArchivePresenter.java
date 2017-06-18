@@ -46,20 +46,24 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
                             .setTitle("全部投稿")
                             .setCount(event.archive.count)
                             .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD));
-                    Stream.of(archivList.subList(0, 2)) //全部投稿内容
+                    int[] position = {0};
+                    Stream.of(archivList) //全部投稿内容
+                            .limit(2)
                             .forEach(
-                                    itemBean ->
-                                            mulUpDetailList.add(new MulUpDetail()
-                                                    .setItemType(MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO)
-                                                    .setSpanSize(MulUpDetail.ONE_SPAN_SIZE)
-                                                    .setArchiveBean(itemBean)));
+                                    itemBean -> {
+                                        mulUpDetailList.add(new MulUpDetail()
+                                                .setPosition(position[0])
+                                                .setItemType(MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO)
+                                                .setSpanSize(MulUpDetail.ONE_SPAN_SIZE)
+                                                .setArchiveBean(itemBean));
+                                        position[0]++;
+                                    });
 
                     mulUpDetailList.add(new MulUpDetail()//最近硬币
                             .setTitle("最近投硬币的视频")
                             .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
                             .setItemType(MulUpDetail.TYPE_ARCHIVE_HEAD)
                             .setState(event.setting.coins_video));
-
                     mulUpDetailList.add(new MulUpDetail()//收藏夹
                             .setSpanSize(MulUpDetail.TWO_SPAN_SIZE)
                             .setTitle("TA的收藏夹")

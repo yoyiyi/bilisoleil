@@ -124,6 +124,17 @@
         </android.support.design.widget.AppBarLayout>
 
 
+        <com.yoyiyi.soleil.widget.ProgressWheel
+            android:id="@+id/pw_loading"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:matProg_barColor="@color/colorPrimary"
+            app:matProg_barWidth="@dimen/dp4"
+            app:matProg_fillRadius="false"
+            app:matProg_linearProgress="true"
+            app:matProg_progressIndeterminate="true"/>
+
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"

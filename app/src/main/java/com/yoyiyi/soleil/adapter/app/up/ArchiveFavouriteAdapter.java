@@ -38,6 +38,11 @@ public class ArchiveFavouriteAdapter extends BaseQuickAdapter<UpDetail.DataBean.
             }
             holder.setText(R.id.tv_favourite_title, item.name)
                     .setText(R.id.tv_favourite_count, item.cur_count + "");
+            if (holder.getAdapterPosition() == getItemCount() - 1) {
+                holder.setVisible(R.id.space, true);
+            } else {
+                holder.setVisible(R.id.space, false);
+            }
         }
     }
 }

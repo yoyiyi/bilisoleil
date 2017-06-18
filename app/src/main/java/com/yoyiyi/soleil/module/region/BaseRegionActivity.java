@@ -62,12 +62,29 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
         mViewPager = ButterKnife.findById(this, R.id.view_pager);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_region  , menu);
+        getMenuInflater().inflate(R.menu.menu_region, menu);
         return true;
     }
 
+    protected void initFragment() {
+    }
+
+    protected void initTitle() {
+    }
+
+    @Override
+    protected void finishTask() {
+        initTitle();
+        initFragment();
+        initEvent();
+    }
+
+    protected void initEvent() {
+
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -78,6 +95,7 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
 
         return super.onOptionsItemSelected(item);
     }
+
     protected static class BaseRegionTypeAdapte extends FragmentStatePagerAdapter {
         private List<String> mTitles;
         private List<Fragment> mFragments;

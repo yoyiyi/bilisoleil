@@ -26,6 +26,7 @@ public class MulUpDetail implements MultiItemEntity {
 
 
     public int itemType;
+    public int position;
 
 
     public int count;
@@ -53,6 +54,11 @@ public class MulUpDetail implements MultiItemEntity {
 
     public MulUpDetail setCount(int count) {
         this.count = count;
+        return this;
+    }
+
+    public MulUpDetail setPosition(int position) {
+        this.position = position;
         return this;
     }
 

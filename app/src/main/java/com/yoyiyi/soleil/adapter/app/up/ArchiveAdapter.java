@@ -2,6 +2,7 @@ package com.yoyiyi.soleil.adapter.app.up;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -60,7 +61,8 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
                 holder.setText(R.id.tv_title, span.create());
                 holder.setVisible(R.id.tv_more, mulUpDetail.count == 0 ? false : true);
                 break;
-            case MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO:
+
+            case MulUpDetail.TYPE_ARCHIVE_ALL_SUBMIT_VIDEO://全部投稿
                 LogUtils.d("shiAda",holder.getAdapterPosition());
                 LogUtils.d("shiLay",holder.getLayoutPosition());
                 LogUtils.d("shiOld",holder.getOldPosition());
@@ -76,6 +78,23 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
                         .dontAnimate()
                         .into((ImageView) holder.getView(R.id.iv_video_preview));
 
+                if (mulUpDetail.position % 2 == 0){
+                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)holder.itemView.getLayoutParams();
+                    params.setMargins(
+                            (int) mContext.getResources().getDimension(R.dimen.dp10),
+                            (int) mContext.getResources().getDimension(R.dimen.dp10),
+                            (int)mContext.getResources().getDimension(R.dimen.dp5),
+                            (int)mContext.getResources().getDimension(R.dimen.dp10));
+                    holder.itemView.setLayoutParams(params);
+                }else {
+                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)holder.itemView.getLayoutParams();
+                    params.setMargins(
+                            (int) mContext.getResources().getDimension(R.dimen.dp5),
+                            (int) mContext.getResources().getDimension(R.dimen.dp10),
+                            (int)mContext.getResources().getDimension(R.dimen.dp10),
+                            (int)mContext.getResources().getDimension(R.dimen.dp10));
+                    holder.itemView.setLayoutParams(params);
+                }
                 break;
 
             case MulUpDetail.TYPE_ARCHIVE_FAVOURITE:
@@ -86,6 +105,7 @@ public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseV
                         StaggeredGridLayoutManager.HORIZONTAL);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(new ArchiveFavouriteAdapter(mulUpDetail.favourite.item));
+
                 break;
         }
 
