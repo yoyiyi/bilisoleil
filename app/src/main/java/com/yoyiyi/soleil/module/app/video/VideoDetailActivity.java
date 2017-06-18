@@ -135,11 +135,13 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     protected void initFragment() {
         mFragments.add(SummaryFragment.newInstance());
         mFragments.add(CommentFragment.newInstance());
-      /*  mViewPager.setOffscreenPageLimit(mTitles.size());
-        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);*/
-    }
 
+    }
+    @Override
+    protected void initViewPager() {
+        super.initViewPager();
+        setCurrentItem(0);
+    }
     @Override
     protected void initToolbar() {
         //mToolbar.setNavigationIcon(R.drawable.ic_clip_back_white);

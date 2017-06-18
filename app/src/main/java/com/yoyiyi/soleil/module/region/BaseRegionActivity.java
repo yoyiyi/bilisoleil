@@ -87,11 +87,14 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
         mViewPager.setOffscreenPageLimit(mTitles.size());
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(1);
     }
 
     protected void initEvent() {
 
+    }
+
+    protected void setCurrentItem(int pos){
+        mViewPager.setCurrentItem(pos);
     }
 
     @Override

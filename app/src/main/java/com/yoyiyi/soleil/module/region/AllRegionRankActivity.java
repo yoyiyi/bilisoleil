@@ -49,6 +49,10 @@ public class AllRegionRankActivity extends BaseRegionActivity {
             Bundle bundle = intent.getBundleExtra(Constants.EXTRA_BUNDLE);
             mTitle = bundle.getString(Constants.EXTRA_TITLE);
         }
+    }
+
+    @Override
+    protected void initTitle() {
         for (int i = 0; i < mTitlesArr.length; i++) {
             mTitles.add(mTitlesArr[i]);
             mFragments.add(AllRegionRankFragment.newInstance(mTypesArr[i]));
@@ -56,11 +60,8 @@ public class AllRegionRankActivity extends BaseRegionActivity {
     }
 
     @Override
-    protected void initWidget() {
-        super.initWidget();
-        mViewPager.setOffscreenPageLimit(mTitlesArr.length + 1);
-        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);
+    protected void initViewPager() {
+        super.initViewPager();
         switch (mTitle) {
             case "番剧":
                 mViewPager.setCurrentItem(0);
@@ -96,6 +97,12 @@ public class AllRegionRankActivity extends BaseRegionActivity {
                 mViewPager.setCurrentItem(10);
                 break;
         }
+    }
+
+    @Override
+    protected void initWidget() {
+        super.initWidget();
+        finishTask();
     }
 
     @Override

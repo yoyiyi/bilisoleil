@@ -62,12 +62,13 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
         mFragments.add(UpperFragment.newsInstance());
         mFragments.add(MovieFragment.newsInstance());
 
-       /* mViewPager.setOffscreenPageLimit(mTitles.size());
-        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(1);*/
     }
 
+    @Override
+    protected void initViewPager() {
+        super.initViewPager();
+         setCurrentItem(1);
+    }
 
     @Override
     protected void loadData() {

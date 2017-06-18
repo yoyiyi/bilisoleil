@@ -151,13 +151,14 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mFragments.add(CoinsVideoFragment.newInstance(mUpDetail.data.setting.coins_video));
         mFragments.add(PlayGamesFragment.newInstance(mUpDetail.data.setting.played_game));
 
-      /*  mViewPager.setOffscreenPageLimit(mTitles.size());
-        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(1);*/
 
     }
 
+    @Override
+    protected void initViewPager() {
+        super.initViewPager();
+        setCurrentItem(0);
+    }
 
     /**
      * 初始化发射事件
