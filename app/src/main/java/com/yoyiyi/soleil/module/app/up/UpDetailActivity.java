@@ -151,10 +151,10 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
         mFragments.add(CoinsVideoFragment.newInstance(mUpDetail.data.setting.coins_video));
         mFragments.add(PlayGamesFragment.newInstance(mUpDetail.data.setting.played_game));
 
-        mViewPager.setOffscreenPageLimit(mTitles.size());
+      /*  mViewPager.setOffscreenPageLimit(mTitles.size());
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
         mSlidingTabLayout.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(1);*/
 
     }
 
@@ -256,7 +256,6 @@ public class UpDetailActivity extends BaseRegionActivity<UpDetailPresenter, Null
                 lvRes = R.drawable.ic_lv6_large;
                 break;
             case 7:
-
                 lvRes = R.drawable.ic_lv7_large;
                 break;
             case 8:

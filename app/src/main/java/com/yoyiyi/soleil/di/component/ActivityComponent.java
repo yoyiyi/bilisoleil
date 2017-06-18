@@ -16,6 +16,7 @@ import com.yoyiyi.soleil.module.discover.GameCenterActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
 import com.yoyiyi.soleil.module.region.AdActivity;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
+import com.yoyiyi.soleil.module.search.SearchActivity;
 import com.yoyiyi.soleil.module.search.TotalSearchActivity;
 
 import dagger.Component;
@@ -56,5 +57,8 @@ public interface ActivityComponent {
     void inject(VideoDetailActivity videoDetailActivity);
 
     void inject(UpDetailActivity upDetailActivity);
+
+    void inject(SearchActivity searchActivity);
+
 
 }

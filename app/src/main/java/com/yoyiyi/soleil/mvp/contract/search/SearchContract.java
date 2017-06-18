@@ -6,7 +6,7 @@ import com.yoyiyi.soleil.bean.search.Search;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/18 13:57
- * 描述:
+ * 描述:搜索
  */
 
 public interface SearchContract {

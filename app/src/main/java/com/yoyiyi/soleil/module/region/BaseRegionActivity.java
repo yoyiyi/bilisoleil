@@ -79,7 +79,15 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
     protected void finishTask() {
         initTitle();
         initFragment();
+        initViewPager();
         initEvent();
+    }
+
+    protected void initViewPager(){
+        mViewPager.setOffscreenPageLimit(mTitles.size());
+        mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
+        mSlidingTabLayout.setViewPager(mViewPager);
+        mViewPager.setCurrentItem(1);
     }
 
     protected void initEvent() {

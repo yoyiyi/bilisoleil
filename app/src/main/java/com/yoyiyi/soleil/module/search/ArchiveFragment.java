@@ -32,6 +32,10 @@ public class ArchiveFragment extends BaseSearchFragment<ArchivePresenter, Search
         fragment.setArguments(bundle);
         return fragment;
     }
+    public static ArchiveFragment newsInstance() {
+        ArchiveFragment fragment = new ArchiveFragment();
+        return fragment;
+    }
 
     @Override
     public void initVariables() {

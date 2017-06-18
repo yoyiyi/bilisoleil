@@ -135,9 +135,9 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     protected void initFragment() {
         mFragments.add(SummaryFragment.newInstance());
         mFragments.add(CommentFragment.newInstance());
-        mViewPager.setOffscreenPageLimit(mTitles.size());
+      /*  mViewPager.setOffscreenPageLimit(mTitles.size());
         mViewPager.setAdapter(new BaseRegionTypeAdapte(getSupportFragmentManager(), mTitles, mFragments));
-        mSlidingTabLayout.setViewPager(mViewPager);
+        mSlidingTabLayout.setViewPager(mViewPager);*/
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.yoyiyi.soleil.event;
 
+
 import com.yoyiyi.soleil.bean.app.VideoDetail;
 import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.search.Search;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 
 import java.util.List;
@@ -46,5 +48,9 @@ public class Event {
 
     public static class UpDetailFavourteEvent {
         public List<UpDetail.DataBean.FavouriteBean.ItemBeanX> favouriteList;
+    }
+
+    public static class SearchArchiveEvent {
+        public Search.DataBean.ItemsBean archive;
     }
 }
