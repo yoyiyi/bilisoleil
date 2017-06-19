@@ -19,12 +19,12 @@ public class Movie {
      * ttl : 1
      */
 
- /*   public int code;
+    public int code;
     public DataBean data;
     public String message;
-    public int ttl;*/
+    public int ttl;
 
-    //public static class DataBean {
+    public static class DataBean {
         /**
          * trackid : 5366355170602595779
          * pages : 6
@@ -50,7 +50,7 @@ public class Movie {
              * cover_mark : 免费观看
              * actors : 海伦·米伦、麦克·辛、詹姆斯·克伦威尔、阿历克斯·杰宁斯、安吉拉·兰斯伯瑞
              * staff : 导演：斯蒂芬·弗雷斯
-             编剧：皮特·摩根
+             * 编剧：皮特·摩根
              * length : 103
              * status : 2
              * attentions : 0
@@ -74,5 +74,5 @@ public class Movie {
             public int status;
             public int attentions;
         }
-   // }
+    }
 }

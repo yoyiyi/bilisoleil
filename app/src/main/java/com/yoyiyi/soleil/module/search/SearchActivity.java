@@ -57,8 +57,8 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
     @Override
     protected void initFragment() {
         mFragments.add(ArchiveFragment.newsInstance());
-        mFragments.add(BangumiFragment.newsInstance());
-        mFragments.add(UpperFragment.newsInstance());
+        mFragments.add(SeasonFragment.newsInstance());
+        mFragments.add(UpFragment.newsInstance());
         mFragments.add(MovieFragment.newsInstance());
 
     }

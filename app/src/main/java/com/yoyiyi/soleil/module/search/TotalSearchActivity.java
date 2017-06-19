@@ -137,8 +137,8 @@ public class TotalSearchActivity extends BaseActivity<TotalSearchPresenter> impl
         mTitles.add(mList.get(2).name + formatTotal(mList.get(2).total));
 
         mFragments.add(ArchiveFragment.newsInstance());
-        mFragments.add(BangumiFragment.newsInstance());
-        mFragments.add(UpperFragment.newsInstance());
+        mFragments.add(SeasonFragment.newsInstance());
+        mFragments.add(UpFragment.newsInstance());
         mFragments.add(MovieFragment.newsInstance());
 
         SearchNavAdapter navAdapter = new SearchNavAdapter(getSupportFragmentManager(), mTitles, mFragments);

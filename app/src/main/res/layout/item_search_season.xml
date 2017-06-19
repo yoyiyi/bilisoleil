@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp5"
+    android:paddingEnd="@dimen/dp10"
+    android:paddingStart="@dimen/dp10"
+    android:paddingTop="@dimen/dp5">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.36"/>
+
+    <ImageView
+        android:id="@+id/iv_video_preview"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="@dimen/dp140"
+        android:layout_marginRight="@dimen/dp10"
+        app:layout_constraintEnd_toStartOf="@id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tv_video_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp6"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="ssss"
+        android:textColor="@color/black_80"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toEndOf="@id/guideline4"
+        />
+
+    <TextView
+        android:id="@+id/tv_video_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp6"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="ssss"
+        android:textColor="@color/black_alpha_30"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintStart_toEndOf="@id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_video_title"/>
+
+    <TextView
+        android:id="@+id/tv_video_newest_season"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp6"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="ssss"
+        android:textColor="@color/black_alpha_30"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintStart_toEndOf="@id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_video_des"/>
+</android.support.constraint.ConstraintLayout>

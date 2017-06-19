@@ -19,12 +19,12 @@ public class Up {
      * ttl : 1
      */
 
-  /*  public int code;
+    public int code;
     public DataBean data;
     public String message;
     public int ttl;
 
-    public static class DataBean {*/
+    public static class DataBean {
         /**
          * trackid : 9958936878016557296
          * pages : 50
@@ -77,5 +77,5 @@ public class Up {
                 public String desc;
             }
         }
-    //}
+    }
 }

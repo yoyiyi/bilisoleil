@@ -20,6 +20,9 @@ import com.yoyiyi.soleil.module.region.AllRegionRankFragment;
 import com.yoyiyi.soleil.module.region.RegionTypeFragment;
 import com.yoyiyi.soleil.module.region.RegionTypeRecommendFragment;
 import com.yoyiyi.soleil.module.search.ArchiveFragment;
+import com.yoyiyi.soleil.module.search.MovieFragment;
+import com.yoyiyi.soleil.module.search.SeasonFragment;
+import com.yoyiyi.soleil.module.search.UpFragment;
 
 import dagger.Component;
 
@@ -68,6 +71,11 @@ public interface FragmentComponent {
 
     void inject(FavouriteFragment favouriteFragment);
 
+    void inject(MovieFragment movieFragment);
+
+    void inject(UpFragment upFragment);
+
+    void inject(SeasonFragment seasonFragment);
 
 
 }

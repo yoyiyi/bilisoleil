@@ -26,8 +26,11 @@ import com.yoyiyi.soleil.bean.region.AllRegionRank;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.search.Movie;
 import com.yoyiyi.soleil.bean.search.Search;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
+import com.yoyiyi.soleil.bean.search.Season;
+import com.yoyiyi.soleil.bean.search.Up;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.network.api.ApiService;
 import com.yoyiyi.soleil.network.api.AppService;
@@ -109,6 +112,18 @@ public class RetrofitHelper {
 
     public Flowable<Search> getSearch() {
         return mAppService.getSearch();
+    }
+
+    public Flowable<Up> getUp() {
+        return mAppService.getUp();
+    }
+
+    public Flowable<Movie> getMovie() {
+        return mAppService.getMovie();
+    }
+
+    public Flowable<Season> getSeason() {
+        return mAppService.getSeason();
     }
 
     /*******************************LiveApi****************************************/
