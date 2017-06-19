@@ -9,8 +9,11 @@ import com.yoyiyi.soleil.bean.recommend.Recommend;
 import com.yoyiyi.soleil.bean.region.Region;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
 import com.yoyiyi.soleil.bean.region.RegionType;
+import com.yoyiyi.soleil.bean.search.Movie;
 import com.yoyiyi.soleil.bean.search.Search;
 import com.yoyiyi.soleil.bean.search.SearchArchive;
+import com.yoyiyi.soleil.bean.search.Season;
+import com.yoyiyi.soleil.bean.search.Up;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.network.response.HttpResponse;
 
@@ -109,6 +112,26 @@ public interface AppService {
     Flowable<Search> getSearch();
 
 
+    /**
+     * up
+     * @return
+     */
+    @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848618&type=2&sign=36f143a24d2266a9e949aa4206297c4a")
+    Flowable<HttpResponse<Up>> getUp();
+
+    /**
+     *番剧
+     * @return
+     */
+    @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848586&type=1&sign=32ee9a1e077484a2d13d924df44f1ab4")
+    Flowable<HttpResponse<Season>> getSeason();
+
+    /**
+     * 影视
+     * @return
+     */
+    @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848643&type=3&sign=b1f279d5b3cdeed4837ed910515cdf43")
+    Flowable<HttpResponse<Movie>> getMovie();
     /**
      * 番剧搜索
      *//*

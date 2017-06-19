@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="更多热门评论 >>"
         android:textColor="@color/pink_text_color"
-        android:textSize="@dimen/text_size_16"
+        android:textSize="@dimen/text_size_14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"/>
