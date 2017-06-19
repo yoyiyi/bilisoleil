@@ -19,7 +19,7 @@ import javax.inject.Inject;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/17 18:00
- * 描述:综合界面搜索presenter
+ * 描述:综合界面主页presenter
  */
 
 public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implements ArchiveContract.Presenter<ArchiveContract.View> {

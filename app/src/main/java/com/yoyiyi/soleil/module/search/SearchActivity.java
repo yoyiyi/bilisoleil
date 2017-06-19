@@ -56,7 +56,6 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
 
     @Override
     protected void initFragment() {
-
         mFragments.add(ArchiveFragment.newsInstance());
         mFragments.add(BangumiFragment.newsInstance());
         mFragments.add(UpperFragment.newsInstance());
@@ -67,7 +66,7 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
     @Override
     protected void initViewPager() {
         super.initViewPager();
-         setCurrentItem(1);
+        setCurrentItem(1);
     }
 
     @Override
@@ -84,7 +83,9 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
     protected void initEvent() {
         //发射数据 给首页
         Event.SearchArchiveEvent searchArchiveEvent = new Event.SearchArchiveEvent();
-        searchArchiveEvent.archive = mSearch.data.items;
+        searchArchiveEvent.itemBean = mSearch.data.items;
+        searchArchiveEvent.movieCount = mSearch.data.nav.get(2).total;
+        searchArchiveEvent.seasonCount = mSearch.data.nav.get(1).total;
         RxBus.INSTANCE.post(searchArchiveEvent);
     }
 
