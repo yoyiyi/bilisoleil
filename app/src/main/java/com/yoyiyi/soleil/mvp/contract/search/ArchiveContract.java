@@ -1,7 +1,8 @@
 package com.yoyiyi.soleil.mvp.contract.search;
 
-import com.yoyiyi.soleil.base.BaseContract;
-import com.yoyiyi.soleil.bean.search.SearchArchive;
+import com.yoyiyi.soleil.bean.search.MulSearchArchive;
+
+import java.util.List;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -11,15 +12,17 @@ import com.yoyiyi.soleil.bean.search.SearchArchive;
 
 public interface ArchiveContract {
 
-    interface View extends BaseContract.BaseView {
+    interface View extends BaseSearchContract.View {
 
-        void showSearchArchive(SearchArchive searchArchive);
+        void showSearchArchive(List<MulSearchArchive> mulSearchArchiveList);
 
-        void showLoading();
     }
 
-    interface Presenter<T> extends BaseContract.BasePresenter<T> {
+    interface Presenter<T> extends BaseSearchContract.Presenter<T> {
 
-        void getSearchArchiveData(String keyword, int page, int pagesize);
+        // void getSearchArchiveData(String keyword, int page, int pagesize);
+
+        void getSearchArchiveData();
+
     }
 }

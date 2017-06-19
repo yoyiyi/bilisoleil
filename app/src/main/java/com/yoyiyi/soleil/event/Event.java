@@ -51,6 +51,8 @@ public class Event {
     }
 
     public static class SearchArchiveEvent {
-        public Search.DataBean.ItemsBean archive;
+        public Search.DataBean.ItemsBean itemBean;
+        public int seasonCount;
+        public int movieCount;
     }
 }

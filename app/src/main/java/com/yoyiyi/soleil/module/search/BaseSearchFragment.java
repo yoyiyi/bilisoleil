@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseContract;
 import com.yoyiyi.soleil.base.BaseFragment;
+import com.yoyiyi.soleil.mvp.contract.search.BaseSearchContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +19,13 @@ import butterknife.ButterKnife;
  * @date 创建时间：2017/5/29 11:46
  * 描述:
  */
-public abstract class BaseSearchFragment<T extends BaseContract.BasePresenter, K> extends BaseFragment<T> {
+public abstract class BaseSearchFragment<T extends BaseContract.BasePresenter, K> extends BaseFragment<T> implements BaseSearchContract.View {
 
     protected List<K> mList = new ArrayList<>();
     protected ImageView mIvSearchLoad;
     protected AnimationDrawable mAnimationDrawable;
     protected RecyclerView mRecycler;
+
     @Override
     public void initWidget() {
         mIvSearchLoad = ButterKnife.findById(mRootView, R.id.iv_search_load);
@@ -53,5 +55,19 @@ public abstract class BaseSearchFragment<T extends BaseContract.BasePresenter, K
         if (mAnimationDrawable != null) {
             mAnimationDrawable.stop();
         }
+    }
+
+    @Override
+    public void showLoading() {
+        if (mIvSearchLoad != null)
+            mIvSearchLoad.setImageResource(R.drawable.anim_search_loading);
+        if (mAnimationDrawable != null)
+            mAnimationDrawable = (AnimationDrawable) mIvSearchLoad.getDrawable();
+        if (mIvSearchLoad != null)
+            visible(mIvSearchLoad);
+        if (mRecycler != null)
+            gone(mRecycler);
+        if (mAnimationDrawable != null)
+            mAnimationDrawable.start();
     }
 }
