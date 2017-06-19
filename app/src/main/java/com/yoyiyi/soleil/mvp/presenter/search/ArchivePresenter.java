@@ -42,7 +42,7 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
                     List<Search.DataBean.ItemsBean.SeasonBean> season = itemBean.season;//番剧
                     List<MulSearchArchive> mulSearchArchiveList = new ArrayList<>();
                     Stream.of(season).forEach(
-                            seasonBean -> mulSearchArchiveList.add(//
+                            seasonBean -> mulSearchArchiveList.add(//番剧
                                     new MulSearchArchive()
                                             .setItemType(MulSearchArchive.TYPE_SEASON)
                                             .setSeason(seasonBean)));
