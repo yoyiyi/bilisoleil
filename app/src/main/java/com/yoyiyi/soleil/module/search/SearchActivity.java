@@ -46,11 +46,11 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
     protected void initTitle() {
         mTitles.add("综合");
         mTitles.add(mSearch.data.nav.get(0).name + (
-                mSearch.data.nav.get(0).total == 0 ? "" : "(" + mSearch.data.nav.get(0).total + ")"));
+                mSearch.data.nav.get(0).total == 0 ? "" : "(" + (mSearch.data.nav.get(0).total > 99 ? "99+" : mSearch.data.nav.get(0).total) + ")"));
         mTitles.add(mSearch.data.nav.get(1).name + (
-                mSearch.data.nav.get(1).total == 0 ? "" : "(" + mSearch.data.nav.get(1).total + ")"));
+                mSearch.data.nav.get(1).total == 0 ? "" : "(" + (mSearch.data.nav.get(1).total > 99 ? "99+" : mSearch.data.nav.get(1).total) + ")"));
         mTitles.add(mSearch.data.nav.get(2).name + (
-                mSearch.data.nav.get(2).total == 0 ? "" : "(" + mSearch.data.nav.get(2).total + ")"));
+                mSearch.data.nav.get(2).total == 0 ? "" : "(" + (mSearch.data.nav.get(2).total > 99 ? "99+" : mSearch.data.nav.get(2).total) + ")"));
 
     }
 
@@ -66,7 +66,7 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
     @Override
     protected void initViewPager() {
         super.initViewPager();
-        setCurrentItem(1);
+        setCurrentItem(0);
     }
 
     @Override
@@ -74,10 +74,12 @@ public class SearchActivity extends BaseRegionActivity<SearchPresenter, Nullable
         mPresenter.getSearchData();
     }
 
+
     @Override
     protected void initInject() {
         getActivityComponent().inject(this);
     }
+
 
     @Override
     protected void initEvent() {

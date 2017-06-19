@@ -1,6 +1,9 @@
 package com.yoyiyi.soleil.module.search;
 
+import android.support.v7.widget.LinearLayoutManager;
+
 import com.yoyiyi.soleil.R;
+import com.yoyiyi.soleil.adapter.search.MulArchiveAdapter;
 import com.yoyiyi.soleil.bean.search.MulSearchArchive;
 import com.yoyiyi.soleil.mvp.contract.search.ArchiveContract;
 import com.yoyiyi.soleil.mvp.presenter.search.ArchivePresenter;
@@ -14,6 +17,8 @@ import java.util.List;
  */
 public class ArchiveFragment extends BaseSearchFragment<ArchivePresenter, MulSearchArchive> implements ArchiveContract.View {
 
+
+    private MulArchiveAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -38,27 +43,26 @@ public class ArchiveFragment extends BaseSearchFragment<ArchivePresenter, MulSea
         mPresenter.getSearchArchiveData();
     }
 
-
     @Override
     public void showSearchArchive(List<MulSearchArchive> mulSearchArchiveList) {
-       mList.addAll(mulSearchArchiveList);
-       finishTask();
+        mList.addAll(mulSearchArchiveList);
+        finishTask();
     }
+
 
     @Override
     protected void finishTask() {
-
-
+        mAdapter.notifyDataSetChanged();
     }
 
-  /*  @Override
-    public void showLoading() {
-        mIvSearchLoad.setImageResource(R.drawable.anim_search_loading);
-        mAnimationDrawable = (AnimationDrawable) mIvSearchLoad.getDrawable();
-        visible(mIvSearchLoad);
-        gone(mRecycler);
-        mAnimationDrawable.start();
-    }*/
+    @Override
+    protected void initRecyclerView() {
+        mAdapter = new MulArchiveAdapter(mList);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
+                false);
+        mRecycler.setLayoutManager(mLayoutManager);
+        mRecycler.setAdapter(mAdapter);
+    }
 
 
 }

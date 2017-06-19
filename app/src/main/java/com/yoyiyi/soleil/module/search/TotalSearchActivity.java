@@ -136,7 +136,7 @@ public class TotalSearchActivity extends BaseActivity<TotalSearchPresenter> impl
         mTitles.add(mList.get(1).name + formatTotal(mList.get(1).total));
         mTitles.add(mList.get(2).name + formatTotal(mList.get(2).total));
 
-        mFragments.add(ArchiveFragment.newsInstance(mKeyword));
+        mFragments.add(ArchiveFragment.newsInstance());
         mFragments.add(BangumiFragment.newsInstance());
         mFragments.add(UpperFragment.newsInstance());
         mFragments.add(MovieFragment.newsInstance());

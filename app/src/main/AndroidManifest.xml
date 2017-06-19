@@ -165,6 +165,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
+        <!-- 搜索 -->
+        <activity
+            android:name=".module.search.SearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
         <service android:name=".widget.NetworkService"/>
         <activity
             android:name=".module.app.video.ScrollingActivity"

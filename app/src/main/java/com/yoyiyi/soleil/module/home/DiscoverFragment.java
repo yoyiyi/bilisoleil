@@ -22,7 +22,7 @@ import com.yoyiyi.soleil.module.discover.InterestActivity;
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity;
 import com.yoyiyi.soleil.module.recommend.AllStationRankActivity;
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity;
-import com.yoyiyi.soleil.module.search.TotalSearchActivity;
+import com.yoyiyi.soleil.module.search.SearchActivity;
 import com.yoyiyi.soleil.mvp.contract.home.DiscoverContract;
 import com.yoyiyi.soleil.mvp.presenter.home.DiscoverPresenter;
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout;
@@ -131,7 +131,9 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 TextView mTags = (TextView) LayoutInflater.from(getActivity())
                         .inflate(R.layout.layout_hot_tags_item, flowLayout, false);
                 mTags.setText(listBean.keyword);
-                mTags.setOnClickListener(view -> TotalSearchActivity.startActivity(mContext, listBean.keyword));
+                // mTags.setOnClickListener(view -> TotalSearchActivity.startActivity(mContext, listBean.keyword));
+                mTags.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, SearchActivity.class)));
+
                 return mTags;
             }
         });
@@ -142,7 +144,8 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 TextView mTags = (TextView) LayoutInflater.from(getActivity())
                         .inflate(R.layout.layout_hot_tags_item, parent, false);
                 mTags.setText(listBean.keyword);
-                mTags.setOnClickListener(view -> TotalSearchActivity.startActivity(mContext, listBean.keyword));
+                //  mTags.setOnClickListener(view -> TotalSearchActivity.startActivity(mContext, listBean.keyword));
+                mTags.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, SearchActivity.class)));
                 return mTags;
             }
         });
@@ -189,10 +192,10 @@ public class DiscoverFragment extends BaseFragment<DiscoverPresenter> implements
                 startActivity(new Intent(getApplicationContext(), GameCenterActivity.class));
                 break;
             case R.id.rl_mall://周边商城
-                BrowerActivity.startActivity(getActivity(), Constants.SHOP_URL, "bilibili - 周边商城","");
+                BrowerActivity.startActivity(getActivity(), Constants.SHOP_URL, "bilibili - 周边商城", "");
                 break;
             case R.id.rl_black_list://小黑屋
-                BrowerActivity.startActivity(getActivity(), Constants.BLACK_URL, "小黑屋","");
+                BrowerActivity.startActivity(getActivity(), Constants.BLACK_URL, "小黑屋", "");
                 break;
             case R.id.rl_group://小黑屋
                 startActivity(new Intent(getApplicationContext(), InterestActivity.class));

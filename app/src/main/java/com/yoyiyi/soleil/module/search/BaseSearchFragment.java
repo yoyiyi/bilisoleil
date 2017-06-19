@@ -30,7 +30,9 @@ public abstract class BaseSearchFragment<T extends BaseContract.BasePresenter, K
     public void initWidget() {
         mIvSearchLoad = ButterKnife.findById(mRootView, R.id.iv_search_load);
         mRecycler = ButterKnife.findById(mRootView, R.id.recycler);
+        initRecyclerView();
     }
+
 
 
     @Override
