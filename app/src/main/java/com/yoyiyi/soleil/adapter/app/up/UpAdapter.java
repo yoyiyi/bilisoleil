@@ -27,8 +27,8 @@ public class UpAdapter extends BaseQuickAdapter<Up.DataBean.ItemsBean, BaseViewH
     @Override
     protected void convert(BaseViewHolder holder, Up.DataBean.ItemsBean item) {
         holder.setText(R.id.tv_uname, item.title)
-                .setText(R.id.tv_fans, "粉丝数:" + NumberUtils.format(item.fans + ""))
-                .setText(R.id.tv_videos, "视频数:" + NumberUtils.format(item.archives + ""));
+                .setText(R.id.tv_fans, "粉丝数: " + NumberUtils.format(item.fans + ""))
+                .setText(R.id.tv_videos, "视频数: " + NumberUtils.format(item.archives + ""));
         Glide.with(mContext)
                 .load(item.cover)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
