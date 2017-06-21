@@ -22,8 +22,12 @@ public class UpFragment extends BaseSearchFragment<UpPresenter, Up.DataBean.Item
     }
 
     public static UpFragment newsInstance() {
-
         return new UpFragment();
+    }
+
+    @Override
+    protected void initInject() {
+        getFragmentComponent().inject(this);
     }
 
     @Override
@@ -48,6 +52,6 @@ public class UpFragment extends BaseSearchFragment<UpPresenter, Up.DataBean.Item
 
     @Override
     protected void finishTask() {
-
+        mAdapter.notifyDataSetChanged();
     }
 }

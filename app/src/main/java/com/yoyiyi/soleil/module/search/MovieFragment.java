@@ -35,6 +35,10 @@ public class MovieFragment extends BaseSearchFragment<MoviePresenter, Movie.Data
         mList.addAll(movie.data.items);
         finishTask();
     }
+    @Override
+    protected void initInject() {
+        getFragmentComponent().inject(this);
+    }
 
     @Override
     protected void finishTask() {

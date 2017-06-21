@@ -30,8 +30,8 @@ public class SeasonPresenter extends RxPresenter<SeasonContract.View> implements
     @Override
     public void getSearchSeasonData() {
         BaseSubscriber<Season> subscriber = mRetrofitHelper.getSeason()
-                .doOnSubscribe(subscription -> mView.showLoading())
                 .compose(RxUtils.rxSchedulerHelper())
+                .doOnSubscribe(subscription -> mView.showLoading())
                 .subscribeWith(new BaseSubscriber<Season>(mView) {
                     @Override
                     public void onSuccess(Season season) {

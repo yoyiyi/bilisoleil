@@ -22,6 +22,5 @@ public class UpAdapter extends BaseQuickAdapter<Up.DataBean.ItemsBean,BaseViewHo
 
     @Override
     protected void convert(BaseViewHolder holder, Up.DataBean.ItemsBean itemsBean) {
-
     }
 }

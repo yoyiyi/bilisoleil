@@ -30,8 +30,8 @@ public class UpPresenter extends RxPresenter<UpContract.View> implements UpContr
     @Override
     public void getSearchUpData() {
         BaseSubscriber<Up> subscriber = mRetrofitHelper.getUp()
-                .doOnSubscribe(subscription -> mView.showLoading())
                 .compose(RxUtils.rxSchedulerHelper())
+                .doOnSubscribe(subscription -> mView.showLoading())
                 .subscribeWith(new BaseSubscriber<Up>(mView) {
                     @Override
                     public void onSuccess(Up up) {
