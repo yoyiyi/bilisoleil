@@ -19,64 +19,69 @@
 
     <ImageView
         android:id="@+id/iv_video_preview"
-        android:layout_width="11dp"
+        android:layout_width="110dp"
         android:layout_height="@dimen/dp140"
         android:layout_marginRight="@dimen/dp10"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
-
     <TextView
         android:id="@+id/tv_video_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp6"
-        android:layout_marginTop="@dimen/dp10"
-        android:text="ssss"
-        android:textColor="@color/black_80"
-        android:textSize="@dimen/text_size_16"
-        app:layout_constraintStart_toEndOf="@id/guideline4"/>
-
-    <TextView
-        android:id="@+id/tv_video_area"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp0"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp6"
         android:layout_marginTop="@dimen/dp10"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:singleLine="true"
+        android:text="ssssssss"
+        android:textColor="@color/black_80"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline4"/>
+
+    <TextView
+        android:id="@+id/tv_video_area"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp6"
+        android:layout_marginTop="@dimen/dp10"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:text="ssss"
         android:textColor="@color/black_alpha_30"
         android:textSize="@dimen/text_size_14"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/tv_video_title"/>
 
     <TextView
         android:id="@+id/tv_video_staff"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp0"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp6"
         android:layout_marginTop="@dimen/dp10"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:singleLine="true"
         android:text="ssss"
         android:textColor="@color/black_alpha_30"
         android:textSize="@dimen/text_size_14"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/tv_video_area"/>
 
     <TextView
         android:id="@+id/tv_video_actors"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp0"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp6"
         android:layout_marginTop="@dimen/dp10"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:singleLine="true"
         android:text="ssss"
         android:textColor="@color/black_alpha_30"
         android:textSize="@dimen/text_size_14"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/tv_video_staff"/>
 </android.support.constraint.ConstraintLayout>

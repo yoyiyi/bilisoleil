@@ -23,6 +23,7 @@
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
         app:layout_constraintTop_toTopOf="@id/iv_avatar"
         >
+
         <TextView
             android:id="@+id/tv_uname"
             android:layout_width="wrap_content"
@@ -56,12 +57,15 @@
 
         <TextView
             android:id="@+id/tv_des"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp6"
+            android:ellipsize="end"
+            android:lines="1"
             android:text="ssss"
             android:textColor="@color/black_alpha_30"
             android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_fans"/>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

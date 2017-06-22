@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.adapter.search;
 
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -19,23 +20,27 @@ import java.util.List;
  * @date 创建时间：2017/6/19 20:49
  * 描述:
  */
-public class MovieAdapter  extends BaseQuickAdapter<Movie.DataBean.ItemsBean,BaseViewHolder>{
+public class MovieAdapter extends BaseQuickAdapter<Movie.DataBean.ItemsBean, BaseViewHolder> {
 
 
-    public MovieAdapter( @Nullable List<Movie.DataBean.ItemsBean> data) {
+    public MovieAdapter(@Nullable List<Movie.DataBean.ItemsBean> data) {
         super(R.layout.item_search_movie, data);
     }
 
     @Override
     protected void convert(BaseViewHolder holder, Movie.DataBean.ItemsBean itemsBean) {
-        String[] split = itemsBean.screen_date.split(" ");
-        SpanUtils spanUtils = new SpanUtils().append(itemsBean.title)
-                .appendSpace(10)
-                .append(split[0].substring(0, 4))
-                .setFontSize((int) mContext.getResources().getDimension(R.dimen.text_size_12))
-                .setForegroundColor(AppUtils.getColor(R.color.font_gray));
-        holder.setText(R.id.tv_video_title, spanUtils.create())
-                .setText(R.id.tv_video_area, "地区:" + itemsBean.area)
+        if (!TextUtils.isEmpty(itemsBean.screen_date)) {
+            String[] split = itemsBean.screen_date.split(" ");
+            SpanUtils spanUtils = new SpanUtils().append(itemsBean.title)
+                    .appendSpace(10)
+                    .append(split[0].substring(0, 4))
+                    .setFontSize((int) mContext.getResources().getDimension(R.dimen.text_size_12))
+                    .setForegroundColor(AppUtils.getColor(R.color.font_gray));
+            holder.setText(R.id.tv_video_title, spanUtils.create());
+        } else {
+            holder.setText(R.id.tv_video_title, itemsBean.title);
+        }
+        holder.setText(R.id.tv_video_area, TextUtils.isEmpty(itemsBean.area) ? "" : "地区:" + itemsBean.area)
                 .setText(R.id.tv_video_staff, itemsBean.staff)
                 .setText(R.id.tv_video_actors, itemsBean.actors);
         Glide.with(mContext)
