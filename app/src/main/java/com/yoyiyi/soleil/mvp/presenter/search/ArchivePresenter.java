@@ -13,6 +13,7 @@ import com.yoyiyi.soleil.rx.RxUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -71,6 +72,7 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
                     return mulSearchArchiveList;
                 })
                 .compose(RxUtils.rxSchedulerHelper())
+                .delay(5, TimeUnit.SECONDS)
                 .subscribeWith(new BaseSubscriber<List<MulSearchArchive>>(mView) {
                     @Override
                     public void onSuccess(List<MulSearchArchive> mulSearchArchives) {

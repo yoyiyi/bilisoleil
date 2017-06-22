@@ -8,6 +8,8 @@ import com.yoyiyi.soleil.mvp.contract.search.MovieContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 
 /**
@@ -28,8 +30,9 @@ public class MoviePresenter extends RxPresenter<MovieContract.View> implements M
     @Override
     public void getSearchMovieData() {
         BaseSubscriber<Movie> subscriber = mRetrofitHelper.getMovie()
-                .doOnSubscribe(subscription -> mView.showLoading())
                 .compose(RxUtils.rxSchedulerHelper())
+                .doOnSubscribe(subscription -> mView.showLoading())
+                .delay(5, TimeUnit.SECONDS)
                 .subscribeWith(new BaseSubscriber<Movie>(mView) {
                     @Override
                     public void onSuccess(Movie movie) {

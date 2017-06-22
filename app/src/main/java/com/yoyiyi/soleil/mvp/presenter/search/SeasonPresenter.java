@@ -8,6 +8,8 @@ import com.yoyiyi.soleil.mvp.contract.search.SeasonContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 
 /**
@@ -32,6 +34,7 @@ public class SeasonPresenter extends RxPresenter<SeasonContract.View> implements
         BaseSubscriber<Season> subscriber = mRetrofitHelper.getSeason()
                 .compose(RxUtils.rxSchedulerHelper())
                 .doOnSubscribe(subscription -> mView.showLoading())
+                .delay(5, TimeUnit.SECONDS)
                 .subscribeWith(new BaseSubscriber<Season>(mView) {
                     @Override
                     public void onSuccess(Season season) {

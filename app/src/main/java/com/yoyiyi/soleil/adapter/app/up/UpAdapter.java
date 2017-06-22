@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.adapter.app.up;
 
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -27,6 +28,7 @@ public class UpAdapter extends BaseQuickAdapter<Up.DataBean.ItemsBean, BaseViewH
     @Override
     protected void convert(BaseViewHolder holder, Up.DataBean.ItemsBean item) {
         holder.setText(R.id.tv_uname, item.title)
+                .setText(R.id.tv_des, !TextUtils.isEmpty(item.sign) ? item.sign : "")
                 .setText(R.id.tv_fans, "粉丝数: " + NumberUtils.format(item.fans + ""))
                 .setText(R.id.tv_videos, "视频数: " + NumberUtils.format(item.archives + ""));
         Glide.with(mContext)

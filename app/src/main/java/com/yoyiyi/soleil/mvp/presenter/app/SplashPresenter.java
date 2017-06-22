@@ -37,12 +37,13 @@ public class SplashPresenter extends RxPresenter<SplashContract.View> implements
                 .subscribeWith(new BaseSubscriber<Splash>(mView) {
                     @Override
                     public void onSuccess(Splash splash) {
-                        mView.showSplash(splash);
+                        if (splash.code == 0)
+                            mView.showSplash(splash);
                     }
 
                     @Override
                     public void onFailure(int code, String message) {
-                        mView.showError(message);
+                            mView.showError(message);
                     }
                 });
         addSubscribe(subscriber);
