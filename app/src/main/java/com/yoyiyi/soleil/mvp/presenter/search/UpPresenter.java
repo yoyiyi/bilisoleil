@@ -8,8 +8,6 @@ import com.yoyiyi.soleil.mvp.contract.search.UpContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 
 /**
@@ -34,7 +32,7 @@ public class UpPresenter extends RxPresenter<UpContract.View> implements UpContr
         BaseSubscriber<Up> subscriber = mRetrofitHelper.getUp()
                 .compose(RxUtils.rxSchedulerHelper())
                 .doOnSubscribe(subscription -> mView.showLoading())
-                .delay(5, TimeUnit.SECONDS)
+              //  .delay(5, TimeUnit.SECONDS)
                 .subscribeWith(new BaseSubscriber<Up>(mView) {
                     @Override
                     public void onSuccess(Up up) {
