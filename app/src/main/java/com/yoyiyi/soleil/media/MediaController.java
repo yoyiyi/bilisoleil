@@ -579,6 +579,7 @@ public class MediaController extends FrameLayout {
 
     public interface OnShownListener {
         void onShown();
+
     }
 
     public interface OnHiddenListener {
