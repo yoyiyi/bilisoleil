@@ -170,7 +170,11 @@
             android:name=".module.search.SearchActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-
+        <!-- 视频播放 -->
+        <activity
+            android:name=".module.app.video.VideoPlayerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <service android:name=".widget.NetworkService"/>
         <activity
             android:name=".module.app.video.ScrollingActivity"
