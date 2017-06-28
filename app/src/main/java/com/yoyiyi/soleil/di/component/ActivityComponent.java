@@ -7,6 +7,7 @@ import com.yoyiyi.soleil.di.scope.ActivityScope;
 import com.yoyiyi.soleil.module.app.SplashActivity;
 import com.yoyiyi.soleil.module.app.up.UpDetailActivity;
 import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
+import com.yoyiyi.soleil.module.app.video.VideoPlayerActivity;
 import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
 import com.yoyiyi.soleil.module.bangumi.BangumiIndexActivity;
 import com.yoyiyi.soleil.module.bangumi.BangumiScheduleActivity;
@@ -60,5 +61,6 @@ public interface ActivityComponent {
 
     void inject(SearchActivity searchActivity);
 
+    void inject(VideoPlayerActivity videoPlayerActivity);
 
 }

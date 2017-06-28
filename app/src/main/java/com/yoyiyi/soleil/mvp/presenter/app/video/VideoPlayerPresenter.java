@@ -6,7 +6,7 @@ import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.media.danmuku.BiliDanmukuDownloadUtil;
 import com.yoyiyi.soleil.mvp.contract.app.video.VideoPlayerContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
-import com.yoyiyi.soleil.rx.RxUtils;
+import com.yoyiyi.soleil.utils.AppUtils;
 
 import javax.inject.Inject;
 
@@ -35,9 +35,9 @@ public class VideoPlayerPresenter extends RxPresenter<VideoPlayerContract.View> 
     public void getVideoPlayerData() {
         mRetrofitHelper.getVideoPlayer()
                 .doOnSubscribe(subscription -> mView.showAnimLoading())
-                .compose(RxUtils.rxSchedulerHelper())
+                //.subscribeOn(Schedulers.io())
                 .flatMap(videoPlayer -> {
-                    mView.showVideoPlayer(videoPlayer);
+                    AppUtils.runOnUI(()-> mView.showVideoPlayer(videoPlayer));
                     String url = "http://comment.bilibili.com/2143345.xml";
                     return BiliDanmukuDownloadUtil.downloadXML(url);//下载弹幕
                 })

@@ -3,8 +3,8 @@ package com.yoyiyi.soleil.module.app.video;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
+import android.os.Environment;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,13 +23,11 @@ import com.yoyiyi.soleil.widget.ProgressWheel;
 import java.util.HashMap;
 
 import butterknife.BindView;
-import master.flame.danmaku.controller.DrawHandler;
+import master.flame.danmaku.controller.IDanmakuView;
 import master.flame.danmaku.danmaku.model.BaseDanmaku;
-import master.flame.danmaku.danmaku.model.DanmakuTimer;
 import master.flame.danmaku.danmaku.model.IDisplayer;
 import master.flame.danmaku.danmaku.model.android.DanmakuContext;
 import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
-import master.flame.danmaku.ui.widget.DanmakuView;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 
 /**
@@ -43,7 +41,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     @BindView(R.id.palyer_view)
     VideoPlayerView mPlayerView;
     @BindView(R.id.danmaku)
-    DanmakuView mDanmaku;
+    IDanmakuView mDanmaku;
     @BindView(R.id.pw_loading)
     ProgressWheel mPwLoading;
     @BindView(R.id.tv_loading)
@@ -70,7 +68,6 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     @Override
     protected void initWidget() {
         super.initWidget();
-     /*   initAnimation();//初始化动画*/
         initMediaPlayer();//初始化播放器
     }
 
@@ -78,7 +75,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     private void initMediaPlayer() {
         //配置播放器
         MediaController mMediaController = new MediaController(this);
-        mMediaController.setTitle("");
+        mMediaController.setTitle("测试视频");
         mPlayerView.setMediaController(mMediaController);
         mPlayerView.setMediaBufferingIndicator(mRlLoading);
         mPlayerView.requestFocus();
@@ -123,16 +120,6 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
         mLoadingAnim.start();
     }
 
-    /**
-     * 全屏显示
-     */
-    @Override
-    public void initToolbar() {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().setBackgroundDrawable(null);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-    }
 
     /**
      * 视频缓冲事件回调
@@ -141,7 +128,6 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
 
         @Override
         public boolean onInfo(IMediaPlayer mp, int what, int extra) {
-
             if (what == IMediaPlayer.MEDIA_INFO_BUFFERING_START) {
                 if (mDanmaku != null && mDanmaku.isPrepared()) {
                     mDanmaku.pause();
@@ -281,13 +267,28 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     }
 
     @Override
+    protected void initInject() {
+        getActivityComponent().inject(this);
+    }
+
+    @Override
     protected void loadData() {
         mPresenter.getVideoPlayerData();
     }
 
     @Override
     public void showVideoPlayer(VideoPlayer videoPlayer) {
-        mPlayerView.setVideoURI(Uri.parse(videoPlayer.durl.get(0).url));
+        //mPlayerView.setVideoURI(Uri.parse(videoPlayer.durl.get(0).url));
+        String url = "http://117.149.37.134/vg4/9/40/6191437-1.mp4?expires=1498668600&platform=android" +
+                "&ssig=Cw6gFkurSc-wB5DDiAzkcg&oi=1879728018&nfa=zn2OTN7O9p3rqnr0+3S2RQ==&dynamic=1&hfa=2069927022";
+        String uri = "file:///" + Environment.getExternalStorageDirectory().toString() + "/liangliang.mp4";
+
+        //mPlayerView.setVideoURI(Uri.parse(url));
+       /* Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.liangliang);
+        mPlayerView.setVideoURI(uri);*/
+        mPlayerView.setVideoURI(Uri.parse(uri));
+        //  LogUtils.d("IJKMEDIA", videoPlayer.durl.get(0).url);
+        // mPlayerView.setVideoURI(Uri.parse("http://newplayer.jfrft.com/webcloud/index.php?url=http://v.youku.com/v_show/id_XMjg0MzU5MTA4MA==.html&type=youku"));
         mPlayerView.setOnPreparedListener(mp -> {
             mLoadingAnim.stop();
             mStartText = mStartText + "【完成】\n视频缓冲中...";
@@ -303,13 +304,13 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
 
     @Override
     public void showDanmaku(BaseDanmakuParser baseDanmakuParser) {
-        mDanmaku.prepare(baseDanmakuParser, mDanmakuContext);
+       /* mDanmaku.prepare(baseDanmakuParser, mDanmakuContext);
         mDanmaku.showFPS(false);
         mDanmaku.enableDanmakuDrawingCache(false);
         mDanmaku.setCallback(new DrawHandler.Callback() {
             @Override
             public void prepared() {
-                mDanmaku.start();
+                // mDanmaku.start();
             }
 
             @Override
@@ -326,7 +327,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
             public void drawingFinished() {
 
             }
-        });
+        });*/
         mPlayerView.start();
     }
 

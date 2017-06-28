@@ -8,9 +8,9 @@
 
     <string name="video_init">初始化播放器…</string>
     <string name="video_loading">加载中…</string>
-    <string name="video_error_title">Cannot play video</string>
-    <string name="video_error_text_invalid_progressive_playback">Sorry, this video is not valid for streaming tothis device.</string>
-    <string name="video_error_text_unknown">Sorry, this video cannot be played.</string>
+    <string name="video_error_title">不能播放视频</string>
+    <string name="video_error_text_invalid_progressive_playback">对不起，这个视频不适合该装置的流</string>
+    <string name="video_error_text_unknown">该视频不能播放</string>
     <string name="video_error_button">OK</string>
 
 </resources>

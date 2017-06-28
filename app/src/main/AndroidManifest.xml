@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <!-- 蓝牙分享所需的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -173,8 +175,13 @@
         <!-- 视频播放 -->
         <activity
             android:name=".module.app.video.VideoPlayerActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity
             android:name=".module.app.video.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
