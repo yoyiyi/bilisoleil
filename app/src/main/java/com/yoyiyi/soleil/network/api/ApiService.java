@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.network.api;
 
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
 import com.yoyiyi.soleil.bean.discover.ActivityCenter;
 import com.yoyiyi.soleil.bean.discover.TopicCenter;

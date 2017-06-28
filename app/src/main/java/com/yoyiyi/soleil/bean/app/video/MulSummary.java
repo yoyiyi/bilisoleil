@@ -1,7 +1,6 @@
 package com.yoyiyi.soleil.bean.app.video;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
 
 import java.util.List;
 

@@ -1,11 +1,13 @@
 package com.yoyiyi.soleil.adapter.bangumi;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
+import com.yoyiyi.soleil.module.app.video.VideoPlayerActivity;
 
 import java.util.List;
 
@@ -33,7 +35,6 @@ public class BangumiDetailEpisodeAdapter extends BaseQuickAdapter<BangumiDetail.
             mOldPos = mNewPos;
             notifyDataSetChanged();
         });
-
         if (holder.getAdapterPosition() == mNewPos) {
             holder.getView(R.id.tv_index_title).setEnabled(true);
             holder.getView(R.id.tv_index).setEnabled(true);
@@ -53,5 +54,7 @@ public class BangumiDetailEpisodeAdapter extends BaseQuickAdapter<BangumiDetail.
         } else {
             holder.setVisible(R.id.space, false);
         }
+        //跳转到播放界面
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoPlayerActivity.class)));
     }
 }

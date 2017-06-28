@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module.app.video;
 
+import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -16,12 +17,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
 import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.module.region.BaseRegionActivity;
 import com.yoyiyi.soleil.mvp.contract.app.video.VideoDetailContract;
-import com.yoyiyi.soleil.mvp.presenter.app.VideoDetailPresenter;
+import com.yoyiyi.soleil.mvp.presenter.app.video.VideoDetailPresenter;
 import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
@@ -137,11 +138,13 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
         mFragments.add(CommentFragment.newInstance());
 
     }
+
     @Override
     protected void initViewPager() {
         super.initViewPager();
         setCurrentItem(0);
     }
+
     @Override
     protected void initToolbar() {
         //mToolbar.setNavigationIcon(R.drawable.ic_clip_back_white);
@@ -183,10 +186,7 @@ public class VideoDetailActivity extends BaseRegionActivity<VideoDetailPresenter
     @Override
     protected void initWidget() {
         super.initWidget();
-      /*  mFab.setOnClickListener(view -> {
-            startActivity(new Intent(this, ScrollingActivity.class));
-        });
-        */
+        mFab.setOnClickListener(view -> startActivity(new Intent(this, VideoPlayerActivity.class)));
         // initFAB();
         visible(R.id.pw_loading);
         initAppBar();

@@ -1,8 +1,8 @@
 package com.yoyiyi.soleil.event;
 
 
-import com.yoyiyi.soleil.bean.app.VideoDetail;
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
 import com.yoyiyi.soleil.bean.search.Search;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 

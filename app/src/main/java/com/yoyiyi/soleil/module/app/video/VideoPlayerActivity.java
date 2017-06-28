@@ -2,6 +2,7 @@ package com.yoyiyi.soleil.module.app.video;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -10,18 +11,24 @@ import android.widget.TextView;
 
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseActivity;
+import com.yoyiyi.soleil.bean.app.video.VideoPlayer;
 import com.yoyiyi.soleil.media.MediaController;
 import com.yoyiyi.soleil.media.VideoPlayerView;
 import com.yoyiyi.soleil.media.callback.DanmukuSwitchListener;
 import com.yoyiyi.soleil.media.callback.VideoBackListener;
+import com.yoyiyi.soleil.mvp.contract.app.video.VideoPlayerContract;
+import com.yoyiyi.soleil.mvp.presenter.app.video.VideoPlayerPresenter;
 import com.yoyiyi.soleil.widget.ProgressWheel;
 
 import java.util.HashMap;
 
 import butterknife.BindView;
+import master.flame.danmaku.controller.DrawHandler;
 import master.flame.danmaku.danmaku.model.BaseDanmaku;
+import master.flame.danmaku.danmaku.model.DanmakuTimer;
 import master.flame.danmaku.danmaku.model.IDisplayer;
 import master.flame.danmaku.danmaku.model.android.DanmakuContext;
+import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
 import master.flame.danmaku.ui.widget.DanmakuView;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 
@@ -31,7 +38,8 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
  * 描述:视频播放界面
  */
 
-public class VideoPlayerActivity extends BaseActivity implements DanmukuSwitchListener, VideoBackListener {
+public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> implements DanmukuSwitchListener, VideoBackListener,
+        VideoPlayerContract.View {
     @BindView(R.id.palyer_view)
     VideoPlayerView mPlayerView;
     @BindView(R.id.danmaku)
@@ -50,7 +58,7 @@ public class VideoPlayerActivity extends BaseActivity implements DanmukuSwitchLi
     RelativeLayout mVideoStart;
 
     private DanmakuContext mDanmakuContext;
-    private String startText = "初始化播放器...";
+    private String mStartText = "初始化播放器...";
     private AnimationDrawable mLoadingAnim;
     private int mLastPosition = 0;
 
@@ -62,7 +70,7 @@ public class VideoPlayerActivity extends BaseActivity implements DanmukuSwitchLi
     @Override
     protected void initWidget() {
         super.initWidget();
-        initAnimation();//初始化动画
+     /*   initAnimation();//初始化动画*/
         initMediaPlayer();//初始化播放器
     }
 
@@ -109,8 +117,8 @@ public class VideoPlayerActivity extends BaseActivity implements DanmukuSwitchLi
      */
     private void initAnimation() {
         mVideoStart.setVisibility(View.VISIBLE);
-        startText = startText + "【完成】\n解析视频地址...【完成】\n全舰弹幕填装...";
-        mTvStart.setText(startText);
+        mStartText = mStartText + "【完成】\n解析视频地址...【完成】\n全舰弹幕填装...";
+        mTvStart.setText(mStartText);
         mLoadingAnim = (AnimationDrawable) mIvBiliLoading.getBackground();
         mLoadingAnim.start();
     }
@@ -274,7 +282,60 @@ public class VideoPlayerActivity extends BaseActivity implements DanmukuSwitchLi
 
     @Override
     protected void loadData() {
-
-
+        mPresenter.getVideoPlayerData();
     }
+
+    @Override
+    public void showVideoPlayer(VideoPlayer videoPlayer) {
+        mPlayerView.setVideoURI(Uri.parse(videoPlayer.durl.get(0).url));
+        mPlayerView.setOnPreparedListener(mp -> {
+            mLoadingAnim.stop();
+            mStartText = mStartText + "【完成】\n视频缓冲中...";
+            mTvStart.setText(mStartText);
+            mRlLoading.setVisibility(View.GONE);
+        });
+    }
+
+    @Override
+    public void showAnimLoading() {
+        initAnimation();
+    }
+
+    @Override
+    public void showDanmaku(BaseDanmakuParser baseDanmakuParser) {
+        mDanmaku.prepare(baseDanmakuParser, mDanmakuContext);
+        mDanmaku.showFPS(false);
+        mDanmaku.enableDanmakuDrawingCache(false);
+        mDanmaku.setCallback(new DrawHandler.Callback() {
+            @Override
+            public void prepared() {
+                mDanmaku.start();
+            }
+
+            @Override
+            public void updateTimer(DanmakuTimer danmakuTimer) {
+
+            }
+
+            @Override
+            public void danmakuShown(BaseDanmaku danmaku) {
+
+            }
+
+            @Override
+            public void drawingFinished() {
+
+            }
+        });
+        mPlayerView.start();
+    }
+
+    @Override
+    public void showError(String msg) {
+        mStartText = mStartText + "【失败】\n视频缓冲中...";
+        mTvStart.setText(mStartText);
+        mStartText = mStartText + "【失败】\n" + msg;
+        mTvStart.setText(mStartText);
+    }
+
 }

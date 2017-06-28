@@ -1,10 +1,10 @@
-package com.yoyiyi.soleil.mvp.presenter.app.live;
+package com.yoyiyi.soleil.mvp.presenter.app.video;
 
 
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
 import com.yoyiyi.soleil.bean.app.video.MulComment;
 import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.mvp.contract.app.video.CommentContract;

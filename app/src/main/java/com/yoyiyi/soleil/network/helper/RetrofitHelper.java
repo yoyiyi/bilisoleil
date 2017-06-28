@@ -2,8 +2,9 @@ package com.yoyiyi.soleil.network.helper;
 
 
 import com.yoyiyi.soleil.bean.app.Splash;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
-import com.yoyiyi.soleil.bean.app.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoPlayer;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetail;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailComment;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
@@ -125,7 +126,9 @@ public class RetrofitHelper {
     public Flowable<Season> getSeason() {
         return mAppService.getSeason();
     }
-
+    public Flowable<VideoPlayer> getVideoPlayer() {
+        return mAppService.getVideoPlayer();
+    }
     /*******************************LiveApi****************************************/
 
     public Flowable<HttpResponse<LiveRecommend>> getLiveRecommend() {
@@ -201,4 +204,6 @@ public class RetrofitHelper {
     public Flowable<HttpResponse<InterestAd>> getInterestAd() {
         return mIm9Service.getInterestAd();
     }
+
+
 }

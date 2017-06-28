@@ -30,5 +30,8 @@ public interface ApiConstants {
 
     String IM9_BASE_URL = "http://www.im9.com/";
 
+    String COMMENT_BASE_URL = "http://comment.bilibili.com/";
+
     String COMMON_UA_STR = "BiliSoleil Android Client/1.0 (soleilyoyiyi@gmail.com)";
+
 }

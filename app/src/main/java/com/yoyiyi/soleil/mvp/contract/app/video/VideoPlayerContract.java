@@ -1,8 +1,9 @@
 package com.yoyiyi.soleil.mvp.contract.app.video;
 
 import com.yoyiyi.soleil.base.BaseContract;
-import com.yoyiyi.soleil.bean.app.video.VideoDetail;
-import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
+import com.yoyiyi.soleil.bean.app.video.VideoPlayer;
+
+import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -10,15 +11,18 @@ import com.yoyiyi.soleil.bean.app.video.VideoDetailComment;
  * 描述:
  */
 
-public interface VideoDetailContract {
+public interface VideoPlayerContract {
     interface View extends BaseContract.BaseView {
-        void showVideoDetail(VideoDetail.DataBean videoDetail);
 
-        void showVideoDetailComment(VideoDetailComment.DataBean videoDetailComment);
+        void showVideoPlayer(VideoPlayer videoPlayer);
+
+        void showAnimLoading();
+
+        void showDanmaku(BaseDanmakuParser baseDanmakuParser);
     }
 
     interface Presenter<T> extends BaseContract.BasePresenter<T> {
-        void getVideoDetailData();
+        void getVideoPlayerData();
 
     }
 }

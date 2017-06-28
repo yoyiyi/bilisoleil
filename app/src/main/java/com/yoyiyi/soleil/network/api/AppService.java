@@ -1,7 +1,8 @@
 package com.yoyiyi.soleil.network.api;
 
 import com.yoyiyi.soleil.bean.app.Splash;
-import com.yoyiyi.soleil.bean.app.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.VideoDetail;
+import com.yoyiyi.soleil.bean.app.video.VideoPlayer;
 import com.yoyiyi.soleil.bean.chase.ChaseBangumi;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
 import com.yoyiyi.soleil.bean.discover.HotSearchTag;
@@ -145,16 +146,13 @@ public interface AppService {
     @GET("/x/v2/search/hot?appkey=1d8b6e7d45233436&build=506000&limit=50&mobi_app=android&platform=android&ts=1495949781&sign=9bc4cea15aa9de8a0b142db86634f11f\n")
     Flowable<HttpResponse<HotSearchTag>> getHotSearchTag();
 
-    ///x/v2/search?access_key=172e9926859fbbf72b8aef67e67e3669&appkey=1d8b6e7d45233436&build=506000&
-    /// duration=1&keyword=%E8%87%AA%E7%94%B1%E4%B9%8B%E7%BF%BC&mobi_app=android&order=default&platform=android&
-    /// pn=1&ps=20&ts=1495985486&sign=2b81299a7620da51d286c2dae2112a54 HTTP/1.1
-    @GET("/x/v2/search?access_key=172e9926859fbbf72b8aef67e67e3669&appkey=1d8b6e7d45233436&build=506000&" +
-            "order={order}&" +//默认排序 没有；播放多 view；新发布 pubdate 弹幕多 danmaku
-            "duration={duration}&" + // 1 2 3 4
-            "keyword={keyword}&mobi_app=android&platform=android&" + //搜索key
-            "pn={pn}&" + //页数 1 2 3 4 5
-            "rid={rid}&" +//不知道
-            "ps=20&ts=1495985837&sign=af7bf921a8b0bc1b02443f39995b6abf")
-    Flowable<HttpResponse<HotSearchTag>> getHotSearchT222ag();
+    /**
+     * 获取视频播放
+     *
+     * @return
+     */
+    @GET("/playurl?device=android&qn=16&cid=6191437&appkey=iVGUTjsxvpLeuDCf&access_key=18b6350cf0e8fb0cacb6cf323fc2feba&otype=json&mid=117143614&build=505000&buvid=0ADC5B25-8C0A-4F6E-AE0C-83A3089CCEE223963infoc&platform=android&sign=153cb8fda95e5b1400cc3729d9a8afce")
+    Flowable<VideoPlayer> getVideoPlayer();
+
 
 }

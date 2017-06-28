@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.bean.app;
+package com.yoyiyi.soleil.bean.app.video;
 
 import java.util.List;
 

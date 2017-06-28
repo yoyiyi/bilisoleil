@@ -8,7 +8,7 @@ import com.yoyiyi.soleil.adapter.app.video.CommentAdapter;
 import com.yoyiyi.soleil.base.BaseFragment;
 import com.yoyiyi.soleil.bean.app.video.MulComment;
 import com.yoyiyi.soleil.mvp.contract.app.video.CommentContract;
-import com.yoyiyi.soleil.mvp.presenter.app.live.CommentPresenter;
+import com.yoyiyi.soleil.mvp.presenter.app.video.CommentPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
