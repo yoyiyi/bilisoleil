@@ -304,6 +304,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
 
     @Override
     public void showDanmaku(BaseDanmakuParser baseDanmakuParser) {
+        gone(mRlLoading, mVideoStart);
        /* mDanmaku.prepare(baseDanmakuParser, mDanmakuContext);
         mDanmaku.showFPS(false);
         mDanmaku.enableDanmakuDrawingCache(false);
