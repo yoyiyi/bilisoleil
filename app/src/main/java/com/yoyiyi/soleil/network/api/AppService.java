@@ -95,7 +95,7 @@ public interface AppService {
     /**
      * 视频详情
      */
-    @GET("/x/v2/view?access_key=0e6adb874025dfabaa3ced3a7b22049d&aid=9938411&appkey=1d8b6e7d45233436&build=505000&from=3&mobi_app=android&plat=0&platform=android&trackid=6475482883510618178&ts=1497422373&sign=75f3393be59e612325d75d7134e612a8")
+    @GET("/x/v2/view?access_key=18b6350cf0e8fb0cacb6cf323fc2feba&aid=8659710&appkey=1d8b6e7d45233436&build=505000&from=3&mobi_app=android&plat=0&platform=android&trackid=14859045423998458858&ts=1498644965&sign=1dd38263ead25fb9bf12c09364130efb")
     Flowable<VideoDetail> getVideoDetail();
 
     /**
