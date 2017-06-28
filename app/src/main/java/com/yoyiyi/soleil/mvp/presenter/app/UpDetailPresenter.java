@@ -4,7 +4,7 @@ package com.yoyiyi.soleil.mvp.presenter.app;
 import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.user.UpDetail;
-import com.yoyiyi.soleil.mvp.contract.app.UpDetailContract;
+import com.yoyiyi.soleil.mvp.contract.app.up.UpDetailContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
 

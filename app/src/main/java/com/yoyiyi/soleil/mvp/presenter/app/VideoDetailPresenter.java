@@ -4,7 +4,7 @@ package com.yoyiyi.soleil.mvp.presenter.app;
 import com.yoyiyi.soleil.base.BaseSubscriber;
 import com.yoyiyi.soleil.base.RxPresenter;
 import com.yoyiyi.soleil.bean.app.VideoDetailComment;
-import com.yoyiyi.soleil.mvp.contract.app.VideoDetailContract;
+import com.yoyiyi.soleil.mvp.contract.app.video.VideoDetailContract;
 import com.yoyiyi.soleil.network.helper.RetrofitHelper;
 import com.yoyiyi.soleil.rx.RxUtils;
 

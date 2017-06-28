@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.mvp.contract.app;
+package com.yoyiyi.soleil.mvp.contract.app.video;
 
 import com.yoyiyi.soleil.base.BaseContract;
 import com.yoyiyi.soleil.bean.app.VideoDetail;

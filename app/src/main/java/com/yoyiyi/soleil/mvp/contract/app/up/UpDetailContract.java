@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.mvp.contract.app;
+package com.yoyiyi.soleil.mvp.contract.app.up;
 
 
 import com.yoyiyi.soleil.base.BaseContract;

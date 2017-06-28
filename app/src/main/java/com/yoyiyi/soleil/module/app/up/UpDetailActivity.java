@@ -16,7 +16,7 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.user.UpDetail;
 import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.module.region.BaseRegionActivity;
-import com.yoyiyi.soleil.mvp.contract.app.UpDetailContract;
+import com.yoyiyi.soleil.mvp.contract.app.up.UpDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.app.UpDetailPresenter;
 import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.utils.NumberUtils;

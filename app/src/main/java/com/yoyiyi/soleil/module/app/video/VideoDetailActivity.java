@@ -20,7 +20,7 @@ import com.yoyiyi.soleil.bean.app.VideoDetail;
 import com.yoyiyi.soleil.bean.app.VideoDetailComment;
 import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.module.region.BaseRegionActivity;
-import com.yoyiyi.soleil.mvp.contract.app.VideoDetailContract;
+import com.yoyiyi.soleil.mvp.contract.app.video.VideoDetailContract;
 import com.yoyiyi.soleil.mvp.presenter.app.VideoDetailPresenter;
 import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
