@@ -135,29 +135,6 @@ public interface AppService {
      */
     @GET("/x/v2/search/type?access_key=692f4cfb9027141d360ba31d70921143&appkey=1d8b6e7d45233436&build=505000&keyword=%E7%8E%8B&mobi_app=android&platform=android&pn=1&ps=20&ts=1497848643&type=3&sign=b1f279d5b3cdeed4837ed910515cdf43")
     Flowable<Movie> getMovie();
-    /**
-     * 番剧搜索
-     *//*
-    @GET(
-            "x/v2/search/type?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&mobi_app=iphone&platform=ios&type=1")
-    Observable<SearchBangumiInfo> searchBangumi(
-            @Query("keyword") String content, @Query("pn") int page, @Query("ps") int pagesize);
-
-    *//**
-     * up主搜索
-     *//*
-    @GET(
-            "x/v2/search/type?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&mobi_app=iphone&platform=ios&type=2")
-    Observable<SearchUpperInfo> searchUpper(
-            @Query("keyword") String content, @Query("pn") int page, @Query("ps") int pagesize);
-
-    *//**
-     * 影视搜索
-     *//*
-    @GET(
-            "x/v2/search/type?actionKey=appkey&appkey=27eb53fc9058f8c3&build=3710&device=phone&mobi_app=iphone&platform=ios&type=3")
-    Observable<SearchMovieInfo> searchMovie(
-            @Query("keyword") String content, @Query("pn") int page, @Query("ps") int pagesize);*/
 
 
     /**

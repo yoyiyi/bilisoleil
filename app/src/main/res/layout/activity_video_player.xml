@@ -51,7 +51,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/video_start"
+        android:id="@+id/rl_start"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"

@@ -175,12 +175,15 @@
             android:name=".module.app.video.VideoPlayerActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <service android:name=".widget.NetworkService"/>
         <activity
             android:name=".module.app.video.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/BaseAppTheme">
         </activity>
+
+        <!--网络服务-->
+        <service android:name=".widget.NetworkService"/>
+
     </application>
 
 </manifest>
