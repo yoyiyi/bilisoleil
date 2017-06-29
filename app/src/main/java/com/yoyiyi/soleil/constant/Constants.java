@@ -25,7 +25,8 @@ public interface Constants {
     String SHOP_URL = "http://bmall.bilibili.com/";
     String VIP_URL = "http://vip.bilibili.com/site/vip-faq-h5.html#yv1";
     String BLACK_URL = "https://www.bilibili.com/blackroom/#/";
-
-    String  EXTRA_SETTING  = "extra_setting";
-    String EXTRA_IMAGE ="extra_image";
+    //免流量
+    String BLACK_BOARD_URL = "http://www.bilibili.com/blackboard/activity-unicomopen.html";
+    String EXTRA_SETTING = "extra_setting";
+    String EXTRA_IMAGE = "extra_image";
 }
