@@ -3,7 +3,6 @@ package com.yoyiyi.soleil.module.app.video;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
-import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,8 +22,10 @@ import com.yoyiyi.soleil.widget.ProgressWheel;
 import java.util.HashMap;
 
 import butterknife.BindView;
+import master.flame.danmaku.controller.DrawHandler;
 import master.flame.danmaku.controller.IDanmakuView;
 import master.flame.danmaku.danmaku.model.BaseDanmaku;
+import master.flame.danmaku.danmaku.model.DanmakuTimer;
 import master.flame.danmaku.danmaku.model.IDisplayer;
 import master.flame.danmaku.danmaku.model.android.DanmakuContext;
 import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
@@ -59,6 +60,8 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     private String mStartText = "初始化播放器...";
     private AnimationDrawable mLoadingAnim;
     private int mLastPosition = 0;
+    private HashMap<Integer, Integer> mMaxLinesPair;// 弹幕最大行数
+    private HashMap<Integer, Boolean> mOverlappingEnablePair;// 设置是否重叠
 
     @Override
     protected int getLayoutId() {
@@ -68,7 +71,36 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     @Override
     protected void initWidget() {
         super.initWidget();
+        initDanmaku();//初始化弹幕库
         initMediaPlayer();//初始化播放器
+    }
+
+    private void initDanmaku() {
+        mDanmakuContext = DanmakuContext.create();
+        // 设置最大行数,从右向左滚动(有其它方向可选)
+        mMaxLinesPair = new HashMap<>();
+        mMaxLinesPair.put(BaseDanmaku.TYPE_SCROLL_RL, 3);
+        //配置弹幕库
+        mDanmaku.enableDanmakuDrawingCache(true);
+        // 设置是否禁止重叠
+        mOverlappingEnablePair = new HashMap<>();
+        mOverlappingEnablePair.put(BaseDanmaku.TYPE_SCROLL_LR, true);
+        mOverlappingEnablePair.put(BaseDanmaku.TYPE_FIX_BOTTOM, true);
+        mDanmakuContext.setDanmakuStyle(IDisplayer.DANMAKU_STYLE_STROKEN, 3) //设置描边样式
+                .setDuplicateMergingEnabled(false)
+                .setScrollSpeedFactor(1.2f) //是否启用合并重复弹幕
+                .setScaleTextSize(1.2f) //设置弹幕滚动速度系数,只对滚动弹幕有效
+                // 默认使用{@link SimpleTextCacheStuffer}只支持纯文字显示,
+                // 如果需要图文混排请设置{@link SpannedCacheStuffer}
+                // 如果需要定制其他样式请扩展{@link SimpleTextCacheStuffer}|{@link SpannedCacheStuffer}
+                .setMaximumLines(mMaxLinesPair) //设置最大显示行数
+                .preventOverlapping(mOverlappingEnablePair); //设置防弹幕重叠，null为允许重叠
+
+    }
+
+    @Override
+    protected void initToolbar() {
+        super.initToolbar();
     }
 
     @SuppressLint("UseSparseArrays")
@@ -87,27 +119,9 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
         mMediaController.setDanmakuSwitchListener(this);
         //设置返回键监听
         mMediaController.setVideoBackEvent(this);
-        //配置弹幕库
-        mDanmaku.enableDanmakuDrawingCache(true);
-        //设置最大显示行数
-        HashMap<Integer, Integer> maxLinesPair = new HashMap<>();
-        //滚动弹幕最大显示5行
-        maxLinesPair.put(BaseDanmaku.TYPE_SCROLL_RL, 5);
-        //设置是否禁止重叠
-        HashMap<Integer, Boolean> overlappingEnablePair = new HashMap<>();
-        overlappingEnablePair.put(BaseDanmaku.TYPE_SCROLL_RL, true);
-        overlappingEnablePair.put(BaseDanmaku.TYPE_FIX_TOP, true);
-        //设置弹幕样式
-        mDanmakuContext = DanmakuContext.create();
-        mDanmakuContext.setDanmakuStyle(IDisplayer.DANMAKU_STYLE_STROKEN, 3)
-                .setDuplicateMergingEnabled(false)
-                .setScrollSpeedFactor(1.2f)
-                .setScaleTextSize(0.8f)
-                .setMaximumLines(maxLinesPair)
-                .preventOverlapping(overlappingEnablePair);
+
 
     }
-
 
     /**
      * 初始化加载动画
@@ -232,7 +246,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
             mPlayerView.destroyDrawingCache();
         }
         if (mDanmaku != null && mDanmaku.isPaused()) {
-            mDanmaku.release();
+            mDanmaku.release();//释放弹幕库
             mDanmaku = null;
         }
         if (mLoadingAnim != null) {
@@ -278,17 +292,13 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
 
     @Override
     public void showVideoPlayer(VideoPlayer videoPlayer) {
-        //mPlayerView.setVideoURI(Uri.parse(videoPlayer.durl.get(0).url));
-        String url = "http://117.149.37.134/vg4/9/40/6191437-1.mp4?expires=1498668600&platform=android" +
-                "&ssig=Cw6gFkurSc-wB5DDiAzkcg&oi=1879728018&nfa=zn2OTN7O9p3rqnr0+3S2RQ==&dynamic=1&hfa=2069927022";
-        String uri = "file:///" + Environment.getExternalStorageDirectory().toString() + "/liangliang.mp4";
-
-        //mPlayerView.setVideoURI(Uri.parse(url));
-       /* Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.liangliang);
-        mPlayerView.setVideoURI(uri);*/
+        //String uri1 = videoPlayer.durl.get(0).url;
+       /* uri1 = "http://122.228.103.130/vg5/2/c0/6191437-1.mp4?expires=1498716900&platform=android&ssig=hKQiMO6c9Bj_OJfhu3K3vA&oi=3080483261" +
+                "&nfa=zn2OTN7O9p3rqnr0+3S2RQ==&dynamic=1&hfa=2070368267";*/
+        // http://115.231.179.113/6572787CE774C845BDFF103E5C/03000804005948C7BE58C6011BA6A93F75FF26-AA49-0A30-9D4B-7871503F37CE.mp4?ccode=0501&duration=395&expire=18000&psid=862909d3e3467a9b0efff6cf8f704e5f&ups_client_netip=183.156.113.189&ups_ts=1498705420&ups_userid=&utid=c1rbEdI5mFcCAbeccb16JLgD&vid=XMjgzNzQ2MDIyMA%3D%3D&vkey=A4e5ad15f9e348b316246f54a6ecf4552
+        String uri = "http://115.231.179.113/6572787CE774C845BDFF103E5C/03000804005948C7BE58C6011BA6A93F75FF26-AA49-0A30-9D4B-7871503F37CE.mp4?ccode=0501&duration=395" +
+                "&expire=18000&psid=862909d3e3467a9b0efff6cf8f704e5f&ups_client_netip=183.156.113.189&";
         mPlayerView.setVideoURI(Uri.parse(uri));
-        //  LogUtils.d("IJKMEDIA", videoPlayer.durl.get(0).url);
-        // mPlayerView.setVideoURI(Uri.parse("http://newplayer.jfrft.com/webcloud/index.php?url=http://v.youku.com/v_show/id_XMjg0MzU5MTA4MA==.html&type=youku"));
         mPlayerView.setOnPreparedListener(mp -> {
             mLoadingAnim.stop();
             mStartText = mStartText + "【完成】\n视频缓冲中...";
@@ -305,13 +315,13 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     @Override
     public void showDanmaku(BaseDanmakuParser baseDanmakuParser) {
         gone(mRlLoading, mVideoStart);
-       /* mDanmaku.prepare(baseDanmakuParser, mDanmakuContext);
-        mDanmaku.showFPS(false);
-        mDanmaku.enableDanmakuDrawingCache(false);
+        mDanmaku.prepare(baseDanmakuParser, mDanmakuContext);
+        mDanmaku.showFPS(false);//是否显示FPS
+        mDanmaku.enableDanmakuDrawingCache(true);
         mDanmaku.setCallback(new DrawHandler.Callback() {
             @Override
             public void prepared() {
-                // mDanmaku.start();
+                mDanmaku.start();
             }
 
             @Override
@@ -328,7 +338,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
             public void drawingFinished() {
 
             }
-        });*/
+        });
         mPlayerView.start();
     }
 
