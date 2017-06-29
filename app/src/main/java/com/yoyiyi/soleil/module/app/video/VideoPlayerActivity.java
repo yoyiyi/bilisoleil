@@ -296,9 +296,12 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
        /* uri1 = "http://122.228.103.130/vg5/2/c0/6191437-1.mp4?expires=1498716900&platform=android&ssig=hKQiMO6c9Bj_OJfhu3K3vA&oi=3080483261" +
                 "&nfa=zn2OTN7O9p3rqnr0+3S2RQ==&dynamic=1&hfa=2070368267";*/
         // http://115.231.179.113/6572787CE774C845BDFF103E5C/03000804005948C7BE58C6011BA6A93F75FF26-AA49-0A30-9D4B-7871503F37CE.mp4?ccode=0501&duration=395&expire=18000&psid=862909d3e3467a9b0efff6cf8f704e5f&ups_client_netip=183.156.113.189&ups_ts=1498705420&ups_userid=&utid=c1rbEdI5mFcCAbeccb16JLgD&vid=XMjgzNzQ2MDIyMA%3D%3D&vkey=A4e5ad15f9e348b316246f54a6ecf4552
-        String uri = "http://115.231.179.113/6572787CE774C845BDFF103E5C/03000804005948C7BE58C6011BA6A93F75FF26-AA49-0A30-9D4B-7871503F37CE.mp4?ccode=0501&duration=395" +
-                "&expire=18000&psid=862909d3e3467a9b0efff6cf8f704e5f&ups_client_netip=183.156.113.189&";
-        mPlayerView.setVideoURI(Uri.parse(uri));
+
+       String uri = "http://112.25.47.111/6571EA9C4C13D776444793BD0/0300080400594FCDDF4780011BA6A94356A652-5121-05EF-7A49-F7F133184645.mp4?ccode=0501&duration=390&expire=18000&psid=0c186136db0b550753f4e15897a344b7&ups_client_netip=112.10.94.233&ups_ts=1498743715&ups_userid=&utid=3erbEXmBygUCAXAKXulsTPfb&vid=XMjg0OTI4ODEyOA%3D%3D&vkey=A55ec5ed693a02bd1aa246fb9c7700277";
+       // String uri = "http://115.231.179.113/6572787CE774C845BDFF103E5C/03000804005948C7BE58C6011BA6A93F75FF26-AA49-0A30-9D4B-7871503F37CE.mp4?ccode=0501&duration=395" +
+          //      "&expire=18000&psid=862909d3e3467a9b0efff6cf8f704e5f&ups_client_netip=183.156.113.189&";
+       String uri1="http://liveal.quanmin.tv/live/1578745132.flv";
+        mPlayerView.setVideoURI(Uri.parse(uri1));
         mPlayerView.setOnPreparedListener(mp -> {
             mLoadingAnim.stop();
             mStartText = mStartText + "【完成】\n视频缓冲中...";
