@@ -4,9 +4,44 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_all"
+            android:text="综合"
+            android:padding="@dimen/dp10"
+            android:textSize="@dimen/text_size_14"
+            android:textColor="@color/font_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_below="@+id/tv_all"
+            android:background="@color/line_bg"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+        <ImageView
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@drawable/ic_index_rank"
+            android:tint="@color/pink"
+            android:layout_toLeftOf="@+id/iv_tags"
+            android:layout_width="@dimen/dp22"
+            android:layout_height="@dimen/dp22"/>
+        <ImageView
+            android:id="@+id/iv_tags"
+            android:src="@drawable/ic_index_attention"
+            android:tint="@color/pink"
+          android:layout_margin="@dimen/dp10"
+            android:layout_alignParentEnd="true"
+            android:layout_width="@dimen/dp22"
+            android:layout_height="@dimen/dp22"/>
+    </RelativeLayout>
+
     <include layout="@layout/common_layout_error"/>
 
     <FrameLayout
+        android:layout_below="@id/rl_head"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dp10">

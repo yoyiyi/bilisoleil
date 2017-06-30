@@ -11,7 +11,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.dynamic.Dynamic;
 import com.yoyiyi.soleil.bean.dynamic.MulDynamic;
-import com.yoyiyi.soleil.module.app.video.VideoPlayerActivity;
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.NumberUtils;
 import com.yoyiyi.soleil.utils.time.FormatUtils;
@@ -35,7 +35,7 @@ public class DynamicAdapter extends BaseMultiItemQuickAdapter<MulDynamic, BaseVi
 
     @Override
     protected void convert(BaseViewHolder holder, MulDynamic mulDynamic) {
-        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoPlayerActivity.class)));
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoDetailActivity.class)));
         switch (holder.getItemViewType()) {
             case MulDynamic.TYPE_LV0:
                 Dynamic.ItemBean itemBean = mulDynamic.group;

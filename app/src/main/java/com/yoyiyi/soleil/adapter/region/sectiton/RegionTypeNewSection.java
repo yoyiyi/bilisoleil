@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionType;
-import com.yoyiyi.soleil.module.app.video.VideoPlayerActivity;
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
 
@@ -40,7 +40,7 @@ public class RegionTypeNewSection extends StatelessSection<RegionType.NewBean> {
                 .setText(R.id.tv_video_up, newBean.name)
                 .setText(R.id.tv_video_play, newBean.play + "")
                 .setText(R.id.tv_video_danmaku, newBean.danmaku + "");
-        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoPlayerActivity.class)));
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoDetailActivity.class)));
 
     }
 

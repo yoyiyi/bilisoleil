@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.recommend.AllStationRank;
-import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.SpanUtils;
 
@@ -54,7 +54,7 @@ public class AllStationRankAdapter extends BaseQuickAdapter<AllStationRank.RankB
                 .setText(R.id.tv_video_up, allRegionRank.author)
                 .setText(R.id.tv_video_play, allRegionRank.play + "")
                 .setText(R.id.tv_video_danmaku, allRegionRank.favorites + "");
-        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, BangumiDetailActivity.class)));
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoDetailActivity.class)));
 
     }
 }
