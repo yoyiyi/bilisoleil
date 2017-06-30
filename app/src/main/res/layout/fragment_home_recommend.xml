@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="1px"/>
         <ImageView
+            android:id="@+id/iv_rank"
             android:layout_marginTop="@dimen/dp10"
             android:src="@drawable/ic_index_rank"
             android:tint="@color/pink"

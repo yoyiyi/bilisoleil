@@ -1,6 +1,8 @@
 package com.yoyiyi.soleil.module.home;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
+import android.widget.ImageView;
 
 import com.annimon.stream.Stream;
 import com.yoyiyi.soleil.R;
@@ -8,6 +10,7 @@ import com.yoyiyi.soleil.adapter.home.RecommendAdapter;
 import com.yoyiyi.soleil.base.BaseRefreshFragment;
 import com.yoyiyi.soleil.bean.recommend.MulRecommend;
 import com.yoyiyi.soleil.bean.recommend.Recommend;
+import com.yoyiyi.soleil.module.recommend.AllStationRankActivity;
 import com.yoyiyi.soleil.mvp.contract.home.RecommendContract;
 import com.yoyiyi.soleil.mvp.presenter.home.RecommendPresenter;
 import com.yoyiyi.soleil.utils.AppUtils;
@@ -15,6 +18,8 @@ import com.yoyiyi.soleil.utils.EmptyUtils;
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration;
 
 import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -24,6 +29,9 @@ import java.util.List;
 
 public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, MulRecommend>
         implements RecommendContract.View {
+
+    @BindView(R.id.iv_rank)
+    ImageView mIvRank;
 
     private RecommendAdapter mAdapter;
 
@@ -46,6 +54,11 @@ public class RecommendFragment extends BaseRefreshFragment<RecommendPresenter, M
         mPresenter.getRecommendData();
     }
 
+    @Override
+    public void initWidget() {
+        super.initWidget();
+        mIvRank.setOnClickListener(view-> startActivity(new Intent(getActivity(), AllStationRankActivity.class)));
+    }
 
     @Override
     protected void initRecyclerView() {
