@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/dp10"
+        android:src="@drawable/img_tips_error_no_downloads"
+        app:layout_constraintBottom_toTopOf="@+id/tv_no_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp30"
+        android:text="没有找到你的缓存"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_all_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15"
+        android:padding="@dimen/dp10"
+        android:text="全部开始"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <View
+        android:id="@+id/v_ver"
+        android:layout_width="1px"
+        android:layout_height="@dimen/dp15"
+        android:background="@color/font_gray"
+        app:layout_constraintBottom_toBottomOf="@id/tv_all_start"
+        app:layout_constraintStart_toEndOf="@id/tv_all_start"
+        app:layout_constraintTop_toTopOf="@id/tv_all_start"/>
+
+    <TextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15"
+        android:padding="@dimen/dp10"
+        android:text="编辑"
+        android:textColor="@color/font_gray"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/v_ver"
+        />
+
+    <com.yoyiyi.soleil.widget.progress.NumberProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/NumberProgressBar_Beauty_Red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tv_all_start"
+        app:progress_max="100"
+        app:progress_text_visibility="invisible"/>
+
+
+        <TextView
+            android:paddingLeft="@dimen/dp10"
+            android:id="@+id/tv_cache_size"
+            android:layout_width="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tv_all_start"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/font_normal"
+            android:textSize="@dimen/text_size_14"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:src="@drawable/ic_action_download_refresh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</android.support.constraint.ConstraintLayout>

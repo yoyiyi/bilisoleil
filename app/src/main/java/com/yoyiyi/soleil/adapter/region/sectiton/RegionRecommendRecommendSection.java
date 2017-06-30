@@ -1,11 +1,13 @@
 package com.yoyiyi.soleil.adapter.region.sectiton;
 
+import android.content.Intent;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.region.RegionRecommend;
+import com.yoyiyi.soleil.module.app.video.VideoPlayerActivity;
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity;
 import com.yoyiyi.soleil.module.region.RegionTypeActivity;
 import com.yoyiyi.soleil.utils.AppUtils;
@@ -49,6 +51,9 @@ public class RegionRecommendRecommendSection extends StatelessSection<RegionReco
                     (int) AppUtils.getDimension(R.dimen.dp10),
                     (int) AppUtils.getDimension(R.dimen.dp5));
         }
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, VideoPlayerActivity.class)));
+
+
     }
 
     @Override

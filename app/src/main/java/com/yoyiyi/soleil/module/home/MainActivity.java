@@ -17,6 +17,7 @@ import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.constant.Constants;
 import com.yoyiyi.soleil.event.Event;
 import com.yoyiyi.soleil.module.app.BrowerActivity;
+import com.yoyiyi.soleil.module.entrance.OfflineDownloadActivity;
 import com.yoyiyi.soleil.module.entrance.VipActivity;
 import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.utils.AppUtils;
@@ -130,8 +131,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 case R.id.item_vip:
                     startActivity(new Intent(MainActivity.this, VipActivity.class));
                     break;
-                case  R.id.item_unicom:
-                    BrowerActivity.startActivity(MainActivity.this, Constants.BLACK_BOARD_URL,"联通免流量服务","");
+                case R.id.item_unicom:
+                    BrowerActivity.startActivity(MainActivity.this, Constants.BLACK_BOARD_URL, "联通免流量服务", "");
+                    break;
+                case R.id.item_down:
+                    startActivity(new Intent(MainActivity.this, OfflineDownloadActivity.class));
                     break;
             }
         }, 230);
