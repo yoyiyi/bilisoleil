@@ -131,7 +131,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     startActivity(new Intent(MainActivity.this, VipActivity.class));
                     break;
                 case  R.id.item_unicom:
-                    BrowerActivity.startActivity(MainActivity.this, Constants.BLACK_BOARD_URL,"联通流量服务","");
+                    BrowerActivity.startActivity(MainActivity.this, Constants.BLACK_BOARD_URL,"联通免流量服务","");
                     break;
             }
         }, 230);

@@ -49,7 +49,7 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .start();
                 bannar.setOnBannerListener(i -> {
                     Recommend.BannerItemBean bannerBean = banner_item.get(i);
-                    BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title,bannerBean.image);
+                    BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title, bannerBean.image);
                 });
                 break;
 
@@ -65,7 +65,13 @@ public class RecommendAdapter extends BaseMultiItemQuickAdapter<MulRecommend, Ba
                         .setText(R.id.tv_video_time, FormatUtils.formatDuration(mulRecommend.mRecommend.duration + ""))
                         .setText(R.id.tv_video_danmaku, NumberUtils.format(mulRecommend.mRecommend.danmaku + ""))
                         .setText(R.id.tv_video_title, mulRecommend.mRecommend.title);
-                // .setText(R.id.tv_video_tag, mulRecommend.mRecommend.tname + " · " + mulRecommend.mRecommend.tag.tag_name);
+                if (mulRecommend.mRecommend.open != 0) {
+                    //直播
+                    holder.setText(R.id.tv_video_tag, mulRecommend.mRecommend.area);
+                } else {
+                    //推荐
+                    holder.setText(R.id.tv_video_tag, mulRecommend.mRecommend.tname + " · " + mulRecommend.mRecommend.tag.tag_name);
+                }
                 holder.itemView.setOnClickListener(view ->
                         mContext.startActivity(new Intent(mContext, VideoDetailActivity.class)));
                 break;
