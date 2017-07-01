@@ -10,7 +10,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
-//apply plugin: 'me.tatarka.retrolambda'//2.3使用
+apply plugin: 'me.tatarka.retrolambda'//2.3使用
 
 android {
     compileSdkVersion 25
