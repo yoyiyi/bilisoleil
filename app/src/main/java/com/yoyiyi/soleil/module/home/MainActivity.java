@@ -156,7 +156,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     /**
-     * 监听back键处理DrawerLayout和SearchView
+     * 监听back键处理
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
