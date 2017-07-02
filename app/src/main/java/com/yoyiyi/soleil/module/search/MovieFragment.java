@@ -11,7 +11,7 @@ import com.yoyiyi.soleil.mvp.presenter.search.MoviePresenter;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/29 11:46
- * 描述:
+ * 描述:影视
  */
 public class MovieFragment extends BaseSearchFragment<MoviePresenter, Movie.DataBean.ItemsBean> implements MovieContract.View {
     private MovieAdapter mAdapter;

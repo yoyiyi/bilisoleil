@@ -29,6 +29,12 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
+ * @date 创建时间：2017/5/23 14:23
+ * 描述:首页
+ */
+
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     long exitTime = 0L;

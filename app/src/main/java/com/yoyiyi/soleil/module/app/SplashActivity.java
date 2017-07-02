@@ -161,6 +161,7 @@ public class SplashActivity extends RxAppCompatActivity implements SplashContrac
      */
     private void redirect() {
         boolean flag = PrefsUtils.getInstance().getBoolean(Constants.IS_LOGINED_FLAG, false);
+        flag = false;
         if (flag) {
             startActivity(new Intent(this, MainActivity.class));
             finish();

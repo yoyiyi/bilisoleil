@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/30 12:30
- * 描述:
+ * 描述:基础分区
  */
 public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K> extends BaseActivity<T> {
     protected TextView mTvTitle;
