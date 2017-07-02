@@ -1,6 +1,12 @@
 # bilisoleil
 An unofficial bilibili client for android 
 
+## Remark
+
+b站接口有些加密过，抓不到，有些我直接抓了一个，请求参数啥的，不懂啥意思，直接用了，有些接口直接用原项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
+该仿b站的项目采用Rxjava2+okhttp+retrofit+mvp+dagger2搭建的，然后参考了大佬的项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)，在此感谢。该项目还有许多不完善，
+不足的地方，后期如果有时间可能会改。
+
 ## Screenshots
 
 <a href="art/en (26).png"><img src="art/en (26).png" width="30%"/></a> 
@@ -44,4 +50,28 @@ An unofficial bilibili client for android
 <a href="art/en (30).png"><img src="art/en (30).png" width="30%"/></a>
 
 ![](https://github.com/yoyiyi/bilisoleil/blob/master/art/en%20(29).png?raw=true)
+
+## Thanks to the open source project
+
+* [bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
+* [RxJava](https://github.com/ReactiveX/RxJava)
+* [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+* [RxBinding](https://github.com/JakeWharton/RxBinding)
+* [RxLifecycle](https://github.com/trello/RxLifecycle)
+* [okhttp](https://github.com/square/okhttp)
+* [dagger](https://github.com/square/dagger)
+* [retrofit](https://github.com/square/retrofit)
+* [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+* [ijkplayer](https://github.com/Bilibili/ijkplayer)
+* [DanmakuFlameMaster](https://github.com/Bilibili/DanmakuFlameMaster)
+* [butterknife](https://github.com/JakeWharton/butterknife)
+* [glide](https://github.com/bumptech/glide)
+* [MaterialSearchView](https://github.com/MiguelCatalan/MaterialSearchView)
+* [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)
+* [FlowLayout](https://github.com/hongyangAndroid/FlowLayout)
+* [banner](https://github.com/youth5201314/banner)
+
+## License
+
+WHAT HAPPEN
 
