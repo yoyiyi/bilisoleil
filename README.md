@@ -4,7 +4,7 @@ An unofficial bilibili client for android
 ## Remark
 
 b站接口有些加密过，抓不到，有些我直接抓了一个，请求参数啥的，不懂啥意思，直接用了，有些接口直接用原项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
-，有些界面需要登录才会有数据，避免麻烦直接复制json到本地，该仿b站的项目采用Rxjava2+okhttp+retrofit+mvp+dagger2搭建的，然后参考了大佬的项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)，在此表示感谢。该项目还有许多不完善，
+，有些界面需要登录才会有数据，避免麻烦直接复制json到本地，该仿b站的项目采用rxjava2+okhttp+retrofit+mvp+dagger2搭建的，然后参考了大佬的项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)，在此表示感谢。该项目还有许多不完善，
 不足的地方，后期有时间尽可能改。
 
 ## Screenshots
