@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.bangumi;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.bangumi.BangumiSchedule;
+import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.section.StatelessSection;
 import com.yoyiyi.soleil.widget.section.ViewHolder;
@@ -96,5 +98,7 @@ public class BangumiScheduleSection extends StatelessSection<BangumiSchedule> {
         holder.setText(R.id.tv_video_title, schedule.title)
                 .setText(R.id.tv_video_time, schedule.ontime)
                 .setText(R.id.tv_video_update, "第 " + schedule.ep_index + " 话");
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, BangumiDetailActivity.class)));
+
     }
 }

@@ -172,6 +172,11 @@
             android:name=".module.search.SearchActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <!-- 离线缓存 -->
+        <activity
+            android:name=".module.entrance.OfflineDownloadActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <!-- 视频播放 -->
         <activity
             android:name=".module.app.video.VideoPlayerActivity"

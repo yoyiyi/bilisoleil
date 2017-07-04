@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/29 11:46
- * 描述:
+ * 描述:基础搜索
  */
 public abstract class BaseSearchFragment<T extends BaseContract.BasePresenter, K> extends BaseFragment<T> implements BaseSearchContract.View {
 

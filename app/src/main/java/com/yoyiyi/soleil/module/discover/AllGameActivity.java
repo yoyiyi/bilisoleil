@@ -13,7 +13,7 @@ import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/5 22:28
- * 描述:游戏中心
+ * 描述:所有游戏
  */
 public class AllGameActivity extends BaseRefreshActivity<GameCenterPresenter, GameCenter.GameListBean> implements GameCenterContract.View {
     private SectionedRVAdapter mSectionedAdapter;

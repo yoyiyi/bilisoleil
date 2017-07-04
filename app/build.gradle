@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -89,15 +89,13 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     //ijk
-
     compile 'tv.danmaku.ijk.media:ijkplayer-java:0.8.0'
     compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.0'
-
     compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.0'
     compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.0'
     //烈焰弹幕使
-    compile 'com.github.ctiao:DanmakuFlameMaster:0.8.3'
-    compile 'com.github.ctiao:ndkbitmap-armv7a:0.8.3'
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.5.6'
+    //compile 'com.github.ctiao:ndkbitmap-armv7a:0.5.9'
     //调试工具
     compile 'com.facebook.stetho:stetho:1.4.2'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
@@ -117,4 +115,5 @@ dependencies {
     compile files('libs/ShareSDK-Core-2.8.3.jar')
     compile files('libs/MobTools-2017.0412.1554.jar')
     compile files('libs/MobCommons-2017.0412.1554.jar')
+    compile 'org.jsoup:jsoup:1.10.3'
 }

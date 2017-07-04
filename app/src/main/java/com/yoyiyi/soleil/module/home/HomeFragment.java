@@ -71,7 +71,7 @@ public class HomeFragment extends BaseHomeFragment {
         mViewPager.setOffscreenPageLimit(5);
         mViewPager.setAdapter(adapter);
         mStlTabs.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(0);
+        mViewPager.setCurrentItem(1);
     }
 
     //点击打开侧滑栏

@@ -11,7 +11,7 @@ import com.yoyiyi.soleil.mvp.presenter.search.UpPresenter;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/29 11:46
- * 描述:
+ * 描述:up
  */
 public class UpFragment extends BaseSearchFragment<UpPresenter, Up.DataBean.ItemsBean> implements UpContract.View {
     private UpAdapter mAdapter;

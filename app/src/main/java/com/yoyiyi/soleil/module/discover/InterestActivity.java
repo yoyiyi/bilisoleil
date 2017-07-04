@@ -9,7 +9,7 @@ import com.yoyiyi.soleil.module.region.BaseRegionActivity;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/10 22:25
- * 描述:
+ * 描述:兴趣圈
  */
 public class InterestActivity extends BaseRegionActivity {
     private String[] mTitlesArr = new String[]{"首页", "发现", "我的"};

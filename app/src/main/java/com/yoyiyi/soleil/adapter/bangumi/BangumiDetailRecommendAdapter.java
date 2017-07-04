@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.bangumi;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
@@ -9,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.bangumi.BangumiDetailRecommend;
+import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
 
 import java.util.List;
@@ -35,5 +37,7 @@ class BangumiDetailRecommendAdapter extends BaseQuickAdapter<BangumiDetailRecomm
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
         holder.setText(R.id.tv_video_follow, NumberUtils.format(listBean.follow + "") + "追番")
                 .setText(R.id.tv_video_title, listBean.title);
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, BangumiDetailActivity.class)));
+
     }
 }

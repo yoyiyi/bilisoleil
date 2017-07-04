@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
@@ -9,6 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi;
+import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity;
 import com.yoyiyi.soleil.utils.NumberUtils;
 
 import java.util.List;
@@ -37,5 +39,6 @@ public class ChaseRecommendJPAdapter extends
                 .setText(R.id.tv_video_title, recommendBean.title)
                 .setText(R.id.tv_video_update, "更新至第" + recommendBean.newest_ep_index + "话")
                 .setVisible(R.id.tv_video_state, false);
+        holder.itemView.setOnClickListener(view -> mContext.startActivity(new Intent(mContext, BangumiDetailActivity.class)));
     }
 }

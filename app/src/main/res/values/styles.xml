@@ -45,10 +45,26 @@
     <style name="BaseAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="BaseAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
-   <style name="Fullscreen" parent="BaseAppTheme">
-    <!-- 隐藏状态栏 -->
-    <item name="android:windowFullscreen">true</item>
-    <!-- 隐藏标题栏 -->
-    <item name="android:windowNoTitle">true</item>
+
+    <style name="Fullscreen" parent="BaseAppTheme">
+        <!-- 隐藏状态栏 -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 隐藏标题栏 -->
+        <item name="android:windowNoTitle">true</item>
     </style>
+
+    <!--离线缓存进度条Style-->
+    <style name="NumberProgressBar_Beauty_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
+        <item name="progress_unreached_color">@color/gray_light</item>
+        <item name="progress_reached_color">@color/colorPrimary</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FF3D7F</item>
+        <item name="progress_reached_bar_height">20dp</item>
+        <item name="progress_unreached_bar_height">20dp</item>
+    </style>
+
 </resources>

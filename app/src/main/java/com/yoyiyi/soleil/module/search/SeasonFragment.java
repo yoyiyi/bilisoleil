@@ -11,7 +11,7 @@ import com.yoyiyi.soleil.mvp.presenter.search.SeasonPresenter;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/5/29 11:46
- * 描述:
+ * 描述:番剧
  */
 public class SeasonFragment extends BaseSearchFragment<SeasonPresenter, Season.DataBean.ItemsBean> implements SeasonContract.View {
     private SeasonAdapter mAdapter;
