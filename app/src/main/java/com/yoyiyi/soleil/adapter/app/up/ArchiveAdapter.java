@@ -25,7 +25,6 @@ import java.util.List;
  */
 
 public class ArchiveAdapter extends BaseMultiItemQuickAdapter<MulUpDetail, BaseViewHolder> {
-
     public ArchiveAdapter(List<MulUpDetail> data) {
         super(data);
         addItemType(MulUpDetail.TYPE_ARCHIVE_LIVE,R.layout.layout_item_up_detail_archive_live);
