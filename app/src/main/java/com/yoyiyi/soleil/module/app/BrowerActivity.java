@@ -36,7 +36,6 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
  * 描述:浏览器界面
  */
 public class BrowerActivity extends AppCompatActivity {
-
     @BindView(R.id.webView)
     WebView mWebView;
     @BindView(R.id.pw_loading)
