@@ -134,6 +134,7 @@ public class LoginActivity extends BaseActivity {
             ToastUtils.showCenterSingleToast("密码不能为空");
             return;
         }
+
         PrefsUtils.getInstance().putBoolean(Constants.IS_LOGINED_FLAG, true);
         startActivity(new Intent(this, MainActivity.class));
         finish();
