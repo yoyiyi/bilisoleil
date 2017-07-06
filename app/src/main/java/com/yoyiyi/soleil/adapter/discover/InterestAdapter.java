@@ -79,7 +79,7 @@ public class InterestAdapter extends BaseMultiItemQuickAdapter<MulInterest, Base
                         .setText(R.id.tv_summary, community.post_info.post_summary)
                         .setText(R.id.tv_title, community.post_info.post_title)
                         .setText(R.id.tv_group, "["+community.community_info.community_name+"]")
-                        .setText(R.id.tv_time, TimeUtils.formatDate(community.post_info.post_title))
+                        .setText(R.id.tv_time, TimeUtils.formatDate(com.yoyiyi.soleil.utils.time.TimeUtils.millis2String(community.post_info.post_time)))
                         .setText(R.id.tv_img_count, community.post_info.image_count + "")
                         .setText(R.id.tv_reply_count, community.post_info.reply_count + "")
                         .setVisible(R.id.iv_image, community.post_info.image_count == 0 ? false : true)
