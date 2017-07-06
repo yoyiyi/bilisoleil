@@ -48,6 +48,23 @@ public class RxUtils {
     }
 
     /**
+     * 生成Flowable
+     *
+     * @param <T>
+     * @return
+     */
+    public static <T> Flowable<List<T>> createData(final List<T> t) {
+        return Flowable.create(emitter -> {
+            try {
+                emitter.onNext(t);
+                emitter.onComplete();
+            } catch (Exception e) {
+                emitter.onError(e);
+            }
+        }, BackpressureStrategy.BUFFER);
+    }
+
+    /**
      * 统一返回结果处理
      *
      * @param <T>
