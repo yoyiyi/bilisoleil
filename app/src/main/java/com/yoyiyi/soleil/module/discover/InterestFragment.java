@@ -24,6 +24,8 @@ import java.util.List;
  */
 public class InterestFragment extends BaseRefreshFragment<InterestPresenter, MulInterest> implements InterestContract.View {
     private InterestAdapter mAdapter;
+    private InterestAd mInterestAdList;
+    private List<InterestCategrory.ResultBean> mInterestCategroryList;
 
     @Override
     public int getLayoutId() {
@@ -53,12 +55,14 @@ public class InterestFragment extends BaseRefreshFragment<InterestPresenter, Mul
 
     @Override
     public void showInterestAd(InterestAd interestAdList) {
-        mList.add(new MulInterest(MulInterest.TYPE_BANNER, interestAdList));
-
+        mInterestAdList = interestAdList;
     }
 
     @Override
     public void showCommunity(Community community) {
+        mList.add(new MulInterest(MulInterest.TYPE_BANNER, mInterestAdList));
+        mList.add(new MulInterest(MulInterest.TYPE_CATEGRORY, mInterestCategroryList));
+        mList.add(new MulInterest(MulInterest.TYPR_HEADER));
         List<Community.ResultBean> result = community.result;
         Stream.of(result).forEach(result1 -> mList.add(new MulInterest(MulInterest.TYPR_ITEM, result1)));
         finishTask();
@@ -66,8 +70,7 @@ public class InterestFragment extends BaseRefreshFragment<InterestPresenter, Mul
 
     @Override
     public void showInterestCategrory(List<InterestCategrory.ResultBean> interestCategroryList) {
-        mList.add(new MulInterest(MulInterest.TYPE_CATEGRORY, interestCategroryList));
-        mList.add(new MulInterest(MulInterest.TYPR_HEADER));
+        mInterestCategroryList = interestCategroryList;
     }
 
     @Override
