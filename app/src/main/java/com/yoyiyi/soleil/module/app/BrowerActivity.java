@@ -66,7 +66,6 @@ public class BrowerActivity extends AppCompatActivity {
         intent.putExtra(Constants.EXTRA_TITLE, title);
         intent.putExtra(Constants.EXTRA_URL, url);
         intent.putExtra(Constants.EXTRA_IMAGE, img);
-
         context.startActivity(intent);
     }
 
