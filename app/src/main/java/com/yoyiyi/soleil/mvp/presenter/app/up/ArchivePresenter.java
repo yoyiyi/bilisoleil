@@ -25,6 +25,7 @@ public class ArchivePresenter extends RxPresenter<ArchiveContract.View> implemen
 
     @Inject
     public ArchivePresenter() {
+
     }
 
     @Override
