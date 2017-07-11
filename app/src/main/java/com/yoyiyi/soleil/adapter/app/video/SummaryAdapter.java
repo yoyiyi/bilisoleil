@@ -86,7 +86,6 @@ public class SummaryAdapter extends BaseMultiItemQuickAdapter<MulSummary, BaseVi
 
             case MulSummary.TYPE_RELATE_HEAD:
 
-
                 break;
             case MulSummary.TYPE_RELATE:
                 Glide.with(mContext)
