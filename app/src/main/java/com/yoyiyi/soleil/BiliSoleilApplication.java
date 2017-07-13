@@ -160,8 +160,9 @@ public final class BiliSoleilApplication extends Application {
         CrashHandler.getInstance().init(this);
     }
 
+
     /**
-     * 初始化Log
+     * 初始化log
      */
     private void initLog() {
         LogUtils.init(this);
