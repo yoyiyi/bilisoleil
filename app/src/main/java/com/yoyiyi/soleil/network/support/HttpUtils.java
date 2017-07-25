@@ -88,7 +88,7 @@ public class HttpUtils {
                 manager = chooseTrustManager(trustManagers);
             } else {
                 //否则使用不安全的TrustManager
-                manager = UnSafeTrustManager;
+                manager = unSafeTrustManager;
             }
             // 创建TLS类型的SSLContext对象， that uses our TrustManager
             SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -165,7 +165,7 @@ public class HttpUtils {
      * 为了解决客户端不信任服务器数字证书的问题，网络上大部分的解决方案都是让客户端不对证书做任何检查，
      * 这是一种有很大安全漏洞的办法
      */
-    public static X509TrustManager UnSafeTrustManager = new X509TrustManager() {
+    public static X509TrustManager unSafeTrustManager = new X509TrustManager() {
         @Override
         public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
         }
@@ -185,7 +185,7 @@ public class HttpUtils {
      * 则验证机制可以回调此接口的实现程序来确定是否应该允许此连接。策略可以是基于证书的或依赖于其他验证方案。
      * 当验证 URL 主机名使用的默认规则失败时使用这些回调。如果主机名是可接受的，则返回 true
      */
-    public static HostnameVerifier UnSafeHostnameVerifier = new HostnameVerifier() {
+    public static HostnameVerifier unSafeHostnameVerifier = new HostnameVerifier() {
         @Override
         public boolean verify(String hostname, SSLSession session) {
             return true;
