@@ -20,7 +20,7 @@ import okhttp3.Cookie;
  * 描述:cookie序列化
  */
 
-public class SerializableCookie implements Serializable{
+public class SerializableCookie implements Serializable {
     private static final String TAG = "SerializableCookie";
 
     private static final long serialVersionUID = 6374381323722046732L;
@@ -33,8 +33,8 @@ public class SerializableCookie implements Serializable{
     public String host;
     public String name;
     public String domain;
-    private transient Cookie cookie;
-    private transient Cookie clientCookie;
+    private transient Cookie cookie;//不让其序列化
+    private transient Cookie clientCookie;//不让其序列化
 
     public SerializableCookie(String host, Cookie cookie) {
         this.cookie = cookie;
@@ -138,6 +138,12 @@ public class SerializableCookie implements Serializable{
         return bytesToCookie(bytes);
     }
 
+    /**
+     * 将byte数组反序列化成cookies
+     *
+     * @param bytes
+     * @return
+     */
     public static Cookie bytesToCookie(byte[] bytes) {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         Cookie cookie = null;
