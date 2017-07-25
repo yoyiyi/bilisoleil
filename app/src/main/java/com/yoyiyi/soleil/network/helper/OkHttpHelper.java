@@ -116,6 +116,8 @@ public class OkHttpHelper {
         return cache;
     }
 
+
+
     // 云端响应头拦截器，用来配置缓存策略
     private Interceptor mRewriteCacheControlInterceptor = chain -> {
         Request request = chain.request();
@@ -140,6 +142,7 @@ public class OkHttpHelper {
      * 添加UA拦截器，B站请求API需要加上UA才能正常使用
      */
     private static class UserAgentInterceptor implements Interceptor {
+
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request originalRequest = chain.request();

@@ -24,6 +24,7 @@ import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.utils.ToastUtils;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,15 +37,13 @@ import butterknife.BindView;
  */
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     long exitTime = 0L;
-
     @BindView(R.id.nav_view)
     NavigationView mNavView;
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     private int mCurrentPos = -1;
-    private List<Fragment> mFragments;
+    private List<Fragment> mFragments = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {

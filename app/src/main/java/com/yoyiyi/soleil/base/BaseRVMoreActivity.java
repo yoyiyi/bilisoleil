@@ -2,13 +2,14 @@ package com.yoyiyi.soleil.base;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.utils.NetworkUtils;
 import com.yoyiyi.soleil.widget.CustomLoadMoreView;
 
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/6/29 17:22
- * 描述:上拉加载更多
+ * 描述:
  */
 
 public abstract class BaseRVMoreActivity<T extends BaseContract.BasePresenter, K, H extends BaseQuickAdapter> extends BaseRefreshActivity<T, K> implements
@@ -25,29 +26,34 @@ public abstract class BaseRVMoreActivity<T extends BaseContract.BasePresenter, K
     protected void initRecyclerView() {
         super.initRecyclerView();
         mAdapter.setLoadMoreView(new CustomLoadMoreView());
-        //设置加载更多
-        // mAdapter.setOnLoadMoreListener(this, mRecycler);
+
 
     }
 
     @Override
     public void onLoadMoreRequested() {
-        AppUtils.runOnUIDelayed(() -> {
-            //加载更多
-            if (mAdapter.getItemCount() >= mTotal) {
-                mAdapter.loadMoreEnd();//结束加载
-            } else {
-                if (!mIsError) {
-                    mPage++;
-                    loadData();
+        if (NetworkUtils.isConnected(this)){
+            AppUtils.runOnUIDelayed(() -> {
+                //加载更多
+                if (mAdapter.getItemCount() >= mTotal) {
+                    mAdapter.loadMoreEnd();//结束加载
                 } else {
-                    mIsError = true;
-                    mAdapter.loadMoreFail();//加载失败
-                }
-            }
-        }, 650);
+                    if (!mIsError) {
+                        mPage++;
+                        loadData();
+                    } else {
+                        mIsError = true;
+                        mAdapter.loadMoreFail();//加载失败
+                    }
 
+                }
+            }, 650);
+        }else {
+            mIsError = true;
+            mAdapter.loadMoreFail();//加载失败
+        }
     }
+
 
     /**
      * 设置Adapter
@@ -77,6 +83,7 @@ public abstract class BaseRVMoreActivity<T extends BaseContract.BasePresenter, K
     @Override
     public void complete() {
         super.complete();
+        //需要重新开启监听
         mAdapter.setEnableLoadMore(true);
     }
 }
