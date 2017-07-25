@@ -73,20 +73,6 @@ public class LiveFragment extends BaseRefreshFragment<LivePresenter, LiveRecomme
         });
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setAdapter(mSectionedAdapter);
-        //添加分割线
-        /*VerticalDividerItemDecoration build = new VerticalDividerItemDecoration.Builder(getActivity())
-                .color(AppUtils.getColor(R.color.transparent))
-                .sizeResId(R.dimen.dp10)
-                .showLastDivider()
-                .visibilityProvider((position, parent) -> {
-                    if (position < 4) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                })
-                .build();
-        mRecycler.addItemDecoration(build);*/
     }
 
 
