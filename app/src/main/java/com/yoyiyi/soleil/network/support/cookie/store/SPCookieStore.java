@@ -21,11 +21,11 @@ import okhttp3.HttpUrl;
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/7/12 17:04
- * 描述:持久化cookie
+ * 描述:sp持久化cookie
  */
 public class SPCookieStore implements CookieStore {
 
-    private static final String COOKIE_PREFS = "okgo_cookie";           //cookie使用prefs保存
+    private static final String COOKIE_PREFS = "okhttp_cookie";           //cookie使用prefs保存
     private static final String COOKIE_NAME_PREFIX = "cookie_";         //cookie持久化的统一前缀
 
     /**
