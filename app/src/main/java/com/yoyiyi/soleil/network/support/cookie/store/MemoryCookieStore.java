@@ -23,8 +23,8 @@ public class MemoryCookieStore implements CookieStore {
     /**
      * 保存cookie
      *
-     * @param url
-     * @param cookies
+     * @param url url
+     * @param cookies cookie
      */
     @Override
     public synchronized void saveCookie(HttpUrl url, List<Cookie> cookies) {
@@ -44,8 +44,8 @@ public class MemoryCookieStore implements CookieStore {
     /**
      * 保存cookie
      *
-     * @param url
-     * @param cookie
+     * @param url url
+     * @param cookie cookie
      */
     @Override
     public synchronized void saveCookie(HttpUrl url, Cookie cookie) {
