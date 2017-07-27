@@ -21,6 +21,18 @@ public class RxPresenter<T extends BaseContract.BaseView> implements BaseContrac
         }
     }
 
+    /**
+     * 删除
+     *
+     * @param disposable disposable
+     */
+    protected boolean remove(Disposable disposable) {
+        if (mCompositeDisposable != null) {
+            return mCompositeDisposable.remove(disposable);
+        }
+        return false;
+    }
+
     protected void addSubscribe(Disposable disposable) {
         if (mCompositeDisposable == null) {
             mCompositeDisposable = new CompositeDisposable();
