@@ -89,6 +89,9 @@ public abstract class BaseRegionActivity<T extends BaseContract.BasePresenter, K
         mSlidingTabLayout.setViewPager(mViewPager);
     }
 
+    /**
+     * 初始化事件
+     */
     protected void initEvent() {
 
     }
