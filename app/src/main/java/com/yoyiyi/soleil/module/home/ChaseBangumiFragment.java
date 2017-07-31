@@ -24,7 +24,6 @@ import com.yoyiyi.soleil.widget.section.SectionedRVAdapter;
 
 public class ChaseBangumiFragment extends BaseRefreshFragment<ChaseBangumiPresenter, ChaseBangumi.FollowsBean>
         implements ChaseBangumiContract.View {
-
     private SectionedRVAdapter mSectionedAdapter;
     private volatile ChaseBangumi mChaseBangumi;
     private RecommendBangumi.RecommendCnBean mRecommendCnBean;
