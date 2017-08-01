@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -44,8 +45,6 @@ public class BrowerActivity extends AppCompatActivity {
     Toolbar mToolbar;
     private String mTitle;
     private String mUrl;
-    private WebClient mWebChromeClient;
-    private WebClientBase mWebViewClient;
     private String mImg;
 
     @Override
@@ -146,9 +145,10 @@ public class BrowerActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     protected void initWebView() {
-        mWebChromeClient = new WebClient();
-        mWebViewClient = new WebClientBase();
+        WebClient webChromeClient = new WebClient();
+        WebClientBase webViewClient = new WebClientBase();
         WebSettings webSettings = mWebView.getSettings();
         //设置js支持
         webSettings.setJavaScriptEnabled(true);
@@ -167,10 +167,10 @@ public class BrowerActivity extends AppCompatActivity {
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         mWebView.setDrawingCacheEnabled(true);
         mWebView.getSettings().setBlockNetworkImage(true);
-        mWebView.setWebViewClient(mWebViewClient);
+        mWebView.setWebViewClient(webViewClient);
         mWebView.requestFocus(View.FOCUS_DOWN);
         mWebView.getSettings().setDefaultTextEncodingName("UTF-8");
-        mWebView.setWebChromeClient(mWebChromeClient);
+        mWebView.setWebChromeClient(webChromeClient);
         mWebView.loadUrl(mUrl);
     }
 
