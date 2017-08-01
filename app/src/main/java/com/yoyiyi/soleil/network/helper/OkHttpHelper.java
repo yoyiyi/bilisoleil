@@ -109,10 +109,8 @@ public class OkHttpHelper {
         Cache cache = null;
         String path = FileUtils.createRootPath(context);
         final File baseDir = new File(path);
-        if (baseDir != null) {
-            final File cacheDir = new File(baseDir, "CopyCache");
-            cache = new Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
-        }
+        final File cacheDir = new File(baseDir, "CopyCache");
+        cache = new Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
         return cache;
     }
 
