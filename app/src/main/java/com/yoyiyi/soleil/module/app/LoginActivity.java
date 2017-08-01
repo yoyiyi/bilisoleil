@@ -31,6 +31,8 @@ import butterknife.BindView;
  */
 
 public class LoginActivity extends BaseActivity {
+
+
     @BindView(R.id.iv_icon_left)
     ImageView mIvIconLeft;
     @BindView(R.id.iv_icon_center)
