@@ -113,7 +113,9 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
      * 初始化Presenter
      */
     private void initPresenter() {
-        if (mPresenter != null) mPresenter.attachView(this);
+        if (mPresenter != null) {
+            mPresenter.attachView(this);
+        }
     }
 
 

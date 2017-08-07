@@ -31,15 +31,15 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class OkHttpHelper {
     //读取时间
-    public static final long DEFAULT_READ_TIMEOUT_MILLIS = 20 * 1000;
+    private static final long DEFAULT_READ_TIMEOUT_MILLIS = 20 * 1000;
     //写入时间
-    public static final long DEFAULT_WRITE_TIMEOUT_MILLIS = 20 * 1000;
+    private static final long DEFAULT_WRITE_TIMEOUT_MILLIS = 20 * 1000;
     //超时时间
-    public static final long DEFAULT_CONNECT_TIMEOUT_MILLIS = 20 * 1000;
+    private static final long DEFAULT_CONNECT_TIMEOUT_MILLIS = 20 * 1000;
     //最大缓存
     private static final long HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 20 * 1024 * 1024;//设置20M
     //长缓存有效期为7天
-    public static final int CACHE_STALE_LONG = 60 * 60 * 24 * 7;
+    private static final int CACHE_STALE_LONG = 60 * 60 * 24 * 7;
 
     private static volatile OkHttpHelper sInstance;
 
@@ -105,7 +105,7 @@ public class OkHttpHelper {
      *
      * @return cache
      */
-    public Cache getCache(Context context) {
+    private Cache getCache(Context context) {
         Cache cache = null;
         String path = FileUtils.createRootPath(context);
         final File baseDir = new File(path);
