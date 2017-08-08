@@ -85,7 +85,7 @@ public abstract class BaseRefreshActivity<T extends BaseContract.BasePresenter, 
         if (mRefresh == null) {//
             if (mLoading != null) {
                 visible(mLoading);
-                AppUtils.runOnUIDelayed(() -> loadData(), 650);
+                AppUtils.runOnUIDelayed(this::loadData, 650);
             } else {
                 super.initDatas();
             }
