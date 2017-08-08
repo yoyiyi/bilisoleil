@@ -13,9 +13,9 @@ import io.reactivex.functions.Consumer;
 public class RxPresenter<T extends BaseContract.BaseView> implements BaseContract.BasePresenter<T> {
 
     protected T mView;
-    protected CompositeDisposable mCompositeDisposable;
+    private CompositeDisposable mCompositeDisposable;
 
-    protected void unSubscribe() {
+    private void unSubscribe() {
         if (mCompositeDisposable != null) {
             mCompositeDisposable.dispose();
         }
@@ -27,10 +27,7 @@ public class RxPresenter<T extends BaseContract.BaseView> implements BaseContrac
      * @param disposable disposable
      */
     protected boolean remove(Disposable disposable) {
-        if (mCompositeDisposable != null) {
-            return mCompositeDisposable.remove(disposable);
-        }
-        return false;
+        return mCompositeDisposable != null && mCompositeDisposable.remove(disposable);
     }
 
     protected void addSubscribe(Disposable disposable) {
