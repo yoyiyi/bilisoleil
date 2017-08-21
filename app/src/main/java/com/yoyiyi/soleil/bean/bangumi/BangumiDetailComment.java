@@ -92,7 +92,7 @@ public class BangumiDetailComment {
             public int floor;
             public int state;
             public int attr;
-            public int ctime;
+            public long ctime;
             public String rpid_str;
             public String root_str;
             public String parent_str;
@@ -256,7 +256,7 @@ public class BangumiDetailComment {
             public int floor;
             public int state;
             public int attr;
-            public int ctime;
+            public long ctime;
             public String rpid_str;
             public String root_str;
             public String parent_str;
