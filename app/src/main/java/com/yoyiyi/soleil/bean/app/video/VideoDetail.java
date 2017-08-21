@@ -62,7 +62,7 @@ public class VideoDetail {
         public String pic;
         public String title;
         public int pubdate;
-        public int ctime;
+        public long ctime;
         public String desc;
         public int state;
         public int attribute;
