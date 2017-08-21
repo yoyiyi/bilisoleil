@@ -112,7 +112,7 @@ public class RegionTagType implements Parcelable {
     public RegionTagType() {
     }
 
-    protected RegionTagType(Parcel in) {
+    public RegionTagType(Parcel in) {
         this.tid = in.readInt();
         this.reid = in.readInt();
         this.name = in.readString();

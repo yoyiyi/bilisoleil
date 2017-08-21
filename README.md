@@ -3,9 +3,8 @@ An unofficial bilibili client for android
 
 ## Remark
 
-###java版地址：[bilibili](https://github.com/yoyiyi/bilisoleil)
-
-###kotlin版地址：[bilisoleil-kotlin](https://github.com/yoyiyi/bilisoleil-kotlin)
+#### java版地址：[bilibili](https://github.com/yoyiyi/bilisoleil)
+#### kotlin版地址：[bilisoleil-kotlin](https://github.com/yoyiyi/bilisoleil-kotlin)
 
 b站接口有些加密过，抓不到，有些我直接抓了一个，请求参数啥的，不懂啥意思，直接用了，有些接口直接用原项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
 ，有些界面需要登录才会有数据，避免麻烦直接复制json到本地，该仿b站的项目采用rxjava2+okhttp+retrofit+mvp+dagger2搭建的，然后参考了大佬的项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)，在此表示感谢。该项目还有许多不完善，

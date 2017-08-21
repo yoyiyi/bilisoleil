@@ -15,8 +15,6 @@ public class AllStationRank {
         public List<ListBean> list;
 
 
-
-
         /**
          * aid : 6482189
          * typename : 鬼畜调教
