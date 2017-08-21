@@ -320,7 +320,7 @@ public class BangumiDetailComment {
                     public int pid;
                     public String name;
                     public String image;
-                    public int expire;
+                    public long expire;
                 }
 
                 public static class NameplateBeanX {
