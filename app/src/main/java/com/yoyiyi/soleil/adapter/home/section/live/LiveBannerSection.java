@@ -35,13 +35,13 @@ public class LiveBannerSection extends StatelessSection {
 
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {
-        Banner bannar = holder.getView(R.id.banner);
+        Banner banner = holder.getView(R.id.banner);
         List<String> urls = Stream.of(mList).map(bannerBean -> bannerBean.img).collect(Collectors.toList());
-        bannar.setIndicatorGravity(BannerConfig.RIGHT)
+        banner.setIndicatorGravity(BannerConfig.RIGHT)
                 .setImages(urls)
                 .setImageLoader(new GlideImageLoader())
                 .start();
-        bannar.setOnBannerListener(i -> {
+        banner.setOnBannerListener(i -> {
             LivePartition.BannerBean bannerBean = mList.get(i);
             BrowerActivity.startActivity(mContext,bannerBean.link,bannerBean.title,bannerBean.img);
         });
