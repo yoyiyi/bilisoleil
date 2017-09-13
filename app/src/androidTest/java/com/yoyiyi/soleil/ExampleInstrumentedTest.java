@@ -4,10 +4,14 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.annimon.stream.Stream;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -22,5 +26,17 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.yoyiyi.soleil", appContext.getPackageName());
+    }
+
+    @Test
+    public void user() throws Exception {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(2);
+        list.add(2);
+        System.out.print(2222);
+        Stream.of(list).distinct().forEach(System.out::println);
+
     }
 }
