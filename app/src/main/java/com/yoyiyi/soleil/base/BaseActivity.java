@@ -24,7 +24,6 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 
 /**
@@ -270,10 +269,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     private View $(@IdRes int id) {
         View view;
-        if (this != null) {
-            view = this.findViewById(id);
-            return view;
-        }
-        return null;
+        view = this.findViewById(id);
+        return view;
     }
 }

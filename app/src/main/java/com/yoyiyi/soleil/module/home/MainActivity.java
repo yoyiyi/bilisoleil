@@ -11,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
-import com.yoyiyi.soleil.BiliSoleilApplication;
 import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.base.BaseActivity;
 import com.yoyiyi.soleil.constant.Constants;
@@ -116,7 +115,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             ToastUtils.showToast("再按一次退出");
             exitTime = System.currentTimeMillis();
         } else {
-            BiliSoleilApplication.getInstance().exitApp();
+            // BiliSoleilApplication.getInstance().exitApp();
+            Event.ExitEvent event = new Event.ExitEvent();
+            event.exit = -1;
+            RxBus.INSTANCE.post(event);
         }
     }
 
