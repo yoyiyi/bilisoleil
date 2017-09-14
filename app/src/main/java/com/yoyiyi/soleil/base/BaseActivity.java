@@ -81,6 +81,9 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     }
 
 
+    /**
+     * 退出应用
+     */
     private void initExit() {
         mDisposable = RxBus.INSTANCE.toDefaultFlowable(Event.ExitEvent.class, exitEvent -> {
             if (exitEvent.exit == -1) {
