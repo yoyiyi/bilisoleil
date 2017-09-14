@@ -15,12 +15,16 @@ import com.yoyiyi.soleil.R;
 import com.yoyiyi.soleil.di.component.ActivityComponent;
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent;
 import com.yoyiyi.soleil.di.module.ActivityModule;
+import com.yoyiyi.soleil.event.Event;
+import com.yoyiyi.soleil.rx.RxBus;
 import com.yoyiyi.soleil.utils.AppUtils;
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 
 /**
@@ -36,6 +40,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
     // protected DrawerLayout mDrawerLayout;
     protected boolean mBack = true;
     private ConstraintLayout mError;
+    private Disposable mDisposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,7 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         }
         initWidget();
         initDatas();
+        initExit();
     }
 
 
@@ -72,6 +78,17 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
                 .appComponent(BiliSoleilApplication.getInstance().getAppComponent())
                 .activityModule(getActivityModule())
                 .build();
+    }
+
+
+    private void initExit() {
+        mDisposable = RxBus.INSTANCE.toDefaultFlowable(Event.ExitEvent.class, exitEvent -> {
+            if (exitEvent.exit == -1) {
+                finish();
+            }
+        });
+
+
     }
 
     /**
@@ -104,9 +121,9 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-   //如果用以下这种做法则不保存状态，再次进来的话会显示默认tab
-   //总是执行这句代码来调用父类去保存视图层的状态
-    //super.onSaveInstanceState(outState);
+        //如果用以下这种做法则不保存状态，再次进来的话会显示默认tab
+        //总是执行这句代码来调用父类去保存视图层的状态
+        //super.onSaveInstanceState(outState);
     }
 
     /**
@@ -141,6 +158,9 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         if (mPresenter != null) mPresenter.detachView();
         BiliSoleilApplication.getInstance().removeActivity(this);
         super.onDestroy();
+        if (!mDisposable.isDisposed()) {
+            mDisposable.dispose();
+        }
     }
 
     /**
