@@ -34,7 +34,8 @@ public class LiveRecommendBannerSection extends StatelessSection {
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into((ImageView) holder.getView(R.id.iv_video_preview));
-        holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(mData.owner.name) ? "未知" : mData.owner.name)//up
+       // holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(mData.owner.name) ? "未知" : mData.owner.name)//up
+        holder.setText(R.id.tv_video_live_up, TextUtils.isEmpty(mData.title) ? "未知" : mData.title)
                 .setText(R.id.tv_video_online, mData.online + "");//在线人数;
         holder.setText(R.id.tv_video_title, new SpanUtils()
                 .append("#" + mData.area + "#")
