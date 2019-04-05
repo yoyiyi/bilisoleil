@@ -3,10 +3,11 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1' //2.3使用
-        // classpath 'com.android.tools.build:gradle:3.0.0-alpha3'
+       // classpath 'com.android.tools.build:gradle:2.3.1' //2.3使用
+        classpath 'com.android.tools.build:gradle:3.1.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -17,6 +18,7 @@ allprojects {
         jcenter()
         maven { url 'https://maven.google.com' }
         maven { url "https://jitpack.io" }
+        google()
     }
 }
 

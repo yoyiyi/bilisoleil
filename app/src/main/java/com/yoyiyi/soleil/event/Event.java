@@ -18,6 +18,10 @@ public class Event {
         public int position;
     }
 
+    public static class ExitEvent {
+        public int exit;
+    }
+
     public static class AllStationPositionEvent {
         public int position;
     }

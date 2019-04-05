@@ -3,7 +3,7 @@ An unofficial bilibili client for android
 
 ## Remark
 
-#### java版地址：[bilibili](https://github.com/yoyiyi/bilisoleil)
+#### java版地址：[bilisoleil](https://github.com/yoyiyi/bilisoleil)
 #### kotlin版地址：[bilisoleil-kotlin](https://github.com/yoyiyi/bilisoleil-kotlin)
 
 b站接口有些加密过，抓不到，有些我直接抓了一个，请求参数啥的，不懂啥意思，直接用了，有些接口直接用原项目[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)

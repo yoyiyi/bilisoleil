@@ -22,9 +22,48 @@ public class LivePresenter extends RxPresenter<LiveContract.View> implements Liv
         this.mRetrofitHelper = retrofitHelper;
     }
 
+  /*  @Inject
+    public LivePresenter() {
+        this.mRetrofitHelper = BiliSoleilApplication.getInstance().getRetrofitHelper();
+    }*/
+
     @Override
     public void getLiveData() {
-        BaseObjectSubscriber<LiveRecommend> subscriber = mRetrofitHelper.getLivePartition()
+        /*addSubscribe(mRetrofitHelper.getLivePartition()
+                .compose(RxUtils.handleResult())
+                .flatMap(new Function<LivePartition, Publisher<HttpResponse<LiveRecommend>>>() {
+                    @Override
+                    public Publisher<HttpResponse<LiveRecommend>> apply(LivePartition livePartition) throws Exception {
+                        mView.showLivePartition(livePartition);
+                        return mRetrofitHelper.getLiveRecommend();
+                    }
+                })
+                .compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseObjectSubscriber<LiveRecommend>(mView) {
+                    @Override
+                    public void onSuccess(LiveRecommend liveRecommend) {
+                        mView.showLiveRecommend(liveRecommend);
+                    }
+                }));
+
+        addSubscribe(mRetrofitHelper.getLivePartition()
+                .compose(RxUtils.handleResult())
+                .flatMap(new Function<LivePartition, Publisher<HttpResponse<LiveRecommend>>>() {
+                    @Override
+                    public Publisher<HttpResponse<LiveRecommend>> apply(LivePartition livePartition) throws Exception {
+                        mView.showLivePartition(livePartition);
+                        return mRetrofitHelper.getLiveRecommend();
+                    }
+                })
+                .compose(RxUtils.rxSchedulerHelper())
+                .subscribeWith(new BaseObjectSubscriber<LiveRecommend>(mView) {
+                    @Override
+                    public void onSuccess(LiveRecommend liveRecommend) {
+                        mView.showLiveRecommend(liveRecommend);
+                    }
+                }));*/
+
+        addSubscribe(mRetrofitHelper.getLivePartition()
                 .compose(RxUtils.handleResult())
                 .flatMap(livePartition -> {
                     mView.showLivePartition(livePartition);
@@ -36,8 +75,7 @@ public class LivePresenter extends RxPresenter<LiveContract.View> implements Liv
                     public void onSuccess(LiveRecommend liveRecommend) {
                         mView.showLiveRecommend(liveRecommend);
                     }
-                });
-        addSubscribe(subscriber);
+                }));
     }
 
 }
