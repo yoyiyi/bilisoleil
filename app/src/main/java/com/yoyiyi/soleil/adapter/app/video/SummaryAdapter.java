@@ -33,6 +33,7 @@ public class SummaryAdapter extends BaseMultiItemQuickAdapter<MulSummary, BaseVi
 
     public SummaryAdapter(List<MulSummary> data) {
         super(data);
+
         addItemType(MulSummary.TYPE_DES, R.layout.layout_item_video_detail_summary_des);
         addItemType(MulSummary.TYPE_OWNER, R.layout.layout_item_video_detail_summary_owner);
         addItemType(MulSummary.TYPE_RELATE, R.layout.layout_item_video_detail_summary_relate);
