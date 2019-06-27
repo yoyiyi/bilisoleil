@@ -2,7 +2,7 @@
 An unofficial bilibili client for android 
 
 ## Remark
-
+### Java版本 经过调整 目前可以正常使用，由于bilibili接口升级，有些文件缓存到本地。
 #### java版地址：[bilisoleil](https://github.com/yoyiyi/bilisoleil)
 #### kotlin版地址：[bilisoleil-kotlin](https://github.com/yoyiyi/bilisoleil-kotlin)
 
