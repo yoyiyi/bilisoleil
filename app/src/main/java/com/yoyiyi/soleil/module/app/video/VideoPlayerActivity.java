@@ -3,6 +3,7 @@ package com.yoyiyi.soleil.module.app.video;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -19,6 +20,7 @@ import com.yoyiyi.soleil.mvp.contract.app.video.VideoPlayerContract;
 import com.yoyiyi.soleil.mvp.presenter.app.video.VideoPlayerPresenter;
 import com.yoyiyi.soleil.widget.ProgressWheel;
 
+import java.io.File;
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -304,7 +306,9 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
         String  uri2 = "http://api1.ckmov.com/data/youku%7D/2_XMTYzNTQ5Njk2OA_data.m3u8";
        String uri1="http://liveal.quanmin.tv/live/1578745132.flv";
 
-       String uri3 = "http://115.231.178.214/youku/6771C614C954884205FCB635D3/0300080200595F10A2C83E011BA6A954FFBC75-10A1-FA2F-4B19-2BA6A02BE6B7.mp4?sid=049994114462312aaff0f&ctype=12&ccode=0590&duration=390&expire=18000&psid=c61df9c484b2d303fcb5e1b81523aae4&ups_client_netip=183.159.183.142&ups_ts=1499941144&ups_userid=&utid=c1rbEdI5mFcCAbeccb16JLgD&vid=XNjcyNjI0MjIw&vkey=A74cc899cf52a437b4bee85888cacc1bc";
+      // String uri3 = "http://115.231.178.214/youku/6771C614C954884205FCB635D3/0300080200595F10A2C83E011BA6A954FFBC75-10A1-FA2F-4B19-2BA6A02BE6B7.mp4?sid=049994114462312aaff0f&ctype=12&ccode=0590&duration=390&expire=18000&psid=c61df9c484b2d303fcb5e1b81523aae4&ups_client_netip=183.159.183.142&ups_ts=1499941144&ups_userid=&utid=c1rbEdI5mFcCAbeccb16JLgD&vid=XNjcyNjI0MjIw&vkey=A74cc899cf52a437b4bee85888cacc1bc";
+
+        String uri3 = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+"cc.mp4";
 
         mPlayerView.setVideoURI(Uri.parse(uri3));
         mPlayerView.setOnPreparedListener(mp -> {

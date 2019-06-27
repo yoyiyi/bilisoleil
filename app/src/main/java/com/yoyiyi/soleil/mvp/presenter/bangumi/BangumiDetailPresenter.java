@@ -88,7 +88,8 @@ public class BangumiDetailPresenter extends RxPresenter<BangumiDetailContract.Vi
                             .setItemType(MulBangumiDetail.TYPE_COMMENT_HEAD)
                             .setNum(bangumiDetailComment.data.page.num)
                             .setAccount(bangumiDetailComment.data.page.acount));
-                    Stream.of(bangumiDetailComment.data.hots).forEach(hotsBean -> mulBangumiDetails.add(new MulBangumiDetail()//热门评论
+                    Stream.of(bangumiDetailComment.data.hots)
+                            .forEach(hotsBean -> mulBangumiDetails.add(new MulBangumiDetail()//热门评论
                             .setItemType(MulBangumiDetail.TYPE_COMMENT_HOT_ITEM)
                             .setHotsBean(hotsBean)));
                     mulBangumiDetails.add(new MulBangumiDetail().setItemType(MulBangumiDetail.TYPE_COMMENT_MORE));

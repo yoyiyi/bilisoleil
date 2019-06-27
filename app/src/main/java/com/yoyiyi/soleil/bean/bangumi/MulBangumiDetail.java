@@ -13,7 +13,7 @@ public class MulBangumiDetail implements MultiItemEntity {
 
     public int itemType;
     public BangumiDetailComment.DataBean.HotsBean hotsBean;
-    public BangumiDetailComment.DataBean.RepliesBean repliesBean;
+    public BangumiDetailComment.DataBean.RepliesBeanX repliesBean;
 
 
     public boolean isPrepare = false;//准备
@@ -70,7 +70,7 @@ public class MulBangumiDetail implements MultiItemEntity {
         return this;
     }
 
-    public MulBangumiDetail setRepliesBean(BangumiDetailComment.DataBean.RepliesBean repliesBean) {
+    public MulBangumiDetail setRepliesBean(BangumiDetailComment.DataBean.RepliesBeanX repliesBean) {
         this.repliesBean = repliesBean;
         return this;
     }
