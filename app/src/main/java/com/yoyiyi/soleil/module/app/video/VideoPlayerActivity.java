@@ -109,7 +109,7 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
     private void initMediaPlayer() {
         //配置播放器
         MediaController mMediaController = new MediaController(this);
-        mMediaController.setTitle("测试视频");
+        mMediaController.setTitle("正在播放");
         mPlayerView.setMediaController(mMediaController);
         mPlayerView.setMediaBufferingIndicator(mRlLoading);
         mPlayerView.requestFocus();
@@ -308,9 +308,9 @@ public class VideoPlayerActivity extends BaseActivity<VideoPlayerPresenter> impl
 
       // String uri3 = "http://115.231.178.214/youku/6771C614C954884205FCB635D3/0300080200595F10A2C83E011BA6A954FFBC75-10A1-FA2F-4B19-2BA6A02BE6B7.mp4?sid=049994114462312aaff0f&ctype=12&ccode=0590&duration=390&expire=18000&psid=c61df9c484b2d303fcb5e1b81523aae4&ups_client_netip=183.159.183.142&ups_ts=1499941144&ups_userid=&utid=c1rbEdI5mFcCAbeccb16JLgD&vid=XNjcyNjI0MjIw&vkey=A74cc899cf52a437b4bee85888cacc1bc";
 
-        String uri3 = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+"cc.mp4";
-
-        mPlayerView.setVideoURI(Uri.parse(uri3));
+        String uri3 = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+"视频/灭绝.720p.BD中英双字[最新电影www.66ys.tv].mp4";
+        String uri4 ="http://220.194.238.101/13/z/d/g/c/zdgccnqxhxqghtqrahgesdycxhdvmw/hd.yinyuetai.com/2B4A016A900DEE87615A35380BB14EF1.mp4?sc=2e16d12f544f158e";
+        mPlayerView.setVideoURI(Uri.parse(uri4));
         mPlayerView.setOnPreparedListener(mp -> {
             mLoadingAnim.stop();
             mStartText = mStartText + "【完成】\n视频缓冲中...";
